@@ -1,5 +1,6 @@
 package properties;
 
+import utility.Colors;
 
 /**
  * {@inheritDoc}.
@@ -11,6 +12,7 @@ public class PropertiesCardsImpl implements PropertiesCards {
    private String owner;
    private int nHouse;
    private int nHotel;
+   @SuppressWarnings("unused")
    private Colors color;
     /**
      * {@inheritDoc}
@@ -47,9 +49,8 @@ public class PropertiesCardsImpl implements PropertiesCards {
     /**
      * {@inheritDoc}
      */
-    @Override
-    public void setColor(final Color c) {
-
+    public void setColor(final Colors c) {
+        this.color = c;
     }
 
     /**
@@ -83,5 +84,6 @@ public class PropertiesCardsImpl implements PropertiesCards {
     public int getNhotel() {
         return nHotel;
     }
+
 
 }
