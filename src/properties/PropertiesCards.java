@@ -1,9 +1,10 @@
 package properties;
 
+import player.Player;
 import utility.Colors;
 
 /** 
- * new interface of properties cards.
+ *interface of properties cards.
  */
 public interface PropertiesCards {
 
@@ -16,17 +17,17 @@ public interface PropertiesCards {
     * @param o
     * method to set the player that has this property.
     */
-  void setOwner(String o);
+  void setOwner(Player o);
    /**
     * @param i
     * method to set number of house built in this property (max 4 houses).
     */
-  void setNhouse(int i);
+  void addNhouse(int i);
    /**
     * @param y
     * method to set number of hotel built in this property (max 1 hotel after built 4 houses).
     */
-  void setNhotel(int y);
+  void addNhotel(int y);
    /**
     * @param c
     * method to set the color of this property.
@@ -41,7 +42,7 @@ public interface PropertiesCards {
     * 
     * @return method to obtain the player that has this property.
     */
-   String getOwner();
+   Player getOwner();
    /**
     * 
     * @return method to obtain the number of house built in this property.
@@ -52,4 +53,14 @@ public interface PropertiesCards {
     * @return method to obtain the number of hotel built in this property.
     */
    int getNhotel();
+   /**
+    * 
+    * @return method to check if houses are minus of 4 in this property.
+    */
+   boolean checkNhouse();
+   /**
+    * 
+    * @return method to check if hotels are minus of 1 in this property.
+    */
+   boolean checkNhotel();
 }

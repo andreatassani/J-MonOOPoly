@@ -1,5 +1,6 @@
 package properties;
 
+import player.Player;
 import utility.Colors;
 
 /**
@@ -9,11 +10,24 @@ import utility.Colors;
 public class PropertiesCardsImpl implements PropertiesCards {
 
    private String name;
-   private String owner;
+   private Player owner;
    private int nHouse;
    private int nHotel;
    @SuppressWarnings("unused")
    private Colors color;
+   /**
+    * @param n
+    * @param o
+    * @param cs
+    * constructor for this class 
+    */
+   public PropertiesCardsImpl(final String n, final Player o, final Colors c) {
+       this.name = n;
+       this.owner = o;
+       this.nHouse = 0;
+       this.nHotel = 0;
+       this.color = c;
+}
     /**
      * {@inheritDoc}
      */
@@ -26,24 +40,34 @@ public class PropertiesCardsImpl implements PropertiesCards {
      * {@inheritDoc}
      */
     @Override
-    public void setOwner(final String o) {
+    public void setOwner(final Player o) {
        this.owner = o;
     }
 
     /**
      * {@inheritDoc}
+     * @return 
      */
     @Override
-    public void setNhouse(final int i) {
-        this.nHouse = i;
+    public void addNhouse(final int i) {
+        if(checkNhouse() == true) {
+            this.nHouse += i;
+        } else {
+            return;
+        }
+        
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public void setNhotel(final int y) {
-        this.nHotel = y;
+    public void addNhotel(final int y) {
+        if(checkNhotel() == true) {
+            this.nHotel += y;
+        } else {
+            return;
+        }
     }
 
     /**
@@ -65,7 +89,7 @@ public class PropertiesCardsImpl implements PropertiesCards {
      * {@inheritDoc}
      */
     @Override
-    public String getOwner() {
+    public Player getOwner() {
          return owner;
     }
 
@@ -85,5 +109,28 @@ public class PropertiesCardsImpl implements PropertiesCards {
         return nHotel;
     }
 
-
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean checkNhouse() {
+        if(nHouse < 4) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public boolean checkNhotel() {
+        if(nHotel < 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
+
