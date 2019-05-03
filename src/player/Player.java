@@ -1,12 +1,30 @@
-package Player;
+package player;
 
-//player creation
+import utility.Colors;
+import utility.Pawns;
+
+/*
+*
+* 
+*
+*/
 public interface Player {
-  //pawn creation
-    void setPawn(); 
+  /**
+   * pawn creation
+   * @return
+   */
+ public Pawns getPawn(); 
+ 
+ public void setPawns(Pawns pawns);
+ 
  // player color
-    void setColor(); 
+ public Colors getColors();   
+ 
+ public void setColor(Colors color);
+ 
  // player name
-     char setName(); 
-
+ public  String getName(); 
+ 
+ public void setName(String name);
+ 
 }
