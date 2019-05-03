@@ -1,4 +1,4 @@
-package Cards;
+package cards;
 
 public interface ChanceCommunityCard {
 	public void setName(String s);
