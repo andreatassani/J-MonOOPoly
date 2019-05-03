@@ -1,12 +1,13 @@
 package utility;
-/*
- * 
+/**
+ *  class created for player color management
+ *  Fabio Scognamiglio.
  */
-public class Colors {
-    
-    public enum Color {
+
+   
+    public enum Colors {
         
         RED, YELLOW, GREEN, BLUE, PINK, ORANGE;
     }
 
-}
+

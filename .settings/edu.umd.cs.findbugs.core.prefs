@@ -1,5 +1,5 @@
 #SpotBugs User Preferences
-#Tue Apr 30 10:21:42 CEST 2019
+#Fri May 03 17:30:06 CEST 2019
 detectorAppendingToAnObjectOutputStream=AppendingToAnObjectOutputStream|true
 detectorAtomicityProblem=AtomicityProblem|true
 detectorBadAppletConstructor=BadAppletConstructor|false
@@ -137,6 +137,6 @@ detectorWrongMapIterator=WrongMapIterator|true
 detectorXMLFactoryBypass=XMLFactoryBypass|true
 detector_threshold=3
 effort=max
-filter_settings=Low|BAD_PRACTICE,CORRECTNESS,I18N,MALICIOUS_CODE,MT_CORRECTNESS,PERFORMANCE,SECURITY,STYLE|false|15
+filter_settings=Low|BAD_PRACTICE,CORRECTNESS,I18N,MALICIOUS_CODE,MT_CORRECTNESS,PERFORMANCE,SECURITY,STYLE|false|16
 filter_settings_neg=EXPERIMENTAL,NOISE|
 run_at_full_build=true
