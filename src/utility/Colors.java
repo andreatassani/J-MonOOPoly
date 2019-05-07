@@ -1,7 +1,7 @@
 package utility;
 
 /**
- *  class created for player color management
+ * class created for player color management
  * 
  */
 
