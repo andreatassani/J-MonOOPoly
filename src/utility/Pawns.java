@@ -1,7 +1,7 @@
 package utility;
 /**
  * Enum created for the management of players' pawns
- * Fabio Scognamiglio.
+ * 
  */
 
     
