@@ -3,28 +3,48 @@ package player;
 import utility.Colors;
 import utility.Pawns;
 
-/*
-*
-* 
-*
-*/
+/**
+ * Interface for player creation management
+ * 
+ *
+ */
+
 public interface Player {
-  /**
-   * pawn creation
-   * @return
-   */
- public Pawns getPawn(); 
+/**
+ * Pawn creation
+ * @return
+ */
+	
+	public Pawns getPawn(); 
+/**
+ * Pawns setting
+ * @param pawns
+ */
  
- public void setPawns(Pawns pawns);
+	public void setPawns(Pawns pawns);
+ /**
+  * Color creation
+  * @return
+  */
  
- // player color
- public Colors getColors();   
+	public Colors getColors();   
+ /**
+  * Colors setting
+  * @param color
+  */
  
- public void setColor(Colors color);
+	public void setColor(Colors color);
+ /**
+  * Name creation
+  * @return
+  */
  
- // player name
- public  String getName(); 
+	public  String getName(); 
+ /**
+  * Name setting
+  * @param name
+  */
  
- public void setName(String name);
+	public void setName(String name);
  
 }
