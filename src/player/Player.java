@@ -4,47 +4,44 @@ import utility.Colors;
 import utility.Pawns;
 
 /**
- * Interface for player creation management
+ * Interface for player creation management.
  * 
  *
  */
-
 public interface Player {
 /**
- * Pawn creation
- * @return
+ * Pawn creation.
+ * @return the type of pawn chosen.
  */
-	
-	public Pawns getPawn(); 
+Pawns getPawn(); 
 /**
- * Pawns setting
  * @param pawns
+ * Pawns setting.
+ * 
  */
- 
-	public void setPawns(Pawns pawns);
+void setPawns(Pawns pawns);
  /**
-  * Color creation
-  * @return
+  * Color creation.
+  * @return the player's color.
   */
- 
-	public Colors getColors();   
+Colors getColors();
  /**
-  * Colors setting
   * @param color
+  * Colors setting.
+  * 
   */
- 
-	public void setColor(Colors color);
+void setColor(Colors color);
  /**
-  * Name creation
-  * @return
+  * Name creation.
+  * @return the player's name.
   */
- 
-	public  String getName(); 
+String getName(); 
  /**
-  * Name setting
   * @param name
+  * Name setting.
+  * 
   */
- 
-	public void setName(String name);
+void setName(String name);
+
  
 }

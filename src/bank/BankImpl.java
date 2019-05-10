@@ -1,7 +1,8 @@
 package bank;
 
 import java.util.ArrayList;
-import properties.PropertiesCardsImpl;
+
+import decProperties.PropertiesCardsImpl;
 /**
  * {@inheritDoc}.
  */

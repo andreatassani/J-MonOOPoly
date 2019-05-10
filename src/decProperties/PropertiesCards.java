@@ -1,4 +1,4 @@
-package properties;
+package decProperties;
 
 import player.Player;
 import utility.Colors;

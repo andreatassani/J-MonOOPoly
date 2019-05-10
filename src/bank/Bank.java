@@ -1,6 +1,6 @@
 package bank;
 
-import properties.PropertiesCardsImpl;
+import decProperties.PropertiesCardsImpl;
 /**
  * 
  * interface of the bank.
