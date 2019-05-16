@@ -13,18 +13,17 @@ public class HistoryGUI extends JFrame{
     public HistoryGUI() {
         final JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        frame.setSize(250, 250);
+        frame.setSize(500, 500);
        
-        JPanel panel = new JPanel(new BorderLayout());
+        JPanel mainpanel = new JPanel(new BorderLayout());
         //pannello principale
         
-        JPanel pannello = new JPanel();
-        pannello.setLayout(new BoxLayout(pannello, BoxLayout.PAGE_AXIS));
+        JPanel boxpanel = new JPanel();
+        boxpanel.setLayout(new BoxLayout(boxpanel, BoxLayout.PAGE_AXIS));
         
         
         
         final JTextField textField1 = new JTextField ("A chicco");
-        textField1.setBounds();
         final JTextField textField2 = new JTextField ("bleah");
         final JTextField textField3 = new JTextField ("A fef");
         final JTextField textField4 = new JTextField ("A chiccfegro");
@@ -36,35 +35,40 @@ public class HistoryGUI extends JFrame{
         
         
        
-         pannello.add(textField1);
-         pannello.add(textField2);
-         pannello.add(textField3);
-         pannello.add(textField4);
-         pannello.add(textField5);
-         pannello.add(textField6);
-         pannello.add(textField7);
-         pannello.add(textField8);
-         pannello.add(textField9);
+         boxpanel.add(textField1);
+         boxpanel.add(textField2);
+         boxpanel.add(textField3);
+         boxpanel.add(textField4);
+         boxpanel.add(textField5);
+         boxpanel.add(textField6);
+         boxpanel.add(textField7);
+         boxpanel.add(textField8);
+         boxpanel.add(textField9);
+         
+         //prove di inserimento
          
         
-        final JScrollPane scroll = new JScrollPane (pannello); 
+        final JScrollPane scroll = new JScrollPane (boxpanel); 
         scroll . setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
         
-      
+      //setto la barra con scroll
+        
+        JPanel gridpanel = new JPanel(new GridLayout(1, 2));
+        JPanel uppanelleft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+        JPanel uppanelright = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+       final JTextField history = new JTextField("History");
+       final JTextField history2 = new JTextField("History");
        
-       //setto la barra con scroll
+       uppanelleft.add(history);
+       uppanelright.add(history2);
+       gridpanel.add(uppanelleft);
+       gridpanel.add(uppanelright);
         
-//        final JPanel sopra = new JPanel(new FlowLayout());
-//       final JTextField campo = new JTextField("History");
-//       sopra.add(campo, FlowLayout.LEFT);
-//        panel.add(sopra,BorderLayout.NORTH);
+       
+        mainpanel.add(gridpanel,BorderLayout.NORTH);
+        mainpanel.add(scroll,BorderLayout.CENTER);
         
-        
-        
-        
-        panel.add(scroll,BorderLayout.CENTER);
-        
-        frame.getContentPane().add(panel);
+        frame.getContentPane().add(mainpanel);
         frame.setVisible(true);
     }
     
