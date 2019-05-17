@@ -1,4 +1,4 @@
-package decProperties;
+package deck;
 
 import player.Player;
 import utility.Colors;
@@ -6,7 +6,7 @@ import utility.Colors;
 /** 
  *interface of properties cards.
  */
-public interface PropertiesCards {
+public interface DeckPropertiesCards {
 
     /**
      * @param n

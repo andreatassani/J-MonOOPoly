@@ -1,4 +1,4 @@
-package decProperties;
+package deck;
 
 import player.Player;
 import utility.Colors;
@@ -7,7 +7,7 @@ import utility.Colors;
  * {@inheritDoc}.
  */
 
-public class PropertiesCardsImpl implements PropertiesCards {
+public class DeckPropertiesCardsImpl implements DeckPropertiesCards {
 
    private String name;
    private Player owner;
@@ -16,14 +16,13 @@ public class PropertiesCardsImpl implements PropertiesCards {
    @SuppressWarnings("unused")
    private Colors color;
    /**
+    * @param c
     * @param n
-    * @param o
-    * @param cs
-    * constructor for this class 
+    * constructor for this class.
     */
-   public PropertiesCardsImpl(final String n, final Player o, final Colors c) {
+   public DeckPropertiesCardsImpl(final String n, final Colors c) {
        this.name = n;
-       this.owner = o;
+       this.owner = null;
        this.nHouse = 0;
        this.nHotel = 0;
        this.color = c;
@@ -50,12 +49,11 @@ public class PropertiesCardsImpl implements PropertiesCards {
      */
     @Override
     public void addNhouse(final int i) {
-        if(checkNhouse() == true) {
+        if (checkNhouse()) {
             this.nHouse += i;
         } else {
             return;
-        }
-        
+            }       
     }
 
     /**
@@ -63,7 +61,7 @@ public class PropertiesCardsImpl implements PropertiesCards {
      */
     @Override
     public void addNhotel(final int y) {
-        if(checkNhotel() == true) {
+        if (checkNhotel()) {
             this.nHotel += y;
         } else {
             return;
@@ -114,23 +112,14 @@ public class PropertiesCardsImpl implements PropertiesCards {
      */
     @Override
     public boolean checkNhouse() {
-        if(nHouse < 4) {
-            return true;
-        } else {
-            return false;
-        }
+        return nHouse < 4;
     }
-    
     /**
      * {@inheritDoc}
      */
     @Override
     public boolean checkNhotel() {
-        if(nHotel < 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return nHotel < 1;
     }
 }
 

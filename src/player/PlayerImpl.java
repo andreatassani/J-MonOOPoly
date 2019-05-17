@@ -15,6 +15,8 @@ public class PlayerImpl implements Player {
     private String name;
     private Colors color;
     private Pawns pawns;
+    private int money;
+    final private int BANK_AMOUNT = 5500;
  /**
   * constructor of player.
   * @param name.
@@ -26,6 +28,7 @@ public class PlayerImpl implements Player {
         this.name = name;
         this.color = color;
         this.pawns = pawns;
+        this.money = BANK_AMOUNT;
     }
 /**
  * {@inheritDoc}

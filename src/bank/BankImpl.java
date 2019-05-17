@@ -2,18 +2,18 @@ package bank;
 
 import java.util.ArrayList;
 
-import decProperties.PropertiesCardsImpl;
+import deck.DeckPropertiesCardsImpl;
 /**
  * {@inheritDoc}.
  */
 public class BankImpl implements Bank {
     
-    private ArrayList<PropertiesCardsImpl> allProperties = new ArrayList<PropertiesCardsImpl>();
+    private ArrayList<DeckPropertiesCardsImpl> allProperties = new ArrayList<DeckPropertiesCardsImpl>();
     /**
      * {@inheritDoc}.
      */
     @Override
-    public void addCard(final PropertiesCardsImpl c) {
+    public void addCard(final DeckPropertiesCardsImpl c) {
        allProperties.add(c);
     }
 
