@@ -1,4 +1,4 @@
-package model.deck;
+package model.propertiesDeck;
 
 import model.player.Player;
      /**

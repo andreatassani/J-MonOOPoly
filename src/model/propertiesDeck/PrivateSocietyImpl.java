@@ -1,4 +1,4 @@
-package model.deck;
+package model.propertiesDeck;
 
 import model.player.Player;
 /**
@@ -44,5 +44,5 @@ public class PrivateSocietyImpl implements PrivateSociety {
     public int getValue() {
         return this.value;
     }
-
+    //LEGGI I COMMENTI CHE TI HO SCRITTO NELLA CLASSE DeckPropertiesImpl
 }
