@@ -1,10 +1,10 @@
-package model.propertiesDeck;
+package model.deckPropertiesSociety;
 
 import model.player.Player;
 /**
  * {@inheritDoc}.
  */
-public class PrivateSocietyImpl implements PrivateSociety {
+public class PrivateSocietyAndStationImpl implements PrivateSocietyAndStation {
     private String name;
     private Player owner;
     private int value;

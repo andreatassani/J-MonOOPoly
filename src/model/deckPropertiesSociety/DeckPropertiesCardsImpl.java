@@ -1,4 +1,4 @@
-package model.propertiesDeck;
+package model.deckPropertiesSociety;
 
 
 //      LEGGI I COMMENTI CHE TI HO SCRITTO SOTTO POPI CANCELLA TUTTI I COMMENTI DI QUESTO TIPO
@@ -9,7 +9,7 @@ import model.utility.Colors;
  * {@inheritDoc}.
  */
 
-public class DeckPropertiesCardsImpl extends PrivateSocietyImpl {
+public class DeckPropertiesCardsImpl extends PrivateSocietyAndStationImpl {
 
    private String name;
    private Player owner;
@@ -33,6 +33,6 @@ public class DeckPropertiesCardsImpl extends PrivateSocietyImpl {
    //   TO-DO PER MICHELEEEEEEEEEEE
    //   come detto all'ultimo meeting, la carta proprietà estende società privata.
    //   perciò come da definizione di extends, la classe carta proprietà eredita tutti i metodi che ho già implementato 
-   //   in società privata, DOVRESTI SOLO CREARE QUELLI CHE SERVONO A TE PER LA GESTIONE DELLA COMPRAVENDITA E COSTRUZIONE HOTEL
+   //   in società privata, DOVRESTI SOLO CREARE QUI QUELLI CHE SERVONO A TE PER LA GESTIONE DELLA COMPRAVENDITA E COSTRUZIONE HOTEL
 }
 

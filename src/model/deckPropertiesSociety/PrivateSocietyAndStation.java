@@ -1,4 +1,4 @@
-package model.propertiesDeck;
+package model.deckPropertiesSociety;
 
 import model.player.Player;
      /**
@@ -6,7 +6,7 @@ import model.player.Player;
       * interface for the  private society (water and electricity).
       *
       */
-public interface PrivateSociety {
+public interface PrivateSocietyAndStation {
     /**
      * @param n
      * method to set name of card.
