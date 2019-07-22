@@ -29,7 +29,6 @@ public class DeckPropertiesCardsImpl extends PrivateSocietyAndStationImpl {
        this.nHotel = 0;
        this.color = c;
    }
-   
    //   TO-DO PER MICHELEEEEEEEEEEE
    //   come detto all'ultimo meeting, la carta proprietà estende società privata.
    //   perciò come da definizione di extends, la classe carta proprietà eredita tutti i metodi che ho già implementato 
