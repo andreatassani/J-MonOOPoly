@@ -1,4 +1,5 @@
 package view.play;
+import javafx.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -6,8 +7,10 @@ import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.awt.Rectangle;
 import java.awt.TextField;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.net.URL;
 
 import javax.swing.BorderFactory;
@@ -16,21 +19,22 @@ import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
+import javax.swing.text.html.ImageView;
 /*
  * Class for play
  */
-public class Playing {
+public class Playing extends JFrame {
     /*
      * constructor for the class
      */
     Playing() {
-
         
         final int ARRAY_CARDS_LENGTH = 121;
         final int ID_BUTTON_ROLL_DICE = 60;
@@ -70,116 +74,132 @@ public class Playing {
         
         //creazione caselle e settaggio colori proprietà
         JPanel[] allCards = new JPanel[ARRAY_CARDS_LENGTH];
+        
         for (int i = 0; i <= ARRAY_CARDS_LENGTH - 1; i++) {
+            
             allCards[i] = new JPanel(new BorderLayout());
-            grid.add(allCards[i]);
             allCards[i].setVisible(true);
+            allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+            grid.add(allCards[i]);
+             
             
             
             allCards[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
+            
             if ((i == 1) || (i == 3)) {
                 allCards[i].setBackground(new Color(255, 153, 204));
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 6) || (i == 8) || (i == 9)) {
                 allCards[i].setBackground(Color.BLUE);
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 21) || (i == 43) || (i == 54)) {
                 allCards[i].setBackground(Color.ORANGE);
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 76) || (i == 98) || (i == 109)) {
                 allCards[i].setBackground(new Color(153, 76, 0));
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 116) || (i == 117) || (i == 119)) {
                 allCards[i].setBackground(Color.RED);
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 111) || (i == 112) || (i == 114)) {
                 allCards[i].setBackground(Color.YELLOW);
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 66) || (i == 88) || (i == 99)) {
                 allCards[i].setBackground(new Color(0, 204, 0));
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             if ((i == 11) || (i == 33)) {
                 allCards[i].setBackground(new Color(153, 0 ,153));
-                allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
+
                 }
             
             //settaggio icone 
        
-            if ((i == 2) || (i == 32) || (i == 77)) {
-                allCards[i].add(new JButton("probabilità"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
+            
             
             if (i == 0 ) {
                 allCards[i].add(new JButton("via"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 110) {
                 allCards[i].add(new JButton("arresto"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 120) {
                 allCards[i].add(new JButton("parcheggio"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 10) {
                 allCards[i].add(new JButton("prigione"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if ((i == 7) || (i == 34) || (i == 118)) {
-                allCards[i].add(new JButton("probabilità"), BorderLayout.NORTH);
+                allCards[i].add(new JButton("imprevisto"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if ((i == 5) || (i == 55) || (i == 65) || (i == 115)) {
                 allCards[i].add(new JButton("stazione"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 87) {
                 allCards[i].add(new JButton("enel"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 113) {
                 allCards[i].add(new JButton("hera"), BorderLayout.NORTH);
                 JButton cont = new JButton();
-                cont.setIcon(new ImageIcon("acqua.jpg"));
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
             if (i == 4) {
                 allCards[i].add(new JButton("tassa"), BorderLayout.NORTH);
                 JButton cont = new JButton();
+                cont.setEnabled(false);
                 allCards[i].add(cont, BorderLayout.CENTER);
                 }
             
+            if ((i == 2) || (i == 32) || (i == 77)) {
+                allCards[i].add(new JButton("probabilità"), BorderLayout.NORTH);
+                JButton cont = new JButton();
+                cont.setEnabled(false);
+                allCards[i].add(cont, BorderLayout.CENTER);
+                
+                }
             
             //eliminazione caselle centrali 
             if ((i >= 12 && i <= 20) || (i >= 23 && i <= 31) || (i >= 34 && i <= 42) ||
@@ -193,7 +213,7 @@ public class Playing {
                 allCards[i].add(new JButton("roll dice"), BorderLayout.CENTER);
             }
             
-        }
+       }
 
         //BOTTONI IN BASSO
         
@@ -219,7 +239,8 @@ public class Playing {
         panelrightupper.setBackground(Color.YELLOW);
         
         JTextField situation = new JTextField();
-        situation.setText("                                       SITUATION");
+        situation.setText("                                    SITUATION");
+
         situation.setVisible(true);
         situation.setEnabled(false);
         panelrightupper.add(situation, BorderLayout.NORTH);
@@ -246,6 +267,8 @@ public class Playing {
         view.add(box);
         frame.setResizable(true);
         frame.setVisible(true);
+        
+        pack();
     }
     /*
      * main method to run the view
