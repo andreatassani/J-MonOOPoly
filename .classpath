@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry excluding="imagesForCards/" kind="src" path="res"/>
-	<classpathentry kind="lib" path="res/imagesForCards/acqua.jpg"/>
-	<classpathentry kind="lib" path="res/imagesForCards/carcerato.jpg"/>
-	<classpathentry kind="lib" path="res/imagesForCards/imprevisto.jpg"/>
-	<classpathentry kind="lib" path="res/imagesForCards/lampadina.png"/>
-	<classpathentry kind="lib" path="res/imagesForCards/parcheggio.png"/>
-	<classpathentry kind="lib" path="res/imagesForCards/poliziotto.jpg"/>
-	<classpathentry kind="lib" path="res/imagesForCards/start.jpg"/>
-	<classpathentry kind="lib" path="res/imagesForCards/tassa.png"/>
-	<classpathentry kind="lib" path="res/imagesForCards/tesoro.png"/>
-	<classpathentry kind="lib" path="res/imagesForCards/treno.jpg"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -3,6 +3,7 @@ import javafx.*;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.GridLayout;
@@ -35,241 +36,51 @@ public class Playing extends JFrame {
      * constructor for the class
      */
     Playing() {
-        
-        final int ARRAY_CARDS_LENGTH = 121;
-        final int ID_BUTTON_ROLL_DICE = 60;
+
         final int DIMENSION_SQUARE_GRID = 11;
-        
-        //frame principale
-        JFrame frame = new JFrame();
-        frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-        Box view = new Box(BoxLayout.X_AXIS);
-        
-        //RIQUADRO DI GIOCO
-        
-        //nome giocatore 
-        JTextArea name = new JTextArea();
-        name.setText("TURNO DI:                         GIOCATORE #1");
-        name.setEnabled(false);
-        name.setBackground(Color.WHITE);
+        Dimension dimPanelLeft = new Dimension();
+        dimPanelLeft.height = Toolkit.getDefaultToolkit().getScreenSize().height;
+        dimPanelLeft.width = (int) (Toolkit.getDefaultToolkit().getScreenSize().width / 2);
+
+
+      //nome giocatore 
+        final JTextArea roundPlayerName = new JTextArea();
+        roundPlayerName.setText("TURNO DI:                         GIOCATORE #1");
+        roundPlayerName.setEnabled(false);
+        roundPlayerName.setBackground(Color.WHITE);
 
         //pannello rosso sinistro 
-        JPanel panelleft = new JPanel(new BorderLayout());
-        panelleft.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panelleft.setBackground(Color.RED);
+        final JPanel leftSide = new JPanel(new BorderLayout());
+        leftSide.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+        leftSide.setBackground(Color.RED);
+        leftSide.setPreferredSize(dimPanelLeft);
         
         //bordi bianchi del pannello rosso
-        TextField border1 = new TextField();
-        TextField border2 = new TextField();
+        final TextField leftBorder = new TextField();
+        final TextField rightBorder = new TextField();
         
-        panelleft.add(name, BorderLayout.NORTH);    //aggiunta testo giocatore
-        panelleft.add(border1, BorderLayout.EAST);  //bordo bianco
-        panelleft.add(border2, BorderLayout.WEST);  //bordo bianco
+        leftSide.add(roundPlayerName, BorderLayout.NORTH);    //aggiunta testo giocatore
+        leftSide.add(leftBorder, BorderLayout.EAST);  //bordo bianco
+        leftSide.add(rightBorder, BorderLayout.WEST);  //bordo bianco
+        leftSide.add(new GridCards(new GridLayout(DIMENSION_SQUARE_GRID, DIMENSION_SQUARE_GRID)));
+        leftSide.add(new UtilityButtons(new GridLayout()), BorderLayout.SOUTH);
         
-        //pannello caselle
-        JPanel grid = new JPanel(new GridLayout(DIMENSION_SQUARE_GRID, DIMENSION_SQUARE_GRID));
-        grid.setBackground(new Color(139, 250, 180));
-        panelleft.add(grid);
-        grid.setVisible(true);
+        final Box boxHistSit = new Box(BoxLayout.Y_AXIS);
+        boxHistSit.add(new Situation(new BorderLayout()));
+        boxHistSit.add(new History(new BorderLayout()));
         
-        //creazione caselle e settaggio colori proprietà
-        JPanel[] allCards = new JPanel[ARRAY_CARDS_LENGTH];
+        final Box boxLeftRight = new Box(BoxLayout.X_AXIS);
+        boxLeftRight.add(leftSide);
+        boxLeftRight.add(boxHistSit);
         
-        for (int i = 0; i <= ARRAY_CARDS_LENGTH - 1; i++) {
-            
-            allCards[i] = new JPanel(new BorderLayout());
-            allCards[i].setVisible(true);
-            allCards[i].add(new JButton("" + i), BorderLayout.NORTH);
-            grid.add(allCards[i]);
-             
-            
-            
-            allCards[i].setBorder(BorderFactory.createLineBorder(Color.BLACK));
-            
-            if ((i == 1) || (i == 3)) {
-                allCards[i].setBackground(new Color(255, 153, 204));
+        this.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.add(boxLeftRight);
+        this.setResizable(true);
+        this.setVisible(true);
 
-                }
-            
-            if ((i == 6) || (i == 8) || (i == 9)) {
-                allCards[i].setBackground(Color.BLUE);
-
-                }
-            
-            if ((i == 21) || (i == 43) || (i == 54)) {
-                allCards[i].setBackground(Color.ORANGE);
-
-                }
-            
-            if ((i == 76) || (i == 98) || (i == 109)) {
-                allCards[i].setBackground(new Color(153, 76, 0));
-
-                }
-            
-            if ((i == 116) || (i == 117) || (i == 119)) {
-                allCards[i].setBackground(Color.RED);
-
-                }
-            
-            if ((i == 111) || (i == 112) || (i == 114)) {
-                allCards[i].setBackground(Color.YELLOW);
-
-                }
-            
-            if ((i == 66) || (i == 88) || (i == 99)) {
-                allCards[i].setBackground(new Color(0, 204, 0));
-
-                }
-            
-            if ((i == 11) || (i == 33)) {
-                allCards[i].setBackground(new Color(153, 0 ,153));
-
-                }
-            
-            //settaggio icone 
-       
-            
-            
-            if (i == 0 ) {
-                allCards[i].add(new JButton("via"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 110) {
-                allCards[i].add(new JButton("arresto"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 120) {
-                allCards[i].add(new JButton("parcheggio"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 10) {
-                allCards[i].add(new JButton("prigione"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if ((i == 7) || (i == 34) || (i == 118)) {
-                allCards[i].add(new JButton("imprevisto"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if ((i == 5) || (i == 55) || (i == 65) || (i == 115)) {
-                allCards[i].add(new JButton("stazione"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 87) {
-                allCards[i].add(new JButton("enel"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 113) {
-                allCards[i].add(new JButton("hera"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if (i == 4) {
-                allCards[i].add(new JButton("tassa"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                }
-            
-            if ((i == 2) || (i == 32) || (i == 77)) {
-                allCards[i].add(new JButton("probabilità"), BorderLayout.NORTH);
-                JButton cont = new JButton();
-                cont.setEnabled(false);
-                allCards[i].add(cont, BorderLayout.CENTER);
-                
-                }
-            
-            //eliminazione caselle centrali 
-            if ((i >= 12 && i <= 20) || (i >= 23 && i <= 31) || (i >= 34 && i <= 42) ||
-                    (i >= 45 && i <= 53) || (i >= 56 && i <= 59) || (i >= 61 && i <= 64) ||
-                    (i >= 67 && i <= 75) || (i >= 78 && i <= 86) || (i >= 89 && i <= 97) || (i >= 100 && i <= 108)) {
-                   allCards[i].setVisible(false);
-            }
-            
-            //settaggio tasto di lancio dadi 
-            if (i == ID_BUTTON_ROLL_DICE) {
-                allCards[i].add(new JButton("roll dice"), BorderLayout.CENTER);
-            }
-            
-       }
-
-        //BOTTONI IN BASSO
-        
-        //quattro bottoni da mettere in un box 
-        JButton buy = new JButton("buy");
-        JButton sell = new JButton("sell");
-        JButton build = new JButton("build");
-        JButton menu = new JButton("menu'");
-        
-        //box per bottoni
-        JPanel buttons = new JPanel(new GridLayout());
-        buttons.add(buy);
-        buttons.add(sell);
-        buttons.add(build);
-        buttons.add(menu);
-        panelleft.add(buttons, BorderLayout.SOUTH);
-        
-        //RIQUADRI HISTORY E SITUATION
-        
-        //right upper panel
-        JPanel panelrightupper = new JPanel(new BorderLayout());
-        panelrightupper.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panelrightupper.setBackground(Color.YELLOW);
-        
-        JTextField situation = new JTextField();
-        situation.setText("                                    SITUATION");
-
-        situation.setVisible(true);
-        situation.setEnabled(false);
-        panelrightupper.add(situation, BorderLayout.NORTH);
-         
-        //right lower panel
-        JPanel panelrightlower = new JPanel(new BorderLayout());
-        panelrightlower.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        panelrightlower.setBackground(Color.PINK);
-        
-        JTextField history = new JTextField();
-        history.setText("                                     HISTORY");
-        history.setVisible(true);
-        history.setEnabled(false);
-        panelrightlower.add(history, BorderLayout.NORTH);
-
-        //right box where put two right panels
-        Box box = new Box(BoxLayout.Y_AXIS);
-        box.add(panelrightupper);
-        box.add(panelrightlower);
-
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.add(view);
-        view.add(panelleft);
-        view.add(box);
-        frame.setResizable(true);
-        frame.setVisible(true);
-        
-        pack();
     }
+
     /*
      * main method to run the view
      */
