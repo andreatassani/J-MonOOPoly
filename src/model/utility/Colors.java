@@ -1,7 +1,7 @@
 package model.utility;
 
 /**
- * enum created for player color management.
+ * Enum created for player color management.
  * 
  */
 

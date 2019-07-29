@@ -16,12 +16,16 @@ public class PlayerImpl implements Player {
     private Colors color;
     private Pawns pawns;
     private int money;
-    final private int BANK_AMOUNT = 5500;
+    private final int BANK_AMOUNT = 5500;
  /**
   * constructor of player.
-  * @param name.
-  * @param color.
-  * @param pawns.
+  * @param name
+  * name of player.
+  * @param color
+  * color of player.
+  * @param pawns
+  * type of player's pawn.
+  * 
   */
     public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
 
