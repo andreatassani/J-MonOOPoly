@@ -7,7 +7,7 @@
   <local-check-config name="pippo" location="style.xml" type="project" description="">
     <additional-data name="protect-config-file" value="false"/>
   </local-check-config>
-  <fileset name="all" enabled="true" check-config-name="pippo" local="true">
+  <fileset name="all" enabled="true" check-config-name="MNPLY" local="true">
     <file-match-pattern match-pattern="." include-pattern="true"/>
   </fileset>
 </fileset-config>
