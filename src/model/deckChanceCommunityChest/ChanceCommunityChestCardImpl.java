@@ -4,7 +4,7 @@ package model.deckChanceCommunityChest;
  * {@inheritDoc}.
  *
  */
-public class ChancheCommunitiChestCardImpl implements ChanceCommunityChestCard {
+public class ChanceCommunityChestCardImpl implements ChanceCommunityChestCard {
 
  private String name;
  private int id;
@@ -14,7 +14,7 @@ public class ChancheCommunitiChestCardImpl implements ChanceCommunityChestCard {
  * @param id
  * the constructor of the cards
  */
- public ChancheCommunitiChestCardImpl(final String name, final int id) {
+ public ChanceCommunityChestCardImpl(final String name, final int id) {
  this.name = name;
  this.id = id;
 }

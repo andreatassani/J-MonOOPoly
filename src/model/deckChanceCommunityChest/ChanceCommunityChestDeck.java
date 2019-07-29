@@ -7,6 +7,10 @@ package model.deckChanceCommunityChest;
  */
 public interface ChanceCommunityChestDeck {
 /**
+ * method to create the deck of Community Chest and Chance cards, adding every card to the arrayList "CCCDeck"
+ */
+void createDeck();
+/**
  * 
  * @return a random Community Chest card from the deck (id 1-5)
  * 

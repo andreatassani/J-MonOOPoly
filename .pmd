@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd>
     <useProjectRuleSet>true</useProjectRuleSet>
+<<<<<<< HEAD
     <ruleSetFile>C:\Users\user\Desktop\Progetto\in.f.a.m.e.-mainrepo\pmd.xml</ruleSetFile>
+=======
+    <ruleSetFile>pmd.xml</ruleSetFile>
+>>>>>>> cf68e51f0ede49beec2266f5c00422b176fb6ded
     <includeDerivedFiles>false</includeDerivedFiles>
     <violationsAsErrors>true</violationsAsErrors>
     <fullBuildEnabled>true</fullBuildEnabled>

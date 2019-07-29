@@ -4,10 +4,14 @@
   <local-check-config name="MNPLY" location="style.xml" type="project" description="">
     <additional-data name="protect-config-file" value="false"/>
   </local-check-config>
-  <local-check-config name="pippo" location="style.xml" type="project" description="">
+  <local-check-config name="style" location="style.xml" type="project" description="">
     <additional-data name="protect-config-file" value="false"/>
   </local-check-config>
+<<<<<<< HEAD
   <fileset name="all" enabled="true" check-config-name="MNPLY" local="true">
+=======
+  <fileset name="all" enabled="true" check-config-name="style" local="true">
+>>>>>>> cf68e51f0ede49beec2266f5c00422b176fb6ded
     <file-match-pattern match-pattern="." include-pattern="true"/>
   </fileset>
 </fileset-config>
