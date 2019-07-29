@@ -1,6 +1,6 @@
 package application;
 
-import view.play.MonopolyFrame;
+import view.play.MainExternContainer;
 
 /*
  * class for launching the application
@@ -9,7 +9,7 @@ public class LauncherApplication {
 	/*
 	 * constructor for this class
 	 */
-	public LauncherApplication() {
+	LauncherApplication() {
 
 	}
 	/*
@@ -19,6 +19,6 @@ public class LauncherApplication {
         /*
          * run the game
          */
-    	MonopolyFrame mnply = new MonopolyFrame();
+    	MainExternContainer mnply = new MainExternContainer();
     }
 }

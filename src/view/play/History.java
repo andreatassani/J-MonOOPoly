@@ -2,27 +2,23 @@ package view.play;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.LayoutManager;
+import java.awt.TextArea;
+import java.awt.TextField;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class History extends JPanel {
-
-	public History(LayoutManager layout) {
-		super(layout);
-
-        final JTextField history = new JTextField();
-        history.setText("                                     HISTORY");
-        history.setVisible(true);
-        history.setEnabled(false);
-        
+	
+	public History() {
 		
-		this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-        this.setBackground(Color.PINK);
-        this.add(history, BorderLayout.NORTH);
-
+		this.setLayout(new BorderLayout());
+		this.setBackground(Color.RED);
+		
+		TextField history = new TextField("HISTORY");
+		history.setEnabled(false);
+		this.add(history, BorderLayout.NORTH);
+		
+		
 	}
 
 }

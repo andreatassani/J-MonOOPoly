@@ -11,7 +11,7 @@ public interface Bank {
      * @param c
      * method to add card to the bank at start of the game.
      */
-    void addCard(DeckPropertiesCardsImpl c);
+    void addCard(Property c);
     /**
      * 
      * @param i
