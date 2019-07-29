@@ -8,5 +8,5 @@ public enum Music {
 /**
  * Songs.
  */
-MENU, GAME
+MENU, GAME, ROCK, TECNO, CLASSIC, POP 
 }
