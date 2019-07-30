@@ -2,26 +2,23 @@ package view.play;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.LayoutManager;
+import java.awt.TextArea;
+import java.awt.TextField;
 
-import javax.swing.BorderFactory;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 public class Situation extends JPanel {
 
-	public Situation(LayoutManager layout) {
-		super(layout);
+	public Situation() {
 		
-		final JTextField situation = new JTextField();
-        situation.setText("                                    SITUATION");
-        situation.setVisible(true);
-        situation.setEnabled(false);
-        
-        this.setBorder(BorderFactory.createLineBorder(Color.BLACK));
-	    this.setBackground(Color.YELLOW);
-        this.add(situation, BorderLayout.NORTH);
+
+		this.setLayout(new BorderLayout());
+		this.setBackground(Color.YELLOW);
+		
+		TextField situation = new TextField("SITUATION");
+		situation.setEnabled(false);
+		this.add(situation, BorderLayout.NORTH);
+		
+		
 	}
-	
-	
 }

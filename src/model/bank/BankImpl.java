@@ -10,13 +10,13 @@ import model.deckPropertiesSociety.*;
  */
 public class BankImpl implements Bank {
     
-    private ArrayList<DeckPropertiesCardsImpl> allProperties = new ArrayList<DeckPropertiesCardsImpl>();
+    private ArrayList<Property> allProperties = new ArrayList<Property>();
     private int amount;
     /**
      * {@inheritDoc}.
      */
     @Override
-    public void addCard(final DeckPropertiesCardsImpl c) {
+    public void addCard(final Property c) {
        allProperties.add(c);
     }
     /**
