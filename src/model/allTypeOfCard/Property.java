@@ -1,4 +1,4 @@
-package model.deckPropertiesSociety;
+package model.allTypeOfCard;
 
 
 import java.util.Optional;

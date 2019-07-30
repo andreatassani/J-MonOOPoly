@@ -1,5 +1,6 @@
 package view.play;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class SouthUtilityButtons extends JPanel {
 	
@@ -25,6 +27,7 @@ public class SouthUtilityButtons extends JPanel {
 		this.add(menù);
 		this.add(build);
 		
+		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
 	}

@@ -2,9 +2,7 @@ package model.bank;
 
 import java.util.ArrayList;
 
-
-
-import model.deckPropertiesSociety.*;
+import model.allTypeOfCard.*;
 /**
  * {@inheritDoc}.
  */

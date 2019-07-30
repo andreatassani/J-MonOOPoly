@@ -1,5 +1,7 @@
-package model.deckPropertiesSociety;
-
+package model.allTypeOfCard;
+/**
+ * @param <X>
+ */
 public class Station<X> extends Society {
 	
 	   private int toll2Station;
@@ -30,7 +32,7 @@ public class Station<X> extends Society {
 	/**
 	 * @param toll2Station the toll2Station to set
 	 */
-	public void setToll2Station(int toll2Station) {
+	public void setToll2Station(final int toll2Station) {
 		this.toll2Station = toll2Station;
 	}
 	/**
@@ -42,7 +44,7 @@ public class Station<X> extends Society {
 	/**
 	 * @param toll3Station the toll3Station to set
 	 */
-	public void setToll3Station(int toll3Station) {
+	public void setToll3Station(final int toll3Station) {
 		this.toll3Station = toll3Station;
 	}
 	/**
@@ -54,7 +56,7 @@ public class Station<X> extends Society {
 	/**
 	 * @param toll4Station the toll4Station to set
 	 */
-	public void setToll4Station(int toll4Station) {
+	public void setToll4Station(final int toll4Station) {
 		this.toll4Station = toll4Station;
 	}
 }

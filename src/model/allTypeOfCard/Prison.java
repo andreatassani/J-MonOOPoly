@@ -1,39 +1,39 @@
-package model.deckPropertiesSociety;
+
+package model.allTypeOfCard;
 
 import java.util.Optional;
 
-import model.player.Player;
 /**
- * {@inheritDoc}.
- * @param
+ *{@inheritDoc}.
  */
-public class Tax implements Entity {
+public class Prison implements Entity {
 	
-    private String tax = "tassa";
-    private int forfeit = 100;
+	private String name = "prigione";
+    private final int stopRound = 2;
     /**
      * Constructor.
      */
-    public Tax() {
+    public Prison() {
 
 	}
     /**
      * {@inheritDoc}
      */
     public void setName(final String n) {
-        this.tax = n;
+        this.name = n;
     }
     /**
      * {@inheritDoc}
      */
     public String getName() {
-        return this.tax;
+        return this.name;
     }
     /**
      * {@inheritDoc}
      */
 	@Override
 	public Optional action() {
-		return Optional.of(this.forfeit);
+		return Optional.of(this.stopRound);
 	}
+
 }

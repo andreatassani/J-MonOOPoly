@@ -1,6 +1,6 @@
 package model.bank;
 
-import model.deckPropertiesSociety.*;
+import model.allTypeOfCard.*;
 /**
  * 
  * interface of the bank.

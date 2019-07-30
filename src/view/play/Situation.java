@@ -6,6 +6,7 @@ import java.awt.TextArea;
 import java.awt.TextField;
 
 import javax.swing.JPanel;
+import javax.swing.border.LineBorder;
 
 public class Situation extends JPanel {
 
@@ -18,6 +19,7 @@ public class Situation extends JPanel {
 		TextField situation = new TextField("SITUATION");
 		situation.setEnabled(false);
 		this.add(situation, BorderLayout.NORTH);
+		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
 	}
