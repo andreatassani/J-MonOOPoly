@@ -1,5 +1,6 @@
 package application;
 
+import view.menu.MenuGui;
 import view.play.MonopolyFrame;
 
 /*
@@ -19,6 +20,6 @@ public class LauncherApplication {
         /*
          * run the game
          */
-    	MonopolyFrame mnply = new MonopolyFrame();
+    	MenuGui mnply = new MenuGui();
     }
 }

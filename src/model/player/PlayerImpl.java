@@ -16,7 +16,8 @@ public class PlayerImpl implements Player {
     private Colors color;
     private Pawns pawns;
     private int money;
-    private final int BANK_AMOUNT = 5500;
+    private static final int BANK_AMOUNT = 5500;
+    private boolean round;
  /**
   * constructor of player.
   * @param name
@@ -33,6 +34,7 @@ public class PlayerImpl implements Player {
         this.color = color;
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
+        this.round = true;
     }
 /**
  * {@inheritDoc}
