@@ -19,19 +19,22 @@ import model.allTypeOfCard.Entity;
 
 public class Cell extends JPanel {
 	
-		private Dimension dim = new Dimension(104, 90);
-		private Dimension dimCorner = new Dimension(111, 91);
-		private Dimension dimEastWest = new Dimension(111,88);
+		private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+		private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
+		private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
 		private Color col;
 		private JLabel name;
 		private JButton image;
 		private ImageIcon icon;
-		//private JLabel cost;
 		int position;
+		Entity card;
 		
 	public Cell(int i, String n, Color c, Optional<String> s) {
 		
-		col = c;
+
+		
+		this.col = c;
+		this.position = i;
 		
 		name = new JLabel("" + n, SwingConstants.CENTER);
 		name.setBackground(c);
@@ -48,21 +51,16 @@ public class Cell extends JPanel {
 		
 		this.setBackground(c);
 		image = new JButton();
+		image.setSize(60, 45);
 		
-		//cost = new JLabel(s.get(), SwingConstants.CENTER);
-		//this.add(cost, BorderLayout.SOUTH);
 		this.add(name, BorderLayout.NORTH);
 		
-		this.add(image, BorderLayout.CENTER);
+		this.add(image);
 		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
 		if(s.isPresent()) {
-			icon = new ImageIcon(s.get());
-		Image scaledImage = icon.getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT);
-		icon.setImage(scaledImage);
-		
-		image.setIcon(icon);
+			mySetIcon(image, s.get());
 		}
 
 	}
@@ -73,6 +71,11 @@ public class Cell extends JPanel {
 		this.setPreferredSize(d);
 		this.setSize(d);
 	}
-
-
+	
+	public void mySetIcon(JButton b, String s) {
+		icon = new ImageIcon(s);
+		Image scaledImage = icon.getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT);
+		icon.setImage(scaledImage);
+		b.setIcon(icon);
+	}
 }
