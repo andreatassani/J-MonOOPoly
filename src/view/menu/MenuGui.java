@@ -5,7 +5,6 @@ import java.awt.Toolkit;
 import javax.swing.*;
 
 import view.history.HistoryGUI;
-import view.play.Playing;
 /**
  * class for creating the GUI for the main menu
  * @author user

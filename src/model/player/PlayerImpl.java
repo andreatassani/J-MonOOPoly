@@ -17,24 +17,13 @@ public class PlayerImpl implements Player {
     private Pawns pawns;
     private int money;
     private static final int BANK_AMOUNT = 5500;
-    private boolean round;
- /**
-  * constructor of player.
-  * @param name
-  * name of player.
-  * @param color
-  * color of player.
-  * @param pawns
-  * type of player's pawn.
-  * 
-  */
+    private int stopTurns = 0;
+    
     public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
-
         this.name = name;
         this.color = color;
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
-        this.round = true;
     }
 /**
  * {@inheritDoc}
@@ -79,8 +68,38 @@ public class PlayerImpl implements Player {
     public void setPawns(final Pawns pawns) {
         this.pawns = pawns;
     }
-
-
-
-
+/**
+ * {@inheritDoc}
+ * 
+ */
+    public void setMoney(int money) {
+    this.money += money;
+}
+/**
+ * {@inheritDoc}
+ * 
+ */
+public int getMoney() {
+    return this.money;
+}
+/**
+ * {@inheritDoc}
+ * 
+ */
+public void setStopTurns(int turns) {
+    this.stopTurns = turns;
+}
+/**
+ * {@inheritDoc}
+ * 
+ */
+public int getStopTurns() {
+    if(this.stopTurns == 0) {
+        return 0;
+    }
+    else {
+        this.stopTurns-=1;
+        return this.stopTurns+1;
+    }
+}
 }
