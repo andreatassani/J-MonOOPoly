@@ -1,5 +1,8 @@
 package model.player;
 
+import java.util.ArrayList;
+
+import model.allTypeOfCard.Property2;
 import model.utility.Colors;
 import model.utility.Pawns;
 /**
@@ -18,6 +21,7 @@ public class PlayerImpl implements Player {
     private int money;
     private static final int BANK_AMOUNT = 5500;
     private int stopTurns = 0;
+    private ArrayList<Property2> properties = new ArrayList<>();
     
     public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
         this.name = name;
@@ -32,14 +36,6 @@ public class PlayerImpl implements Player {
     public String getName() {
         return name;
     }
- /**
-  * {@inheritDoc}
-  * 
-  */
-
-    public void setName(final String name) {
-        this.name = name;
-    }
 /**
  * 
  * {@inheritDoc}
@@ -51,22 +47,8 @@ public class PlayerImpl implements Player {
  * {@inheritDoc}
  * 
  */
-    public void setColor(final Colors color) {
-        this.color = color;
-    }
-/**
- * {@inheritDoc}
- * 
- */
     public Pawns getPawn() {
         return pawns;
-    }
-/**
- * {@inheritDoc}
- * 
- */
-    public void setPawns(final Pawns pawns) {
-        this.pawns = pawns;
     }
 /**
  * {@inheritDoc}
@@ -101,5 +83,22 @@ public int getStopTurns() {
         this.stopTurns-=1;
         return this.stopTurns+1;
     }
+}
+/**
+ * {@inheritDoc}
+ * 
+ */
+public void buyProperty(Property2 property, Player pl) {
+    this.setMoney(-property.getPrice());
+    this.properties.add(property);
+    pl.setMoney(property.getPrice());
+    pl.removeProperty(property);
+}
+/**
+ * {@inheritDoc}
+ * 
+ */
+public void removeProperty(Property2 property) {
+    this.properties.remove(property);
 }
 }

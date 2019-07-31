@@ -1,10 +1,11 @@
 package model.player;
 
+import model.allTypeOfCard.Property2;
 import model.utility.Colors;
 import model.utility.Pawns;
 
 /**
- * Interface for player creation management.
+ * Interface for player management.
  * 
  *
  */
@@ -19,21 +20,11 @@ Pawns getPawn();
  * Pawns setting.
  * 
  */
-void setPawns(Pawns pawns);
- /**
-  * Color creation.
-  * @return the player's color.
-  */
 Colors getColors();
  /**
   * @param color
   * Colors setting.
   * 
-  */
-void setColor(Colors color);
- /**
-  * Name creation.
-  * @return the player's name.
   */
 String getName(); 
  /**
@@ -41,12 +32,6 @@ String getName();
   * Name setting.
   * 
   */
-void setName(String name);
-/**
- * @param money
- * set the player's money.
- * 
- */
 void setMoney(int money);
 /**
  * @param money
@@ -66,4 +51,20 @@ void setStopTurns(int turns);
  * 
  */
 int getStopTurns();
+/**
+ * @param property pl
+ * removes the property from the list of the player "pl" and adds it to the list of the current player.
+ * 
+ */
+void buyProperty(Property2 property, Player pl);
+/**
+ * @param property
+ * removes the property from the list of the current player.
+ * 
+ */
+void removeProperty(Property2 property);
+
+
+
+
 }

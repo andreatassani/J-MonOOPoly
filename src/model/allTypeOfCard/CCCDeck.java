@@ -3,9 +3,6 @@ package model.allTypeOfCard;
 import java.util.ArrayList;
 import java.util.Random;
 
-import model.deckChanceCommunityChest.ChanceCommunityChestCard;
-import model.deckChanceCommunityChest.ChanceCommunityChestCardImpl;
-
 public class CCCDeck {
     private final ArrayList<CCCCard> cccDeck = new ArrayList<CCCCard>();
     private final Random r = new Random();
