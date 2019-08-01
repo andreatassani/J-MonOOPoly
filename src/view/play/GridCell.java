@@ -1,6 +1,7 @@
 package view.play;
 
 import java.awt.BorderLayout;
+
 import java.awt.Color;
 import java.awt.Image;
 import java.util.Optional;
@@ -10,6 +11,10 @@ import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import model.allTypeOfCard.Property;
+import model.allTypeOfCard.Start;
+import view.play.*;
 
 
 
@@ -75,13 +80,14 @@ public class GridCell extends JPanel {
 
 		this.setBackground(new Color(149, 255, 213));
 		
+		
+
 		icon = new ImageIcon("res/logo.png");
 		Image scaledImage = icon.getImage().getScaledInstance(963, 368, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		logo.setIcon(icon);
+		logo.setAlignmentY(BOTTOM_ALIGNMENT);
 		this.add(logo, BorderLayout.CENTER);
-		
-		
-		
 		}
 	}
+

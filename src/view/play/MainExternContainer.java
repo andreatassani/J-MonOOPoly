@@ -16,12 +16,16 @@ public class MainExternContainer extends JFrame {
 	
 	private static Dimension leftSideDimension = new Dimension((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 1.45), Toolkit.getDefaultToolkit().getScreenSize().height);
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
-	
+	private static Box rightSide = new Box(BoxLayout.Y_AXIS);
+	private static  JPanel leftSide = new JPanel(new BorderLayout());
+	/**
+	 * @return the rightSide
+	 */
 	public MainExternContainer() {
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
-		JPanel leftSide = new JPanel(new BorderLayout());
+		
 		leftSide.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 1.45), Toolkit.getDefaultToolkit().getScreenSize().height);
 		leftSide.setMaximumSize(leftSideDimension);
 		leftSide.setMinimumSize(leftSideDimension);
@@ -30,7 +34,7 @@ public class MainExternContainer extends JFrame {
 		leftSide.add(new SouthUtilityButtons(), BorderLayout.SOUTH);
 		leftSide.add(new GridCell(), BorderLayout.CENTER);
 
-		Box rightSide = new Box(BoxLayout.Y_AXIS);
+		
 		rightSide.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - leftSide.getSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 		rightSide.setMaximumSize(leftSideDimension);
 		rightSide.setMinimumSize(leftSideDimension);
@@ -42,10 +46,7 @@ public class MainExternContainer extends JFrame {
 		extern.add(rightSide);
 		this.add(extern);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		//his.setResizable(false);
-
 		this.setVisible(true);
 		this.pack();
 		this.setMaximumSize(d);
@@ -53,8 +54,14 @@ public class MainExternContainer extends JFrame {
 		this.setPreferredSize(d);
 		this.setSize(d);
 		this.setState(JFrame.NORMAL);
+
 		System.out.println(leftSide.getSize());
 	}
 	
+	public static JPanel getLeftSide() {
+		JPanel i = leftSide;
+		return i;
+	}
+
 
 }

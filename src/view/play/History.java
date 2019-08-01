@@ -2,6 +2,7 @@ package view.play;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.TextArea;
 import java.awt.TextField;
 
