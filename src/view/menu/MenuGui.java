@@ -1,11 +1,11 @@
 package view.menu;
-import java.awt.BorderLayout;
+
 import java.awt.Toolkit;
 
 import javax.swing.*;
 
 import view.history.HistoryGUI;
-import view.play.Playing;
+
 /**
  * class for creating the GUI for the main menu
  * @author user
@@ -26,8 +26,9 @@ public class MenuGui extends JFrame {
 		this.setExtendedState(JFrame.MAXIMIZED_VERT);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setVisible(true);
-		this.add(new NewGameMenu());
+		this.add(new MainMenu());
         this.pack();
+        System.out.println(Toolkit.getDefaultToolkit().getScreenSize().height  + "|" + Toolkit.getDefaultToolkit().getScreenSize().width);
 	}
 
 	 

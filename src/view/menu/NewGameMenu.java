@@ -1,5 +1,6 @@
 package view.menu;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
@@ -46,6 +47,7 @@ public class NewGameMenu extends JPanel {
  *set the layout.
  */
 		this.setLayout(new BoxLayout(this,BoxLayout.PAGE_AXIS));
+		this.setBackground(Color.CYAN);
 /**
  *i create invisible areas to have space between the buttons
  *and i added the buttons to the panel.
