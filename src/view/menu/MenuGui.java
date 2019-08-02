@@ -5,10 +5,7 @@ import java.awt.Toolkit;
 import javax.swing.*;
 
 import view.history.HistoryGUI;
-<<<<<<< HEAD
 
-=======
->>>>>>> c36b9a9f8d1d91dee7feed1109fa00a7bfe4f2ab
 /**
  * class for creating the GUI for the main menu
  * @author user
@@ -29,9 +26,9 @@ public class MenuGui extends JFrame {
 		this.setExtendedState(JFrame.MAXIMIZED_VERT);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setVisible(true);
-		this.add(new MainMenu());
+		this.add(new NewGameMenu());
         this.pack();
-        System.out.println(Toolkit.getDefaultToolkit().getScreenSize().height  + "|" + Toolkit.getDefaultToolkit().getScreenSize().width);
+        //System.out.println(Toolkit.getDefaultToolkit().getScreenSize().height  + "|" + Toolkit.getDefaultToolkit().getScreenSize().width);
 	}
 
 	 
