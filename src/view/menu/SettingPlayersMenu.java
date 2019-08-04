@@ -57,12 +57,15 @@ import model.utility.Pawns;
 		
 		private JLabel numPlayer = new JLabel("NUMERO GIOCATORI");
 		private JButton done = new JButton("STAR GAME");
-		private JComboBox howManyPlayer = new JComboBox();
+		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
 		private JPanel setPlayers = new JPanel();
 		private JPanel contentImage = new JPanel();
 		private JPanel contentButton = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
+		private Color backGround = backGround = new Color(173,238,216);
+		private Color button = new Color(242,59,59);
+		private Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);
 		
 		private static Dimension dimPlayer = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/2,
 															Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -72,7 +75,7 @@ import model.utility.Pawns;
 															Toolkit.getDefaultToolkit().getScreenSize().height/28);
 		private static Dimension dimImg = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/4,
 															Toolkit.getDefaultToolkit().getScreenSize().height/2);
-		private static Dimension dimComboColor = new Dimension((Toolkit.getDefaultToolkit().getScreenSize().width/10)/3,
+		private static Dimension dimComboColor = new Dimension((Toolkit.getDefaultToolkit().getScreenSize().width/4)/3,
 				Toolkit.getDefaultToolkit().getScreenSize().height/28);
 		private static Dimension dimNameG = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/3,
 				Toolkit.getDefaultToolkit().getScreenSize().height/28);
@@ -92,6 +95,9 @@ import model.utility.Pawns;
 		done.setMinimumSize(dimName);
 		image.setPreferredSize(dimPlayer);
 		done.setSize(dimName);
+		done.setFont(f);
+		done.setBackground(button);
+		done.setForeground(Color.white);
 /**
  * i configure the size of the image.
  */		
@@ -103,11 +109,11 @@ import model.utility.Pawns;
  */
 		setMyPanel(left, dimPlayer);
 		setMyPanel(right, dimPlayer);
-		createSetPlayer(player1, namePlayer1, color1, pawn1);
-		createSetPlayer(player2, namePlayer2, color2, pawn2);
-		createSetPlayer(player3, namePlayer3, color3, pawn3);
-		createSetPlayer(player4, namePlayer4, color4, pawn4);
-		createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer);
+		createSetPlayer(player1, namePlayer1, color1, pawn1,f);
+		createSetPlayer(player2, namePlayer2, color2, pawn2,f);
+		createSetPlayer(player3, namePlayer3, color3, pawn3,f);
+		createSetPlayer(player4, namePlayer4, color4, pawn4,f);
+		createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer,f);
 /**
  * i add all the panels to the main panel
  */		
@@ -118,8 +124,8 @@ import model.utility.Pawns;
 		left.add(player2);
 		left.add(player3);
 		left.add(player4);	
-		right.setBackground(Color.red);
-		setPlayers.setBackground(Color.red);
+		right.setBackground(backGround);
+		setPlayers.setBackground(backGround);
 		
 		this.add(left);
 		this.add(right);	
@@ -131,14 +137,19 @@ import model.utility.Pawns;
  * @param color a JComboBox.
  * @param pawn a JComboBox.
  */
-	public void createSetPlayer(JPanel player, JTextField name, JComboBox color, JComboBox pawn) {
-		player.setBackground(Color.RED);
-		name.setFont(new Font("",5,20));
+	public void createSetPlayer(JPanel player, JTextField name, JComboBox color, JComboBox pawn, Font f) {
+		player.setBackground(backGround);
 		player.setLayout(new FlowLayout(FlowLayout.CENTER));
 		player.setPreferredSize(dimPlayer);
+		name.setBackground(button);
 		name.setPreferredSize(dimName);
+		name.setFont(f);
+		name.setForeground(Color.white);
+		color.setBackground(backGround);
 		color.setPreferredSize(dimComboColor);
-		
+		color.setFont(f);
+		pawn.setBackground(backGround);
+		pawn.setFont(f);		
 		pawn.setPreferredSize(dimCombo);		
 		player.add(name);
 		player.add(color);
@@ -162,18 +173,22 @@ import model.utility.Pawns;
 * @param p
 * @param d
 */	
-	public void createNumPlayerPanel(JPanel p, JLabel l, JComboBox n) {
+	public void createNumPlayerPanel(JPanel p, JLabel l, JComboBox n, Font f) {
 		p.setLayout(new FlowLayout(FlowLayout.LEFT));
 		p.setPreferredSize(dimPlayer);
 		l.setPreferredSize(dimNameG);
-		l.setBorder(new LineBorder(Color.black));
+		l.setBorder(new LineBorder(Color.black,4));
 		l.setForeground(Color.BLACK);
-		l.setFont(new Font("",5,32));
+		l.setFont(f);
+		n.setFont(f);
 		n.setPreferredSize(dimComboColor);
+		n.setBackground(backGround);
 		p.add(l);
 		p.add(n);
 		
 	}
+	
+
 	
 	
 	

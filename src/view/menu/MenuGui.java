@@ -26,7 +26,7 @@ public class MenuGui extends JFrame {
 		this.setExtendedState(JFrame.MAXIMIZED_VERT);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setVisible(true);
-		this.add(new NewGameMenu());
+		this.add(new  SettingPlayersMenu());
         this.pack();
         //System.out.println(Toolkit.getDefaultToolkit().getScreenSize().height  + "|" + Toolkit.getDefaultToolkit().getScreenSize().width);
 	}
