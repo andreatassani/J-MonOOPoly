@@ -16,12 +16,16 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.function.BiFunction;
+import java.util.function.Consumer;
+import java.util.function.Function;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
@@ -73,7 +77,6 @@ import javax.swing.border.LineBorder;
 	  this.south = new JPanel();
 	  this.general = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height/2);
 	
-	  
 
 	  logo.setPreferredSize(general);
 	  logo.setSize(general);
@@ -84,12 +87,12 @@ import javax.swing.border.LineBorder;
 	  newGame.setForeground(writer);
 	  tutorial.setForeground(writer);
 	  settings.setForeground(writer);
-	  newGame.setBorder(new LineBorder(button));
-	  settings.setBorder(new LineBorder(button));
-	  tutorial.setBorder(new LineBorder(button));
 	  newGame.setBackground(button);
 	  tutorial.setBackground(button);
 	  settings.setBackground(button);
+	  newGame.setBorder(new LineBorder(Color.white,4));
+	  tutorial.setBorder(new LineBorder(Color.white,4));
+	  settings.setBorder(new LineBorder(Color.WHITE,4));
 	  south.setBackground(backGround);
 	  north.setBackground(backGround);
 	 
