@@ -9,19 +9,18 @@ import java.awt.TextField;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
-public class History extends JPanel {
-	
-	public History() {
-		
+public class SituationGUI extends JPanel {
+
+	public SituationGUI() {
+
 		this.setLayout(new BorderLayout());
-		this.setBackground(Color.RED);
+		this.setBackground(Color.YELLOW);
 		
-		TextField history = new TextField("HISTORY");
-		history.setEnabled(false);
-		this.add(history, BorderLayout.NORTH);
+		TextField situation = new TextField("SITUATION");
+		situation.setEnabled(false);
+		this.add(situation, BorderLayout.NORTH);
 		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
 	}
-
 }
