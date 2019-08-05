@@ -98,6 +98,7 @@ import model.utility.Pawns;
 		done.setFont(f);
 		done.setBackground(button);
 		done.setForeground(Color.white);
+		done.setBorder(new LineBorder(Color.WHITE,4));
 /**
  * i configure the size of the image.
  */		
@@ -145,6 +146,7 @@ import model.utility.Pawns;
 		name.setPreferredSize(dimName);
 		name.setFont(f);
 		name.setForeground(Color.white);
+		name.setBorder(new LineBorder(Color.WHITE,4));
 		color.setBackground(backGround);
 		color.setPreferredSize(dimComboColor);
 		color.setFont(f);

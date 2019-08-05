@@ -122,6 +122,9 @@ public class NewGameMenu extends JPanel {
 		setSize(north,dimPanel);
 		center.setBackground(mainColor);		
 		this.setBackground(mainColor);
+		start.setBorder(new LineBorder(Color.white,4));
+		back.setBorder(new LineBorder(Color.white,4));
+		players.setBorder(new LineBorder(Color.white,4));
 /**
  * i add all the components to the main panel.	
  */
@@ -159,6 +162,7 @@ public class NewGameMenu extends JPanel {
 		c.setFont(font);
 		c.setBorder(l);
 		c.setBackground(Background);
+		
 		
 		
 	}
