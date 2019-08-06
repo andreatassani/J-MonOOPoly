@@ -2,15 +2,18 @@ package view.history;
 
 import javax.swing.*;
 
-
+import view.play.Cell;
 
 import java.awt.event.*;
+import java.util.Optional;
 import java.awt.*;
 
 public class HistoryGUI extends JFrame{
     
     
     public HistoryGUI() {
+    	
+         
         final JFrame frame = new JFrame();
         frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
         frame.setSize(500, 500);
@@ -18,8 +21,12 @@ public class HistoryGUI extends JFrame{
         JPanel mainpanel = new JPanel(new BorderLayout());
         //pannello principale
         
-        JPanel boxpanel = new JPanel();
-        boxpanel.setLayout(new BoxLayout(boxpanel, BoxLayout.PAGE_AXIS));
+       
+        Box boxpanel = new Box(BoxLayout.PAGE_AXIS);
+        final JScrollPane scroll = new JScrollPane (boxpanel); 
+        scroll . setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
+        mainpanel.add(scroll,BorderLayout.CENTER);
+        Dimension dim = new Dimension(frame.getSize().width,frame.getSize().height/7);
         
         
         
@@ -34,7 +41,7 @@ public class HistoryGUI extends JFrame{
         final JTextField textField9 = new JTextField ("A chiccfvdscvegro");
         
         
-       
+       textField1.setMaximumSize(dim);
          boxpanel.add(textField1);
          boxpanel.add(textField2);
          boxpanel.add(textField3);
@@ -48,8 +55,7 @@ public class HistoryGUI extends JFrame{
          //prove di inserimento
          
         
-        final JScrollPane scroll = new JScrollPane (boxpanel); 
-        scroll . setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
+       
         
       //setto la barra con scroll
         
