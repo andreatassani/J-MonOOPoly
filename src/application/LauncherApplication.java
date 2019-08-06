@@ -31,12 +31,16 @@ public class LauncherApplication {
 
     
 
+<<<<<<< HEAD
 
     	MenuGui mnply = new MenuGui(new MainMenu());
     	
     	
     	
     	
+=======
+    	MainExternContainer mnply = new MainExternContainer();
+>>>>>>> 96094d946fc8cf70b208fb4191cd2329d0ba4b42
 
 
     	

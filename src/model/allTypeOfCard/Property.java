@@ -1,124 +1,109 @@
 package model.allTypeOfCard;
 
-
+import java.awt.Color;
 import java.util.Optional;
 
-//      LEGGI I COMMENTI CHE TI HO SCRITTO SOTTO POPI CANCELLA TUTTI I COMMENTI DI QUESTO TIPO
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import model.player.Player;
-import model.utility.Colors;
 
-/**
- * {@inheritDoc}.
- * @param <X>
- * @param <X>
- */
-
-public class Property<X> extends Society {
-
-   private Colors color;
-   private int toll0House; //costo pedaggio con n edifici
-   private int toll1House;
-   private int toll2House;
-   private int toll3House;
-   private int toll4House;
-   private int toll1Hotel;
-   /**
-    * 
-    * 
-    * constructor for this class.
-    */
-   public Property(final String name, X owner, Colors color, int toll0House, int toll1House,
-			int toll2House, int toll3House, int toll4House, int toll1Hotel) {
-	   	super(name, owner, toll0House);
-	   	this.color = color;
-		this.toll1House = toll1House;
-		this.toll2House = toll2House;
-		this.toll3House = toll3House;
-		this.toll4House = toll4House;
-		this.toll1Hotel = toll1Hotel;
-	}
-   
-   /**
-    * @return the color
-    */
-   public Colors getColor() {
-	return color;
-   }
-   /**
-    * @param color the color to set
-    */
-   public void setColor(Colors color) {
-	this.color = color;
-   }
-   /**
-    * @return the toll1House
-    */
-   public int getToll1House() {
-	return toll1House;
-   }
-   /**
-    * @param toll1House the toll1House to set
-    */
-   public void setToll1House(int toll1House) {
-	this.toll1House = toll1House;
-   }
-   /**
-    * @return the toll2House
-    */
-   public int getToll2House() {
-	return toll2House;
-   }
-   /**
-    * @param toll2House the toll2House to set
-    */
-   public void setToll2House(int toll2House) {
-	this.toll2House = toll2House;
-   }
-   /**
-    * @return the toll3House
-    */
-   public int getToll3House() {
-	return toll3House;
-   }
-   /**
-    * @param toll3House the toll3House to set
-    */
-   public void setToll3House(int toll3House) {
-	this.toll3House = toll3House;
-   }
-   /**
-    * @return the toll4House
-    */
-   public int getToll4House() {
-	return toll4House;
-   }
-   /**
-    * @param toll4House the toll4House to set
-    */
-   public void setToll4House(int toll4House) {
-	this.toll4House = toll4House;
-   }
-   /**
-    * @return the toll1Hotel
-    */
-   public int getToll1Hotel() {
-	return toll1Hotel;
-   }
-   /**
-    * @param toll1Hotel the toll1Hotel to set
-    */
-   public void setToll1Hotel(int toll1Hotel) {
-	this.toll1Hotel = toll1Hotel;
-   }
-   
-   public Optional action() {
-	return Optional.empty();
-   }
-
+public class Property implements Entity {
+    
+    private int positionInBoard = 0;
+    private String name;
+    private Color color;
+    private int nHouses = 0;
+    private boolean hotel = false;
+    private int price = 0;
+    private String ownerName;
+    
+    public Property(String name, Color color, int position) {
+        this.positionInBoard = position;
+        this.name = name;
+        this.color = color;
+        this.ownerName = "bank";
+        if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        } else if(color == Color.CYAN) {
+            this.price = 100;
+        }
+    }
+        
+    public int getPosition() {
+        return this.positionInBoard;
+    }
+    @Override
+    public String getName() {
+        return this.name;
+    }
+    
+    public int getPrice() {
+        return this.price;
+    }
+    public Color getColor() {
+        return this.color;
+    }
+    
+    public void setNewOwner(Player p) {
+        this.nHouses = 0;
+        this.hotel = false;
+        this.ownerName = p.getName();
+    }
+    
+    public String getOwner() {
+        return this.ownerName;
+    }
+    
+    public void addHouse (Player p) {
+        if(this.ownerName == p.getName()) {
+            if(this.hotel == true) {
+                return;
+            }
+            if(this.nHouses < 4 && this.hotel == false) {
+                this.nHouses++;
+                p.setMoney(-price/4);
+            }
+            if(this.nHouses == 4) {
+                this.nHouses = 4;
+                this.hotel = true;
+                p.setMoney(-price/2);
+            }
+         else {
+             return;
+         }
+        }
+    }
+    
+    public void showCard() {
+        JOptionPane.showMessageDialog(null,"Owner:"+this.ownerName+"\nNumber of houses:"+this.nHouses,this.name,
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+this.color.getRGB()+".png"));
+    }
+    
+    @Override
+    public Optional action() {
+       return Optional.empty();
+      //if (game.currentPlayer == this.owner){
+      //  return;
+      //  }
+      //else if {
+      // game.currentPlayer.setMoney(-((this.price/10)+this.nHouses*(this.price/4)));
+      // this.owner.setMoney((this.price/10)+this.nHouses*(this.price/4));
+      // if(this.hotel == true){
+      //       game.currentPlayer.setMoney(-(this.price*19/10));         
+      //       this.owner.setMoney(this.price*19/10); 
+      //}
+    }
 }
-   //   TO-DO PER MICHELEEEEEEEEEEE
-   //   come detto all'ultimo meeting, la carta proprietà estende società privata.
-   //   perciò come da definizione di extends, la classe carta proprietà eredita tutti i metodi che ho già implementato 
-   //   in società privata, DOVRESTI SOLO CREARE QUI QUELLI CHE SERVONO A TE PER LA GESTIONE DELLA COMPRAVENDITA E COSTRUZIONE HOTEL
-
-
