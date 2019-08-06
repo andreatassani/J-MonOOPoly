@@ -40,8 +40,8 @@ public class MainExternContainer extends JFrame {
 		rightSide.setMinimumSize(leftSideDimension);
 		rightSide.setPreferredSize(leftSideDimension);
 
-		rightSide.add(new History());
-		rightSide.add(new Situation());
+		rightSide.add(new HistoryGUI());
+		rightSide.add(new SituationGUI());
 		extern.add(leftSide);
 		extern.add(rightSide);
 		this.add(extern);
