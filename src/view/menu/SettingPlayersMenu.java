@@ -1,31 +1,11 @@
 package view.menu;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-
 import model.utility.NumPlayers;
-import model.utility.Pawns;
 import view.play.MainExternContainer;
 
 
@@ -42,6 +22,7 @@ import view.play.MainExternContainer;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		private static final Color backGround = new Color(173,238,216);
 		private static final Color button = new Color(242,59,59);
+		private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);		
 		private static final Dimension dimPlayer = new Dimension(width/2,height);
 		private static final Dimension dimName = new Dimension(width/5,height/28);
@@ -136,6 +117,15 @@ import view.play.MainExternContainer;
 		
 		this.add(left,BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);	
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.pack();
+		this.setMaximumSize(d);
+		this.setMinimumSize(d);
+		this.setPreferredSize(d);
+		this.setSize(d);
+		this.setState(JFrame.NORMAL);
 	}
 /**
  * method for creating a sub-panel with customized measurements.

@@ -1,22 +1,11 @@
 package view.menu;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
+
 import controller.menu.ControllerMainMenu;
 /**
  * 
@@ -30,6 +19,7 @@ import controller.menu.ControllerMainMenu;
 * MainMenu fields.
 */
 		private static final long serialVersionUID = -8022354307741023282L;
+		private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		private  static final Dimension general = new Dimension(width,height/2);
@@ -65,9 +55,12 @@ import controller.menu.ControllerMainMenu;
 	  this.north = new JPanel();
 	  this.south = new JPanel();
 	  ActionListener al = (e)->{
-		fun.newGame(this);
-		          
+		fun.newGame(this);		          
       };
+	  ActionListener bl = (e)->{
+		fun.tutorial(this);	          
+      };
+     
      
      
       
@@ -85,6 +78,7 @@ import controller.menu.ControllerMainMenu;
 	  setPreference(south, general, backGround, backGround, f);
 	  
 	  newGame.addActionListener(al);
+	  tutorial.addActionListener(bl);
 /**
  * set the JPanel layout.
  */
@@ -101,6 +95,15 @@ import controller.menu.ControllerMainMenu;
 	  	south.add(logo);
 	  	this.add(north, BorderLayout.CENTER);
 	  	this.add(south, BorderLayout.SOUTH);
+	  	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.pack();
+		this.setMaximumSize(d);
+		this.setMinimumSize(d);
+		this.setPreferredSize(d);
+		this.setSize(d);
+		this.setState(JFrame.NORMAL);
 	  	
 }
 /**

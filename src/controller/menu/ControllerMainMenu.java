@@ -14,7 +14,10 @@ public class ControllerMainMenu {
 		
 	}
 	
-	public void tutorial(HowToPlay t) {
+	public MenuGui tutorial(MainMenu t) {
+		t.setVisible(false);
+		return new MenuGui(new HowToPlay());
+		
 		
 	}
 	

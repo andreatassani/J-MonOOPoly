@@ -1,22 +1,8 @@
 package view.menu;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.Optional;
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JComponent;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 /**
  * 
@@ -28,6 +14,7 @@ public class NewGameMenu extends JFrame {
  * New Game menu fields.
  */
 	private static final long serialVersionUID = -1351952748912231272L;
+	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static final Dimension dim = new Dimension(400,50);
@@ -121,6 +108,15 @@ public class NewGameMenu extends JFrame {
 		center.add(back);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
+		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.pack();
+		this.setMaximumSize(d);
+		this.setMinimumSize(d);
+		this.setPreferredSize(d);
+		this.setSize(d);
+		this.setState(JFrame.NORMAL);
 	}
 /**
 * method for customizing a JComponent.	  

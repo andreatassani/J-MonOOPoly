@@ -12,7 +12,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-import view.history.HistoryGUI;
+
 
 public class MainExternContainer extends JFrame {
 	
