@@ -7,6 +7,7 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,12 +17,16 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
+import model.utility.NumPlayers;
 import model.utility.Pawns;
+import view.play.MainExternContainer;
 
 
 /**
@@ -29,67 +34,60 @@ import model.utility.Pawns;
  * class for the setting player menu.
  *
  */
-	public class SettingPlayersMenu extends JPanel {				
+	public class SettingPlayersMenu extends JFrame {				
 /**
  * SettingPlayersMenu fields.
  */
+		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		private static final Color backGround = new Color(173,238,216);
+		private static final Color button = new Color(242,59,59);
+		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);		
+		private static final Dimension dimPlayer = new Dimension(width/2,height);
+		private static final Dimension dimName = new Dimension(width/5,height/28);
+		private static final Dimension dimCombo = new Dimension(width/10,height/28);
+		private static final Dimension dimImg = new Dimension(width/4,height/2);
+		private static final Dimension dimComboColor = new Dimension((width/4)/3,height/28);
+		private static final Dimension dimNameG = new Dimension(width/3,height/28);
 		private JPanel left = new JPanel();
 		private JPanel right = new JPanel();		
 		private JPanel player1 = new JPanel();
 		private JTextField namePlayer1  = new JTextField();
 		private JComboBox color1 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn1 = new JComboBox(model.utility.Pawns.values());	
-		
+		private JComboBox pawn1 = new JComboBox(model.utility.Pawns.values());			
 		private JPanel player2 = new JPanel();
 		private JTextField namePlayer2  = new JTextField();
 		private JComboBox color2 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn2 = new JComboBox(model.utility.Pawns.values());	
-		
+		private JComboBox pawn2 = new JComboBox(model.utility.Pawns.values());			
 		private JPanel player3 = new JPanel();
 		private JTextField namePlayer3  = new JTextField();
 		private JComboBox color3 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn3 = new JComboBox(model.utility.Pawns.values());	
-		
+		private JComboBox pawn3 = new JComboBox(model.utility.Pawns.values());			
 		private JPanel player4 = new JPanel();
 		private JTextField namePlayer4  = new JTextField();
 		private JComboBox color4 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn4 = new JComboBox(model.utility.Pawns.values());
-		
+		private JComboBox pawn4 = new JComboBox(model.utility.Pawns.values());		
 		private JLabel numPlayer = new JLabel("NUMERO GIOCATORI");
 		private JButton done = new JButton("STAR GAME");
-		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
+		
 		private JPanel setPlayers = new JPanel();
-		private JPanel contentImage = new JPanel();
-		private JPanel contentButton = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
-		private Color backGround = backGround = new Color(173,238,216);
-		private Color button = new Color(242,59,59);
-		private Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);
-		
-		private static Dimension dimPlayer = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/2,
-															Toolkit.getDefaultToolkit().getScreenSize().height);
-		private static Dimension dimName = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/5,
-															Toolkit.getDefaultToolkit().getScreenSize().height/28);
-		private static Dimension dimCombo = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/10,
-															Toolkit.getDefaultToolkit().getScreenSize().height/28);
-		private static Dimension dimImg = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/4,
-															Toolkit.getDefaultToolkit().getScreenSize().height/2);
-		private static Dimension dimComboColor = new Dimension((Toolkit.getDefaultToolkit().getScreenSize().width/4)/3,
-				Toolkit.getDefaultToolkit().getScreenSize().height/28);
-		private static Dimension dimNameG = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/3,
-				Toolkit.getDefaultToolkit().getScreenSize().height/28);
+		private String[] numer = {"TWO" , "THREEE"};
+		private String due = new String("TWO");
+		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
+
 
 /**
 * constructor of the main menu.
 */					
-	public SettingPlayersMenu() {
+	public SettingPlayersMenu() {				
 /**
  * set the layout and measurements of 
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
-		this.setLayout(new BoxLayout(this, BoxLayout.X_AXIS));
+		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
 		done.setMaximumSize(dimName);
 		done.setMinimumSize(dimName);
@@ -99,6 +97,8 @@ import model.utility.Pawns;
 		done.setBackground(button);
 		done.setForeground(Color.white);
 		done.setBorder(new LineBorder(Color.WHITE,4));
+		 ActionListener al = (e)->{	
+	      };
 /**
  * i configure the size of the image.
  */		
@@ -118,6 +118,8 @@ import model.utility.Pawns;
 /**
  * i add all the panels to the main panel
  */		
+		
+		done.addActionListener(al);
 		image.add(done);
 		right.add(setPlayers);
 		right.add(image);				
@@ -128,8 +130,8 @@ import model.utility.Pawns;
 		right.setBackground(backGround);
 		setPlayers.setBackground(backGround);
 		
-		this.add(left);
-		this.add(right);	
+		this.add(left,BorderLayout.WEST);
+		this.add(right, BorderLayout.EAST);	
 	}
 /**
  * method for creating a sub-panel with customized measurements.

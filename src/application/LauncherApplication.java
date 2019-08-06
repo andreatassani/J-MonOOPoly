@@ -2,11 +2,10 @@ package application;
 
 
 
+import view.menu.HowToPlay;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
-
-
-
+import view.menu.SettingPlayersMenu;
 import view.menu.MenuGui;
 
 import view.play.MainExternContainer;
@@ -32,7 +31,7 @@ public class LauncherApplication {
 
     
 
-    	MenuGui mnply = new MenuGui();
+    	MenuGui mnply = new MenuGui(new MainMenu());
 
     	
 
