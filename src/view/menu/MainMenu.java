@@ -2,149 +2,119 @@ package view.menu;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.Graphics;
-import java.awt.GraphicsEnvironment;
 import java.awt.Image;
-import java.awt.MediaTracker;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.function.BiFunction;
-import java.util.function.Consumer;
-import java.util.function.Function;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
+import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
-
-
-
+import controller.menu.ControllerMainMenu;
 /**
  * 
- * class for the main menu.
+ * class for managing the graphics of the the main menu.
  *
  */
-	public class MainMenu extends JPanel{
+
+import controller.menu.ControllerMainMenu;
+	public class MainMenu extends JFrame {
 /**
 * MainMenu fields.
 */
-		
+		private static final long serialVersionUID = -8022354307741023282L;
+		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+		private  static final Dimension general = new Dimension(width,height/2);
+		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);
+		private static final Color backGround = new Color(173,238,216);
+		private static final Color button = new Color(242,59,59);
+		private static final Color writer = Color.white;
+		private static final Dimension dim = new Dimension(300,40);
+		private static final Dimension dimLogo = new Dimension(width/2,height/2);
 		private JLabel logo;
 		private JButton newGame;
 		private JButton tutorial;
-		private JButton settings;
-		private Dimension dim;
+		private JButton settings;		
 		private ImageIcon icon;
 		private JPanel north;
 		private JPanel south;
-		private static final int WIDTH = 300;
-		private static final int HEIGHT = 40;
-		private Dimension general;
-		private Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);
-		private Color backGround = new Color(173,238,216);
-		private Color button = new Color(242,59,59);
-		private Color writer = Color.white;
-	
-		
+		private ControllerMainMenu fun = new ControllerMainMenu();
+
 		
 		
 /**
  * constructor of the main menu.
  */
   public MainMenu() {
-	  								 
-	  this.dim = new Dimension(WIDTH,HEIGHT);
+/**
+ *declaration of the fields. 	  								 
+ */
 	  this.newGame = new JButton("New Game");
-	  this.tutorial = new JButton("Tutorial");
-	  this.settings = new JButton("Settings");
+	  this.tutorial = new JButton("How To Play");
+	  this.settings = new JButton("Audio");
 	  this.icon = new ImageIcon("res/Logo Monopoly.png");
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();
-	  this.general = new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height/2);
-	
-
-	  logo.setPreferredSize(general);
-	  logo.setSize(general);
-	  logo.setIcon(icon);
-	  newGame.setFont(f);
-	  tutorial.setFont(f);
-	  settings.setFont(f);	
-	  newGame.setForeground(writer);
-	  tutorial.setForeground(writer);
-	  settings.setForeground(writer);
-	  newGame.setBackground(button);
-	  tutorial.setBackground(button);
-	  settings.setBackground(button);
-	  newGame.setBorder(new LineBorder(Color.white,4));
-	  tutorial.setBorder(new LineBorder(Color.white,4));
-	  settings.setBorder(new LineBorder(Color.WHITE,4));
-	  south.setBackground(backGround);
-	  north.setBackground(backGround);
-	 
-	
+	  ActionListener al = (e)->{
+		 fun.newGame(this);
+		          
+      };
 /**
- * set the layout.
+ * JComponent customization.	 
  */
-	  this.setLayout(new BorderLayout());
-	  Image scaledImage = icon.getImage().getScaledInstance(Toolkit.getDefaultToolkit().getScreenSize().width/2,
-			  								Toolkit.getDefaultToolkit().getScreenSize().height/2, Image.SCALE_DEFAULT);
+	  setPreference(logo, dimLogo , null, backGround, null);
+	  Image scaledImage = icon.getImage().getScaledInstance(width/2, height/2, Image.SCALE_DEFAULT);
 	  icon.setImage(scaledImage);
-	  north.setLayout(new FlowLayout(FlowLayout.CENTER, Toolkit.getDefaultToolkit().getScreenSize().height/6,250));
-	 
-	  south.setLayout(new FlowLayout(FlowLayout.CENTER));
-	 
+	  logo.setIcon(icon);
+	  setPreference(newGame, dim , button, writer, f);
+	  setPreference(tutorial, dim, button, writer, f);
+	  setPreference(settings, dim, button, writer, f);	
+	  setPreference(north, general, backGround , backGround, f);
+	  setPreference(south, general, backGround, backGround, f);
 	  
-	  
-	  
-	 
+	  newGame.addActionListener(al);
 /**
- * imposed the measures of buttons.
+ * set the JPanel layout.
  */
-	  	newGame.setPreferredSize(dim);
-	  	tutorial.setPreferredSize(dim);
-	  	settings.setPreferredSize(dim);
-	  	logo.setPreferredSize(new Dimension(Toolkit.getDefaultToolkit().getScreenSize().width/2,Toolkit.getDefaultToolkit().getScreenSize().height/2));
-	  	
-	  	north.setPreferredSize(general);
-	  	south.setPreferredSize(general);
-	  	
+	  this.setLayout(new BorderLayout());	 	 
+	  north.setLayout(new FlowLayout(FlowLayout.CENTER, height/6,250));	 
+	  south.setLayout(new FlowLayout(FlowLayout.CENTER));	 		  	
 /**
- * added the buttons and background image to the panel.
- */
+ * added the JPanel, buttons and background image to the panel.
+ */	  		     			
+	  north.add(settings);
+	  north.add(newGame);
 	  	
-	     
-			
-		north.add(newGame);
-	  	north.add(settings);
-	  	north.add(tutorial);
-	  	
+	  	north.add(tutorial);	  	
 	  	south.add(logo);
 	  	this.add(north, BorderLayout.CENTER);
 	  	this.add(south, BorderLayout.SOUTH);
 	  	
 }
-	
-  
-
-	
-
-	
-
+/**
+ * method for customizing a JComponent.	  
+ * @param j JComponent to customize
+ * @param d JComponent size
+ * @param back JComponent background color
+ * @param write JComponent foreground color
+ * @param f JComponent font
+ * 
+ */
+  public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
+	  j.setPreferredSize(d);
+	  j.setSize(d);
+	  j.setFont(f);
+	  j.setBackground(back);
+	  j.setForeground(write);
+	  j.setBorder(new LineBorder(write,3));	  
+  		}		
 }
 	
 	
