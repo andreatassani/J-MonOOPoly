@@ -42,8 +42,8 @@ public class SouthUtilityButtons extends JPanel {
                         Random r = new Random();
                         rollDice.setEnabled(false);
                         int risultato = r.nextInt(5)+1;
-                        JOptionPane.showMessageDialog(null,"il risultato è stato:"+risultato, "Tiro del dado", 
-                                                      JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/dado"+risultato+".png "));
+                        JOptionPane.showMessageDialog(null,"il risultato è stato: "+risultato, "Tiro del dado", 
+                                                      JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Dice/dado"+risultato+".png "));
                         
                     }
                 });
