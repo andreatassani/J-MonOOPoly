@@ -8,6 +8,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComponent;
@@ -63,9 +65,12 @@ import controller.menu.ControllerMainMenu;
 	  this.north = new JPanel();
 	  this.south = new JPanel();
 	  ActionListener al = (e)->{
-		 fun.newGame(this);
+		fun.newGame(this);
 		          
       };
+     
+     
+      
 /**
  * JComponent customization.	 
  */

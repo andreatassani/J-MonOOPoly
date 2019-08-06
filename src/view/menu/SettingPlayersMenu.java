@@ -98,6 +98,10 @@ import view.play.MainExternContainer;
 		done.setForeground(Color.white);
 		done.setBorder(new LineBorder(Color.WHITE,4));
 		 ActionListener al = (e)->{	
+			 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
+				 new MenuGui(new MainExternContainer());
+			 }
+				 
 	      };
 /**
  * i configure the size of the image.
