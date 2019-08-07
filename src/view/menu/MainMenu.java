@@ -95,15 +95,8 @@ import controller.menu.ControllerMainMenu;
 	  	south.add(logo);
 	  	this.add(north, BorderLayout.CENTER);
 	  	this.add(south, BorderLayout.SOUTH);
-	  	this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-		this.pack();
-		this.setMaximumSize(d);
-		this.setMinimumSize(d);
-		this.setPreferredSize(d);
-		this.setSize(d);
-		this.setState(JFrame.NORMAL);
+	
+		
 	  	
 }
 /**

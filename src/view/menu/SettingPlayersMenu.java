@@ -79,8 +79,10 @@ import view.play.MainExternContainer;
 		done.setForeground(Color.white);
 		done.setBorder(new LineBorder(Color.WHITE,4));
 		 ActionListener al = (e)->{	
+			 this.setVisible(false);
 			 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
 				 new MenuGui(new MainExternContainer());
+				
 			 }
 				 
 	      };
@@ -117,15 +119,6 @@ import view.play.MainExternContainer;
 		
 		this.add(left,BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);	
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-		this.pack();
-		this.setMaximumSize(d);
-		this.setMinimumSize(d);
-		this.setPreferredSize(d);
-		this.setSize(d);
-		this.setState(JFrame.NORMAL);
 	}
 /**
  * method for creating a sub-panel with customized measurements.

@@ -22,8 +22,9 @@ public class MenuGui extends JFrame {
 		c.setExtendedState(JFrame.MAXIMIZED_HORIZ);
 		c.setExtendedState(JFrame.MAXIMIZED_VERT);
 		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		c.setState(JFrame.NORMAL);
 		c.setVisible(true);
-		c.setVisible(true);
+		c.setUndecorated(true);
         c.pack();
       
 	}

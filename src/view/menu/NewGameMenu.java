@@ -108,15 +108,6 @@ public class NewGameMenu extends JFrame {
 		center.add(back);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setVisible(true);
-		this.pack();
-		this.setMaximumSize(d);
-		this.setMinimumSize(d);
-		this.setPreferredSize(d);
-		this.setSize(d);
-		this.setState(JFrame.NORMAL);
 	}
 /**
 * method for customizing a JComponent.	  
