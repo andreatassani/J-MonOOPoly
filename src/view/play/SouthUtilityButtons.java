@@ -17,10 +17,13 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import model.player.ListOfPlayers;
+import model.player.Player;
+
 public class SouthUtilityButtons extends JPanel {
     
 	
-	public SouthUtilityButtons() {
+	public SouthUtilityButtons(ListOfPlayers listPl) {
 		this.setLayout(new GridLayout());
 		
 		JButton rollDice = new JButton("ROLL DICE");
@@ -44,7 +47,8 @@ public class SouthUtilityButtons extends JPanel {
                         int risultato = r.nextInt(5)+1;
                         JOptionPane.showMessageDialog(null,"il risultato è stato: "+risultato, "Tiro del dado", 
                                                       JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Dice/dado"+risultato+".png "));
-                        
+                        int pos = listPl.getCurrentPlayer().getPosition();
+                        listPl.getCurrentPlayer().setPosition(pos+risultato);
                     }
                 });
 		this.setBorder(new LineBorder(Color.BLACK));

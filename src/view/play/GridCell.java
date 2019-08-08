@@ -61,7 +61,7 @@ public class GridCell extends JPanel {
 		east.add(new Cell(17, "Probabilità", Color.WHITE, Optional.of("res/Cells/Probabilità.png")));
 		east.add(new PropertyCell((Property) deck.get(9)));
 		east.add(new PropertyCell((Property) deck.get(10)));
-		south.add(new Cell(20, "Parcheggio", Color.WHITE, Optional.of("res/Cells/Parcheggio.png")));
+		south.add(new Cell(30, "Polizia", Color.WHITE, Optional.of("res/Cells/Polizia.png")));
 		south.add(new PropertyCell((Property) deck.get(16)));
 		south.add(new Cell(22, "Imprevisto", Color.WHITE, Optional.of("res/Cells/Imprevisto.png")));
 		south.add(new PropertyCell((Property) deck.get(15)));
@@ -71,7 +71,7 @@ public class GridCell extends JPanel {
 		south.add(new PropertyCell((Property) deck.get(12)));
 		south.add(new Cell(28, "hera", Color.WHITE, Optional.of("res/Cells/acqua.png")));
 		south.add(new PropertyCell((Property) deck.get(11)));
-		south.add(new Cell(30, "Polizia", Color.WHITE, Optional.of("res/Cells/Polizia.png")));
+		south.add(new Cell(20, "Parcheggio", Color.WHITE, Optional.of("res/Cells/Parcheggio.png")));
 		west.add(new PropertyCell((Property) deck.get(21)));
 		west.add(new PropertyCell((Property) deck.get(20)));
 		west.add(new Cell(33, "probabilità", Color.WHITE, Optional.of("res/Cells/probabilità.png")));

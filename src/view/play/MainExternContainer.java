@@ -3,7 +3,6 @@ package view.play;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.Toolkit;
 
 import javax.swing.Box;
@@ -11,6 +10,8 @@ import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
+
+import model.player.ListOfPlayers;
 
 
 
@@ -23,7 +24,7 @@ public class MainExternContainer extends JFrame {
 	/**
 	 * @return the rightSide
 	 */
-	public MainExternContainer() {
+	public MainExternContainer(ListOfPlayers listPl) {
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -33,7 +34,7 @@ public class MainExternContainer extends JFrame {
 		leftSide.setMinimumSize(leftSideDimension);
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
-		leftSide.add(new SouthUtilityButtons(), BorderLayout.SOUTH);
+		leftSide.add(new SouthUtilityButtons(listPl), BorderLayout.SOUTH);
 		leftSide.add(new GridCell(), BorderLayout.CENTER);
 
 		
