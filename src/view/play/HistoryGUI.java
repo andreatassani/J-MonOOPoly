@@ -38,9 +38,9 @@ public class HistoryGUI extends JPanel {
 		
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
-		/*this.setMaximumSize(rightSideDimension);
-		this.setMinimumSize(rightSideDimension);
-		this.setPreferredSize(rightSideDimension);*/
+	//	this.setMaximumSize(rightSideDimension);
+	//	this.setMinimumSize(rightSideDimension);
+		this.setPreferredSize(rightSideDimension);
 		
 		this.box= new Box(BoxLayout.Y_AXIS);
 		this.scrollPanel = new JScrollPane (this.box);
@@ -77,8 +77,8 @@ public class HistoryGUI extends JPanel {
 	        gridPanel.add(upPanelLeft);
 	        gridPanel.add(upPanelRight);
 	        
-	/*  this.add(scrollPanel,BorderLayout.CENTER);
-	    this.add(gridPanel,BorderLayout.NORTH);*/
+	  this.add(scrollPanel,BorderLayout.CENTER);
+	    this.add(gridPanel,BorderLayout.NORTH);
    
 		this.setBorder(new LineBorder(Color.BLACK));
 		this.setBackground(Color.RED);

@@ -20,9 +20,9 @@ import model.allTypeOfCard.Entity;
 
 public class Cell extends JPanel {
 	
-		private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
-		private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
-		private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+		private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+		private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
+		private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 14, MainExternContainer.getLeftSide().getHeight() / 12);
 
 		private Color col;
 		private JLabel name;
@@ -78,7 +78,7 @@ public class Cell extends JPanel {
 	
 	public void mySetIcon(JButton b, String s) {
 		icon = new ImageIcon(s);
-		Image scaledImage = icon.getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT);
+		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 20, MainExternContainer.getLeftSide().getHeight() / 19, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		b.setIcon(icon);
 	}
