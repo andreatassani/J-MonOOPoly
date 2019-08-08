@@ -21,8 +21,8 @@ import model.allTypeOfCard.*;
 public class PropertyCell extends JPanel {
         
                 private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
-                private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
-                private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+                //private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
+                //private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
                 private JLabel name;
                 private JButton image;
                 private ImageIcon icon;
@@ -38,10 +38,10 @@ public class PropertyCell extends JPanel {
                 mySetSize(dim);
                 
                 if (position == 0 || position == 10 || position == 20 || position == 30) {
-                        mySetSize(dimCorner);
+                        mySetSize(dim);
                 }
                 if (position >= 11 && position<= 19 || position >= 31 && position<= 39 ) {
-                        mySetSize(dimEastWest);
+                        mySetSize(dim);
                         }
 
                 
@@ -66,15 +66,15 @@ public class PropertyCell extends JPanel {
         }
         
         public void mySetSize(Dimension d) {
-                this.setMaximumSize(d);
-                this.setMinimumSize(d);
+                //this.setMaximumSize(d);
+                //this.setMinimumSize(d);
                 this.setPreferredSize(d);
                 this.setSize(d);
         }
         
         public void mySetIcon(JButton b, String s) {
                 icon = new ImageIcon(s);
-                Image scaledImage = icon.getImage().getScaledInstance(80, 60, Image.SCALE_DEFAULT);
+                Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 20, MainExternContainer.getLeftSide().getHeight() / 19 , Image.SCALE_DEFAULT);
                 icon.setImage(scaledImage);
                 b.setIcon(icon);
         }

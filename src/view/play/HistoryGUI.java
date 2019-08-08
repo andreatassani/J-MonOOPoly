@@ -7,8 +7,11 @@ import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.TextArea;
 import java.awt.TextField;
+import java.awt.Toolkit;
 
+import javax.swing.Box;
 import javax.swing.BoxLayout;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -16,73 +19,72 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.border.LineBorder;
 
 public class HistoryGUI extends JPanel {
+	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height /2));
+	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
+	private static Dimension dim = new Dimension((int) (rightSideDimension.getSize().width), (rightSideDimension.getSize().height/7));
 	
+	private final Box box;
+	private final JScrollPane scrollPanel;
+	private final JPanel gridPanel;
+	private final JPanel upPanelLeft;
+	private final JPanel upPanelRight;
+	
+	private final JTextField history;
+    private final JTextField time;
+			
 	public HistoryGUI() {
 		
-		JPanel mainpanel = new JPanel(new BorderLayout());
-        //pannello principale
-        
-        JPanel boxpanel = new JPanel();
-        boxpanel.setLayout(new BoxLayout(boxpanel, BoxLayout.PAGE_AXIS));
-        
-        
-        
-        final JTextField textField1 = new JTextField ("A chicco");
-        final JTextField textField2 = new JTextField ("bleah");
-        final JTextField textField3 = new JTextField ("A fef");
-        final JTextField textField4 = new JTextField ("A chiccfegro");
-        final JTextField textField5 = new JTextField ("A chiccfvdscvegro");
-        final JTextField textField6 = new JTextField ("bleah");
-        final JTextField textField7 = new JTextField ("A fef");
-        final JTextField textField8 = new JTextField ("A chiccfegro");
-        final JTextField textField9 = new JTextField ("A chiccfvdscvegro");
-        
-        
-       
-         boxpanel.add(textField1);
-         boxpanel.add(textField2);
-         boxpanel.add(textField3);
-         boxpanel.add(textField4);
-         boxpanel.add(textField5);
-         boxpanel.add(textField6);
-         boxpanel.add(textField7);
-         boxpanel.add(textField8);
-         boxpanel.add(textField9);
-         
-         //prove di inserimento
-         
-        
-        final JScrollPane scroll = new JScrollPane (boxpanel); 
-        scroll . setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
-        
-      //setto la barra con scroll
-        
-        JPanel gridpanel = new JPanel(new GridLayout(1, 2));
-        JPanel uppanelleft = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        JPanel uppanelright = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-       final JTextField history = new JTextField("History");
-       final JTextField history2 = new JTextField("History");
-       
-       uppanelleft.add(history);
-       uppanelright.add(history2);
-       gridpanel.add(uppanelleft);
-       gridpanel.add(uppanelright);
-        
-       
-        mainpanel.add(gridpanel,BorderLayout.NORTH);
-        mainpanel.add(scroll,BorderLayout.CENTER);
-        
-       
+		this.setLayout(new BorderLayout());
+		this.setSize(rightSideDimension);
+	//	this.setMaximumSize(rightSideDimension);
+	//	this.setMinimumSize(rightSideDimension);
+		this.setPreferredSize(rightSideDimension);
+		
+		this.box= new Box(BoxLayout.Y_AXIS);
+		this.scrollPanel = new JScrollPane (this.box);
+		scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
+		
+		System.out.println("S" + leftSideDimension.toString());
+		System.out.println("D" +rightSideDimension.toString());
+		System.out.println("TOT " + Toolkit.getDefaultToolkit().getScreenSize().toString());
+		System.out.println("dim " + dim.toString());
+
+		
+		
+		
+		this.gridPanel = new JPanel(new GridLayout(1, 2));
+	    this.upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    this.upPanelRight = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+	    
+	    this.history = new JTextField("History");
+	    this.time = new JTextField("History");
+	    
+		
+		  
+		  final JTextField textField1 = new JTextField ("A chicco");
+	      final JTextField textField2 = new JTextField ("bleah");
+	      final JTextField textField3 = new JTextField ("A fef");
+	      final JTextField textField4 = new JTextField ("A chiccfegro");
+	      
+	      
+	      this.box.add(textField4);
+
+		
+	        upPanelLeft.add(history);
+	        upPanelRight.add(time);
+	        gridPanel.add(upPanelLeft);
+	        gridPanel.add(upPanelRight);
+	        
+	  this.add(scrollPanel,BorderLayout.CENTER);
+	    this.add(gridPanel,BorderLayout.NORTH);
+   
+		this.setBorder(new LineBorder(Color.BLACK));
+		this.setBackground(Color.RED);
     }
 		
-	/*	this.setLayout(new BorderLayout());
-		this.setBackground(Color.RED);
-		
-		TextField history = new TextField("HISTORY");
-		history.setEnabled(false);
-		this.add(history, BorderLayout.NORTH);
-		this.setBorder(new LineBorder(Color.BLACK));
-		*/
+	
 		
 	
 

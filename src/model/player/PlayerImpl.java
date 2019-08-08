@@ -22,12 +22,15 @@ public class PlayerImpl implements Player {
     private static final int BANK_AMOUNT = 5500;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
+    private int position;
     
     public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
         this.name = name;
+        this.position = 0;
         this.color = color;
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
+        this.position = 0;
     }
 /**
  * {@inheritDoc}
@@ -35,6 +38,13 @@ public class PlayerImpl implements Player {
  */
     public String getName() {
         return this.name;
+    }
+/**
+ * 
+ * {@inheritDoc}
+ */
+    public int getPosition() {
+        return this.position;
     }
 /**
  * 
@@ -57,6 +67,13 @@ public class PlayerImpl implements Player {
     public void setMoney(int money) {
     this.money += money;
 }
+/**
+ * {@inheritDoc}
+ * 
+ */
+    public void setPosition(int pos) {
+    	this.position = pos;
+    }
 /**
  * {@inheritDoc}
  * 
@@ -88,7 +105,7 @@ public int getStopTurns() {
  * {@inheritDoc}
  * 
  */
-public void buyProperty(Property property, Player pl) {
+public void buyProperty(Property property, PlayerImpl pl) {
     this.setMoney(-property.getPrice());
     this.properties.add(property);
     pl.setMoney(property.getPrice());

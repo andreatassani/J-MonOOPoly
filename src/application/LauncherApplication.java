@@ -32,11 +32,14 @@ public class LauncherApplication {
     
 
 
+    	
 
-    	MenuGui mnply = new MenuGui(new MainMenu());
+   MenuGui mnply = new MenuGui(new MainMenu());
+    	
+
     	
     	
-    	
+
 
 
 
