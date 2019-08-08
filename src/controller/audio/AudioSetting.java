@@ -7,28 +7,26 @@ import model.utility.Music;
  * interface for setting section methods.
  *
  */
+/**
+ * It represents a sound.
+ */
 public interface AudioSetting {
+
 /**
- * @return true if the audio is active.
+ * Plays a sound if it's stopped.
  */
-boolean isOn();
+    void play();
+
 /**
-*
-* @param audio
-*            the audio to play.
-*/
-void play(Music audio);
-/**
- * 
- * @param volume
- *            the volume level to set.
+ * Stops a sound.
  */
-void setVolume(int volume);
+    void stop();
+
 /**
-*
-* @param audio
-*            the audio to stop.
-*/
-void stop(Music audio);
+ * Gets the sound state.
+ *
+ * @return true if sound is playing, otherwise false
+     */
+    boolean isPlaying();
 
 }

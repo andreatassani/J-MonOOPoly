@@ -1,31 +1,13 @@
 package view.menu;
 
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.Image;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.menu.ControllerMainMenu;
+import controller.menu.ControllerSettingPlayersMenu;
 import model.utility.NumPlayers;
-import model.utility.Pawns;
 import view.play.MainExternContainer;
 
 
@@ -34,7 +16,7 @@ import view.play.MainExternContainer;
  * class for the setting player menu.
  *
  */
-	public class SettingPlayersMenu extends JFrame {				
+	public class SettingPlayersMenu extends JFrame{				
 /**
  * SettingPlayersMenu fields.
  */
@@ -42,6 +24,7 @@ import view.play.MainExternContainer;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 		private static final Color backGround = new Color(173,238,216);
 		private static final Color button = new Color(242,59,59);
+		private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);		
 		private static final Dimension dimPlayer = new Dimension(width/2,height);
 		private static final Dimension dimName = new Dimension(width/5,height/28);
@@ -69,15 +52,14 @@ import view.play.MainExternContainer;
 		private JComboBox pawn4 = new JComboBox(model.utility.Pawns.values());		
 		private JLabel numPlayer = new JLabel("NUMERO GIOCATORI");
 		private JButton done = new JButton("STAR GAME");
-		
+		private JButton back = new JButton("BACK");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
 		private String[] numer = {"TWO" , "THREEE"};
 		private String due = new String("TWO");
 		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
-
-
+		private ControllerSettingPlayersMenu action;
 /**
 * constructor of the main menu.
 */					
@@ -87,24 +69,38 @@ import view.play.MainExternContainer;
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
+		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
 		done.setMaximumSize(dimName);
 		done.setMinimumSize(dimName);
 		image.setPreferredSize(dimPlayer);
-		done.setSize(dimName);
-		done.setFont(f);
-		done.setBackground(button);
-		done.setForeground(Color.white);
-		done.setBorder(new LineBorder(Color.WHITE,4));
+		setPreference(done, dimName, button, Color.WHITE, f);
+		setPreference(back, dimName, button, Color.WHITE, f);
+		back.setMaximumSize(dimName);
+		back.setMinimumSize(dimName);
+/**
+ * actionlistener
+ */
 		 ActionListener al = (e)->{	
+			 action.backNewGame(this);			 
 	      };
+	      ActionListener bl = (e)->{	
+	    	  this.setVisible(false);
+				 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
+					 new MenuGui(new MainExternContainer());
+					 
+				 }
+				 
+		      };
+	    
 /**
  * i configure the size of the image.
  */		
 		Image scaledImage = icon.getImage().getScaledInstance(dimImg.width, dimImg.height, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		image.setIcon(icon);
+		
 /**
  * i create panels for customizing the game.
  */
@@ -119,16 +115,19 @@ import view.play.MainExternContainer;
  * i add all the panels to the main panel
  */		
 		
-		done.addActionListener(al);
-		image.add(done);
+		done.addActionListener(bl);	
+		back.addActionListener(al);
+		image.add(done);		
 		right.add(setPlayers);
 		right.add(image);				
 		left.add(player1);
 		left.add(player2);
 		left.add(player3);
-		left.add(player4);	
+		left.add(player4);
+		right.add(back);
 		right.setBackground(backGround);
 		setPlayers.setBackground(backGround);
+		
 		
 		this.add(left,BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);	
@@ -191,6 +190,24 @@ import view.play.MainExternContainer;
 		p.add(n);
 		
 	}
+	
+/**
+* method for customizing a JComponent.	  
+* @param j JComponent to customize
+* @param d JComponent size
+* @param back JComponent background color
+* @param write JComponent foreground color
+* @param f JComponent font
+* 
+ */
+	  public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
+		  j.setPreferredSize(d);
+		  j.setSize(d);
+		  j.setFont(f);
+		  j.setBackground(back);
+		  j.setForeground(write);
+		  j.setBorder(new LineBorder(write,3));	  
+	  		}
 	
 
 	
