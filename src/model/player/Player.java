@@ -63,8 +63,17 @@ void buyProperty(Property2 property, Player pl);
  * 
  */
 void removeProperty(Property2 property);
-
-
+/**
+ * @param player
+ * set the position of the current player.
+ * 
+ */
+void setPosition(int pos);
+/**
+ * 
+ * @return the current player position.
+ */
+int getPosition();
 
 
 }

@@ -7,25 +7,23 @@ public class HistoryImpl implements History {
 
 	@Override
 	public void printPositionPlayer(Player player) {
-		// TODO Auto-generated method stub
-		
+		System.out.println("" + player.getName() + " è finito nella casella numero " + player.getPosition() + "");
 	}
 
 	@Override
 	public void printStartGame() {
-		// TODO Auto-generated method stub
-		
+		System.out.println("La partita è iniziata! Buona fortuna a tutti");
 	}
 
 	@Override
 	public void buyPropriety(Player player, Entity entity) {
-		// TODO Auto-generated method stub
+		System.out.println("" + player.getName() + " ha comprato la proprietà " + entity.getName() +"");
 		
 	}
 
 	@Override
 	public void startTurn(Player player) {
-		// TODO Auto-generated method stub
+		System.out.println("E' il turno di " + player.getName());
 		
 	}
 }
