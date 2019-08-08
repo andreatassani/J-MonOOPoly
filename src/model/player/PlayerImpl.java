@@ -15,7 +15,6 @@ public class PlayerImpl implements Player {
 /**
  * player fields.
  */
-	private int position;
     private String name;
     private Colors color;
     private Pawns pawns;
@@ -32,14 +31,6 @@ public class PlayerImpl implements Player {
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
         this.position = 0;
-    }
-    
-    public int getPosition() {
-        return this.position;
-    }
-    
-    public void setPosition(int pos) {
-        this.position = pos;
     }
 /**
  * {@inheritDoc}
