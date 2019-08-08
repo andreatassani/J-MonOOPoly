@@ -1,17 +1,32 @@
 package model.player;
 
-public interface ListOfPlayers {
+import java.util.ArrayList;
+
+public class ListOfPlayers {
 	
+    ArrayList<Player> listOfPlayers = new ArrayList<>();
+    private int numberOfPlayers;
 	
-	
-   Player getPlayer (int index);
+   Player getPlayer (int index) {
+       return listOfPlayers.get(index);
+   }
    
+   void addPlayer(Player pl) {
+       listOfPlayers.add(pl);
+       this.numberOfPlayers+=1;
+   }
+   void addBank(Player pl) {
+       listOfPlayers.add(4, pl);
+   }
    
-   void addPlayer(Player player);
+   void removePlayer(int index) {
+       listOfPlayers.remove(index);
+       this.numberOfPlayers-=1;
+   }
    
-   void removePlayer(int index);
-   
-   int getNumberPlayer();
+   int getNumberPlayer() {
+       return this.numberOfPlayers;
+   }
    
 
 }
