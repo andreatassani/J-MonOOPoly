@@ -6,6 +6,9 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.audio.AudioMenager;
+import controller.audio.AudioSetting;
+import controller.audio.AudioSettingImpl;
 import controller.menu.ControllerMainMenu;
 /**
  * 
@@ -36,10 +39,8 @@ import controller.menu.ControllerMainMenu;
 		private ImageIcon icon;
 		private JPanel north;
 		private JPanel south;
-		private ControllerMainMenu fun = new ControllerMainMenu();
-
-		
-		
+		private ControllerMainMenu action;	
+		private AudioMenager clip;
 /**
  * constructor of the main menu.
  */
@@ -47,6 +48,8 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
+	  this.clip = new AudioMenager();
+	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
 	  this.settings = new JButton("Audio");
@@ -54,16 +57,15 @@ import controller.menu.ControllerMainMenu;
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();
+/**
+ * a
+ */
 	  ActionListener al = (e)->{
-		fun.newGame(this);		          
+		action.newGame(this);		          
       };
 	  ActionListener bl = (e)->{
-		fun.tutorial(this);	          
-      };
-     
-     
-     
-      
+		action.tutorial(this);	          
+      };           
 /**
  * JComponent customization.	 
  */
@@ -75,8 +77,7 @@ import controller.menu.ControllerMainMenu;
 	  setPreference(tutorial, dim, button, writer, f);
 	  setPreference(settings, dim, button, writer, f);	
 	  setPreference(north, general, backGround , backGround, f);
-	  setPreference(south, general, backGround, backGround, f);
-	  
+	  setPreference(south, general, backGround, backGround, f);	  
 	  newGame.addActionListener(al);
 	  tutorial.addActionListener(bl);
 /**
@@ -87,17 +88,15 @@ import controller.menu.ControllerMainMenu;
 	  south.setLayout(new FlowLayout(FlowLayout.CENTER));	 		  	
 /**
  * added the JPanel, buttons and background image to the panel.
- */	  		     			
+ */	  	
+	  clip.getMusicSound().play();
 	  north.add(settings);
-	  north.add(newGame);
-	  	
-	  	north.add(tutorial);	  	
-	  	south.add(logo);
-	  	this.add(north, BorderLayout.CENTER);
-	  	this.add(south, BorderLayout.SOUTH);
-	
-		
-	  	
+	  north.add(newGame);	  	
+	  north.add(tutorial);	  	
+	  south.add(logo);
+	  this.add(north, BorderLayout.CENTER);
+	  this.add(south, BorderLayout.SOUTH);	
+	  
 }
 /**
  * method for customizing a JComponent.	  

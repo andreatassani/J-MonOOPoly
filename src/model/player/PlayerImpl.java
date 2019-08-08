@@ -2,7 +2,7 @@ package model.player;
 
 import java.util.ArrayList;
 
-import model.allTypeOfCard.Property2;
+import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
 /**
@@ -21,7 +21,7 @@ public class PlayerImpl implements Player {
     private int money;
     private static final int BANK_AMOUNT = 5500;
     private int stopTurns = 0;
-    private ArrayList<Property2> properties = new ArrayList<>();
+    private ArrayList<Property> properties = new ArrayList<>();
     
     public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
         this.name = name;
@@ -34,21 +34,21 @@ public class PlayerImpl implements Player {
  * 
  */
     public String getName() {
-        return name;
+        return this.name;
     }
 /**
  * 
  * {@inheritDoc}
  */
     public Colors getColors() {
-        return color;
+        return this.color;
     }
 /**
  * {@inheritDoc}
  * 
  */
     public Pawns getPawn() {
-        return pawns;
+        return this.pawns;
     }
 /**
  * {@inheritDoc}
@@ -88,7 +88,7 @@ public int getStopTurns() {
  * {@inheritDoc}
  * 
  */
-public void buyProperty(Property2 property, Player pl) {
+public void buyProperty(Property property, Player pl) {
     this.setMoney(-property.getPrice());
     this.properties.add(property);
     pl.setMoney(property.getPrice());
@@ -98,7 +98,11 @@ public void buyProperty(Property2 property, Player pl) {
  * {@inheritDoc}
  * 
  */
-public void removeProperty(Property2 property) {
+public void removeProperty(Property property) {
     this.properties.remove(property);
 }
+
+
+
+
 }

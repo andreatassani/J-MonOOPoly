@@ -1,5 +1,6 @@
 package view.menu;
 
+import java.awt.Dimension;
 import java.awt.Toolkit;
 import javax.swing.*;
 /**
@@ -11,7 +12,8 @@ public class MenuGui extends JFrame {
 /**
  * frame settings
  */
-	
+	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
+
 	public MenuGui(JFrame c) {
 		super();
 
@@ -23,8 +25,11 @@ public class MenuGui extends JFrame {
 		c.setExtendedState(JFrame.MAXIMIZED_VERT);
 		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		c.setState(JFrame.NORMAL);
+		c.setMaximumSize(d);
+		c.setMinimumSize(d);
+		c.setPreferredSize(d);
+		c.setSize(d);
 		c.setVisible(true);
-		c.setUndecorated(true);
         c.pack();
       
 	}

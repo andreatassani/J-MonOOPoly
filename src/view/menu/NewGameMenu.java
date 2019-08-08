@@ -4,6 +4,8 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+
+import controller.menu.ControllerNewGameMenu;
 /**
  * 
  * class for the managing the graphics new game menu.
@@ -36,7 +38,7 @@ public class NewGameMenu extends JFrame {
 //	private JButton start;	
 	private ImageIcon icon;
 	private JButton back;
-	private SettingPlayersMenu menu = new SettingPlayersMenu();
+	private ControllerNewGameMenu action;
 /**
  * constructor of the New game menu.
  */
@@ -44,10 +46,10 @@ public class NewGameMenu extends JFrame {
 /**
  * declaration of the fields.	
  */
+		this.action = new ControllerNewGameMenu();
 		this.players = new JButton("Players");
 		this.music = new JLabel("Music");
 		this.currency = new JLabel("Currency");
-//		this.start = new JButton("Start Game");
 		this.title = new JLabel("MAIN MENU");
 		this.back = new JButton("Back");
 		this.icon = new ImageIcon("res/mr-monopoly2.png");
@@ -57,6 +59,7 @@ public class NewGameMenu extends JFrame {
 		this.center = new JPanel();			
 		this.imageRight = new JLabel();
 		this.imageLeft = new JLabel();
+		
 /**
  * JComponent customization.
  */
@@ -67,7 +70,6 @@ public class NewGameMenu extends JFrame {
 		setPreference(choiseCurrency, dim, mainColor, Color.black, font);
 		setPreference(choiseMusic, dim, mainColor, Color.black, font);
 		setPreference(currency, dim, mainColor, Color.black, font);
-//		setPreference(start, dim, button, lineColor, font);
 		setPreference(back, dim, button, lineColor, font);
 		title.setFont(new Font("Cooper Black",Font.CENTER_BASELINE,70));		
 		center.setBackground(mainColor);		
@@ -76,14 +78,15 @@ public class NewGameMenu extends JFrame {
 		imageLeft.setIcon(icon);
 		Image scaledImage = icon.getImage().getScaledInstance(width/7,height/4, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);	
+/**
+ * 
+ */
 		 ActionListener al = (e)->{
-			 this.setVisible(false);
-			 new MenuGui(new MainMenu());			          
+			 action.back(this);          
 	      };
 	      ActionListener bl = (e)->{
-				 this.setVisible(false);
-				 this.setEnabled(false);
-				 new MenuGui(menu);			          
+	    	  action.players(this);
+	          
 		      };
 /**
  *set the JPanel layout.
@@ -104,7 +107,6 @@ public class NewGameMenu extends JFrame {
 		center.add(choiseMusic);
 		center.add(choiseCurrency);
 		center.add(players);		
-//		center.add(start);
 		center.add(back);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);

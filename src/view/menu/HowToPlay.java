@@ -4,15 +4,17 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+
+import controller.menu.ControllerMainMenu;
+import controller.menu.ControllerNewGameMenu;
 /**
  * 
- * @author user
+ * class for tutorial management.
  *
  */
-
 public class HowToPlay extends JFrame {
 /**
- * 
+ * HowToPlay fields.
  */
 	private static final long serialVersionUID = -8050329563867823166L;
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
@@ -26,46 +28,47 @@ public class HowToPlay extends JFrame {
 	private JLabel img;
 	private ImageIcon icon;
 	private JButton back;
+	private ControllerNewGameMenu action;
 /**
- * 	
+ * builder of howToPlay.	
  */
 	public HowToPlay() {
 /**
- * 	 
+ * declaration of the fields. 
  */
+	 this.action = new ControllerNewGameMenu();
 	 this.general = new JPanel();
 	 this.img = new JLabel();
 	 this.icon = new ImageIcon("res/howToPlay.png");
 	 this.back = new JButton("Back");
 /**
- * 	 
+ * Actionlistener that allows you to return
+ * to the previous menu. 
  */
 	 ActionListener al = (e)->{
-		this.setVisible(false);
-		new MenuGui(new MainMenu());
+		 action.back(this);
      };
 /**
- *      
+ *i set the size of the background image, the JComponents that 
+ *contain it.     
  */	
 	 Image scaledImage = icon.getImage().getScaledInstance(width, height, Image.SCALE_DEFAULT);
 	 img.setIcon(icon);
 	 img.setSize(this.getSize());
 	 general.setSize(this.getSize());
-	 general.add(img);
-	 back.addActionListener(al);
+/**
+ *imposed the esthetic customizations
+ *of the JComponents.  	 
+ */	 
 	 setPreference(back, dim, button, Color.black, f);
 	 general.setBackground(backGround);
+/**
+ *i add JComponents to the frame.
+ */	 
+	 back.addActionListener(al);
+	 general.add(img);
 	 this.add(general, BorderLayout.CENTER);
-	 this.add(back, BorderLayout.SOUTH);
-	 this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-	 this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-	 this.setVisible(true);
-	 this.pack();
-	 this.setMaximumSize(d);
-	 this.setMinimumSize(d);
-	 this.setPreferredSize(d);
-	 this.setSize(d);
-	 this.setState(JFrame.NORMAL);
+	 this.add(back, BorderLayout.SOUTH);	 	 
 	}
 /**
 * method for customizing a JComponent.	  
