@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.audio.AudioManager;
 import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerSettingPlayersMenu;
 import model.utility.NumPlayers;
@@ -60,6 +61,7 @@ import view.play.MainExternContainer;
 		private String due = new String("TWO");
 		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
+		
 /**
 * constructor of the main menu.
 */					
@@ -128,6 +130,7 @@ import view.play.MainExternContainer;
 		right.setBackground(backGround);
 		setPlayers.setBackground(backGround);
 		
+
 		
 		this.add(left,BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);	

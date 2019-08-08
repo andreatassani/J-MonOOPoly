@@ -23,7 +23,7 @@ public class HowToPlay extends JFrame {
 	private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,40);
 	private static final Color backGround = new Color(173,238,216);
 	private static final Color button = new Color(236,28,36);
-	private static final Dimension dim = new Dimension(300,40);	
+	private static final Dimension dim = new Dimension(width/6,height/20);	
 	private JPanel general;
 	private JLabel img;
 	private ImageIcon icon;

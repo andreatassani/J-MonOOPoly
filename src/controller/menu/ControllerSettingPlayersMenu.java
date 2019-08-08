@@ -20,6 +20,7 @@ public class ControllerSettingPlayersMenu {
 	
 	public MenuGui backNewGame(JFrame b) {
 		b.setVisible(false);
+		
 		return new MenuGui(new NewGameMenu());
 	}	
 

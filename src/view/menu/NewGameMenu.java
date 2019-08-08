@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
 /**
  * 
@@ -19,7 +20,7 @@ public class NewGameMenu extends JFrame {
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-	private static final Dimension dim = new Dimension(400,50);
+	private static final Dimension dim = new Dimension(width/6 ,height/20);
 	private static final Dimension dimPanel  = new Dimension(width/2,height/4);
 	private static final Font font = new Font("Cooper Black",Font.CENTER_BASELINE,50);
 	private static final Color mainColor  = new Color(173,238,216);
@@ -39,6 +40,8 @@ public class NewGameMenu extends JFrame {
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
+	private AudioManager clip = new AudioManager();
+	
 /**
  * constructor of the New game menu.
  */
@@ -82,12 +85,15 @@ public class NewGameMenu extends JFrame {
  * 
  */
 		 ActionListener al = (e)->{
-			 action.back(this);          
+			 action.back(this);
+			 clip.getPopMusic().stop();
 	      };
 	      ActionListener bl = (e)->{
-	    	  action.players(this);
-	          
+	    	  sceltamusica();
+	    	  action.players(this);	          
 		      };
+		      
+		      
 /**
  *set the JPanel layout.
  */
@@ -108,6 +114,13 @@ public class NewGameMenu extends JFrame {
 		center.add(choiseCurrency);
 		center.add(players);		
 		center.add(back);
+		
+		if(MainMenu.getTextButton() == "Audio On") {
+			clip.getPopMusic().stop();
+			}else {
+				clip.getPopMusic().play();
+			}
+	
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
 	}
@@ -128,5 +141,12 @@ public class NewGameMenu extends JFrame {
 	j.setForeground(write);
 	j.setBorder(new LineBorder(write,3));	  
 	  		}
+ 
+	public void sceltamusica() {
+	if(choiseMusic.getSelectedItem().equals(model.utility.Music.ROCK)){
+		clip.getPopMusic().stop();
+		clip.getMusicMenu().play();
+	}
+	}
 
 }

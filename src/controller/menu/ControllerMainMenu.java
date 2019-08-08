@@ -1,7 +1,9 @@
 package controller.menu;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 
+import controller.audio.AudioManager;
 import view.menu.HowToPlay;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
@@ -24,7 +26,16 @@ public class ControllerMainMenu {
 	
 
 	
-	public void Audio( ) {
+	public void Audio(AudioManager clip , JButton settings ) {
+		if(clip.getPopMusic().isPlaying()) {
+    		clip.getPopMusic().stop();
+    		settings.setText("Audio On");
+    	}else
+    	{
+    		clip.getPopMusic().play();
+    		settings.setText("Audio Off");
+    		
+    	}
 		
 	}
 }

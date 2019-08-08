@@ -3,12 +3,17 @@ package view.menu;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.io.File;
+import java.sql.Time;
+import java.util.*;
+import java.util.Timer;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import controller.audio.AudioMenager;
+import controller.audio.AudioManager;
 import controller.audio.AudioSetting;
 import controller.audio.AudioSettingImpl;
+import controller.audio.MyTask;
 import controller.menu.ControllerMainMenu;
 /**
  * 
@@ -30,17 +35,20 @@ import controller.menu.ControllerMainMenu;
 		private static final Color backGround = new Color(173,238,216);
 		private static final Color button = new Color(242,59,59);
 		private static final Color writer = Color.white;
-		private static final Dimension dim = new Dimension(300,40);
+		private static final Dimension dim = new Dimension(width/6,height/20);
 		private static final Dimension dimLogo = new Dimension(width/2,height/2);
 		private JLabel logo;
 		private JButton newGame;
 		private JButton tutorial;
-		private JButton settings;		
+		private static JButton settings;		
 		private ImageIcon icon;
 		private JPanel north;
 		private JPanel south;
 		private ControllerMainMenu action;	
-		private AudioMenager clip;
+		private AudioManager clip;
+		Timer timer = new Timer();
+		
+		
 /**
  * constructor of the main menu.
  */
@@ -48,24 +56,34 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
-	  this.clip = new AudioMenager();
+	  this.clip = new AudioManager();
 	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
-	  this.settings = new JButton("Audio");
+	  this.settings = new JButton("Audio Off");
 	  this.icon = new ImageIcon("res/Logo Monopoly.png");
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();
+	  
+
+	  
+	 // MyTask task = new MyTask();
+	  
+	 // timer.schedule(task, 0, 10000);
 /**
  * a
  */
 	  ActionListener al = (e)->{
-		action.newGame(this);		          
+		action.newGame(this);
+		clip.getPopMusic().stop();
       };
 	  ActionListener bl = (e)->{
 		action.tutorial(this);	          
-      };           
+      }; 
+	  ActionListener cl = (e)->{
+	 action.Audio(clip, settings);
+		      };
 /**
  * JComponent customization.	 
  */
@@ -80,6 +98,8 @@ import controller.menu.ControllerMainMenu;
 	  setPreference(south, general, backGround, backGround, f);	  
 	  newGame.addActionListener(al);
 	  tutorial.addActionListener(bl);
+	  settings.addActionListener(cl);
+	  
 /**
  * set the JPanel layout.
  */
@@ -89,7 +109,8 @@ import controller.menu.ControllerMainMenu;
 /**
  * added the JPanel, buttons and background image to the panel.
  */	  	
-	  clip.getMusicSound().play();
+	 	  
+	  clip.getPopMusic().play();
 	  north.add(settings);
 	  north.add(newGame);	  	
 	  north.add(tutorial);	  	
@@ -114,7 +135,10 @@ import controller.menu.ControllerMainMenu;
 	  j.setBackground(back);
 	  j.setForeground(write);
 	  j.setBorder(new LineBorder(write,3));	  
-  		}		
+  		}
+  public static String getTextButton () {
+	  return settings.getText();
+  }
 }
 	
 	
