@@ -1,6 +1,7 @@
 package model.player;
 
 
+import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
 
@@ -50,10 +51,10 @@ public interface Player {
 	int getStopTurns();
 /**
  * @param property pl
- * removes the property from the list of the player "pl" and adds it to the list of the current player.
+ * removes the property from the list of the playerImpl "pl" and adds it to the list of the current player.
  * 
  */
-	void buyProperty(Property property, Player pl);
+	void buyProperty(Property property, PlayerImpl pl);
 /**
  * @param property
  * removes the property from the list of the current player.
