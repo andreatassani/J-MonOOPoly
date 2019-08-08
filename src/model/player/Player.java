@@ -60,9 +60,24 @@ public interface Player {
  * removes the property from the list of the current player.
  * 
  */
+<<<<<<< HEAD
+void removeProperty(Property2 property);
+/**
+ * @param player
+ * set the position of the current player.
+ * 
+ */
+void setPosition(int pos);
+/**
+ * 
+ * @return the current player position.
+ */
+int getPosition();
+=======
 	void removeProperty(Property property);
 
 
+>>>>>>> d4730b5ca0b38f5e972aa4b454b6509ac0de2f5d
 
 
 }

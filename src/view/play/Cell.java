@@ -20,9 +20,10 @@ import model.allTypeOfCard.Entity;
 
 public class Cell extends JPanel {
 	
-		private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
 		private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
 		private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+		private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
+
 		private Color col;
 		private JLabel name;
 		private JButton image;

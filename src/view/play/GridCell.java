@@ -28,6 +28,7 @@ public class GridCell extends JPanel {
 	public GridCell() {
 	    final ArrayList<Entity> deck = new EntityDeck().getDeck();
 		this.setLayout(new BorderLayout());
+		this.setPreferredSize(MainExternContainer.getLeftSide().getPreferredSize());
 		
 		Box north = new Box(BoxLayout.X_AXIS);
 		Box south = new Box(BoxLayout.X_AXIS);
