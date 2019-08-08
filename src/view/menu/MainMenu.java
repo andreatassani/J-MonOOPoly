@@ -6,9 +6,7 @@ import java.io.File;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import controller.audio.AudioMenager;
-import controller.audio.AudioSetting;
-import controller.audio.AudioSettingImpl;
+
 import controller.menu.ControllerMainMenu;
 /**
  * 
@@ -40,7 +38,7 @@ import controller.menu.ControllerMainMenu;
 		private JPanel north;
 		private JPanel south;
 		private ControllerMainMenu action;	
-		private AudioMenager clip;
+		
 /**
  * constructor of the main menu.
  */
@@ -48,7 +46,7 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
-	  this.clip = new AudioMenager();
+	  
 	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
@@ -89,7 +87,7 @@ import controller.menu.ControllerMainMenu;
 /**
  * added the JPanel, buttons and background image to the panel.
  */	  	
-	  clip.getMusicSound().play();
+	  
 	  north.add(settings);
 	  north.add(newGame);	  	
 	  north.add(tutorial);	  	

@@ -7,6 +7,7 @@ import javax.swing.border.LineBorder;
 
 import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerSettingPlayersMenu;
+import model.player.ListOfPlayers;
 import model.utility.NumPlayers;
 import view.play.MainExternContainer;
 
@@ -60,6 +61,7 @@ import view.play.MainExternContainer;
 		private String due = new String("TWO");
 		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
+		private ListOfPlayers list = new ListOfPlayers();
 /**
 * constructor of the main menu.
 */					
@@ -88,7 +90,7 @@ import view.play.MainExternContainer;
 	      ActionListener bl = (e)->{	
 	    	  this.setVisible(false);
 				 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
-					 new MenuGui(new MainExternContainer());
+					 new MenuGui(new MainExternContainer(list));
 					 
 				 }
 				 
