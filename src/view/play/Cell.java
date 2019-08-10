@@ -41,14 +41,14 @@ public class Cell extends JPanel {
 		name = new JLabel("" + s, SwingConstants.CENTER);
 		name.setBackground(c);
 		this.setLayout(new BorderLayout());
-//		mySetSize(dim);
+		mySetSize(dim);
 		
-//		if (i == 0 || i == 10 || i == 20 || i == 30) {
-//			mySetSize(dimCorner);
-//		}
-//		if (i >= 11 && i<= 19 || i >= 31 && i<= 39 ) {
-//			mySetSize(dimEastWest);
-//			}
+		if (i == 0 || i == 10 || i == 20 || i == 30) {
+			mySetSize(dimCorner);
+		}
+		if (i >= 11 && i<= 19 || i >= 31 && i<= 39 ) {
+			mySetSize(dimEastWest);
+			}
 
 		
 		this.setBackground(c);

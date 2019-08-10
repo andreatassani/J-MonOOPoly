@@ -19,6 +19,5 @@ public class EvtCell implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
            ShowImages.nonPropertyMessage(nomeCasella);
-       
     }
 }

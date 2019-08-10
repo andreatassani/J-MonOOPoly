@@ -12,23 +12,29 @@ public class ShowImages {
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+rgb+".png"));
     }
     public static void nonPropertyMessage(String name) {
+        if(name.equals("Station N")||
+           name.equals("Station E")||
+           name.equals("Station S")||
+           name.equals("Station O")){
+           name = "Station";
+             }
         JOptionPane.showMessageDialog(null,null,null,
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+name+".png"));
     }
     public static String propertyCell(int rgb) {
-        return Optional.of("res/Cells/città"+rgb+".png").get();
+        return Optional.of("res/Cells/"+rgb+".png").get();
     }
     public static Optional<String> nonPropertyCell(String name) {
-        if(name.equals("stazione N")||
-           name.equals("stazione E")||
-           name.equals("stazione S")||
-           name.equals("stazione O")){
-            name = "Stazione";
+        if(name.equals("Station N")||
+           name.equals("Station E")||
+           name.equals("Station S")||
+           name.equals("Station O")){
+            name = "Station";
         }
         return Optional.of("res/Cells/"+name+".png");
     }
     public static void dice(int result) {
-        JOptionPane.showMessageDialog(null,"il risultato è stato: "+result, "Tiro del dado", 
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Dice/dado"+result+".png "));
+        JOptionPane.showMessageDialog(null,"Result of the roll: "+result, "Dice", 
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Dice/"+result+".png "));
     }
 }
