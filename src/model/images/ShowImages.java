@@ -5,8 +5,12 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
-public class ShowImages {
+public final class ShowImages {
 
+    private ShowImages() {
+        
+    }
+    
     public static void propertyMessage(String ownerName, int numberHouses, String propertyName, int rgb){
         JOptionPane.showMessageDialog(null,"Owner:"+ownerName+"\nNumber of houses:"+numberHouses,propertyName,
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+rgb+".png"));

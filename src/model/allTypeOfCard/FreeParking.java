@@ -32,4 +32,12 @@ public class FreeParking implements Entity {
 	public Optional action() {
 		return Optional.empty();
 	}
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+    @Override
+    public boolean isSalable() {
+        return false;
+    }
 }

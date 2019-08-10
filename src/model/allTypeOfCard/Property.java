@@ -24,22 +24,22 @@ public class Property implements Entity {
         this.name = name;
         this.color = color;
         this.ownerName = "bank";
-        if(color == Color.CYAN) {
+        if(color == Color.PINK) {
+            this.price = 60;
+        } else if(color == Color.ORANGE) {
             this.price = 100;
+        } else if(color == Color.MAGENTA) {
+            this.price = 140;
         } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
-        } else if(color == Color.CYAN) {
-            this.price = 100;
+            this.price = 180;
+        } else if(color == Color.RED) {
+            this.price = 220;
+        } else if(color == Color.YELLOW) {
+            this.price = 260;
+        } else if(color == Color.GREEN) {
+            this.price = 300;
+        } else if(color == Color.BLUE) {
+            this.price = 360;
         }
     }
         
@@ -105,5 +105,10 @@ public class Property implements Entity {
       //       game.currentPlayer.setMoney(-(this.price*19/10));         
       //       this.owner.setMoney(this.price*19/10); 
       //}
+    }
+
+    @Override
+    public boolean isSalable() {
+        return true;
     }
 }

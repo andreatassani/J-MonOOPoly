@@ -26,4 +26,7 @@ public interface Entity {
    * @return its action that will be done.
    */
   Optional action();
+  
+  String getOwner();
+  boolean isSalable();
 }

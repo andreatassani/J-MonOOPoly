@@ -37,5 +37,13 @@ public class Start implements Entity {
 	public Optional action() {
 		return Optional.of(this.bonus);
 	}
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+    @Override
+    public boolean isSalable() {
+        return false;
+    }
 
 }

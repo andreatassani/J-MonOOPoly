@@ -35,4 +35,12 @@ public class Tax implements Entity {
 	public Optional action() {
 		return Optional.of(this.forfeit);
 	}
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+    @Override
+    public boolean isSalable() {
+        return true;
+    }
 }

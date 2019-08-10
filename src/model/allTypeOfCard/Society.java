@@ -41,12 +41,7 @@ public class Society<X> implements Entity {
 	}
 
 
-	/**
-	 * @return the owner
-	 */
-	public X getOwner() {
-		return owner;
-	}
+	
 
 
 	/**
@@ -71,6 +66,18 @@ public class Society<X> implements Entity {
 	public void setToll(int toll) {
 		this.toll = toll;
 	}
+
+
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+
+
+    @Override
+    public boolean isSalable() {
+        return false;
+    }
 	
 
 }

@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import model.allTypeOfCard.Entity;
+import model.allTypeOfCard.EntityDeck;
 import model.images.ShowImages;
 import model.player.ListOfPlayers;
 import model.player.Player;
@@ -25,7 +27,9 @@ public class SouthUtilityButtons extends JPanel {
     
 	
 	public SouthUtilityButtons(ListOfPlayers listPl) {
+	        
 		this.setLayout(new GridLayout());
+		final ArrayList<Entity> deck = new EntityDeck().getDeck();
 		
 		JButton rollDice = new JButton("ROLL DICE");
 		JButton sell = new JButton("SELL");
@@ -41,12 +45,18 @@ public class SouthUtilityButtons extends JPanel {
 		build.setBackground(Color.lightGray);
 		nextPlayer.setBackground(Color.lightGray);
 		
+		buy.setEnabled(false);
+		sell.setEnabled(false);
+		build.setEnabled(false);
+		nextPlayer.setEnabled(false);
+		
+		
 		this.add(rollDice);
-		this.add(sell);
 		this.add(buy);
+		this.add(sell);
 		this.add(build);
-		this.add(menu);
 		this.add(nextPlayer);
+		this.add(menu);
 		
 		rollDice.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -54,10 +64,34 @@ public class SouthUtilityButtons extends JPanel {
                         rollDice.setEnabled(false);
                         int risultato = r.nextInt(6)+1;
                         ShowImages.dice(risultato);
-//                        int pos = listPl.getCurrentPlayer().getPosition();
-//                        listPl.getCurrentPlayer().setPosition(pos+risultato);
+                        int pos = listPl.getCurrentPlayer().getPosition();
+                        listPl.getCurrentPlayer().setPosition(pos+risultato);
+                        System.out.println("il giocatore"+listPl.getCurrentPlayer().getName()+"è finito sulla casella"+(pos+risultato));
+                        if(listPl.getCurrentPlayer().hasProperty(deck.get(pos+risultato))) {
+                            buy.setEnabled(false);
+                            sell.setEnabled(true);
+                        } else {
+                            if(deck.get(pos+risultato).getOwner() == "Bank" && deck.get(pos+risultato).isSalable() ) {
+                            buy.setEnabled(true);}
+                            sell.setEnabled(false);
+                        }
+                        
+                        nextPlayer.setEnabled(true);
                     }
                 });
+		nextPlayer.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        rollDice.setEnabled(true);
+                        buy.setEnabled(false);
+                        sell.setEnabled(false);
+                        build.setEnabled(false);
+                        nextPlayer.setEnabled(false);
+                        listPl.nextPlayer();
+                        System.out.println("è il turno di"+ listPl.getCurrentPlayer().getName());
+                    }
+                });
+		
+		
 		this.setBorder(new LineBorder(Color.BLACK));
 	}
 

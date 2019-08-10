@@ -35,5 +35,13 @@ public class GoToPrison implements Entity {
 	public Optional action() {
 		return Optional.of(nStopRound);
 	}
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+    @Override
+    public boolean isSalable() {
+        return false;
+    }
 
 }

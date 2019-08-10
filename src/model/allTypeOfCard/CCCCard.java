@@ -33,6 +33,16 @@ public class CCCCard implements Entity {
        //            P.setMoney(200);
        //       }
        //}
+    }
+
+    @Override
+    public String getOwner() {
+        return "Bank";
+    }
+
+    @Override
+    public boolean isSalable() {
+        return false;
     }  
 
 }
