@@ -10,14 +10,14 @@ import java.util.Timer;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-<<<<<<< HEAD
+
 import controller.audio.AudioManager;
 import controller.audio.AudioSetting;
 import controller.audio.AudioSettingImpl;
 import controller.audio.MyTask;
-=======
 
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
+
+
 import controller.menu.ControllerMainMenu;
 /**
  * 

@@ -33,8 +33,6 @@ public class MainExternContainer extends JFrame {
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 		
 		leftSide.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 1.45), Toolkit.getDefaultToolkit().getScreenSize().height);
-	//	leftSide.setMaximumSize(leftSideDimension);
-	//	leftSide.setMinimumSize(leftSideDimension);
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
 
@@ -47,8 +45,6 @@ public class MainExternContainer extends JFrame {
 
 		
 		rightSide.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - leftSide.getSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
-	//	rightSide.setMaximumSize(leftSideDimension);
-	//	rightSide.setMinimumSize(leftSideDimension);
 		rightSide.setPreferredSize(leftSideDimension);
 
 		rightSide.add(new HistoryGUI());
@@ -62,14 +58,10 @@ public class MainExternContainer extends JFrame {
 		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
-//		this.setMaximumSize(d);
-//		this.setMinimumSize(d);
-//		this.setPreferredSize(d);
-//		this.setSize(d);
 		this.setState(JFrame.MAXIMIZED_BOTH);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 
-		System.out.println(d);
+		//System.out.println(d);
 	}
 	
 	public static JPanel getLeftSide() {
