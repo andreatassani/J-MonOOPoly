@@ -6,6 +6,7 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import model.images.ShowImages;
 import model.player.Player;
 
 public class Property implements Entity {
@@ -88,8 +89,7 @@ public class Property implements Entity {
     }
     
     public void showCard() {
-        JOptionPane.showMessageDialog(null,"Owner:"+this.ownerName+"\nNumber of houses:"+this.nHouses,this.name,
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+this.color.getRGB()+".png"));
+        ShowImages.propertyMessage(this.ownerName, this.nHouses, this.name, this.color.getRGB());
     }
     
     @Override

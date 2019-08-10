@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import model.allTypeOfCard.*;
+import model.images.ShowImages;
 
 public class PropertyCell extends JPanel {
         
@@ -60,7 +61,7 @@ public class PropertyCell extends JPanel {
                 this.add(image);
                 this.setBorder(new LineBorder(Color.BLACK));
                 
-                mySetIcon(image, Optional.of("res/Cells/città"+p.getColor().getRGB()+".png").get());
+                mySetIcon(image, ShowImages.propertyCell(p.getColor().getRGB()));
                 
 
         }
