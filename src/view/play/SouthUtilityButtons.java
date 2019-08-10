@@ -30,7 +30,7 @@ public class SouthUtilityButtons extends JPanel {
 		JButton rollDice = new JButton("ROLL DICE");
 		JButton sell = new JButton("SELL");
 		JButton buy = new JButton("BUY");
-		JButton menu = new JButton("MENU'");
+		JButton menu = new JButton("MENU");
 		JButton build = new JButton("BUILD");
 		JButton nextPlayer = new JButton("NEXT PLAYER");
 		
@@ -52,7 +52,7 @@ public class SouthUtilityButtons extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         Random r = new Random();
                         rollDice.setEnabled(false);
-                        int risultato = r.nextInt(5)+1;
+                        int risultato = r.nextInt(6)+1;
                         ShowImages.dice(risultato);
 //                        int pos = listPl.getCurrentPlayer().getPosition();
 //                        listPl.getCurrentPlayer().setPosition(pos+risultato);
