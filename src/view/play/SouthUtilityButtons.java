@@ -30,15 +30,22 @@ public class SouthUtilityButtons extends JPanel {
 		JButton rollDice = new JButton("ROLL DICE");
 		JButton sell = new JButton("SELL");
 		JButton buy = new JButton("BUY");
-		JButton menù = new JButton("MENU'");
+		JButton menu = new JButton("MENU'");
 		JButton build = new JButton("BUILD");
 		JButton nextPlayer = new JButton("NEXT PLAYER");
+		
+		rollDice.setBackground(Color.lightGray);
+		sell.setBackground(Color.lightGray);
+		buy.setBackground(Color.lightGray);
+		menu.setBackground(Color.lightGray);
+		build.setBackground(Color.lightGray);
+		nextPlayer.setBackground(Color.lightGray);
 		
 		this.add(rollDice);
 		this.add(sell);
 		this.add(buy);
 		this.add(build);
-		this.add(menù);
+		this.add(menu);
 		this.add(nextPlayer);
 		
 		rollDice.addActionListener(new ActionListener() {

@@ -56,7 +56,7 @@ public class GridCell extends JPanel {
 		north.add(new PropertyCell((Property) deck.get(4)));
 		north.add(new Cell(10,"Prison", Color.WHITE));
 		east.add(new PropertyCell((Property) deck.get(5)));
-		east.add(new Cell(12, "Enel", Color.WHITE));
+		east.add(new Cell(12, "Enel", Color.GRAY));
 		east.add(new PropertyCell((Property) deck.get(6)));
 		east.add(new PropertyCell((Property) deck.get(7)));
 		east.add(new Cell(15, "Station E", Color.GRAY));
@@ -72,7 +72,7 @@ public class GridCell extends JPanel {
 		south.add(new Cell(25, "Station S", Color.GRAY));
 		south.add(new PropertyCell((Property) deck.get(13)));
 		south.add(new PropertyCell((Property) deck.get(12)));
-		south.add(new Cell(28, "Hera", Color.WHITE));
+		south.add(new Cell(28, "Hera", Color.GRAY));
 		south.add(new PropertyCell((Property) deck.get(11)));
 		south.add(new Cell(20, "Parking", Color.WHITE));
 		west.add(new PropertyCell((Property) deck.get(21)));
