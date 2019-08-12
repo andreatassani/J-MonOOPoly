@@ -5,18 +5,21 @@ package model.allTypeOfCard;
 
 import java.util.Optional;
 
+import model.player.PlayerImpl;
+
 /**
  * {@inheritDoc}.
  */
 public class Start implements Entity {
 	
-	private String name = "via";
+    private String name = "Start";
     private final int bonus = 200;
+    private PlayerImpl owner;
     /**
      * Constructor.
      */
-    public Start() {
-
+    public Start(PlayerImpl owner) {
+        this.owner = owner;
 	}
     /**
      * {@inheritDoc}
@@ -33,9 +36,16 @@ public class Start implements Entity {
     /**
      * {@inheritDoc}
      */
-	@Override
-	public Optional action() {
-		return Optional.of(this.bonus);
-	}
+    @Override
+    public boolean isSalable() {
+        return false;
+    }
+    @Override
+    public void action(PlayerImpl pl) {
+    }
+    @Override
+    public PlayerImpl getOwner() {
+        return this.owner;
+    }
 
 }

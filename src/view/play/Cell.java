@@ -16,6 +16,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import model.allTypeOfCard.Entity;
+import model.images.ShowImages;
 
 
 public class Cell extends JPanel {
@@ -31,14 +32,13 @@ public class Cell extends JPanel {
 		int position;
 		Entity card;
 		
-	public Cell(int i, String n, Color c, Optional<String> s) {
+	public Cell(int i, String s, Color c) {
 		
-
 		
 		this.col = c;
 		this.position = i;
 		
-		name = new JLabel("" + n, SwingConstants.CENTER);
+		name = new JLabel("" + s, SwingConstants.CENTER);
 		name.setBackground(c);
 		this.setLayout(new BorderLayout());
 		mySetSize(dim);
@@ -54,7 +54,7 @@ public class Cell extends JPanel {
 		this.setBackground(c);
 		image = new JButton();
 		image.setSize(60, 45);
-		image.addActionListener(new EvtCell(n));
+		image.addActionListener(new EvtCell(s));
 		
 		
 		this.add(name, BorderLayout.NORTH);
@@ -63,8 +63,8 @@ public class Cell extends JPanel {
 		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
-		if(s.isPresent()) {
-			mySetIcon(image, s.get());
+		if(ShowImages.nonPropertyCell(s).isPresent()) {
+			mySetIcon(image, ShowImages.nonPropertyCell(s).get());
 		}
 
 	}

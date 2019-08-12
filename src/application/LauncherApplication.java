@@ -2,6 +2,12 @@ package application;
 
 
 
+import java.awt.Color;
+
+import model.allTypeOfCard.EntityDeck;
+import model.player.ListOfPlayers;
+import model.player.PlayerImpl;
+import model.utility.Pawns;
 import view.menu.HowToPlay;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
@@ -28,25 +34,15 @@ public class LauncherApplication {
         /**
          * run the game
          */
-
-    
-
-
+        ListOfPlayers listPl = new ListOfPlayers();
+        listPl.addPlayer(new PlayerImpl("Fabio", Color.BLACK, Pawns.APPLE), 1);
+        listPl.addPlayer(new PlayerImpl("Andrea", Color.WHITE, Pawns.BALL), 2);
+        listPl.addPlayer(new PlayerImpl("Michele", Color.BLUE, Pawns.BIKE), 3);
+        listPl.addPlayer(new PlayerImpl("Enrico", Color.CYAN, Pawns.CAR), 4);
+        EntityDeck deck = new EntityDeck(listPl.getPlayerFromIndex(0));
     	
 
-   MenuGui mnply = new MenuGui(new MainMenu());
+   MainExternContainer mnply = new MainExternContainer(listPl, deck.getDeck());
     	
-
-    	
-    	
-
-
-
-
-    	
-
-    	
-
-
     }
 }

@@ -4,13 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import model.allTypeOfCard.Entity;
+import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
 
 
@@ -27,28 +31,25 @@ public class MainExternContainer extends JFrame {
 	/**
 	 * @return the rightSide
 	 */
-	public MainExternContainer(ListOfPlayers listPl) {
+	public MainExternContainer(ListOfPlayers listPl, ArrayList<Entity> deck) {
+	       
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 		
 		leftSide.setSize((int) (Toolkit.getDefaultToolkit().getScreenSize().width / 1.45), Toolkit.getDefaultToolkit().getScreenSize().height);
-	//	leftSide.setMaximumSize(leftSideDimension);
-	//	leftSide.setMinimumSize(leftSideDimension);
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
 
-		leftSide.add(new SouthUtilityButtons(listPl), BorderLayout.SOUTH);
-		leftSide.add(new GridCell());
+		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
+		leftSide.add(new GridCell(deck));
 
-		leftSide.add(new SouthUtilityButtons(listPl), BorderLayout.SOUTH);
-		leftSide.add(new GridCell(), BorderLayout.CENTER);
+		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
+		leftSide.add(new GridCell(deck), BorderLayout.CENTER);
 
 
 		
 		rightSide.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - leftSide.getSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
-	//	rightSide.setMaximumSize(leftSideDimension);
-	//	rightSide.setMinimumSize(leftSideDimension);
 		rightSide.setPreferredSize(leftSideDimension);
 
 		rightSide.add(new HistoryGUI());
@@ -62,14 +63,12 @@ public class MainExternContainer extends JFrame {
 		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
-//		this.setMaximumSize(d);
-//		this.setMinimumSize(d);
-//		this.setPreferredSize(d);
-//		this.setSize(d);
 		this.setState(JFrame.MAXIMIZED_BOTH);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-		System.out.println(d);
+		
+		//Da togliere
+                JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
+                        "messaggio", 0);
 	}
 	
 	public static JPanel getLeftSide() {

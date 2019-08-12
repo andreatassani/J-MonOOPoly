@@ -7,6 +7,8 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import model.images.ShowImages;
+
 public class EvtCell implements ActionListener{
 
     private String nomeCasella;
@@ -16,12 +18,6 @@ public class EvtCell implements ActionListener{
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if(nomeCasella == "Forlì") {
-            
-        }
-    else{
-           JOptionPane.showMessageDialog(null,null,null,
-               JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+nomeCasella+".png"));
-       }
+           ShowImages.nonPropertyMessage(nomeCasella);
     }
 }

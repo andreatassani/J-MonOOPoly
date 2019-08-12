@@ -2,8 +2,11 @@ package view.menu;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
 import javax.swing.*;
 import javax.swing.border.LineBorder;
+import javax.swing.text.html.parser.Entity;
 
 import controller.audio.AudioManager;
 import controller.menu.ControllerMainMenu;
@@ -62,7 +65,7 @@ import view.play.MainExternContainer;
 		private String due = new String("TWO");
 		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
-
+		private ArrayList deck;
 		private ListOfPlayers list = new ListOfPlayers();
 
 /**
@@ -74,6 +77,7 @@ import view.play.MainExternContainer;
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
+		this.deck = new ArrayList<Entity>(4);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
@@ -93,7 +97,7 @@ import view.play.MainExternContainer;
 	      ActionListener bl = (e)->{	
 	    	  this.setVisible(false);
 				 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
-					 new MenuGui(new MainExternContainer(list));
+					 new MenuGui(new MainExternContainer(list,deck));
 					 
 				 }
 				 

@@ -39,8 +39,6 @@ public class SituationGUI extends JPanel {
 		
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
-		//this.setMaximumSize(rightSideDimension);
-		//this.setMinimumSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
 
 		this.box= new Box(BoxLayout.Y_AXIS);

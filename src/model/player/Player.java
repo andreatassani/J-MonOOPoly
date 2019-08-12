@@ -1,6 +1,8 @@
 package model.player;
 
 
+import java.awt.Color;
+
 import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
@@ -20,7 +22,7 @@ public interface Player {
 * Colors creation.
 * @return the type of Colors chosen.
 */	
-	Colors getColors();
+	Color getColors();
 /**
  * Name creation.
  * @return the name chosen.
@@ -54,7 +56,7 @@ public interface Player {
  * removes the property from the list of the playerImpl "pl" and adds it to the list of the current player.
  * 
  */
-	void buyProperty(Property property, PlayerImpl pl);
+	void buyProperty(Property property);
 /**
  * @param property
  * removes the property from the list of the current player.

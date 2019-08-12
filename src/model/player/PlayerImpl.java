@@ -1,7 +1,9 @@
 package model.player;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
+import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
@@ -16,21 +18,29 @@ public class PlayerImpl implements Player {
  * player fields.
  */
     private String name;
-    private Colors color;
+    private Color color;
     private Pawns pawns;
     private int money;
-    private static final int BANK_AMOUNT = 5500;
+    private static final int BANK_AMOUNT = 8500;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;
     
-    public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
+    public PlayerImpl(final String name, final Color color, final Pawns pawns) {
         this.name = name;
         this.position = 0;
         this.color = color;
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
         this.position = 0;
+    }
+    
+    public boolean hasProperty(Entity entity) {
+        if (this.properties.contains(entity)) {
+            return true;
+        } else {
+            return false;
+        }
     }
 /**
  * {@inheritDoc}
@@ -50,7 +60,7 @@ public class PlayerImpl implements Player {
  * 
  * {@inheritDoc}
  */
-    public Colors getColors() {
+    public Color getColors() {
         return this.color;
     }
 /**
@@ -105,11 +115,13 @@ public int getStopTurns() {
  * {@inheritDoc}
  * 
  */
-public void buyProperty(Property property, PlayerImpl pl) {
+public void buyProperty(Property property) {
+    
+    PlayerImpl seller = property.getOwner();
     this.setMoney(-property.getPrice());
     this.properties.add(property);
-    pl.setMoney(property.getPrice());
-    pl.removeProperty(property);
+    seller.setMoney(property.getPrice());
+    seller.removeProperty(property);
 }
 /**
  * {@inheritDoc}
