@@ -2,6 +2,8 @@ package view.menu;
 
 import java.awt.*;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.File;
 import java.sql.Time;
 import java.util.*;
@@ -10,14 +12,12 @@ import java.util.Timer;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-<<<<<<< HEAD
+
 import controller.audio.AudioManager;
 import controller.audio.AudioSetting;
 import controller.audio.AudioSettingImpl;
-import controller.audio.MyTask;
-=======
 
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
+
 import controller.menu.ControllerMainMenu;
 /**
  * 
@@ -49,12 +49,10 @@ import controller.menu.ControllerMainMenu;
 		private JPanel north;
 		private JPanel south;
 		private ControllerMainMenu action;	
-<<<<<<< HEAD
 		private AudioManager clip;
-		Timer timer = new Timer();
 		
-=======
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
+		
+
 		
 /**
  * constructor of the main menu.
@@ -63,11 +61,8 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
-<<<<<<< HEAD
+
 	  this.clip = new AudioManager();
-=======
-	  
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
 	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
@@ -79,18 +74,17 @@ import controller.menu.ControllerMainMenu;
 	  
 
 	  
-	 // MyTask task = new MyTask();
-	  
-	 // timer.schedule(task, 0, 10000);
+
 /**
  * a
  */
 	  ActionListener al = (e)->{
-		action.newGame(this);
-		clip.getPopMusic().stop();
+	   	action.newGame(this);
+	   	clip.getMusicMenu().stop();
       };
 	  ActionListener bl = (e)->{
-		action.tutorial(this);	          
+		action.tutorial(this);
+		clip.getMusicMenu().stop();
       }; 
 	  ActionListener cl = (e)->{
 	 action.Audio(clip, settings);
@@ -120,16 +114,17 @@ import controller.menu.ControllerMainMenu;
 /**
  * added the JPanel, buttons and background image to the panel.
  */	  	
-<<<<<<< HEAD
-	 	  
-	  clip.getPopMusic().play();
-=======
+ 	  
+//	  if(clip.getPopMusic().isPlaying()) {
+//		  clip.getPopMusic().stop();}
+//	  else{clip.getPopMusic().play();
+//	  }
 	  
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
 	  north.add(settings);
 	  north.add(newGame);	  	
 	  north.add(tutorial);	  	
 	  south.add(logo);
+	  clip.getMusicMenu().play();
 	  this.add(north, BorderLayout.CENTER);
 	  this.add(south, BorderLayout.SOUTH);	
 	  
@@ -151,9 +146,15 @@ import controller.menu.ControllerMainMenu;
 	  j.setForeground(write);
 	  j.setBorder(new LineBorder(write,3));	  
   		}
+ /**
+  * 
+  * @return
+  */
   public static String getTextButton () {
 	  return settings.getText();
   }
+  
+
 }
 	
 	

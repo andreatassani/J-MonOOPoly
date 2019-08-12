@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.audio.AudioManager;
 import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerNewGameMenu;
 /**
@@ -29,6 +30,7 @@ public class HowToPlay extends JFrame {
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
+	private AudioManager clip ;
 /**
  * builder of howToPlay.	
  */
@@ -36,6 +38,7 @@ public class HowToPlay extends JFrame {
 /**
  * declaration of the fields. 
  */
+	 this.clip = new AudioManager();
 	 this.action = new ControllerNewGameMenu();
 	 this.general = new JPanel();
 	 this.img = new JLabel();
@@ -47,7 +50,10 @@ public class HowToPlay extends JFrame {
  */
 	 ActionListener al = (e)->{
 		 action.back(this);
+		 action.musicStop(MainMenu.getTextButton(), clip);
+		 clip.getMusicMenu().stop();
      };
+     action.musicStop(MainMenu.getTextButton(), clip);
 /**
  *i set the size of the background image, the JComponents that 
  *contain it.     
@@ -60,6 +66,7 @@ public class HowToPlay extends JFrame {
  *imposed the esthetic customizations
  *of the JComponents.  	 
  */	 
+
 	 setPreference(back, dim, button, Color.black, f);
 	 general.setBackground(backGround);
 /**

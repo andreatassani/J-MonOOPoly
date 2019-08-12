@@ -1,6 +1,10 @@
 package controller.menu;
 
+import java.awt.Toolkit;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.JFrame;
 
 import controller.audio.AudioManager;
@@ -13,13 +17,13 @@ public class ControllerMainMenu {
 	
 	
 	public MenuGui newGame(JFrame m) {
-		m.setVisible(false);
+		m.dispose();
 		return new MenuGui(new NewGameMenu());
 		
 	}
 	
 	public MenuGui tutorial(JFrame t) {
-		t.setVisible(false);
+		t.dispose();
 		return new MenuGui(new HowToPlay());
 				
 	}
@@ -27,15 +31,20 @@ public class ControllerMainMenu {
 
 	
 	public void Audio(AudioManager clip , JButton settings ) {
-		if(clip.getPopMusic().isPlaying()) {
-    		clip.getPopMusic().stop();
+		if(clip.getMusicMenu().isPlaying()) {
+			clip.getMusicMenu().stop();
+			clip.getHowToPlayMusic().stop();
     		settings.setText("Audio On");
-    	}else
-    	{
-    		clip.getPopMusic().play();
-    		settings.setText("Audio Off");
-    		
-    	}
-		
+  }
+	else {
+		clip.getMusicMenu().play();
+    		settings.setText("Audio Off");	
+    			}
 	}
+	
+
+	
+	
+	
+	
 }

@@ -62,11 +62,9 @@ import view.play.MainExternContainer;
 		private String due = new String("TWO");
 		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
-<<<<<<< HEAD
-		
-=======
+
 		private ListOfPlayers list = new ListOfPlayers();
->>>>>>> 927a7d819639c659847a7c32811e83dc32e06651
+
 /**
 * constructor of the main menu.
 */					

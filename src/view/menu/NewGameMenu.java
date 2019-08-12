@@ -41,6 +41,8 @@ public class NewGameMenu extends JFrame {
 	private JButton back;
 	private ControllerNewGameMenu action;
 	private AudioManager clip = new AudioManager();
+	private static String audio = "Off";
+	
 	
 /**
  * constructor of the New game menu.
@@ -86,7 +88,9 @@ public class NewGameMenu extends JFrame {
  */
 		 ActionListener al = (e)->{
 			 action.back(this);
-			 clip.getPopMusic().stop();
+			 action.musicStop(MainMenu.getTextButton(), clip);
+			 clip.getMusicMenu().stop();
+			 
 	      };
 	      ActionListener bl = (e)->{
 	    	  sceltamusica();
@@ -114,12 +118,8 @@ public class NewGameMenu extends JFrame {
 		center.add(choiseCurrency);
 		center.add(players);		
 		center.add(back);
-		
-		if(MainMenu.getTextButton() == "Audio On") {
-			clip.getPopMusic().stop();
-			}else {
-				clip.getPopMusic().play();
-			}
+		action.musicStop(MainMenu.getTextButton(), clip);
+
 	
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);
@@ -144,9 +144,13 @@ public class NewGameMenu extends JFrame {
  
 	public void sceltamusica() {
 	if(choiseMusic.getSelectedItem().equals(model.utility.Music.ROCK)){
-		clip.getPopMusic().stop();
+		clip.getMusicMenu().stop();
 		clip.getMusicMenu().play();
 	}
+	}
+	
+	public static String getAudio() {
+		return audio;
 	}
 
 }

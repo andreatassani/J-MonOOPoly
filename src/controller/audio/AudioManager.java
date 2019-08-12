@@ -2,6 +2,7 @@ package controller.audio;
 
 import java.io.IOException;
 
+import javax.sound.midi.Soundbank;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
@@ -19,6 +20,7 @@ public class AudioManager {
 	    private AudioSetting tecno;
 	    private AudioSetting classic;
 	    private AudioSetting menuMusic;
+	    private AudioSetting howToPlay;
 
 	    /**
 	     * Creates a {@code SoundsManager}.
@@ -34,54 +36,62 @@ public class AudioManager {
 	            this.rock = new  AudioSettingImpl( "/menuSong.wav");
 	            this.tecno = new  AudioSettingImpl("/menuSong.wav");
 	            this.classic = new  AudioSettingImpl("/menuSong.wav");
-	            this.menuMusic = new  AudioSettingImpl("/explosion.wav");
+	            this.menuMusic = new  AudioSettingImpl("/menuSong.wav");
+	            this.howToPlay = new AudioSettingImpl("/howToPlaySong.wav");
 	            
 	        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 	            e.printStackTrace();
 	        }
 	    }
 
-	    /**
-	     * Gets the music in menu.
-	     *
-	     * @return menuMusic {@link Sound}
-	     */
+/**
+ *Gets the music in menu.
+ *
+ * @return menuMusic 
+ */
 	    public AudioSetting getMusicMenu() {
 	        return this.menuMusic;
 	    }
 
-	    /**
-	     * Gets the pop music.
-	     *
-	     * @return pop {@link Sound}
-	     */
+/**
+ * Gets the pop music.
+ *
+ * @return pop 
+ */
 	    public AudioSetting getPopMusic() {
 	        return this.pop;
 	    }
 
-	    /**
-	     * Gets the rock music.
-	     *
-	     * @return rock {@link Sound}
-	     */
+/**
+ * Gets the rock music.
+ *
+ * @return rock 
+ */
 	    public AudioSetting getRockMusic() {
 	        return this.rock;
 	    }
-	    /**
-	     * Gets the classic music.
-	     *
-	     * @return classic {@link Sound}
-	     */ 
+/**
+ * Gets the classic music.
+ *
+ * @return classic 
+ */ 
 	    public AudioSetting getClassicMusic() {
 	        return this.classic;
 	    }
-	    /**
-	     * Gets the tecno music.
-	     *
-	     * @return tecno {@link Sound}
-	     */
+/**
+ * Gets the tecno music.
+ *
+ * @return tecno 
+ */
 	    public AudioSetting getTecnoMusic() {
 	        return this.tecno;
+	    }
+/**
+ * Gets the howToPlaySong music.
+ * @return howToPlaySong 
+ */
+	    public AudioSetting getHowToPlayMusic() {
+	    	return this.howToPlay;
 	    }
 
 
