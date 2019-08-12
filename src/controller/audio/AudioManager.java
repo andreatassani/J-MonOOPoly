@@ -20,7 +20,12 @@ public class AudioManager {
 	    private AudioSetting tecno;
 	    private AudioSetting classic;
 	    private AudioSetting menuMusic;
-	    private AudioSetting howToPlay;
+	    private AudioSetting card;
+	    private AudioSetting dice;
+	    private AudioSetting pawn;
+	    private AudioSetting cash;
+	    
+	    
 
 	    /**
 	     * Creates a {@code SoundsManager}.
@@ -32,12 +37,16 @@ public class AudioManager {
 	     */
 	    public AudioManager() {
 	        try {
-	            this.pop = new AudioSettingImpl("/menuSong.wav");
+	            this.pop = new AudioSettingImpl("/pop.wav");
 	            this.rock = new  AudioSettingImpl( "/rock.wav");
-	            this.tecno = new  AudioSettingImpl("/menuSong.wav");
-	            this.classic = new  AudioSettingImpl("/menuSong.wav");
+	            this.tecno = new  AudioSettingImpl("/tecno.wav");
+	            this.classic = new  AudioSettingImpl("/classic.wav");
 	            this.menuMusic = new  AudioSettingImpl("/menuSong.wav");
-	            this.howToPlay = new AudioSettingImpl("/howToPlaySong.wav");
+	            this.card = new AudioSettingImpl("/carta.wav");
+	            this.dice = new AudioSettingImpl("/dadi.wav");
+	            this.pawn = new AudioSettingImpl("/pedina.wav");
+	            this.cash = new AudioSettingImpl("/soldi.wav");
+	           
 	            
 	        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
 	            e.printStackTrace();
@@ -83,18 +92,41 @@ public class AudioManager {
  *
  * @return tecno 
  */
-	    public AudioSetting getTecnoMusic() {
-	        return this.tecno;
+	     public AudioSetting getTecnoMusic() {
+	    	        return this.tecno;
+	    	    }
+/**
+ * Gets the dice sound.
+ *
+ * @return dice 
+ */
+	    public AudioSetting getDiceSound() {
+	        return this.dice;
 	    }
 /**
- * Gets the howToPlaySong music.
- * @return howToPlaySong 
+ * Gets the cash sound.
+ *
+ * @return cash
  */
-	    public AudioSetting getHowToPlayMusic() {
-	    	return this.howToPlay;
-	    }
-
-
+	     public AudioSetting getCashSound() {
+	    	        return this.cash;
+	    	    } 
+/**
+ * Gets the card sound.
+ *
+ * @return card 
+ */
+	    public AudioSetting getCardSound() {
+	     	        return this.card;
+	     	    }
+/**
+ * Gets the pawn sound.
+ *
+ * @return pawn
+ */
+	    public AudioSetting getPawnSound() {
+	    	        return this.pawn;
+	    	    }
 	}
 
 

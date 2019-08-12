@@ -52,11 +52,7 @@ import controller.menu.ControllerMainMenu;
 		private JPanel north;
 		private JPanel south;
 		private ControllerMainMenu action;	
-		private static AudioManager clip;
-		
-		
-
-		
+		private  static AudioManager clipAudio;	
 /**
  * constructor of the main menu.
  */
@@ -64,8 +60,7 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
-
-	  this.clip = new AudioManager();
+	  this.clipAudio = new AudioManager();
 	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
@@ -73,24 +68,28 @@ import controller.menu.ControllerMainMenu;
 	  this.icon = new ImageIcon("res/Logo Monopoly.png");
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
-	  this.south = new JPanel();
-	  
-
-	  
-
+	  this.south = new JPanel();	  
 /**
- * a
+ * Action listener which closes the current frame and opens 
+ * the game settings menu.
  */
 	  ActionListener al = (e)->{
 	   	action.newGame(this);
-	   	clip.getMusicMenu().stop();
-      };
+	   	clipAudio.getMusicMenu().stop();
+	  };
+/**
+ * Action listener which closes the current frame and opens 
+ * the game instructions frame.
+ */ 
 	  ActionListener bl = (e)->{
 		action.tutorial(this);
-		clip.getMusicMenu().stop();
-      }; 
+		clipAudio.getMusicMenu().stop();
+      };
+/**
+ * Action listener which activates or deactivates the game audio. 
+ */
 	  ActionListener cl = (e)->{
-	 action.Audio(clip, settings);
+	 action.audio(clipAudio, settings);
 		      };
 /**
  * JComponent customization.	 
@@ -103,11 +102,13 @@ import controller.menu.ControllerMainMenu;
 	  setPreference(tutorial, dim, button, writer, f);
 	  setPreference(settings, dim, button, writer, f);	
 	  setPreference(north, general, backGround , backGround, f);
-	  setPreference(south, general, backGround, backGround, f);	  
+	  setPreference(south, general, backGround, backGround, f);
+/**
+ * i add the action listener to the buttons.	  
+ */
 	  newGame.addActionListener(al);
 	  tutorial.addActionListener(bl);
-	  settings.addActionListener(cl);
-	  
+	  settings.addActionListener(cl);	  
 /**
  * set the JPanel layout.
  */
@@ -116,18 +117,17 @@ import controller.menu.ControllerMainMenu;
 	  south.setLayout(new FlowLayout(FlowLayout.CENTER));	 		  	
 /**
  * added the JPanel, buttons and background image to the panel.
- */	  	
- 	  
-
-	  
+ */	  	 	  
 	  north.add(settings);
 	  north.add(newGame);	  	
 	  north.add(tutorial);	  	
 	  south.add(logo);
-	  clip.getMusicMenu().play();
 	  this.add(north, BorderLayout.CENTER);
 	  this.add(south, BorderLayout.SOUTH);	
-	  
+/**
+ * menu audio track plays in loop.
+ */
+	  clipAudio.getMusicMenu().loop();  
 }
 /**
  * method for customizing a JComponent.	  
@@ -147,16 +147,14 @@ import controller.menu.ControllerMainMenu;
 	  j.setBorder(new LineBorder(write,3));	  
   		}
  /**
-  * 
-  * @return
+  * Allows other frames to know if the audio is to be
+  * activated or not.
+  * @return a string describing the audio situation
   */
   public static String getTextButton () {
 	  return settings.getText();
   }
   
-  public static AudioManager getClip() {
-	  return clip;
-  }
 
 }
 	

@@ -8,7 +8,10 @@ import javax.swing.*;
  * @author user
  *
  */
+
+import controller.audio.AudioManager;
 public class MenuGui extends JFrame {
+	
 /**
  * frame settings
  */
@@ -16,7 +19,7 @@ public class MenuGui extends JFrame {
 
 	public MenuGui(JFrame c) {
 		super();
-
+        
     	c.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
     	c.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         c.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -33,6 +36,10 @@ public class MenuGui extends JFrame {
         c.pack();
       
 	}
+
+
+
+
 
 	 
 	 

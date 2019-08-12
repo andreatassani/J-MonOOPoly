@@ -37,6 +37,7 @@ public class AudioSettingImpl implements AudioSetting {
         this.clip.stop();
         this.clip.setFramePosition(FIRST_SONG_FRAME);
         this.clip.start();
+     
     }
 
 /**
@@ -54,5 +55,13 @@ public class AudioSettingImpl implements AudioSetting {
   public boolean isPlaying() {
         return this.clip.isRunning();
     }
+/**
+ * {@inheritDoc}
+ */
+ @Override
+ public void loop() {
+	 this.clip.start();
+	 this.clip.loop(clip.LOOP_CONTINUOUSLY);
+ }
 
 }

@@ -10,6 +10,7 @@ import javax.swing.text.html.parser.Entity;
 
 import controller.audio.AudioManager;
 import controller.menu.ControllerMainMenu;
+import controller.menu.ControllerNewGameMenu;
 import controller.menu.ControllerSettingPlayersMenu;
 import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
@@ -45,8 +46,7 @@ import view.play.MainExternContainer;
 		private JPanel left = new JPanel();
 		private JPanel right = new JPanel();		
 		private JPanel player1 = new JPanel();
-		private JTextField namePlayer1  = new JTextField();
-		
+		private JTextField namePlayer1  = new JTextField();		
 		private JComboBox<Colors> color1 = new JComboBox<Colors>(Colors.values());
 		private JComboBox<Pawns> pawn1 = new JComboBox<Pawns>(Pawns.values());			
 		private JPanel player2 = new JPanel();
@@ -67,15 +67,11 @@ import view.play.MainExternContainer;
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
-		private String due = new String("TWO");
 		private JComboBox<NumPlayers> howManyPlayer = new JComboBox<NumPlayers>(NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
-		private ArrayList deck;
+		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
-		private static AudioManager clip;
-	
-		
-
+		private  AudioManager clip;		
 /**
 * constructor of the main menu.
 */					
@@ -85,7 +81,8 @@ import view.play.MainExternContainer;
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
-		this.clip = NewGameMenu.getClip();
+		
+		this.clip = new AudioManager();
 		this.deck = new ArrayList<Entity>(4);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
@@ -100,13 +97,18 @@ import view.play.MainExternContainer;
 /**
  * actionlistener
  */
-		 ActionListener al = (e)->{	
-			 action.backNewGame(this);
-			 clip.getMusicMenu().stop();
-			 action.musicStop(NewGameMenu.getAudio(),clip);
-			 
+		 ActionListener actionBack = (e)->{	
+		  action.backNewGame(this);
+		  
+		NewGameMenu.getClip().getRockMusic().stop();
+		NewGameMenu.getClip().getClassicMusic().stop();
+		NewGameMenu.getClip().getTecnoMusic().stop();
+		NewGameMenu.getClip().getPopMusic().stop();
+		   
 	      };
-	      ActionListener bl = (e)->{	
+	      
+	      
+	      ActionListener actionStart = (e)->{	
 	    	  
 	    	
 	    	list.addPlayer(action.start(namePlayer1.getText(),(Colors)color1.getSelectedItem() , (Pawns)pawn1.getSelectedItem()), 1);
@@ -139,9 +141,9 @@ import view.play.MainExternContainer;
 /**
  * i add all the panels to the main panel
  */		
-		action.musicStop(MainMenu.getTextButton(),clip);
-		done.addActionListener(bl);	
-		back.addActionListener(al);
+		
+		done.addActionListener(actionStart);	
+		back.addActionListener(actionBack);
 		image.add(done);		
 		right.add(setPlayers);
 		right.add(image);				
@@ -153,7 +155,12 @@ import view.play.MainExternContainer;
 		right.setBackground(backGround);
 		setPlayers.setBackground(backGround);
 		
-
+		
+		action.musicStop(NewGameMenu.getAudio(), clip);
+		clip.getMusicMenu().stop();
+		
+		
+		
 		
 		this.add(left,BorderLayout.WEST);
 		this.add(right, BorderLayout.EAST);	
@@ -236,10 +243,7 @@ import view.play.MainExternContainer;
 	  		}
 	
 
-	public static AudioManager getClip() {
-		return clip;
-	}
-	
+
 	
 }
 	

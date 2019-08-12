@@ -45,14 +45,17 @@ public class HowToPlay extends JFrame {
 	 this.icon = new ImageIcon("res/howToPlay.png");
 	 this.back = new JButton("Back");
 /**
- * Actionlistener that allows you to return
+ * Action listener that allows you to return
  * to the previous menu. 
  */
-	 ActionListener al = (e)->{
+	 ActionListener backToMainMenu = (e)->{
 		 action.back(this);
 		 action.musicStop(MainMenu.getTextButton(), clip);
 		 clip.getMusicMenu().stop();
      };
+/**
+ * check if the audio is to be activated or not.
+ */
      action.musicStop(MainMenu.getTextButton(), clip);
 /**
  *i set the size of the background image, the JComponents that 
@@ -66,13 +69,12 @@ public class HowToPlay extends JFrame {
  *imposed the esthetic customizations
  *of the JComponents.  	 
  */	 
-
 	 setPreference(back, dim, button, Color.black, f);
 	 general.setBackground(backGround);
 /**
- *i add JComponents to the frame.
+ *i add JComponents to the frame and action listener to the button.
  */	 
-	 back.addActionListener(al);
+	 back.addActionListener(backToMainMenu);
 	 general.add(img);
 	 this.add(general, BorderLayout.CENTER);
 	 this.add(back, BorderLayout.SOUTH);	 	 
