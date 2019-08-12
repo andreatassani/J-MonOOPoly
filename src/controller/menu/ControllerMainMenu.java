@@ -33,7 +33,6 @@ public class ControllerMainMenu {
 	public void Audio(AudioManager clip , JButton settings ) {
 		if(clip.getMusicMenu().isPlaying()) {
 			clip.getMusicMenu().stop();
-			clip.getHowToPlayMusic().stop();
     		settings.setText("Audio On");
   }
 	else {

@@ -5,13 +5,15 @@ import java.awt.Color;
 
 import java.util.ArrayList;
 
+import model.utility.Colors;
+
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
 	    private int numberOfPlayers;
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, null);
+        PlayerImpl bank = new PlayerImpl("Bank", Colors.BANK, null);
         bank.setMoney(500000);
         this.list.add(bank);
     }

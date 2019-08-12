@@ -21,6 +21,8 @@ import view.play.MainExternContainer;
  * class for launching the application
  */
 public class LauncherApplication {
+	
+	
 	/**
 	 * constructor for this class
 	 */
@@ -34,15 +36,12 @@ public class LauncherApplication {
         /**
          * run the game
          */
-        ListOfPlayers listPl = new ListOfPlayers();
-        listPl.addPlayer(new PlayerImpl("Fabio", Color.BLACK, Pawns.APPLE), 1);
-        listPl.addPlayer(new PlayerImpl("Andrea", Color.WHITE, Pawns.BALL), 2);
-        listPl.addPlayer(new PlayerImpl("Michele", Color.BLUE, Pawns.BIKE), 3);
-        listPl.addPlayer(new PlayerImpl("Enrico", Color.CYAN, Pawns.CAR), 4);
-        EntityDeck deck = new EntityDeck(listPl.getPlayerFromIndex(0));
+        
+  
     	
-
-   MainExternContainer mnply = new MainExternContainer(listPl, deck.getDeck());
+    	MenuGui game = new MenuGui(new MainMenu());
     	
     }
+    
+ 
 }

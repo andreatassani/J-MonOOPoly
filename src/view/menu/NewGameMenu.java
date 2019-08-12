@@ -40,8 +40,8 @@ public class NewGameMenu extends JFrame {
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
-	private AudioManager clip = new AudioManager();
-	private static String audio = "Off";
+	private static AudioManager clip = MainMenu.getClip();
+	private static String audio = MainMenu.getTextButton();
 	
 	
 /**
@@ -150,7 +150,11 @@ public class NewGameMenu extends JFrame {
 	}
 	
 	public static String getAudio() {
-		return audio;
+		return audio.toString();
+	}
+	
+	public static AudioManager getClip() {
+		return clip;
 	}
 
 }

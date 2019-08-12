@@ -11,8 +11,13 @@ import javax.swing.text.html.parser.Entity;
 import controller.audio.AudioManager;
 import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerSettingPlayersMenu;
+import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
+import model.player.Player;
+import model.player.PlayerImpl;
+import model.utility.Colors;
 import model.utility.NumPlayers;
+import model.utility.Pawns;
 import view.play.MainExternContainer;
 
 
@@ -41,32 +46,35 @@ import view.play.MainExternContainer;
 		private JPanel right = new JPanel();		
 		private JPanel player1 = new JPanel();
 		private JTextField namePlayer1  = new JTextField();
-		private JComboBox color1 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn1 = new JComboBox(model.utility.Pawns.values());			
+		
+		private JComboBox<Colors> color1 = new JComboBox<Colors>(Colors.values());
+		private JComboBox<Pawns> pawn1 = new JComboBox<Pawns>(Pawns.values());			
 		private JPanel player2 = new JPanel();
 		private JTextField namePlayer2  = new JTextField();
-		private JComboBox color2 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn2 = new JComboBox(model.utility.Pawns.values());			
+		private JComboBox<Colors> color2 = new JComboBox<Colors> (Colors.values());
+		private JComboBox<Pawns> pawn2 = new JComboBox<Pawns>(Pawns.values());			
 		private JPanel player3 = new JPanel();
 		private JTextField namePlayer3  = new JTextField();
-		private JComboBox color3 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn3 = new JComboBox(model.utility.Pawns.values());			
+		private JComboBox<Colors>  color3 = new JComboBox<Colors> (Colors.values());
+		private JComboBox<Pawns> pawn3 = new JComboBox<Pawns>(model.utility.Pawns.values());			
 		private JPanel player4 = new JPanel();
 		private JTextField namePlayer4  = new JTextField();
-		private JComboBox color4 = new JComboBox(model.utility.Colors.values());
-		private JComboBox pawn4 = new JComboBox(model.utility.Pawns.values());		
+		private JComboBox<Colors>  color4 = new JComboBox<Colors> (Colors.values());
+		private JComboBox<Pawns> pawn4 = new JComboBox<Pawns>(Pawns.values());		
 		private JLabel numPlayer = new JLabel("NUMERO GIOCATORI");
 		private JButton done = new JButton("STAR GAME");
-		private JButton back = new JButton("BACK");
+		private JButton back = new JButton("BACK MAIN MENU");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
-		private String[] numer = {"TWO" , "THREEE"};
 		private String due = new String("TWO");
-		private JComboBox howManyPlayer = new JComboBox(model.utility.NumPlayers.values());
+		private JComboBox<NumPlayers> howManyPlayer = new JComboBox<NumPlayers>(NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
 		private ArrayList deck;
 		private ListOfPlayers list = new ListOfPlayers();
+		private static AudioManager clip;
+	
+		
 
 /**
 * constructor of the main menu.
@@ -77,6 +85,7 @@ import view.play.MainExternContainer;
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
+		this.clip = NewGameMenu.getClip();
 		this.deck = new ArrayList<Entity>(4);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
@@ -92,16 +101,23 @@ import view.play.MainExternContainer;
  * actionlistener
  */
 		 ActionListener al = (e)->{	
-			 action.backNewGame(this);			 
+			 action.backNewGame(this);
+			 clip.getMusicMenu().stop();
+			 action.musicStop(NewGameMenu.getAudio(),clip);
+			 
 	      };
 	      ActionListener bl = (e)->{	
-	    	  this.setVisible(false);
-				 if(howManyPlayer.getSelectedItem().equals(NumPlayers.TWO)) {
-					 new MenuGui(new MainExternContainer(list,deck));
-					 
-				 }
+	    	  
+	    	
+	    	list.addPlayer(action.start(namePlayer1.getText(),(Colors)color1.getSelectedItem() , (Pawns)pawn1.getSelectedItem()), 1);
+	    	list.addPlayer(action.start(namePlayer2.getText(),(Colors)color2.getSelectedItem() , (Pawns)pawn2.getSelectedItem()), 2);
+	    	list.addPlayer(action.start(namePlayer3.getText(),(Colors)color3.getSelectedItem() , (Pawns)pawn3.getSelectedItem()), 3);
+	    	list.addPlayer(action.start(namePlayer4.getText(),(Colors)color4.getSelectedItem() , (Pawns)pawn4.getSelectedItem()), 4);
+	    	EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
+	    	new MenuGui(new MainExternContainer(list, deck.getDeck()));
 				 
 		      };
+		 
 	    
 /**
  * i configure the size of the image.
@@ -123,7 +139,7 @@ import view.play.MainExternContainer;
 /**
  * i add all the panels to the main panel
  */		
-		
+		action.musicStop(MainMenu.getTextButton(),clip);
 		done.addActionListener(bl);	
 		back.addActionListener(al);
 		image.add(done);		
@@ -220,7 +236,9 @@ import view.play.MainExternContainer;
 	  		}
 	
 
-	
+	public static AudioManager getClip() {
+		return clip;
+	}
 	
 	
 }

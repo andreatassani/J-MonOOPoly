@@ -33,7 +33,7 @@ public class AudioManager {
 	    public AudioManager() {
 	        try {
 	            this.pop = new AudioSettingImpl("/menuSong.wav");
-	            this.rock = new  AudioSettingImpl( "/menuSong.wav");
+	            this.rock = new  AudioSettingImpl( "/rock.wav");
 	            this.tecno = new  AudioSettingImpl("/menuSong.wav");
 	            this.classic = new  AudioSettingImpl("/menuSong.wav");
 	            this.menuMusic = new  AudioSettingImpl("/menuSong.wav");

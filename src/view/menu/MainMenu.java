@@ -52,7 +52,7 @@ import controller.menu.ControllerMainMenu;
 		private JPanel north;
 		private JPanel south;
 		private ControllerMainMenu action;	
-		private AudioManager clip;
+		private static AudioManager clip;
 		
 		
 
@@ -118,10 +118,7 @@ import controller.menu.ControllerMainMenu;
  * added the JPanel, buttons and background image to the panel.
  */	  	
  	  
-//	  if(clip.getPopMusic().isPlaying()) {
-//		  clip.getPopMusic().stop();}
-//	  else{clip.getPopMusic().play();
-//	  }
+
 	  
 	  north.add(settings);
 	  north.add(newGame);	  	
@@ -157,6 +154,9 @@ import controller.menu.ControllerMainMenu;
 	  return settings.getText();
   }
   
+  public static AudioManager getClip() {
+	  return clip;
+  }
 
 }
 	

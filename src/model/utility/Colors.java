@@ -10,7 +10,7 @@ public enum Colors {
 /**
  * Colors.
  */
- RED, YELLOW, GREEN, BLUE, PINK, ORANGE, BLACK, CYAN ;
+ RED, YELLOW, GREEN, BLUE, PINK, ORANGE, BLACK, CYAN, BANK ;
 	
     }
 
