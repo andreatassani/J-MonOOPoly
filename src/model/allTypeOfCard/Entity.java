@@ -3,6 +3,7 @@ package model.allTypeOfCard;
 import java.util.Optional;
 
 import model.player.Player;
+import model.player.PlayerImpl;
      /**
       * 
       * interface for all sort of card used in the game (eg: water and electricity).
@@ -25,8 +26,9 @@ public interface Entity {
    * 
    * @return its action that will be done.
    */
-  Optional action();
+  void action(PlayerImpl pl);
   
-  String getOwner();
+  PlayerImpl getOwner();
+  
   boolean isSalable();
 }

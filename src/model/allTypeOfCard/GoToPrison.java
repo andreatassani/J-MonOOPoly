@@ -1,6 +1,10 @@
 package model.allTypeOfCard;
 
 import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
+import model.player.PlayerImpl;
 /**
  * 
  * {@inheritDoc}.
@@ -8,13 +12,13 @@ import java.util.Optional;
  */
 public class GoToPrison implements Entity {
 	
-	private String name = "parcheggio";
-	private final int nStopRound = 2;
+        private PlayerImpl owner;
+	private String name = "Go To Prison";
     /**
      * Constructor.
      */
-    public GoToPrison() {
-
+    public GoToPrison(PlayerImpl owner) {
+            this.owner = owner;
 	}
     /**
      * {@inheritDoc}
@@ -32,12 +36,15 @@ public class GoToPrison implements Entity {
      * {@inheritDoc}
      */
 	@Override
-	public Optional action() {
-		return Optional.of(nStopRound);
+	public void action(PlayerImpl pl) {
+	    JOptionPane.showMessageDialog(null, "il giocatore" + pl.getName() + "andrà in prigione e ci rimarrà per 2 turni",
+                    "messaggio", 0);
+	    pl.setPosition(10);
+	    pl.setStopTurns(2);
 	}
     @Override
-    public String getOwner() {
-        return "Bank";
+    public PlayerImpl getOwner() {
+        return this.owner;
     }
     @Override
     public boolean isSalable() {

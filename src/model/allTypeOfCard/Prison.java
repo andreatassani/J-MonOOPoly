@@ -3,18 +3,22 @@ package model.allTypeOfCard;
 
 import java.util.Optional;
 
+import javax.swing.JOptionPane;
+
+import model.player.PlayerImpl;
+
 /**
  *{@inheritDoc}.
  */
 public class Prison implements Entity {
 	
-	private String name = "prigione";
-    private final int stopRound = 2;
+    private String name = "Prison";
+    private PlayerImpl owner;
     /**
      * Constructor.
      */
-    public Prison() {
-
+    public Prison(PlayerImpl owner) {
+        this.owner = owner;
 	}
     /**
      * {@inheritDoc}
@@ -32,12 +36,13 @@ public class Prison implements Entity {
      * {@inheritDoc}
      */
 	@Override
-	public Optional action() {
-		return Optional.of(this.stopRound);
+	public void action(PlayerImpl pl) {
+	    JOptionPane.showMessageDialog(null, "Non succede nulla",
+                    "messaggio", 0);
 	}
     @Override
-    public String getOwner() {
-        return "Bank";
+    public PlayerImpl getOwner() {
+        return this.owner;
     }
     @Override
     public boolean isSalable() {

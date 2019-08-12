@@ -2,28 +2,21 @@ package model.allTypeOfCard;
 
 import java.util.Optional;
 
+import model.player.PlayerImpl;
 import model.utility.Colors;
 
-public class Society<X> implements Entity {
+public class Society implements Entity {
 	
 
 	   private String name;
-	   private X owner;
+	   private PlayerImpl owner;
 	   private int toll; //costo pedaggio
 	   
-	   public Society(String name, X owner, int toll) {
+	   public Society(String name, int toll, PlayerImpl owner) {
 		this.name = name;
 		this.owner = owner;
 		this.toll = toll;
 	}
-
-	   
-	@Override
-	public Optional action() {
-		// TODO Auto-generated method stub
-		return Optional.of(this.toll);
-	}
-
 
 	/**
 	 * @return the name
@@ -39,15 +32,10 @@ public class Society<X> implements Entity {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-
-	
-
-
 	/**
 	 * @param owner the owner to set
 	 */
-	public void setOwner(X owner) {
+	public void setOwner(PlayerImpl owner) {
 		this.owner = owner;
 	}
 
@@ -69,14 +57,19 @@ public class Society<X> implements Entity {
 
 
     @Override
-    public String getOwner() {
-        return "Bank";
+    public boolean isSalable() {
+        return false;
     }
 
 
     @Override
-    public boolean isSalable() {
-        return false;
+    public void action(PlayerImpl pl) {
+    }
+
+
+    @Override
+    public PlayerImpl getOwner() {
+        return this.owner;
     }
 	
 

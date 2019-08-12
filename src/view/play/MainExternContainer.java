@@ -4,13 +4,17 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import model.allTypeOfCard.Entity;
+import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
 
 
@@ -27,7 +31,8 @@ public class MainExternContainer extends JFrame {
 	/**
 	 * @return the rightSide
 	 */
-	public MainExternContainer(ListOfPlayers listPl) {
+	public MainExternContainer(ListOfPlayers listPl, ArrayList<Entity> deck) {
+	       
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -36,11 +41,11 @@ public class MainExternContainer extends JFrame {
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
 
-		leftSide.add(new SouthUtilityButtons(listPl), BorderLayout.SOUTH);
-		leftSide.add(new GridCell());
+		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
+		leftSide.add(new GridCell(deck));
 
-		leftSide.add(new SouthUtilityButtons(listPl), BorderLayout.SOUTH);
-		leftSide.add(new GridCell(), BorderLayout.CENTER);
+		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
+		leftSide.add(new GridCell(deck), BorderLayout.CENTER);
 
 
 		
@@ -60,8 +65,10 @@ public class MainExternContainer extends JFrame {
 		this.pack();
 		this.setState(JFrame.MAXIMIZED_BOTH);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
-
-		//System.out.println(d);
+		
+		//Da togliere
+                JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
+                        "messaggio", 0);
 	}
 	
 	public static JPanel getLeftSide() {

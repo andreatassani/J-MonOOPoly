@@ -1,16 +1,23 @@
 package model.player;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class ListOfPlayers {
 	
-    ArrayList<PlayerImpl> listOfPlayers = new ArrayList<>();
+    ArrayList<PlayerImpl> list = new ArrayList<>();
     private int numberOfPlayers;
-    private int currentPlayer = 0;
+    private int currentPlayer = 1;
+    
+    public ListOfPlayers() {
+        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, null);
+        bank.setMoney(500000);
+        this.list.add(bank);
+    }
     
    public void nextPlayer() {
-       if(currentPlayer == (numberOfPlayers-1)) {
-           currentPlayer = 0;
+       if(currentPlayer == (numberOfPlayers)) {
+           currentPlayer = 1;
        }
        else {
            currentPlayer++;
@@ -18,28 +25,33 @@ public class ListOfPlayers {
    }
     
    public PlayerImpl getCurrentPlayer() {
-       return this.listOfPlayers.get(currentPlayer);
+       return this.list.get(currentPlayer);
    }
-   public PlayerImpl getPlayer (int index) {
-       return listOfPlayers.get(index);
+   public PlayerImpl getPlayerFromIndex (int index) {
+       return list.get(index);
    }
    
    public void addPlayer(PlayerImpl pl, int index) {
-       listOfPlayers.add(index, pl);
+       list.add(index, pl);
        this.numberOfPlayers+=1;
-   }
-   public void addBank(PlayerImpl pl) {
-       listOfPlayers.add(4, pl);
    }
    
    public void removePlayer(int index) {
-       listOfPlayers.remove(index);
+       list.remove(index);
        this.numberOfPlayers-=1;
    }
    
    public int getNumberPlayer() {
        return this.numberOfPlayers;
    }
-   
+   public PlayerImpl getPlayerFromName(String name) {
+       for(int i = 1; i<= numberOfPlayers; i++) {
+           if(this.list.get(i).getName() == name) {
+               return this.list.get(i);
+           }
+       }
+       System.out.println("Utente non trovato!");
+       return null;
+   }
 
 }

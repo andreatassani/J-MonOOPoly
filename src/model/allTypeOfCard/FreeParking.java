@@ -1,17 +1,22 @@
 package model.allTypeOfCard;
 
 import java.util.Optional;
+
+import javax.swing.JOptionPane;
+
+import model.player.PlayerImpl;
 /**
  * {@inheritDoc}.
  */
 public class FreeParking implements Entity {
-	
-	private String name = "parcheggio";
+    
+	private PlayerImpl owner;
+	private String name = "Free Parking";
     /**
      * Constructor.
      */
-    public FreeParking() {
-
+    public FreeParking(PlayerImpl owner) {
+            this.owner = owner;
 	}
     /**
      * {@inheritDoc}
@@ -29,12 +34,14 @@ public class FreeParking implements Entity {
      * {@inheritDoc}
      */
 	@Override
-	public Optional action() {
-		return Optional.empty();
+	public void action(PlayerImpl pl) {
+	  //Da togliere
+            JOptionPane.showMessageDialog(null, "Non succede nulla",
+                    "messaggio", 0);
 	}
     @Override
-    public String getOwner() {
-        return "Bank";
+    public PlayerImpl getOwner() {
+        return owner;
     }
     @Override
     public boolean isSalable() {
