@@ -61,8 +61,8 @@ import view.play.MainExternContainer;
 		private JTextField namePlayer4  = new JTextField();
 		private JComboBox<Colors>  color4 = new JComboBox<Colors> (Colors.values());
 		private JComboBox<Pawns> pawn4 = new JComboBox<Pawns>(Pawns.values());		
-		private JLabel numPlayer = new JLabel("NUMERO GIOCATORI");
-		private JButton done = new JButton("STAR GAME");
+		private JLabel numPlayer = new JLabel("NUMBER OF PLAYERS");
+		private JButton start = new JButton("STAR GAME");
 		private JButton back = new JButton("BACK MAIN MENU");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
@@ -71,7 +71,10 @@ import view.play.MainExternContainer;
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
-		private  AudioManager clip;		
+		private  AudioManager clip;	
+		
+		
+		private JButton done;
 /**
 * constructor of the main menu.
 */					
@@ -82,16 +85,19 @@ import view.play.MainExternContainer;
  * JFieldTextArea and a JComboCheckBox.
  */
 		
+		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
 		this.deck = new ArrayList<Entity>(4);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
-		done.setMaximumSize(dimName);
-		done.setMinimumSize(dimName);
+		start.setMaximumSize(dimName);
+		start.setMinimumSize(dimName);
+	
 		image.setPreferredSize(dimPlayer);
-		setPreference(done, dimName, button, Color.WHITE, f);
+		setPreference(start, dimName, button, Color.WHITE, f);
 		setPreference(back, dimName, button, Color.WHITE, f);
+		setPreference(done, dimNameG, button, Color.WHITE, f);
 		back.setMaximumSize(dimName);
 		back.setMinimumSize(dimName);
 /**
@@ -106,19 +112,33 @@ import view.play.MainExternContainer;
 		NewGameMenu.getClip().getPopMusic().stop();
 		   
 	      };
+
 	      
-	      
-	      ActionListener actionStart = (e)->{	
+	      ActionListener actionDone = (e)->{	
 	    	  
 	    	
-	    	list.addPlayer(action.start(namePlayer1.getText(),(Colors)color1.getSelectedItem() , (Pawns)pawn1.getSelectedItem()), 1);
-	    	list.addPlayer(action.start(namePlayer2.getText(),(Colors)color2.getSelectedItem() , (Pawns)pawn2.getSelectedItem()), 2);
-	    	list.addPlayer(action.start(namePlayer3.getText(),(Colors)color3.getSelectedItem() , (Pawns)pawn3.getSelectedItem()), 3);
-	    	list.addPlayer(action.start(namePlayer4.getText(),(Colors)color4.getSelectedItem() , (Pawns)pawn4.getSelectedItem()), 4);
-	    	EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
-	    	new MenuGui(new MainExternContainer(list, deck.getDeck()));
-				 
+	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
+	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
+	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
+	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
+	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
+	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
+	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
+	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
+
 		      };
+		      ActionListener actionStart = (e)->{	
+		    	 
+		    	  
+		    	 
+		    	
+		    	
+		    		  EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
+			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
+		    	  
+						 
+				      };
+		      
 		 
 	    
 /**
@@ -137,22 +157,25 @@ import view.play.MainExternContainer;
 		createSetPlayer(player2, namePlayer2, color2, pawn2,f);
 		createSetPlayer(player3, namePlayer3, color3, pawn3,f);
 		createSetPlayer(player4, namePlayer4, color4, pawn4,f);
+		
 		createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer,f);
 /**
  * i add all the panels to the main panel
  */		
-		
-		done.addActionListener(actionStart);	
+		start.addActionListener(actionStart);
+		done.addActionListener(actionDone);	
 		back.addActionListener(actionBack);
-		image.add(done);		
+		image.add(start);		
 		right.add(setPlayers);
 		right.add(image);				
 		left.add(player1);
 		left.add(player2);
 		left.add(player3);
 		left.add(player4);
+		left.add(done);
 		right.add(back);
 		right.setBackground(backGround);
+		left.setBackground(backGround);
 		setPlayers.setBackground(backGround);
 		
 		
@@ -162,8 +185,8 @@ import view.play.MainExternContainer;
 		
 		
 		
-		this.add(left,BorderLayout.WEST);
-		this.add(right, BorderLayout.EAST);	
+		this.add(left,BorderLayout.EAST);
+		this.add(right, BorderLayout.WEST);	
 	}
 /**
  * method for creating a sub-panel with customized measurements.

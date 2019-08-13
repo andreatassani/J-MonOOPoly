@@ -13,7 +13,7 @@ public class ListOfPlayers {
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Colors.BANK, null);
+        PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, null);
         bank.setMoney(500000);
         this.list.add(bank);
     }

@@ -18,7 +18,7 @@ public class PlayerImpl implements Player {
  * player fields.
  */
     private String name;
-    private Colors color;
+    private Color color;
     private Pawns pawns;
     private int money;
     private static final int BANK_AMOUNT = 8500;
@@ -26,7 +26,7 @@ public class PlayerImpl implements Player {
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;
     
-    public PlayerImpl(final String name, final Colors color, final Pawns pawns) {
+    public PlayerImpl(final String name, final Color color, final Pawns pawns) {
         this.name = name;
         this.position = 0;
         this.color = color;
@@ -60,7 +60,7 @@ public class PlayerImpl implements Player {
  * 
  * {@inheritDoc}
  */
-    public Colors getColors() {
+    public Color getColors() {
         return this.color;
     }
 /**

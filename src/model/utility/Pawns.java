@@ -7,7 +7,7 @@ package model.utility;
 /**
  * names of the pawns.
  */
-  CAR, APPLE, BALL, PEN, FABIO, ANDREA, ENRICO, MICHELE, PIANINI, VIROLI, GHINI, BUDDHA, BIKE, MOTO;
+  CAR, BALL, PEN, IRON, BIKE, MOTO;
 
     }
 

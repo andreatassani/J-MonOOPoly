@@ -22,7 +22,7 @@ public interface Player {
 * Colors creation.
 * @return the type of Colors chosen.
 */	
-	Colors getColors();
+	Color getColors();
 /**
  * Name creation.
  * @return the name chosen.

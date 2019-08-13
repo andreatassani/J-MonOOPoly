@@ -1,5 +1,6 @@
 package controller.menu;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
 import controller.audio.AudioManager;
@@ -61,8 +62,66 @@ public class ControllerSettingPlayersMenu {
  * @return player
  */
 	}
-	public PlayerImpl start(String name, Colors color, Pawns pawn){
+	public PlayerImpl start(String name, Color color, Pawns pawn){
 		PlayerImpl player = new PlayerImpl(name, color, pawn);
 		return player;	
 	}
+	
+	public Color chosenColor(Integer n) {
+		Color color = new Color(0,0,0);
+		switch(n) {
+		case 0:
+			color =  Color.red;
+			break;
+		case 1:
+			color = Color.YELLOW;
+			break;
+		case 2: 
+			color = Color.GREEN;
+			break;
+		case 3:
+			color = Color.blue;
+			break;
+		case 4:
+			color = Color.PINK;
+			break;
+		case 5:
+			color =  Color.CYAN;
+			break;
+		}
+		return color;
+}
+
+	
+	public Pawns chosenPawn (Integer n) {
+		Pawns pawn = Pawns.BALL;
+		switch(n) {
+		case 0:
+			pawn = Pawns.CAR;
+			break;
+		case 1:
+			pawn = Pawns.BALL;
+			break;
+		case 2:
+			pawn = Pawns.PEN;
+			break;
+		case 3:
+			pawn = Pawns.IRON;
+			break;
+		case 4:
+			pawn = Pawns.BIKE;
+			break;
+		case 5:
+			pawn = Pawns.MOTO;
+			break;
+		}
+		return pawn;
+					
+		}
+
+	
+	
+		
+		
+		
 }
