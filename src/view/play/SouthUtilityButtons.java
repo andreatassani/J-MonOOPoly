@@ -96,6 +96,7 @@ public class SouthUtilityButtons extends JPanel {
                         ShowImages.dice(risultato);
                         int pos = listPl.getCurrentPlayer().getPosition();
                         listPl.getCurrentPlayer().setPosition(pos+risultato);
+                        
                         //Da togliere
                         JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" è finito sulla casella "+deck.get(pos+risultato).getName(),
                                 "messaggio", 0);

@@ -53,10 +53,10 @@ public class Cell extends JPanel {
 		
 		this.setBackground(c);
 		image = new JButton();
-		image.setSize(60, 45);
+		image.setSize(40, 30);
 		image.addActionListener(new EvtCell(s));
-		
-		
+
+		this.add(new PositionPawns(), BorderLayout.SOUTH);
 		this.add(name, BorderLayout.NORTH);
 		
 		this.add(image);
@@ -78,7 +78,7 @@ public class Cell extends JPanel {
 	
 	public void mySetIcon(JButton b, String s) {
 		icon = new ImageIcon(s);
-		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 20, MainExternContainer.getLeftSide().getHeight() / 19, Image.SCALE_DEFAULT);
+		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 30, MainExternContainer.getLeftSide().getHeight() / 27, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		b.setIcon(icon);
 	}
