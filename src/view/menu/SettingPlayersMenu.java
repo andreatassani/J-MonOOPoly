@@ -67,14 +67,14 @@ import view.play.MainExternContainer;
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
+		private Integer[] number = { 2,3,4};
 		private JComboBox<NumPlayers> howManyPlayer = new JComboBox<NumPlayers>(NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
 		private  AudioManager clip;	
-		
-		
 		private JButton done;
+		private JCheckBox ready;
 /**
 * constructor of the main menu.
 */					
@@ -84,7 +84,7 @@ import view.play.MainExternContainer;
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
-		
+		this.ready = new JCheckBox();
 		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
 		this.deck = new ArrayList<Entity>(4);
@@ -93,7 +93,6 @@ import view.play.MainExternContainer;
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
 		start.setMaximumSize(dimName);
 		start.setMinimumSize(dimName);
-	
 		image.setPreferredSize(dimPlayer);
 		setPreference(start, dimName, button, Color.WHITE, f);
 		setPreference(back, dimName, button, Color.WHITE, f);
@@ -125,16 +124,19 @@ import view.play.MainExternContainer;
 	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
-
 		      };
 		      ActionListener actionStart = (e)->{	
 		    	 
 		    	  
 		    	 
 		    	
-		    	
-		    		  EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
+		    	      this.dispose();
+		    		  if(list.isPresentSameName() && list.isPresentSamePawn() && list.isPresentSameColor() ) {
+		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
+		    		  }else {
+		    			  action.backNewGame(this);
+		    		  }
 		    	  
 						 
 				      };
@@ -165,8 +167,10 @@ import view.play.MainExternContainer;
 		start.addActionListener(actionStart);
 		done.addActionListener(actionDone);	
 		back.addActionListener(actionBack);
-		image.add(start);		
+		image.add(start);
+		right.add(ready);
 		right.add(setPlayers);
+		
 		right.add(image);				
 		left.add(player1);
 		left.add(player2);
@@ -177,6 +181,7 @@ import view.play.MainExternContainer;
 		right.setBackground(backGround);
 		left.setBackground(backGround);
 		setPlayers.setBackground(backGround);
+		
 		
 		
 		action.musicStop(NewGameMenu.getAudio(), clip);

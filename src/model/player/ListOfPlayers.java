@@ -6,6 +6,7 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import model.utility.Colors;
+import model.utility.Pawns;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
@@ -13,7 +14,7 @@ public class ListOfPlayers {
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, null);
+        PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, Pawns.BANK);
         bank.setMoney(500000);
         this.list.add(bank);
     }
@@ -56,6 +57,58 @@ public class ListOfPlayers {
        System.out.println("Utente non trovato!");
        return null;
    }
+/**
+ * Check if there are two players with the same name.
+ * @return false if they are true to the contrary
+ */
+   
+   public boolean isPresentSameName() {
+	   boolean res = true;
+	   for(int i = 1; i<= numberOfPlayers; i++) {
+		   if(getPlayerFromIndex(i-1).getName().equals(getPlayerFromIndex(i).getName())) {
+			   res = false;
+		   }
+		   
+	   }
+	   return res;
+   }
+/**
+ * Check if there are two players with the same pawn.   
+ * @return false if they are true to the contrary
+ */
+   public boolean isPresentSamePawn() {
+	   boolean res = true;
+	   for(int i = 1;i<=numberOfPlayers;i++ ) {
+		   if(getPlayerFromIndex(i-1).getPawn().equals(getPlayerFromIndex(i).getPawn())) {
+			   res = false;
+		   }
+	   }
+	   return res;
+   }
+/**
+ * Check if there are two players with the same color.   
+ * @return false if they are true to the contrary
+ */
+   public boolean isPresentSameColor() {
+	   boolean res = true;
+	   for(int i = 1; i<= numberOfPlayers; i++) {
+		   if(getPlayerFromIndex(i-1).getColors().equals(getPlayerFromIndex(i).getColors())) {
+			   res = false;
+		   }
+	   }
+	   return res;
+   }
+   
+
+   public boolean rightNumberOfPlayers(Integer n) {
+	   boolean res = true;
+	   n += 1;
+	   if(!(n.equals(numberOfPlayers))) {
+		   res = false;
+	   }
+	   return res;
+   }
+   
 
 
 }

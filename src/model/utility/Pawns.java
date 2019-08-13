@@ -7,7 +7,7 @@ package model.utility;
 /**
  * names of the pawns.
  */
-  CAR, BALL, PEN, IRON, BIKE, MOTO;
+    CAR, BALL, PEN, IRON, BIKE, MOTO, BANK;
 
     }
 
