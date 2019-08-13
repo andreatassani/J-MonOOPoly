@@ -5,21 +5,26 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import controller.audio.AudioManager;
 import model.allTypeOfCard.Property;
 
 public final class ShowImages {
 
+    private static AudioManager sound = new AudioManager();
+    
     private ShowImages() {
         
     }
     
     public static void propertyMessage(Property pr){
+        sound.getCardSound().play();
         JOptionPane.showMessageDialog(null,"Owner: "+pr.getOwner().getName()+"\nNumber of houses: "+pr.getHouses()+"\n Hotel: "+ pr.getHotel(),pr.getName(),
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+pr.getColor().getRGB()+".png"));
     }
     public static void nonPropertyMessage(String name) {
+        sound.getCardSound().play();
         if(name.equals("Station N")||
-           name.equals("Station E")||
+           name.equals("Station E")|
            name.equals("Station S")||
            name.equals("Station O")){
            name = "Station";

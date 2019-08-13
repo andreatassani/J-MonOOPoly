@@ -53,7 +53,6 @@ public class Cell extends JPanel {
 		
 		this.setBackground(c);
 		image = new JButton();
-		image.setBackground(new Color(149, 255, 213));
 		image.setSize(60, 45);
 		image.addActionListener(new EvtCell(s));
 		

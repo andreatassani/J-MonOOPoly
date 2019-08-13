@@ -65,13 +65,13 @@ public class GridCell extends JPanel {
 		east.add(new PropertyCell((Property) deck.get(19)));
 		south.add(new Cell(30, "Police", Color.WHITE));
 		south.add(new PropertyCell((Property) deck.get(29)));
-		south.add(new Cell(22, "Chance", Color.WHITE));
+		south.add(new Cell(28, "Hera", Color.GRAY));
 		south.add(new PropertyCell((Property) deck.get(27)));
 		south.add(new PropertyCell((Property) deck.get(26)));
 		south.add(new Cell(25, "Station S", Color.GRAY));
 		south.add(new PropertyCell((Property) deck.get(24)));
 		south.add(new PropertyCell((Property) deck.get(23)));
-		south.add(new Cell(28, "Hera", Color.GRAY));
+		south.add(new Cell(22, "Chance", Color.WHITE));
 		south.add(new PropertyCell((Property) deck.get(21)));
 		south.add(new Cell(20, "Parking", Color.WHITE));
 		west.add(new PropertyCell((Property) deck.get(39)));

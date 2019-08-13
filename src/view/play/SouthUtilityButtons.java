@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
+import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
@@ -26,10 +27,12 @@ import model.player.Player;
 
 public class SouthUtilityButtons extends JPanel {
     
+        
+    
 	
 	public SouthUtilityButtons(ListOfPlayers listPl, ArrayList<Entity> deck) {
-	        
 		this.setLayout(new GridLayout());
+		
 		
 		JButton rollDice = new JButton("ROLL DICE");
 		JButton sell = new JButton("SELL");
@@ -58,14 +61,44 @@ public class SouthUtilityButtons extends JPanel {
 		this.add(nextPlayer);
 		this.add(menu);
 		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		AudioManager sound = new AudioManager();
+		
 		rollDice.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
+                        sound.getDiceSound().play();
                         Random r = new Random();
                         rollDice.setEnabled(false);
-                        int risultato = r.nextInt(1)+1;
+                        int risultato = r.nextInt(6)+1;
                         ShowImages.dice(risultato);
                         int pos = listPl.getCurrentPlayer().getPosition();
                         listPl.getCurrentPlayer().setPosition(pos+risultato);
+                        for(int i = 0; i<risultato; i++) {
+                            sound.getPawnSound().play();
+                        }
                         //Da togliere
                         JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" è finito sulla casella "+deck.get(pos+risultato).getName(),
                                 "messaggio", 0);
@@ -139,6 +172,7 @@ public class SouthUtilityButtons extends JPanel {
 		buy.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         listPl.getCurrentPlayer().buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
+                        sound.getCashSound().play();
                         buy.setEnabled(false);
                         sell.setEnabled(true);
                         build.setEnabled(true);
@@ -172,6 +206,7 @@ public class SouthUtilityButtons extends JPanel {
 		sell.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         listPl.getPlayerFromIndex(0).buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
+                        sound.getCashSound().play();
                         buy.setEnabled(true);
                         sell.setEnabled(false);
                       //Da togliere
@@ -195,6 +230,18 @@ public class SouthUtilityButtons extends JPanel {
 	                        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha costruito una casa sulla proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + ",ora ha " +
 	                                ((Property)deck.get(listPl.getCurrentPlayer().getPosition())).getHouses() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$", "messaggio", 0);
 		        }
+		        for(int i = 1; i<4; i++) {
+                            int stopTurns = listPl.getCurrentPlayer().getStopTurns();
+                            if(stopTurns != 0) {
+                                //Da togliere
+                                JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + " turni in prigione",
+                                        "messaggio", 0);
+                                stopTurns -= 1;
+                            }
+                        }
+                      //Da togliere
+                        JOptionPane.showMessageDialog(null,"è il turno di"+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
+                                "messaggio", 0);
 		    }
 		});
 		

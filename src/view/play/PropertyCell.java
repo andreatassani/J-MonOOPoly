@@ -48,7 +48,6 @@ public class PropertyCell extends JPanel {
                 
                 this.setBackground(p.getColor());
                 image = new JButton();
-                image.setBackground(new Color(149, 255, 213));
                 image.setSize(60, 45);
                 image.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
