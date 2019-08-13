@@ -5,15 +5,17 @@ import java.util.Optional;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
+import model.allTypeOfCard.Property;
+
 public final class ShowImages {
 
     private ShowImages() {
         
     }
     
-    public static void propertyMessage(String ownerName, int numberHouses, String propertyName, int rgb){
-        JOptionPane.showMessageDialog(null,"Owner:"+ownerName+"\nNumber of houses:"+numberHouses,propertyName,
-                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+rgb+".png"));
+    public static void propertyMessage(Property pr){
+        JOptionPane.showMessageDialog(null,"Owner: "+pr.getOwner().getName()+"\nNumber of houses: "+pr.getHouses()+"\n Hotel: "+ pr.getHotel(),pr.getName(),
+                JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+pr.getColor().getRGB()+".png"));
     }
     public static void nonPropertyMessage(String name) {
         if(name.equals("Station N")||

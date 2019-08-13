@@ -44,6 +44,10 @@ public class Property implements Entity {
             this.price = 360;
         }
     }
+    
+    public int getHouses() {
+        return this.nHouses;
+    }
         
     public boolean getHotel() {
         return this.hotel;
@@ -62,7 +66,7 @@ public class Property implements Entity {
     public Color getColor() {
         return this.color;
     }
-    
+
     public void setNewOwner(PlayerImpl pl) {
         this.nHouses = 0;
         this.hotel = false;
@@ -73,28 +77,27 @@ public class Property implements Entity {
         return this.owner;
     }
     
-    public void addHouse (PlayerImpl pl) {
-        if(this.owner == pl){
+    public void addHouse () {
+        
             if(this.hotel == true) {
                 return;
             }
             if(this.nHouses < 4 && this.hotel == false) {
                 this.nHouses++;
-                pl.setMoney(-price/4);
+                this.owner.setMoney(-price/4);
             }
             if(this.nHouses == 4) {
-                this.nHouses = 4;
+                this.nHouses = 0;
                 this.hotel = true;
-                pl.setMoney(-price/2);
+                this.owner.setMoney(-price/2);
             }
          else {
              return;
          }
-        }
     }
     
     public void showCard() {
-        ShowImages.propertyMessage(this.owner.getName(), this.nHouses, this.name, this.color.getRGB());
+        ShowImages.propertyMessage(this);
     }
     
     @Override
@@ -115,4 +118,6 @@ public class Property implements Entity {
     public boolean isSalable() {
         return true;
     }
+    
+    
 }
