@@ -62,7 +62,7 @@ public class SouthUtilityButtons extends JPanel {
                     public void actionPerformed(ActionEvent e) {
                         Random r = new Random();
                         rollDice.setEnabled(false);
-                        int risultato = r.nextInt(6)+1;
+                        int risultato = r.nextInt(1)+1;
                         ShowImages.dice(risultato);
                         int pos = listPl.getCurrentPlayer().getPosition();
                         listPl.getCurrentPlayer().setPosition(pos+risultato);
@@ -72,14 +72,20 @@ public class SouthUtilityButtons extends JPanel {
                         if(deck.get(pos+risultato).getOwner() == listPl.getCurrentPlayer()) {
                             buy.setEnabled(false);
                             sell.setEnabled(true);
-                            if(((Property)deck.get(pos+risultato)).getHotel() == false) {
-                                build.setEnabled(true);
+                            build.setEnabled(true);
+                            if(((Property)deck.get(pos+risultato)).getHotel()) {
+                                build.setEnabled(false);
                             }
+                            
                         } else if(deck.get(pos+risultato).getOwner() == listPl.getPlayerFromIndex(0) && deck.get(pos+risultato).isSalable() ) {
                             buy.setEnabled(true);
                             sell.setEnabled(false);
                         } else if (deck.get(pos+risultato).getOwner() != listPl.getPlayerFromIndex(0) && deck.get(pos+risultato).isSalable() && deck.get(pos+risultato).getOwner() != listPl.getCurrentPlayer()) {
                             deck.get(pos+risultato).action(listPl.getCurrentPlayer());
+                          //Da togliere
+                            JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+"possiede"+listPl.getCurrentPlayer().getMoney(),
+                                    "messaggio", 0);
+                            buy.setEnabled(true);
                         } else if (deck.get(pos+risultato).isSalable() == false) {
                             deck.get(pos+risultato).action(listPl.getCurrentPlayer());
                         }
@@ -152,7 +158,7 @@ public class SouthUtilityButtons extends JPanel {
                                 int stopTurns = listPl.getCurrentPlayer().getStopTurns();
                                 if(stopTurns != 0) {
                                     //Da togliere
-                                    JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + "turni in prigione",
+                                    JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + " turni in prigione",
                                             "messaggio", 0);
                                     stopTurns -= 1;
                                 }
@@ -169,10 +175,28 @@ public class SouthUtilityButtons extends JPanel {
                         buy.setEnabled(true);
                         sell.setEnabled(false);
                       //Da togliere
-                        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha venduto la proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + " e gli rimangono" + listPl.getCurrentPlayer().getMoney() + "$",
+                        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha venduto la proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$",
                                 "messaggio", 0);
                     }
                  });
+		
+		build.addActionListener(new ActionListener() {
+		    public void actionPerformed(ActionEvent e) {
+		        ((Property)deck.get(listPl.getCurrentPlayer().getPosition())).addHouse();
+		        if(((Property)deck.get(listPl.getCurrentPlayer().getPosition())).getHotel()) {
+		        //Da togliere
+                        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha costruito un hotel sulla proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$",
+                                "messaggio", 0);
+                        build.setEnabled(false);
+                     
+		        }
+		        else {
+		          //Da togliere
+	                        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha costruito una casa sulla proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + ",ora ha " +
+	                                ((Property)deck.get(listPl.getCurrentPlayer().getPosition())).getHouses() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$", "messaggio", 0);
+		        }
+		    }
+		});
 		
 
 		

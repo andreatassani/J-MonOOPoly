@@ -116,10 +116,10 @@ public int getStopTurns() {
  * 
  */
 public void buyProperty(Property property) {
-    
     PlayerImpl seller = property.getOwner();
     this.setMoney(-property.getPrice());
     this.properties.add(property);
+    property.setNewOwner(this);
     seller.setMoney(property.getPrice());
     seller.removeProperty(property);
 }
