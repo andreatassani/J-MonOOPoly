@@ -114,19 +114,7 @@ public class ListOfPlayers {
    }
    
 
-   public boolean rightNumberOfPlayers(Integer n) {
-	   boolean res = false;
-	   if(n.equals(0) && (numberOfPlayers == 2)) {
-		   res = true;
-	   }
-	   if(n.equals(1) && (numberOfPlayers == 3)) {
-		   res = true;
-	   }
-	   if(n.equals(2) && (numberOfPlayers == 4)) {
-		   res = true;
-	   }
-	   return res;
-   }
+
    
 
 

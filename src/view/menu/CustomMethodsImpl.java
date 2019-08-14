@@ -55,9 +55,12 @@ public class CustomMethodsImpl implements CustomMethods {
 		color.setBackground(backGround);
 		color.setPreferredSize(dimComboColor);
 		color.setFont(f);
+		color.setMaximumRowCount(3);
 		pawn.setBackground(backGround);
 		pawn.setFont(f);		
-		pawn.setPreferredSize(dimCombo);		
+		pawn.setPreferredSize(dimCombo);
+		pawn.setMaximumRowCount(3);
+		pawn.setPopupVisible(false);
 		player.add(name);
 		player.add(color);
 		player.add(pawn);												

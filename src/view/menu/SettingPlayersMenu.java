@@ -99,6 +99,7 @@ import view.play.MainExternContainer;
 		right.setBackground(methods.getBackground());
 		left.setBackground(methods.getBackground());
 		setPlayers.setBackground(methods.getBackground());
+		
 		namePlayer1.setText("Name Player");
 		namePlayer2.setText("Name Player");
 		namePlayer3.setText("Name Player");
@@ -136,6 +137,10 @@ import view.play.MainExternContainer;
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
 	    	}
 	    	
+	    	if(namePlayer1.getText().equals("Name Player")) {
+	    		JOptionPane.showMessageDialog(null, "non puoi chiamarti Name Player");
+	    		
+	    	}
 	   
 	    
 	    	
@@ -144,9 +149,8 @@ import view.play.MainExternContainer;
 		      };
 		      ActionListener actionStart = (e)->{
 		    	  	
-		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
+		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() && (list.getNumberPlayer()<=2) ) {
 		    	      this.dispose();
-
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
 		    		  }else {
@@ -157,18 +161,8 @@ import view.play.MainExternContainer;
 		      };
 		      
 		      ActionListener actionNum = (e)->{	
-				if(howManyPlayer.getText().equals("4")) {
-					howManyPlayer.setText("2");
-				 player3.setVisible(false);
-				 player4.setVisible(false);
-				}else if(howManyPlayer.getText().equals("2")) {
-					howManyPlayer.setText("3");
-					player3.setVisible(true);
-				}else {
-					howManyPlayer.setText("4");
-					player4.setVisible(true);
-					
-				}
+		    	  action.numPlayer(howManyPlayer, player3, player4);
+			
 					
 			      };
 
