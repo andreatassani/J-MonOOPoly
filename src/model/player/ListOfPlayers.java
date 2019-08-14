@@ -10,7 +10,7 @@ import model.utility.Pawns;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
-	    private int numberOfPlayers;
+	    private int numberOfPlayers=0;
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
@@ -98,12 +98,15 @@ public class ListOfPlayers {
 	   }
 	   return res;
    }
-   
+/**
+ * Removes all players from the list 
+ * and re-enters the bank.   
+ */
    public void removeAllPlayers() { 
 		   list.clear();
 		   PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, Pawns.BANK);
 		   numberOfPlayers = 1;
-	        bank.setMoney(500000);
+	       bank.setMoney(500000);
 		   this.list.add(bank);
    }
    
