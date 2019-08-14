@@ -6,7 +6,6 @@ import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Optional;
 import java.util.Random;
 
 import javax.swing.Box;
@@ -24,15 +23,16 @@ import model.allTypeOfCard.Property;
 import model.images.ShowImages;
 import model.player.ListOfPlayers;
 import model.player.Player;
+import model.utility.Pawns;
 
 public class SouthUtilityButtons extends JPanel {
     
         
     
 	
-	public SouthUtilityButtons(ListOfPlayers listPl, ArrayList<Entity> deck) {
+	public SouthUtilityButtons(ListOfPlayers listPl, ArrayList<Entity> deck, GridCell grid) {
+	    
 		this.setLayout(new GridLayout());
-		
 		
 		JButton rollDice = new JButton("ROLL DICE");
 		JButton sell = new JButton("SELL");
@@ -79,13 +79,11 @@ public class SouthUtilityButtons extends JPanel {
 		
 		
 		
+               
+                AudioManager sound = new AudioManager();
+                
 		
 		
-		
-		
-		
-		
-		AudioManager sound = new AudioManager();
 		
 		rollDice.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
@@ -95,14 +93,23 @@ public class SouthUtilityButtons extends JPanel {
                         int risultato = r.nextInt(6)+1;
                         ShowImages.dice(risultato);
                         int pos = listPl.getCurrentPlayer().getPosition();
+                        for(int i = 0; i < risultato; i++) {
+                            sound.getPawnSound().play();
+                            try {
+                            Thread.sleep(500);
+                            } catch(InterruptedException er) {
+                                System.err.println(er.getMessage());
+                            }
+                        }
+                        ((Cel)grid.getEastBox().getComponent(pos)).getPositionPawns().resetPawnOnIndex(listPl.getIndexFromPlayer(listPl.getCurrentPlayer())-1);
+                        ((Cel)grid.getEastBox().getComponent(risultato+pos)).getPositionPawns().setImageOnIndex(listPl.getIndexFromPlayer(listPl.getCurrentPlayer())-1, listPl.getCurrentPlayer().getPawn());
+                        
                         listPl.getCurrentPlayer().setPosition(pos+risultato);
                         
                         //Da togliere
                         JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" è finito sulla casella "+deck.get(pos+risultato).getName(),
                                 "messaggio", 0);
-                        for(int i = 0; i<=risultato; i++) {
-                            sound.getPawnSound().play();
-                        }
+                        
                         if(deck.get(pos+risultato).getOwner() == listPl.getCurrentPlayer()) {
                             buy.setEnabled(false);
                             sell.setEnabled(true);

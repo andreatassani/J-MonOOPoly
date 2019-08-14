@@ -29,6 +29,10 @@ public final class ShowImages {
            name.equals("Station O")){
            name = "Station";
              }
+        if(name.equals("Hera")||
+           name.equals("Enel")) {
+            name = "Society";
+        }
         JOptionPane.showMessageDialog(null,null,null,
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+name+".png"));
     }

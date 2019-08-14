@@ -19,7 +19,7 @@ import model.allTypeOfCard.Entity;
 import model.images.ShowImages;
 
 
-public class Cell extends JPanel {
+public class Cell extends JPanel implements Cel{
 	
 		private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
 		private Dimension dimEastWest = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
@@ -29,6 +29,7 @@ public class Cell extends JPanel {
 		private JLabel name;
 		private JButton image;
 		private ImageIcon icon;
+		private PositionPawns posPawn = new PositionPawns();
 		int position;
 		Entity card;
 		
@@ -56,7 +57,7 @@ public class Cell extends JPanel {
 		image.setSize(40, 30);
 		image.addActionListener(new EvtCell(s));
 
-		this.add(new PositionPawns(), BorderLayout.SOUTH);
+		this.add(posPawn, BorderLayout.SOUTH);
 		this.add(name, BorderLayout.NORTH);
 		
 		this.add(image);
@@ -68,6 +69,10 @@ public class Cell extends JPanel {
 		}
 
 	}
+	
+        public PositionPawns getPositionPawns() {
+            return this.posPawn;
+        }
 	
 	public void mySetSize(Dimension d) {
 		this.setMaximumSize(d);
@@ -82,4 +87,5 @@ public class Cell extends JPanel {
 		icon.setImage(scaledImage);
 		b.setIcon(icon);
 	}
+	
 }
