@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -67,7 +68,7 @@ public class CustomMethodsImpl implements CustomMethods {
  * {@inheritDoc}
  * 
  */	
-	public void createNumPlayerPanel(JPanel p, JLabel l, JComboBox<NumPlayers> n, Font f) {
+	public void createNumPlayerPanel(JPanel p, JLabel l, JButton n, Font f) {
 		p.setLayout(new FlowLayout(FlowLayout.LEFT));
 		p.setPreferredSize(dimPlayer);
 		l.setPreferredSize(dimNameG);

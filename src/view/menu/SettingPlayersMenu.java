@@ -24,7 +24,7 @@ import view.play.MainExternContainer;
 
 /**
  * 
- * class for the setting player menu.
+ * Class for the setting player menu.
  *
  */
 	public class SettingPlayersMenu extends JFrame{				
@@ -64,28 +64,26 @@ import view.play.MainExternContainer;
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
-		private JComboBox<NumPlayers> howManyPlayer = new JComboBox<NumPlayers>(NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
 		private  AudioManager clip;	
-		
-		
-		
 		private JButton done;
+		private JButton howManyPlayer;
 /**
-* constructor of the main menu.
+* Constructor of the main menu.
 */					
-	public SettingPlayersMenu() {				
+	public SettingPlayersMenu() {	
+
 /**
- * set the layout and measurements of 
+ * Set the layout and measurements of 
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
-		
+		this.howManyPlayer = new JButton("4");
 		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
-		this.deck = new ArrayList<Entity>(4);
+		this.deck = new ArrayList<Entity>(0);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
@@ -100,8 +98,12 @@ import view.play.MainExternContainer;
 		right.setBackground(methods.getBackground());
 		left.setBackground(methods.getBackground());
 		setPlayers.setBackground(methods.getBackground());
+		namePlayer1.setText("Inserire nome giocatore");
+		namePlayer2.setText("Inserire nome giocatore");
+		namePlayer3.setText("Inserire nome giocatore");
+		namePlayer4.setText("Inserire nome giocatore");
 /**
- * action listener
+ * Action listener
  */
 		 ActionListener actionBack = (e)->{	
 		  action.backNewGame(this);
@@ -116,22 +118,33 @@ import view.play.MainExternContainer;
 	      
 	      ActionListener actionDone = (e)->{	
 	    	  
-	    	
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
+	    	}
+	    	
+	   
+	    
 	    	
 	    	
 	    
 		      };
-		      ActionListener actionStart = (e)->{	
-		    		  if( list.isPresentSameColor() ) {
-		    	       this.dispose();
+		      ActionListener actionStart = (e)->{
+		    	  	
+		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
+		    	      this.dispose();
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
 		    		  }else {
@@ -139,16 +152,32 @@ import view.play.MainExternContainer;
 		    			  list.removeAllPlayers();
 		    		  }
 		      };
+		      
+		      ActionListener actionNum = (e)->{	
+				if(howManyPlayer.getText().equals("4")) {
+					howManyPlayer.setText("2");
+				 player3.setVisible(false);
+				 player4.setVisible(false);
+				}else if(howManyPlayer.getText().equals("2")) {
+					howManyPlayer.setText("3");
+					player3.setVisible(true);
+				}else {
+					howManyPlayer.setText("4");
+					player4.setVisible(true);
+					
+				}
+					
+			      };
 
 /**
- * i configure the size of the image.
+ * I configure the size of the image.
  */		
 		Image scaledImage = icon.getImage().getScaledInstance(methods.getDimImg().width, methods.getDimImg().height, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		image.setIcon(icon);
 		
 /**
- * i create panels for customizing the game.
+ * I create panels for customizing the game.
  */
 		methods.setMyPanel(left, dimPlayer);
 		methods.setMyPanel(right, dimPlayer);
@@ -156,10 +185,11 @@ import view.play.MainExternContainer;
 		methods.createSetPlayer(player2, namePlayer2, color2, pawn2,methods.getFont());
 		methods.createSetPlayer(player3, namePlayer3, color3, pawn3,methods.getFont());
 		methods.createSetPlayer(player4, namePlayer4, color4, pawn4,methods.getFont());		
-		methods.createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer,methods.getFont());
+		methods.createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer ,methods.getFont());
 /**
- * i add all the panels to the main panel
+ * I add all the panels to the main panel
  */		
+		howManyPlayer.addActionListener(actionNum);
 		start.addActionListener(actionStart);
 		done.addActionListener(actionDone);	
 		back.addActionListener(actionBack);
