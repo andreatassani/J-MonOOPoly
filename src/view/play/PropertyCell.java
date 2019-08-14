@@ -48,17 +48,17 @@ public class PropertyCell extends JPanel {
                 
                 this.setBackground(p.getColor());
                 image = new JButton();
-                image.setSize(60, 45);
+                image.setSize(40, 30);
                 image.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         p.showCard();
                     }
                 });
                 
-                
+                this.add(new PositionPawns(), BorderLayout.SOUTH);
                 this.add(name, BorderLayout.NORTH);
                 
-                this.add(image);
+                this.add(image, BorderLayout.CENTER);
                 this.setBorder(new LineBorder(Color.BLACK));
                 
                 mySetIcon(image, ShowImages.propertyCell(p.getColor().getRGB()));
@@ -75,7 +75,7 @@ public class PropertyCell extends JPanel {
         
         public void mySetIcon(JButton b, String s) {
                 icon = new ImageIcon(s);
-                Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 20, MainExternContainer.getLeftSide().getHeight() / 19 , Image.SCALE_DEFAULT);
+                Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 30, MainExternContainer.getLeftSide().getHeight() / 27 , Image.SCALE_DEFAULT);
                 icon.setImage(scaledImage);
                 b.setIcon(icon);
         }

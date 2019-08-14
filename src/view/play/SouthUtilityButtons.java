@@ -96,12 +96,13 @@ public class SouthUtilityButtons extends JPanel {
                         ShowImages.dice(risultato);
                         int pos = listPl.getCurrentPlayer().getPosition();
                         listPl.getCurrentPlayer().setPosition(pos+risultato);
-                        for(int i = 0; i<risultato; i++) {
-                            sound.getPawnSound().play();
-                        }
+                        
                         //Da togliere
                         JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" è finito sulla casella "+deck.get(pos+risultato).getName(),
                                 "messaggio", 0);
+                        for(int i = 0; i<=risultato; i++) {
+                            sound.getPawnSound().play();
+                        }
                         if(deck.get(pos+risultato).getOwner() == listPl.getCurrentPlayer()) {
                             buy.setEnabled(false);
                             sell.setEnabled(true);
