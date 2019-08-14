@@ -37,11 +37,7 @@ import controller.menu.ControllerMainMenu;
 		private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		private  static final Dimension general = new Dimension(width,height/2);
-		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);
-		private static final Color backGround = new Color(173,238,216);
-		private static final Color button = new Color(242,59,59);
-		private static final Color writer = Color.white;
+		private  static final Dimension general = new Dimension(width,height/2);	
 		private static final Dimension dim = new Dimension(width/6,height/20);
 		private static final Dimension dimLogo = new Dimension(width/2,height/2);
 		private JLabel logo;
@@ -53,6 +49,9 @@ import controller.menu.ControllerMainMenu;
 		private JPanel south;
 		private ControllerMainMenu action;	
 		private  static AudioManager clipAudio;	
+		private CustomMethods methods;
+		
+		
 /**
  * constructor of the main menu.
  */
@@ -60,6 +59,7 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
+	  this.methods = new CustomMethodsImpl();
 	  this.clipAudio = new AudioManager();
 	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
@@ -94,15 +94,15 @@ import controller.menu.ControllerMainMenu;
 /**
  * JComponent customization.	 
  */
-	  setPreference(logo, dimLogo , null, backGround, null);
+	  methods.setPreference(logo, dimLogo , methods.getBackground(), methods.getBackground(), methods.getFont());
 	  Image scaledImage = icon.getImage().getScaledInstance(width/2, height/2, Image.SCALE_DEFAULT);
 	  icon.setImage(scaledImage);
 	  logo.setIcon(icon);
-	  setPreference(newGame, dim , button, writer, f);
-	  setPreference(tutorial, dim, button, writer, f);
-	  setPreference(settings, dim, button, writer, f);	
-	  setPreference(north, general, backGround , backGround, f);
-	  setPreference(south, general, backGround, backGround, f);
+	  methods.setPreference(newGame, dim , methods.getButton(), methods.getWriter(),  methods.getFont());
+	  methods.setPreference(tutorial, dim,  methods.getButton(), methods.getWriter(), methods.getFont());
+	  methods.setPreference(settings, dim,  methods.getButton(), methods.getWriter(), methods.getFont());	
+	  methods.setPreference(north, general, methods.getBackground() , methods.getBackground(), methods.getFont());
+	  methods.setPreference(south, general, methods.getBackground(), methods.getBackground(), methods.getFont());
 /**
  * i add the action listener to the buttons.	  
  */
@@ -129,23 +129,7 @@ import controller.menu.ControllerMainMenu;
  */
 	  clipAudio.getMusicMenu().loop();  
 }
-/**
- * method for customizing a JComponent.	  
- * @param j JComponent to customize
- * @param d JComponent size
- * @param back JComponent background color
- * @param write JComponent foreground color
- * @param f JComponent font
- * 
- */
-  public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
-	  j.setPreferredSize(d);
-	  j.setSize(d);
-	  j.setFont(f);
-	  j.setBackground(back);
-	  j.setForeground(write);
-	  j.setBorder(new LineBorder(write,3));	  
-  		}
+
  /**
   * Allows other frames to know if the audio is to be
   * activated or not.

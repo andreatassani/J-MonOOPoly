@@ -8,5 +8,5 @@ public enum NumPlayers {
 /**
  * numbers of players;
  */
-TWO, THREE, FOUR;
+TWO , THREE, FOUR;
 }
