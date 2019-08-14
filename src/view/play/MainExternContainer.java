@@ -47,8 +47,9 @@ public class MainExternContainer extends JFrame {
 		GridCell grid = new GridCell(deck);
 		leftSide.add(new SouthUtilityButtons(listPl, deck, grid), BorderLayout.SOUTH);
 		leftSide.add(grid, BorderLayout.CENTER);
-
-
+		for(int i = 0; i<listPl.getNumberPlayer(); i++) {
+		((Cel)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1).getPawn());
+		}
 		
 		rightSide.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - leftSide.getSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 		rightSide.setPreferredSize(leftSideDimension);
