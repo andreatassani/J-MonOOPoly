@@ -93,16 +93,16 @@ import view.play.MainExternContainer;
 		methods.setPreference(start, dimName, methods.getButton(), methods.getWriter(), methods.getFont());
 		methods.setPreference(back, dimName, methods.getButton(),  methods.getWriter(), methods.getFont());
 		methods.setPreference(done, dimNameG, methods.getButton(),  methods.getWriter(), methods.getFont());
-		methods.setPreference(howManyPlayer, dimNameG, methods.getButton(),  methods.getWriter(), methods.getFont());
+		methods.setPreference(howManyPlayer, dimNameG, methods.getButton(), Color.BLACK , methods.getFont());
 		back.setMaximumSize(dimName);
 		back.setMinimumSize(dimName);
 		right.setBackground(methods.getBackground());
 		left.setBackground(methods.getBackground());
 		setPlayers.setBackground(methods.getBackground());
-		namePlayer1.setText("Inserire nome giocatore");
-		namePlayer2.setText("Inserire nome giocatore");
-		namePlayer3.setText("Inserire nome giocatore");
-		namePlayer4.setText("Inserire nome giocatore");
+		namePlayer1.setText("Name Player");
+		namePlayer2.setText("Name Player");
+		namePlayer3.setText("Name Player");
+		namePlayer4.setText("Name Player");
 /**
  * Action listener
  */
@@ -119,19 +119,19 @@ import view.play.MainExternContainer;
 	      
 	      ActionListener actionDone = (e)->{	
 	    	  
-	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer1.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
 	    	}
-	    	if(!(namePlayer2.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer2.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
 	    	}
-	    	if(!(namePlayer3.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer3.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
 	    	}
-	    	if(!(namePlayer4.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer4.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
 	    	}
