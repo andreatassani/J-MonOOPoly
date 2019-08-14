@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -33,7 +34,7 @@ public interface CustomMethods {
  * @param p
  * @param d
  */	
-	void createNumPlayerPanel(JPanel p, JLabel l, JComboBox<NumPlayers> n, Font f);
+	void createNumPlayerPanel(JPanel p, JLabel l, JButton n, Font f);
  
 /**
  * Method for customizing a JComponent.	  

@@ -51,6 +51,10 @@ import controller.menu.ControllerMainMenu;
 		private  static AudioManager clipAudio;	
 		private CustomMethods methods;
 		
+			
+		
+	
+		
 		
 /**
  * constructor of the main menu.

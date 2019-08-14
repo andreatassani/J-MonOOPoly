@@ -8,5 +8,5 @@ public enum Music {
 /**
  * Songs.
  */
- ROCK, TECNO, CLASSIC, POP 
+ ROCK, TECNO, CLASSIC, NARCOS
 }

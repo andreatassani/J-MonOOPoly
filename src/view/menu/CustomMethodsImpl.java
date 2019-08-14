@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Toolkit;
 
 import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
@@ -54,9 +55,12 @@ public class CustomMethodsImpl implements CustomMethods {
 		color.setBackground(backGround);
 		color.setPreferredSize(dimComboColor);
 		color.setFont(f);
+		color.setMaximumRowCount(3);
 		pawn.setBackground(backGround);
 		pawn.setFont(f);		
-		pawn.setPreferredSize(dimCombo);		
+		pawn.setPreferredSize(dimCombo);
+		pawn.setMaximumRowCount(3);
+		pawn.setPopupVisible(false);
 		player.add(name);
 		player.add(color);
 		player.add(pawn);												
@@ -67,7 +71,7 @@ public class CustomMethodsImpl implements CustomMethods {
  * {@inheritDoc}
  * 
  */	
-	public void createNumPlayerPanel(JPanel p, JLabel l, JComboBox<NumPlayers> n, Font f) {
+	public void createNumPlayerPanel(JPanel p, JLabel l, JButton n, Font f) {
 		p.setLayout(new FlowLayout(FlowLayout.LEFT));
 		p.setPreferredSize(dimPlayer);
 		l.setPreferredSize(dimNameG);
