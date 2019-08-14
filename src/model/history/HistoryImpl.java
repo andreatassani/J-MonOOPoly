@@ -1,23 +1,46 @@
 package model.history;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.Toolkit;
+import java.util.ArrayList;
+
+import javax.swing.JButton;
+import javax.swing.SwingConstants;
+
 import model.allTypeOfCard.Entity;
 import model.player.Player;
+import view.play.HistoryGUI;
+import view.play.MainExternContainer;
 
 public class HistoryImpl implements History {
+	
+	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
+	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
+	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
+	private static Dimension dim = new Dimension((int) (MainExternContainer.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
+	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
+
 
 	@Override
 	public void printPositionPlayer(Player player) {
-		System.out.println("" + player.getName() + " è finito nella casella numero " + player.getPosition() + "");
+		System.out.println("" + player.getName() + " ï¿½ finito nella casella numero " + player.getPosition() + "");
 	}
 
 	@Override
 	public void printStartGame() {
-		System.out.println("La partita è iniziata! Buona fortuna a tutti");
+		ArrayList<JButton> fields = HistoryGUI.getHistory();
+		 JButton jb = fields.get(0);
+		 jb.setText("Inizio");
+		 fields.set(0, jb);
+		 HistoryGUI.setHistory(fields);
 	}
 
 	@Override
 	public void buyPropriety(Player player, Entity entity) {
-		System.out.println("" + player.getName() + " ha comprato la proprietà " + entity.getName() +"");
+		System.out.println("" + player.getName() + " ha comprato la proprietï¿½ " + entity.getName() +"");
 		
 	}
 

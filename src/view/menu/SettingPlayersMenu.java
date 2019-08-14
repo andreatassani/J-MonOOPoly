@@ -131,11 +131,13 @@ import view.play.MainExternContainer;
 		    	 
 		    	
 		    	      this.dispose();
+	
+		    	      
 		    		  if(list.isPresentSameName() && list.isPresentSamePawn() && list.isPresentSameColor() ) {
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
-		    		  }else {
-		    			  action.backNewGame(this);
+	    		  }else {
+	    			  action.backNewGame(this);
 		    		  }
 		    	  
 						 

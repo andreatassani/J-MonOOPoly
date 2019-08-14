@@ -21,6 +21,8 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
+import model.history.History;
+import model.history.HistoryImpl;
 import model.images.ShowImages;
 import model.player.ListOfPlayers;
 import model.player.Player;
@@ -32,6 +34,8 @@ public class SouthUtilityButtons extends JPanel {
 	
 	public SouthUtilityButtons(ListOfPlayers listPl, ArrayList<Entity> deck) {
 		this.setLayout(new GridLayout());
+		History history = new HistoryImpl();
+				
 		
 		
 		JButton rollDice = new JButton("ROLL DICE");
@@ -90,6 +94,7 @@ public class SouthUtilityButtons extends JPanel {
 		rollDice.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sound.getDiceSound().play();
+                        history.printStartGame();
                         Random r = new Random();
                         rollDice.setEnabled(false);
                         int risultato = r.nextInt(6)+1;
@@ -146,6 +151,7 @@ public class SouthUtilityButtons extends JPanel {
                                     "messaggio", 0);
                         }
                     }
+                    
                 });
 		nextPlayer.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {

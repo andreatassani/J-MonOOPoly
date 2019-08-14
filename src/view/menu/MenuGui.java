@@ -23,18 +23,15 @@ public class MenuGui extends JFrame {
     	c.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
     	c.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
         c.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        c.setResizable(true);
 		c.setExtendedState(JFrame.MAXIMIZED_HORIZ);
 		c.setExtendedState(JFrame.MAXIMIZED_VERT);
 		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		c.setState(JFrame.NORMAL);
 		c.setMaximumSize(d);
 		c.setMinimumSize(d);
-		c.setPreferredSize(d);
+		//c.setPreferredSize(d);
 		c.setSize(d);
 		c.setResizable(false);
 		c.setState(JFrame.MAXIMIZED_BOTH);
-		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		c.setVisible(true);
         c.pack();
       

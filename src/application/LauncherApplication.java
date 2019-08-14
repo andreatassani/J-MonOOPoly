@@ -3,7 +3,9 @@ package application;
 
 
 import java.awt.Color;
+import java.util.ArrayList;
 
+import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;

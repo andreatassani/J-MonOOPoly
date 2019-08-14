@@ -1,5 +1,7 @@
 package model.history;
 
+import javax.swing.JButton;
+
 import model.allTypeOfCard.Entity;
 import model.player.Player;
 /**

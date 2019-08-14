@@ -75,6 +75,13 @@ public class MainExternContainer extends JFrame {
 		JPanel i = leftSide;
 		return i;
 	}
+	
+	public static Box getRightSide() {
+		Box i = rightSide;
+		return i;
+	}
+	
+	
 
 
 }
