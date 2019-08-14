@@ -19,7 +19,7 @@ import javax.swing.border.LineBorder;
 import model.allTypeOfCard.*;
 import model.images.ShowImages;
 
-public class PropertyCell extends JPanel {
+public class PropertyCell extends JPanel implements Cel{
         
                 private Dimension dim = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11, MainExternContainer.getLeftSide().getHeight() / 12);
                 //private Dimension dimCorner = new Dimension(MainExternContainer.getLeftSide().getWidth() / 11 + 1, MainExternContainer.getLeftSide().getHeight() / 11 + 1);
@@ -29,8 +29,10 @@ public class PropertyCell extends JPanel {
                 private ImageIcon icon;
                 int position;
                 Entity property;
+                private PositionPawns posPawn = new PositionPawns();
                 
         public PropertyCell(Property p) {
+                
                 this.position = p.getPosition();
                 
                 name = new JLabel("" + p.getName(), SwingConstants.CENTER);
@@ -48,22 +50,26 @@ public class PropertyCell extends JPanel {
                 
                 this.setBackground(p.getColor());
                 image = new JButton();
-                image.setSize(60, 45);
+                image.setSize(40, 30);
                 image.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         p.showCard();
                     }
                 });
                 
-                
+                this.add(posPawn, BorderLayout.SOUTH);
                 this.add(name, BorderLayout.NORTH);
                 
-                this.add(image);
+                this.add(image, BorderLayout.CENTER);
                 this.setBorder(new LineBorder(Color.BLACK));
                 
                 mySetIcon(image, ShowImages.propertyCell(p.getColor().getRGB()));
                 
 
+        }
+        
+        public PositionPawns getPositionPawns() {
+            return this.posPawn;
         }
         
         public void mySetSize(Dimension d) {
@@ -75,7 +81,7 @@ public class PropertyCell extends JPanel {
         
         public void mySetIcon(JButton b, String s) {
                 icon = new ImageIcon(s);
-                Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 20, MainExternContainer.getLeftSide().getHeight() / 19 , Image.SCALE_DEFAULT);
+                Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 30, MainExternContainer.getLeftSide().getHeight() / 27 , Image.SCALE_DEFAULT);
                 icon.setImage(scaledImage);
                 b.setIcon(icon);
         }

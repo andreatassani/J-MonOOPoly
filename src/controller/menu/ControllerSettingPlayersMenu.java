@@ -66,7 +66,11 @@ public class ControllerSettingPlayersMenu {
 		PlayerImpl player = new PlayerImpl(name, color, pawn);
 		return player;	
 	}
-	
+/**
+ * 	
+ * @param n
+ * @return
+ */
 	public Color chosenColor(Integer n) {
 		Color color = new Color(0,0,0);
 		switch(n) {
@@ -91,7 +95,11 @@ public class ControllerSettingPlayersMenu {
 		}
 		return color;
 }
-
+/**
+ * 
+ * @param n
+ * @return
+ */
 	
 	public Pawns chosenPawn (Integer n) {
 		Pawns pawn = Pawns.BALL;

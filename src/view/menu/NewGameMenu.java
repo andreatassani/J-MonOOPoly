@@ -23,10 +23,6 @@ public class NewGameMenu extends JFrame {
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static final Dimension dim = new Dimension(width/6 ,height/20);
 	private static final Dimension dimPanel  = new Dimension(width/2,height/4);
-	private static final Font font = new Font("Cooper Black",Font.CENTER_BASELINE,50);
-	private static final Color mainColor  = new Color(173,238,216);
-	private static final Color lineColor = Color.WHITE;
-	private static final Color button = new Color(242,59,59);	
 	private JPanel north;
 	private JPanel center;
 	private JLabel title;
@@ -40,6 +36,7 @@ public class NewGameMenu extends JFrame {
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
+	private CustomMethods methods;
 	private static AudioManager clip = new AudioManager();
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
@@ -51,6 +48,7 @@ public class NewGameMenu extends JFrame {
 /**
  * declaration of the fields.	
  */
+		this.methods = new CustomMethodsImpl();
 		this.action = new ControllerNewGameMenu();
 		this.players = new JButton("Players");
 		this.music = new JLabel("Music");
@@ -68,17 +66,16 @@ public class NewGameMenu extends JFrame {
 /**
  * JComponent customization.
  */
-		
-		setPreference(north, dimPanel, mainColor, mainColor, font);
-		setPreference(players, dim, button, lineColor, font);
-		setPreference(music, dim, mainColor, Color.black, font);
-		setPreference(choiseCurrency, dim, mainColor, Color.black, font);
-		setPreference(choiseMusic, dim, mainColor, Color.black, font);
-		setPreference(currency, dim, mainColor, Color.black, font);
-		setPreference(back, dim, button, lineColor, font);
+		methods.setPreference(north, dimPanel, methods.getBackground(), methods.getBackground(), methods.getFont());
+		methods.setPreference(players, dim, methods.getButton(), methods.getWriter(), methods.getFont());
+		methods.setPreference(music, dim, methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(choiseCurrency, dim, methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(choiseMusic, dim,methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(currency, dim, methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(back, dim, methods.getButton(), methods.getWriter(), methods.getFont());
 		title.setFont(new Font("Cooper Black",Font.CENTER_BASELINE,70));		
-		center.setBackground(mainColor);		
-		this.setBackground(mainColor);	
+		center.setBackground(methods.getBackground());		
+		this.setBackground(methods.getBackground());	
 		imageRight.setIcon(icon);
 		imageLeft.setIcon(icon);
 		Image scaledImage = icon.getImage().getScaledInstance(width/7,height/4, Image.SCALE_DEFAULT);
@@ -129,23 +126,7 @@ public class NewGameMenu extends JFrame {
  */
 		action.musicStop(MainMenu.getTextButton(), clip);
 	}
-/**
-* method for customizing a JComponent.	  
-* @param j JComponent to customize
-* @param d JComponent size
-* @param back JComponent background color
-* @param write JComponent foreground color
-* @param f JComponent font
-* 
-*/
- public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
-	j.setPreferredSize(d);
-	j.setSize(d);
-	j.setFont(f);
-	j.setBackground(back);
-	j.setForeground(write);
-	j.setBorder(new LineBorder(write,3));	  
-	  		}
+
 /**
  * communicates to the next frame if the audio is active or not. 
  * @return a string with the audio status

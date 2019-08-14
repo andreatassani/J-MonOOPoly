@@ -21,9 +21,6 @@ public class HowToPlay extends JFrame {
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-	private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,40);
-	private static final Color backGround = new Color(173,238,216);
-	private static final Color button = new Color(236,28,36);
 	private static final Dimension dim = new Dimension(width/6,height/20);	
 	private JPanel general;
 	private JLabel img;
@@ -31,6 +28,7 @@ public class HowToPlay extends JFrame {
 	private JButton back;
 	private ControllerNewGameMenu action;
 	private AudioManager clip ;
+	private CustomMethods methods;
 /**
  * builder of howToPlay.	
  */
@@ -38,6 +36,7 @@ public class HowToPlay extends JFrame {
 /**
  * declaration of the fields. 
  */
+	 this.methods = new CustomMethodsImpl();
 	 this.clip = new AudioManager();
 	 this.action = new ControllerNewGameMenu();
 	 this.general = new JPanel();
@@ -69,8 +68,8 @@ public class HowToPlay extends JFrame {
  *imposed the esthetic customizations
  *of the JComponents.  	 
  */	 
-	 setPreference(back, dim, button, Color.black, f);
-	 general.setBackground(backGround);
+	 methods.setPreference(back, dim,methods.getButton(), Color.black, methods.getFont());
+	 general.setBackground(methods.getBackground());
 /**
  *i add JComponents to the frame and action listener to the button.
  */	 
@@ -79,21 +78,5 @@ public class HowToPlay extends JFrame {
 	 this.add(general, BorderLayout.CENTER);
 	 this.add(back, BorderLayout.SOUTH);	 	 
 	}
-/**
-* method for customizing a JComponent.	  
-* @param j JComponent to customize
-* @param d JComponent size
-* @param back JComponent background color
-* @param write JComponent foreground color
-* @param f JComponent font
-* 
-*/	
-	  public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
-		  j.setPreferredSize(d);
-		  j.setSize(d);
-		  j.setFont(f);
-		  j.setBackground(back);
-		  j.setForeground(write);
-		  j.setBorder(new LineBorder(write,3));	  
-	  		}	
+
 }

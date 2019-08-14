@@ -28,11 +28,13 @@ public class MainExternContainer extends JFrame {
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
 	private static Box rightSide = new Box(BoxLayout.Y_AXIS);
 	private static JPanel leftSide = new JPanel(new BorderLayout());
+	
 	/**
 	 * @return the rightSide
 	 */
 	public MainExternContainer(ListOfPlayers listPl, ArrayList<Entity> deck) {
-	       
+	    
+	        
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -41,13 +43,13 @@ public class MainExternContainer extends JFrame {
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
 
-		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
-		leftSide.add(new GridCell(deck));
 
-		leftSide.add(new SouthUtilityButtons(listPl, deck), BorderLayout.SOUTH);
-		leftSide.add(new GridCell(deck), BorderLayout.CENTER);
-
-
+		GridCell grid = new GridCell(deck);
+		leftSide.add(new SouthUtilityButtons(listPl, deck, grid), BorderLayout.SOUTH);
+		leftSide.add(grid, BorderLayout.CENTER);
+		for(int i = 0; i<listPl.getNumberPlayer(); i++) {
+		((Cel)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1).getPawn());
+		}
 		
 		rightSide.setSize(Toolkit.getDefaultToolkit().getScreenSize().width - leftSide.getSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
 		rightSide.setPreferredSize(leftSideDimension);

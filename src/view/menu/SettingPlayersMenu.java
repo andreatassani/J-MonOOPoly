@@ -24,23 +24,20 @@ import view.play.MainExternContainer;
 
 /**
  * 
- * class for the setting player menu.
+ * Class for the setting player menu.
  *
  */
 	public class SettingPlayersMenu extends JFrame{				
 /**
  * SettingPlayersMenu fields.
  */
+		
+		private CustomMethods methods = new CustomMethodsImpl();
 		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		private static final Color backGround = new Color(173,238,216);
-		private static final Color button = new Color(242,59,59);
-		private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
-		private static final Font f = new Font("Cooper Black", Font.CENTER_BASELINE,30);		
 		private static final Dimension dimPlayer = new Dimension(width/2,height);
 		private static final Dimension dimName = new Dimension(width/5,height/28);
 		private static final Dimension dimCombo = new Dimension(width/10,height/28);
-		private static final Dimension dimImg = new Dimension(width/4,height/2);
 		private static final Dimension dimComboColor = new Dimension((width/4)/3,height/28);
 		private static final Dimension dimNameG = new Dimension(width/3,height/28);
 		private JPanel left = new JPanel();
@@ -67,40 +64,46 @@ import view.play.MainExternContainer;
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/setGame.png");
-		private Integer[] number = { 2,3,4};
-		private JComboBox<NumPlayers> howManyPlayer = new JComboBox<NumPlayers>(NumPlayers.values());
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
 		private  AudioManager clip;	
 		private JButton done;
-		private JCheckBox ready;
+		private JButton howManyPlayer;
 /**
-* constructor of the main menu.
+* Constructor of the main menu.
 */					
-	public SettingPlayersMenu() {				
+	public SettingPlayersMenu() {	
+
 /**
- * set the layout and measurements of 
+ * Set the layout and measurements of 
  * two JLabels containing a button, image, 
  * JFieldTextArea and a JComboCheckBox.
  */
-		this.ready = new JCheckBox();
+		this.howManyPlayer = new JButton("4");
 		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
-		this.deck = new ArrayList<Entity>(4);
+		this.deck = new ArrayList<Entity>(0);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
 		start.setMaximumSize(dimName);
 		start.setMinimumSize(dimName);
 		image.setPreferredSize(dimPlayer);
-		setPreference(start, dimName, button, Color.WHITE, f);
-		setPreference(back, dimName, button, Color.WHITE, f);
-		setPreference(done, dimNameG, button, Color.WHITE, f);
+		methods.setPreference(start, dimName, methods.getButton(), methods.getWriter(), methods.getFont());
+		methods.setPreference(back, dimName, methods.getButton(),  methods.getWriter(), methods.getFont());
+		methods.setPreference(done, dimNameG, methods.getButton(),  methods.getWriter(), methods.getFont());
 		back.setMaximumSize(dimName);
 		back.setMinimumSize(dimName);
+		right.setBackground(methods.getBackground());
+		left.setBackground(methods.getBackground());
+		setPlayers.setBackground(methods.getBackground());
+		namePlayer1.setText("Inserire nome giocatore");
+		namePlayer2.setText("Inserire nome giocatore");
+		namePlayer3.setText("Inserire nome giocatore");
+		namePlayer4.setText("Inserire nome giocatore");
 /**
- * actionlistener
+ * Action listener
  */
 		 ActionListener actionBack = (e)->{	
 		  action.backNewGame(this);
@@ -115,22 +118,34 @@ import view.play.MainExternContainer;
 	      
 	      ActionListener actionDone = (e)->{	
 	    	  
-	    	
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
+	    	}
+	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
+	    	}
+	    	
+	   
+	    
+	    	
+	    	
+	    
 		      };
-		      ActionListener actionStart = (e)->{	
-		    	 
-		    	  
-		    	 
-		    	
+		      ActionListener actionStart = (e)->{
+		    	  	
+		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
 		    	      this.dispose();
+<<<<<<< HEAD
 	
 		    	      
 		    		  if(list.isPresentSameName() && list.isPresentSamePawn() && list.isPresentSameColor() ) {
@@ -138,41 +153,58 @@ import view.play.MainExternContainer;
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
 	    		  }else {
 	    			  action.backNewGame(this);
+=======
+		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
+			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
+		    		  }else {
+		    			  JOptionPane.showMessageDialog(null,"hai selezionato una pedina o un colore o un nome già selezionato ");
+		    			  list.removeAllPlayers();
+>>>>>>> 0ca90021bcc91d4d8c45752aef393ad14f3409dd
 		    		  }
-		    	  
-						 
-				      };
+		      };
 		      
-		 
-	    
+		      ActionListener actionNum = (e)->{	
+				if(howManyPlayer.getText().equals("4")) {
+					howManyPlayer.setText("2");
+				 player3.setVisible(false);
+				 player4.setVisible(false);
+				}else if(howManyPlayer.getText().equals("2")) {
+					howManyPlayer.setText("3");
+					player3.setVisible(true);
+				}else {
+					howManyPlayer.setText("4");
+					player4.setVisible(true);
+					
+				}
+					
+			      };
+
 /**
- * i configure the size of the image.
+ * I configure the size of the image.
  */		
-		Image scaledImage = icon.getImage().getScaledInstance(dimImg.width, dimImg.height, Image.SCALE_DEFAULT);
+		Image scaledImage = icon.getImage().getScaledInstance(methods.getDimImg().width, methods.getDimImg().height, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		image.setIcon(icon);
 		
 /**
- * i create panels for customizing the game.
+ * I create panels for customizing the game.
  */
-		setMyPanel(left, dimPlayer);
-		setMyPanel(right, dimPlayer);
-		createSetPlayer(player1, namePlayer1, color1, pawn1,f);
-		createSetPlayer(player2, namePlayer2, color2, pawn2,f);
-		createSetPlayer(player3, namePlayer3, color3, pawn3,f);
-		createSetPlayer(player4, namePlayer4, color4, pawn4,f);
-		
-		createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer,f);
+		methods.setMyPanel(left, dimPlayer);
+		methods.setMyPanel(right, dimPlayer);
+		methods.createSetPlayer(player1, namePlayer1, color1, pawn1,methods.getFont());
+		methods.createSetPlayer(player2, namePlayer2, color2, pawn2,methods.getFont());
+		methods.createSetPlayer(player3, namePlayer3, color3, pawn3,methods.getFont());
+		methods.createSetPlayer(player4, namePlayer4, color4, pawn4,methods.getFont());		
+		methods.createNumPlayerPanel(setPlayers, numPlayer, howManyPlayer ,methods.getFont());
 /**
- * i add all the panels to the main panel
+ * I add all the panels to the main panel
  */		
+		howManyPlayer.addActionListener(actionNum);
 		start.addActionListener(actionStart);
 		done.addActionListener(actionDone);	
 		back.addActionListener(actionBack);
-		image.add(start);
-		right.add(ready);
+		image.add(start);		
 		right.add(setPlayers);
-		
 		right.add(image);				
 		left.add(player1);
 		left.add(player2);
@@ -180,98 +212,27 @@ import view.play.MainExternContainer;
 		left.add(player4);
 		left.add(done);
 		right.add(back);
-		right.setBackground(backGround);
-		left.setBackground(backGround);
-		setPlayers.setBackground(backGround);
+		this.add(left,BorderLayout.EAST);
+		this.add(right, BorderLayout.WEST);	
+
 		
-		
-		
+/**
+ * 		
+ */
+
 		action.musicStop(NewGameMenu.getAudio(), clip);
 		clip.getMusicMenu().stop();
 		
 		
 		
 		
-		this.add(left,BorderLayout.EAST);
-		this.add(right, BorderLayout.WEST);	
+
 	}
-/**
- * method for creating a sub-panel with customized measurements.
- * @param player a JPanel.
- * @param name a JTextField.
- * @param color a JComboBox.
- * @param pawn a JComboBox.
- */
-	public void createSetPlayer(JPanel player, JTextField name, JComboBox color, JComboBox pawn, Font f) {
-		player.setBackground(backGround);
-		player.setLayout(new FlowLayout(FlowLayout.CENTER));
-		player.setPreferredSize(dimPlayer);
-		name.setBackground(button);
-		name.setPreferredSize(dimName);
-		name.setFont(f);
-		name.setForeground(Color.white);
-		name.setBorder(new LineBorder(Color.WHITE,4));
-		color.setBackground(backGround);
-		color.setPreferredSize(dimComboColor);
-		color.setFont(f);
-		pawn.setBackground(backGround);
-		pawn.setFont(f);		
-		pawn.setPreferredSize(dimCombo);		
-		player.add(name);
-		player.add(color);
-		player.add(pawn);
-		
-													
-}
-/**
- * method for creating a panel with customized measurements.
- * @param p
- * @param d
- */
+
+
+
 	
-	public void setMyPanel(JPanel p, Dimension d) {
-	  
-	  p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
-	  p.setPreferredSize(d);	  	  	 	  
-	}
-/**
-* method for creating a panel with customized measurements.
-* @param p
-* @param d
-*/	
-	public void createNumPlayerPanel(JPanel p, JLabel l, JComboBox n, Font f) {
-		p.setLayout(new FlowLayout(FlowLayout.LEFT));
-		p.setPreferredSize(dimPlayer);
-		l.setPreferredSize(dimNameG);
-		l.setBorder(new LineBorder(Color.black,4));
-		l.setForeground(Color.BLACK);
-		l.setFont(f);
-		n.setFont(f);
-		n.setPreferredSize(dimComboColor);
-		n.setBackground(backGround);
-		p.add(l);
-		p.add(n);
-		
-	}
-	
-/**
-* method for customizing a JComponent.	  
-* @param j JComponent to customize
-* @param d JComponent size
-* @param back JComponent background color
-* @param write JComponent foreground color
-* @param f JComponent font
-* 
- */
-	  public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
-		  j.setPreferredSize(d);
-		  j.setSize(d);
-		  j.setFont(f);
-		  j.setBackground(back);
-		  j.setForeground(write);
-		  j.setBorder(new LineBorder(write,3));	  
-	  		}
-	
+
 
 
 	
