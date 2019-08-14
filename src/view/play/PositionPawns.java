@@ -10,6 +10,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import model.utility.Pawns;
@@ -20,10 +21,7 @@ public class PositionPawns extends JPanel{
 	 * 
 	 */
 	ImageIcon icon;
-	private static JLabel first;
-	private static JLabel second;
-	private static JLabel third;
-	private static JLabel fourth;
+	
 	private ArrayList<JLabel> pawns = new ArrayList<>();
 	
 	private static final long serialVersionUID = 1L;
@@ -31,34 +29,26 @@ public class PositionPawns extends JPanel{
 	public PositionPawns() {
 		this.setLayout(new GridLayout(1,4));
 		
-		pawns.add(first);
-		pawns.add(second);
-		pawns.add(third);
-		pawns.add(fourth);
-		
-		first.setBackground(Color.RED);
-		second.setBackground(Color.YELLOW);
-		third.setBackground(Color.BLUE);
-		fourth.setBackground(Color.PINK);	
 		
 		for(int i=0; i <4; i++) {
 			pawns.add(new JLabel(""));
 			pawns.get(i).setBorder(new LineBorder(Color.BLACK));
 			this.add(pawns.get(i));
 		}
-
-		mySetIcon(first, "res/car.png" );
 		
 
 	}
 	
 	public void mySetIcon(JLabel b, String s) {
 		icon = new ImageIcon(s);
-		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 85
-				, MainExternContainer.getLeftSide().getHeight() / 58
+		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 72
+				, MainExternContainer.getLeftSide().getHeight() / 60
+				
 				, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		b.setIcon(icon);
+		b.setHorizontalAlignment(SwingConstants.CENTER);
+		b.setAlignmentX(SwingConstants.CENTER);
 	}
 	
 	public void resetPawnOnIndex(int i) {
@@ -66,6 +56,7 @@ public class PositionPawns extends JPanel{
 	}
 	
 	public void setImageOnIndex(int i, Pawns p) {
-		mySetIcon(pawns.get(i), "res/"+p.toString()+".png");	
+		mySetIcon(pawns.get(i), "res/pawns/"+p.toString()+".png");
+		
 	}
 }

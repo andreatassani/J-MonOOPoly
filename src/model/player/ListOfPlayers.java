@@ -29,6 +29,9 @@ public class ListOfPlayers {
        }
    }
     
+   public int getIndexFromPlayer(PlayerImpl pl) {
+       return list.indexOf(pl);
+   }
    public PlayerImpl getCurrentPlayer() {
 
        return this.list.get(currentPlayer);

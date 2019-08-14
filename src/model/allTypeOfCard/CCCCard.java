@@ -29,19 +29,8 @@ public class CCCCard implements Entity {
         JOptionPane.showMessageDialog(null,"è stata pescata la carta " + this.name,
                 "messaggio", 0);
        pl.setMoney(this.amount);
-       if (this.amount == 0){
-              if (this.name == "Vai in PRIGIONE!"){
-                   pl.setPosition(10);
-                   pl.setStopTurns(2);
-              }
-       else if (this.name == "Vai al VIA!"){
-                   pl.setPosition(0);
-                   pl.setMoney(200);
-              }
-       } else {
            JOptionPane.showMessageDialog(null,"adesso il giocatore " + pl.getName() + " possiede " + pl.getMoney(),
                    "messaggio", 0);
-       }
     }
 
     @Override

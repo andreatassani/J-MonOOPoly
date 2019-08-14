@@ -15,13 +15,13 @@ public class CommunityChest implements Entity{
     
     public CommunityChest(PlayerImpl owner) {
         this.owner = owner;
-        deck.add(new CCCCard("Guadagni 100", 100, owner));
+        deck.add(new CCCCard("Guadagni 200", 200, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Guadagni 50", 50, owner));
+        deck.add(new CCCCard("Guadagni 250", 250, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Guadagni 20", 20, owner));
+        deck.add(new CCCCard("Guadagni 300", 300, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Vai al via!", 0, owner));
+        deck.add(new CCCCard("Guadagni 500", 500, owner));
         this.numberOfCards++;
     }
     @Override

@@ -25,16 +25,20 @@ import view.play.*;
 
 public class GridCell extends JPanel {
 
+    Box north;
+    Box east;
+    Box south;
+    Box west;
  
 	public GridCell(ArrayList<Entity> deck) {
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(MainExternContainer.getLeftSide().getPreferredSize());
 		this.setMinimumSize(MainExternContainer.getLeftSide().getSize());
 		
-		Box north = new Box(BoxLayout.X_AXIS);
-		Box south = new Box(BoxLayout.X_AXIS);
-		Box east = new Box(BoxLayout.Y_AXIS);
-		Box west = new Box(BoxLayout.Y_AXIS);
+		north = new Box(BoxLayout.X_AXIS);
+		south = new Box(BoxLayout.X_AXIS);
+		east = new Box(BoxLayout.Y_AXIS);
+		west = new Box(BoxLayout.Y_AXIS);
 		JLabel logo = new JLabel();
 		ImageIcon icon;
 		
@@ -43,6 +47,7 @@ public class GridCell extends JPanel {
 		this.add(east, BorderLayout.EAST);
 		this.add(west, BorderLayout.WEST);
 
+		
 		north.add(new Cell(0, "Go!", Color.WHITE));
 		north.add(new PropertyCell((Property) deck.get(1)));
 		north.add(new Cell(2, "Chance", Color.WHITE));
@@ -94,7 +99,20 @@ public class GridCell extends JPanel {
 		logo.setVerticalAlignment(SwingConstants.CENTER);
 		this.add(logo, BorderLayout.CENTER);
 		}
+	
+	public Box getNorthBox() {
+	    return this.north;
 	}
+	public Box getEastBox() {
+            return this.east;
+        }
+	public Box getSouthBox() {
+            return this.south;
+        }
+	public Box getWestBox() {
+            return this.west;
+        }
+}
 
     
 
