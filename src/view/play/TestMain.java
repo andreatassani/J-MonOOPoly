@@ -13,7 +13,7 @@ public class TestMain {
 		// TODO Auto-generated method stub
 		ListOfPlayers players = new ListOfPlayers();
 		players.addPlayer(new PlayerImpl("Mic", Color.BLACK, Pawns.BALL), 1);
-//		players.addPlayer(new PlayerImpl("Fab", Color.WHITE, Pawns.BANK), 2);
+		players.addPlayer(new PlayerImpl("Fab", Color.WHITE, Pawns.BANK), 2);
 		
 		EntityDeck deck = new EntityDeck(players.getPlayerFromIndex(0));
 		
