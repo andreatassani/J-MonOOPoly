@@ -62,8 +62,7 @@ public class HistoryGUI extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
-		this.box= new JPanel(new GridBagLayout());
-		this.c = new GridBagConstraints();
+		this.box= new JPanel(new GridLayout(1,0));
 		
 		
 
@@ -82,11 +81,9 @@ public class HistoryGUI extends JPanel {
 	    but.setFont(f);
 	    but.setBackground(j);
 	    
-	    c.ipadx = dim.width;
-	    c.ipady = dim.height;
-	    c.gridy = i;
+	
 	    fields.add(but);
-	    this.box.add(but,c);
+	    this.box.add(but);
 		}
 		  
 		upPanelLeft.add(history);

@@ -145,21 +145,13 @@ import view.play.MainExternContainer;
 		    	  	
 		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
 		    	      this.dispose();
-<<<<<<< HEAD
-	
-		    	      
-		    		  if(list.isPresentSameName() && list.isPresentSamePawn() && list.isPresentSameColor() ) {
-		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
-			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
-	    		  }else {
-	    			  action.backNewGame(this);
-=======
+
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
 		    		  }else {
 		    			  JOptionPane.showMessageDialog(null,"hai selezionato una pedina o un colore o un nome già selezionato ");
 		    			  list.removeAllPlayers();
->>>>>>> 0ca90021bcc91d4d8c45752aef393ad14f3409dd
+
 		    		  }
 		      };
 		      
