@@ -34,7 +34,7 @@ public class MainExternContainer extends JFrame {
 	 */
 	public MainExternContainer(ListOfPlayers listPl, ArrayList<Entity> deck) {
 	    
-	        
+	      
 
 		Box extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
