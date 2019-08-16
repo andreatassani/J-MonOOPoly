@@ -52,7 +52,7 @@ public class MainExternContainerImpl extends JFrame {
 		leftSide.add(grid, BorderLayout.CENTER);
 		
 		for(int i = 0; i<listPl.getNumberPlayer(); i++) {
-		((Cell)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1).getPawn());                    //allows to set pawns on start of the game's session
+		((Cell)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1));                    //allows to set pawns on start of the game's session
 		}
 		
 		rightSide.setSize(rightSideDimension);
