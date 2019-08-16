@@ -22,6 +22,7 @@ public class NextPlayer implements ActionListener {
     private JButton build;
     private JButton nextPlayer;
     
+    
 
     public NextPlayer(ListOfPlayers listPl, ArrayList<Entity> deck, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer) {
         this.listPl = listPl;

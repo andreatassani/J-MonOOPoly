@@ -27,6 +27,7 @@ public class Build implements ActionListener {
         this.deck = deck;
         this.build = build;
     }
+    
     @Override
     public void actionPerformed(ActionEvent e) {
         ((Property)deck.get(listPl.getCurrentPlayer().getPosition())).addHouse();

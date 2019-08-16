@@ -21,7 +21,7 @@ public class PlayerImpl implements Player {
     private Color color;
     private Pawns pawns;
     private int money;
-    private static final int BANK_AMOUNT = 8500;
+    private static final int BANK_AMOUNT = 100;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;
@@ -131,7 +131,9 @@ public void removeProperty(Property property) {
     this.properties.remove(property);
 }
 
-
+public ArrayList<Property> getListOfProperties(){
+    return this.properties;
+}
 
 
 }
