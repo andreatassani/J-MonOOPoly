@@ -1,18 +1,10 @@
 package view.play;
 
 import java.awt.Color;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import java.util.Random;
 
-import javax.swing.Box;
-import javax.swing.BoxLayout;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 
@@ -24,14 +16,9 @@ import controller.actionListeners.RollDice;
 import controller.actionListeners.Sell;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
-import model.allTypeOfCard.EntityDeck;
-import model.allTypeOfCard.Property;
 import model.history.History;
 import model.history.HistoryImpl;
-import model.images.ShowImages;
-import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
-import model.player.Player;
 /**
  * 
  * implementation of SouthUtilityButtons.
@@ -74,7 +61,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 		
 		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound));
                 buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid));
-		nextPlayer.addActionListener(new NextPlayer(listPl, deck, rollDice, buy, sell, build, nextPlayer));
+		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer));
 		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound));
 		build.addActionListener(new Build(listPl, deck, build, sound, grid));
 		menu.addActionListener(new BackToMenu(frame));

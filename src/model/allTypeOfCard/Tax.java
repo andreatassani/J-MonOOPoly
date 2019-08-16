@@ -1,10 +1,6 @@
 package model.allTypeOfCard;
 
-import java.util.Optional;
-
 import javax.swing.JOptionPane;
-
-import model.player.Player;
 import model.player.PlayerImpl;
 /**
  * {@inheritDoc}.
@@ -12,7 +8,6 @@ import model.player.PlayerImpl;
 public class Tax implements Entity {
 	
     private String name = "Tax";
-    private final int forfeit = 100;
     private PlayerImpl owner;
     /**
      * Constructor.

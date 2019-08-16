@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import model.allTypeOfCard.*;
-import model.images.ShowImages;
+import model.myUtility.ShowImages;
 
 public class PropertyCellImpl extends JPanel implements Cell {
     
@@ -23,13 +23,10 @@ public class PropertyCellImpl extends JPanel implements Cell {
     private JLabel name;
     private JButton image;
     private ImageIcon icon;
-    private int position;
-    private Entity property;
     private PositionPawnsImpl posPawn = new PositionPawnsImpl();
                 
         public PropertyCellImpl(Property p) {
                 
-                this.position = p.getPosition();
                 
                 name = new JLabel("" + p.getName(), SwingConstants.CENTER);
                 name.setBackground(p.getColor());

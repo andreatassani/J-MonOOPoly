@@ -1,8 +1,6 @@
 package model.allTypeOfCard;
 
-import java.util.Optional;
 
-import model.player.Player;
 import model.player.PlayerImpl;
      /**
       * 

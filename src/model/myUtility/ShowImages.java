@@ -1,4 +1,4 @@
-package model.images;
+package model.myUtility;
 
 import java.util.Optional;
 
@@ -18,7 +18,7 @@ public final class ShowImages {
     
     public static void propertyMessage(Property pr){
         sound.getCardSound().play();
-        JOptionPane.showMessageDialog(null,"Owner: "+pr.getOwner().getName()+"\nNumber of houses: "+pr.getHouses()+"\n Hotel: "+ pr.isPresentHotel(),pr.getName(),
+        JOptionPane.showMessageDialog(null,"Owner: "+pr.getOwner().getName()+"\nNumber of houses: "+pr.getHouses()+"\n Hotel: "+ pr.getHotel(),pr.getName(),
                 JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+pr.getColor().getRGB()+".png"));
     }
     public static void nonPropertyMessage(String name) {

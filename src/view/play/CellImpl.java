@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import model.allTypeOfCard.Entity;
-import model.images.ShowImages;
+import model.myUtility.ShowImages;
 /**
  * 
  * class that implements Cell.

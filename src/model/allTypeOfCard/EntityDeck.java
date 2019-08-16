@@ -3,7 +3,6 @@ package model.allTypeOfCard;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
 
 public class EntityDeck {

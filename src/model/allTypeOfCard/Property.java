@@ -1,13 +1,9 @@
 package model.allTypeOfCard;
 
 import java.awt.Color;
-import java.util.Optional;
 
-import javax.swing.ImageIcon;
-import javax.swing.JOptionPane;
+import model.myUtility.ShowImages;
 
-import model.images.ShowImages;
-import model.player.Player;
 import model.player.PlayerImpl;
 
 public class Property implements Entity {

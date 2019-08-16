@@ -5,11 +5,8 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JOptionPane;
 
-import controller.audio.AudioManager;
-import controller.menu.ControllerNewGameMenu;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
-import view.menu.NewGameMenu;
 import view.play.MainExternContainerImpl;
 /**
  * 
