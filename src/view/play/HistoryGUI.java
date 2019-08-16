@@ -37,16 +37,15 @@ public class HistoryGUI extends JPanel {
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
 	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
-	private static Dimension dim = new Dimension((int) (MainExternContainer.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
+	private static Dimension dim = new Dimension((int) (MainExternContainer.getRightSide().getWidth()), (rightSideDimension.getSize().height/15));
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
-	private model.history.History action;
 	private static final Color j = new Color(173,238,216);
 	
 	private static ArrayList<JButton> fields = new ArrayList<JButton>();
 	private final JPanel box;
 	private final JScrollPane scrollPanel;
 	private final JPanel gridPanel;
-	private final GridBagConstraints c;
+	
 	private final JPanel upPanelLeft;
 	private int i =0;
 	
@@ -58,11 +57,10 @@ public class HistoryGUI extends JPanel {
     
 	public HistoryGUI() {
 		
-		this.action = new HistoryImpl();
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
-		this.box= new JPanel(new GridLayout(1,0));
+		this.box= new JPanel(new GridLayout(0,1));
 		
 		
 
@@ -75,11 +73,15 @@ public class HistoryGUI extends JPanel {
 	    
 	    
 		
-		for(i=0; i<8 ;i++) {
+		for(i=0; i<7 ;i++) {
 		final JButton but = new JButton ("" +i);
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
 	    but.setBackground(j);
+	    but.setMaximumSize(dim);
+	    but.setMinimumSize(dim);
+
+	    
 	    
 	
 	    fields.add(but);
@@ -92,7 +94,7 @@ public class HistoryGUI extends JPanel {
 	        
 	    this.scrollPanel = new JScrollPane (this.box);
 	    this.scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
-		this.scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		//this.scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 			
 			
 		this.add(scrollPanel,BorderLayout.CENTER);

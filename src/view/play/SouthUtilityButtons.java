@@ -92,7 +92,7 @@ public class SouthUtilityButtons extends JPanel {
 		rollDice.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
                         sound.getDiceSound().play();
-                        history.printStartGame();
+                       // history.printStartGame();
                         Random r = new Random();
                         rollDice.setEnabled(false);
                         int risultato = r.nextInt(6)+1;
