@@ -30,19 +30,19 @@ public class RollDice implements ActionListener{
     private static final String SOUTH = "South";
     private static final String WEST = "West";
     
-    private ListOfPlayers listPl;
-    private GridCell grid;
-    private AudioManager sound;
-    private ArrayList<Entity> deck;
-    private JButton rollDice;
-    private JButton buy;
-    private JButton sell;
-    private JButton build;
-    private JButton nextPlayer;
+    private final ListOfPlayers listPl;
+    private final GridCell grid;
+    private final AudioManager sound;
+    private final ArrayList<Entity> deck;
+    private final JButton rollDice;
+    private final JButton buy;
+    private final JButton sell;
+    private final JButton build;
+    private final JButton nextPlayer;
     private PlayerImpl pl;
-    private PlayerImpl bank;
+    private final PlayerImpl bank;
 
-    public RollDice(ListOfPlayers listPl, GridCell grid, ArrayList<Entity> deck, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer, AudioManager sound) {
+    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound) {
         this.sound = sound;
         this.listPl = listPl;
         this.grid = grid;
@@ -54,9 +54,6 @@ public class RollDice implements ActionListener{
         this.nextPlayer = nextPlayer;
         bank = listPl.getBank();
     }
-
-
-
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
@@ -78,15 +75,7 @@ public class RollDice implements ActionListener{
         if(pl.getMoney() < 0) {
           JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha perso! :(",
           "messaggio", 0);
-            if(pos>=START && pos <=PRISON) {
-                this.getPositionPawn(NORTH, pos).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);
-                } else if (pos>=PRISON+1 && pos<=PARKING-1){
-                this.getPositionPawn(EAST, pos-(PRISON+1)).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);
-                } else if(pos>=PARKING && pos<=POLICE) {
-                this.getPositionPawn(SOUTH, POLICE-pos).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);    
-                } else if(pos>=POLICE+1 && pos<= MAXPOSITION) {
-                this.getPositionPawn(WEST, MAXPOSITION-pos).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);       
-                }
+            removePawn(pos, pl);
             removePawn(listPl.getPlayerFromIndex(listPl.getNumberPlayer()).getPosition(), listPl.getPlayerFromIndex(listPl.getNumberPlayer()));
             listPl.removePlayer(pl);
                 for(int i = 1; i<= listPl.getNumberPlayer(); i++) {
@@ -100,33 +89,8 @@ public class RollDice implements ActionListener{
             rollDice.setEnabled(true);
         }
 
-//        if(pl.getMoney() <= 0) {
-//            JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha perso! :(",
-//                    "messaggio", 0);
-//            rollDice.setEnabled(true);
-//            buy.setEnabled(false);
-//            sell.setEnabled(false);
-//            build.setEnabled(false);
-//            nextPlayer.setEnabled(false);
-//            listPl.nextPlayer();
-//            
-//                int stopTurns = listPl.getCurrentPlayer().getStopTurns();
-//                if(stopTurns != 0) {
-//                    //Da togliere
-//                    JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + "turni in prigione",
-//                            "messaggio", 0);
-//                    stopTurns -= 1;
-//                    
-//                }
-//          
-//          //Da togliere
-//            JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
-//                    "messaggio", 0);
-//        }
         
     }
-    
-    
     
     private void stepSound(int numberOfSteps) {
         for(int i = 0; i < numberOfSteps; i++) {
@@ -140,11 +104,11 @@ public class RollDice implements ActionListener{
     }
     
     public PositionPawns getPositionPawn (String pole, int pos) {
-        if(pole == NORTH) {
+        if(pole.equals(NORTH)) {
             return ((Cel)grid.getNorthBox().getComponent(pos)).getPositionPawns();
-        } else if(pole == EAST) {
+        } else if(pole.equals(EAST)) {
             return ((Cel)grid.getEastBox().getComponent(pos)).getPositionPawns();
-        } else if(pole == SOUTH) {
+        } else if(pole.equals(SOUTH)) {
             return ((Cel)grid.getSouthBox().getComponent(pos)).getPositionPawns();
         } else {
             return ((Cel)grid.getWestBox().getComponent(pos)).getPositionPawns();
@@ -219,7 +183,7 @@ public class RollDice implements ActionListener{
             buy.setEnabled(true);
             
         } else if (deck.get(pos).isSalable() == false) {
-            if(deck.get(pos).getName() == "Go To Prison") {
+            if(deck.get(pos).getName().equals("Go To Prison")) {
                 pos = this.updatePosition(pos, 18, pl);
                 deck.get(30).action(pl);
             }
