@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
-import model.utility.Colors;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.Pawns;
 /**
  * class for creating a player.
  * 
@@ -21,7 +21,7 @@ public class PlayerImpl implements Player {
     private Color color;
     private Pawns pawns;
     private int money;
-    private static final int BANK_AMOUNT = 8500;
+    private static final int BANK_AMOUNT = 2000;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;
@@ -103,14 +103,8 @@ public void setStopTurns(int turns) {
  * 
  */
 public int getStopTurns() {
-    if(this.stopTurns == 0) {
-        return 0;
+    return this.stopTurns;
     }
-    else {
-        this.stopTurns-=1;
-        return this.stopTurns+1;
-    }
-}
 /**
  * {@inheritDoc}
  * 
@@ -131,7 +125,9 @@ public void removeProperty(Property property) {
     this.properties.remove(property);
 }
 
-
+public ArrayList<Property> getListOfProperties(){
+    return this.properties;
+}
 
 
 }

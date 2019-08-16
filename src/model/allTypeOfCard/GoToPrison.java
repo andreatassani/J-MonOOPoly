@@ -1,6 +1,5 @@
 package model.allTypeOfCard;
 
-import java.util.Optional;
 
 import javax.swing.JOptionPane;
 
@@ -37,7 +36,7 @@ public class GoToPrison implements Entity {
      */
 	@Override
 	public void action(PlayerImpl pl) {
-	    JOptionPane.showMessageDialog(null, "il giocatore" + pl.getName() + "andrà in prigione e ci rimarrà per 2 turni",
+	    JOptionPane.showMessageDialog(null, "il giocatore " + pl.getName() + " andrà in prigione e ci rimarrà per 2 turni",
                     "messaggio", 0);
 	    pl.setPosition(10);
 	    pl.setStopTurns(2);

@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import model.myEnum.Music;
 import model.player.Player;
-import model.utility.Music;
 
 /**
  * 

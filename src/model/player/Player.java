@@ -4,8 +4,8 @@ package model.player;
 import java.awt.Color;
 
 import model.allTypeOfCard.Property;
-import model.utility.Colors;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.Pawns;
 
 /**
  * Interface for player management.

@@ -3,7 +3,6 @@ package model.allTypeOfCard;
 import java.awt.Color;
 import java.util.ArrayList;
 
-import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
 
 public class EntityDeck {
@@ -36,15 +35,15 @@ public class EntityDeck {
         deck.add(new Property("Chieti",Color.CYAN, 19, bank));
         deck.add(new FreeParking(bank));
         deck.add(new Property("Caserta",Color.RED,21, bank));
-        //Da cambiare
-        deck.add(new Property("hera", Color.GRAY, 22, bank));
+        deck.add(new Chance(bank));
         deck.add(new Property("Napoli",Color.RED,23, bank));
         deck.add(new Property("Salerno",Color.RED,24, bank));
         //Da cambiare
         deck.add(new Property("Stazione S", Color.GRAY, 25, bank));
         deck.add(new Property("Palermo",Color.YELLOW,26, bank));
         deck.add(new Property("Catania",Color.YELLOW,27, bank));
-        deck.add(new Chance(bank));
+        //Da cambiare
+        deck.add(new Property("hera", Color.GRAY, 28, bank));
         deck.add(new Property("Trapani",Color.YELLOW,29, bank));
         deck.add(new GoToPrison(bank));
         deck.add(new Property("Venezia",Color.GREEN,31, bank));

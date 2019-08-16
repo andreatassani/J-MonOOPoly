@@ -1,8 +1,6 @@
 package model.allTypeOfCard;
 
-import java.util.Optional;
 
-import model.player.Player;
 import model.player.PlayerImpl;
      /**
       * 
@@ -11,24 +9,23 @@ import model.player.PlayerImpl;
       *
       */
 public interface Entity {
-    //XTasso: ho semplicemente silenziato il metodo "setName", ne parliamo poi a voce :-)
-//    /**
-//     * @param n
-//     * method to set name of card.
-//     */
-//  void setName(String n);
+
   /**
-   * 
    * @return method to obtain the name of this property.
    */
   String getName();
-  /**
-   * 
+  /** 
    * @return its action that will be done.
    */
   void action(PlayerImpl pl);
-  
+  /**
+   * 
+   * @return the owner of the card
+   */
   PlayerImpl getOwner();
-  
+  /**
+   * 
+   * @return true if card is salable (eg: property), false else (eg: community chest or chance)
+   */
   boolean isSalable();
 }

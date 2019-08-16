@@ -11,9 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import model.utility.Colors;
-import model.utility.NumPlayers;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.NumPlayers;
+import model.myEnum.Pawns;
 /**
  * 
  * Interface that allows you to

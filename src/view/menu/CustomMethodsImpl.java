@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import model.utility.Colors;
-import model.utility.NumPlayers;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.NumPlayers;
+import model.myEnum.Pawns;
 /**
  * 
  * Class implements CustomMethods 
@@ -55,9 +55,12 @@ public class CustomMethodsImpl implements CustomMethods {
 		color.setBackground(backGround);
 		color.setPreferredSize(dimComboColor);
 		color.setFont(f);
+		color.setMaximumRowCount(3);
 		pawn.setBackground(backGround);
 		pawn.setFont(f);		
-		pawn.setPreferredSize(dimCombo);		
+		pawn.setPreferredSize(dimCombo);
+		pawn.setMaximumRowCount(3);
+		pawn.setPopupVisible(false);
 		player.add(name);
 		player.add(color);
 		player.add(pawn);												

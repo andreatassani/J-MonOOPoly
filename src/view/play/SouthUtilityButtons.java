@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package view.play;
 
 import java.awt.Color;
@@ -298,3 +299,22 @@ public class SouthUtilityButtons extends JPanel {
 	}
 
 }
+=======
+package view.play;
+
+    /**
+     * 
+     * interface that model the bottomside utility buttons bar on playground.
+     *
+     */
+public interface SouthUtilityButtons {
+    /**
+     * method that allows to set background of all buttons.
+     */
+    public void setBackgroundOfAllButtons();
+    /**
+     * method that allows to disable all buttons.
+     */
+    public void setEnableFalseAsDefault();
+}
+>>>>>>> 17e71e0f4b589552036721eb6f478740417c3c7d

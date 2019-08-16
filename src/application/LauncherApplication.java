@@ -2,21 +2,8 @@ package application;
 
 
 
-import java.awt.Color;
-import java.util.ArrayList;
-
-import model.allTypeOfCard.Entity;
-import model.allTypeOfCard.EntityDeck;
-import model.player.ListOfPlayers;
-import model.player.PlayerImpl;
-import model.utility.Pawns;
-import view.menu.HowToPlay;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
-import view.menu.SettingPlayersMenu;
-import view.menu.MenuGui;
-
-import view.play.MainExternContainer;
 
 
 /**
@@ -25,12 +12,12 @@ import view.play.MainExternContainer;
 public class LauncherApplication {
 	
 	
-	/**
-	 * constructor for this class
-	 */
-	LauncherApplication() {
-
-	}
+//	/**
+//	 * constructor for this class
+//	 */
+//	LauncherApplication() {
+//
+//	}
 	/**
      * main method to run the view
      */
@@ -41,7 +28,7 @@ public class LauncherApplication {
         
   
     	
-    	MenuGui game = new MenuGui(new MainMenu());
+    	new MenuGui(new MainMenu());
     	
     }
     

@@ -7,7 +7,7 @@ import javax.swing.border.LineBorder;
 
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
-import model.utility.Music;
+import model.myEnum.Music;
 /**
  * 
  * class for the managing the graphics new game menu.
@@ -57,7 +57,7 @@ public class NewGameMenu extends JFrame {
 		this.back = new JButton("Back");
 		this.icon = new ImageIcon("res/mr-monopoly2.png");
 		this.choiseMusic = new JComboBox<Music>(Music.values());
-		this.choiseCurrency = new JComboBox<Enum>(model.utility.Currency.values());
+		this.choiseCurrency = new JComboBox<Enum>(model.myEnum.Currency.values());
 		this.north = new JPanel();
 		this.center = new JPanel();			
 		this.imageRight = new JLabel();

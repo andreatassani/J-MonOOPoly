@@ -13,13 +13,13 @@ import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerNewGameMenu;
 import controller.menu.ControllerSettingPlayersMenu;
 import model.allTypeOfCard.EntityDeck;
+import model.myEnum.Colors;
+import model.myEnum.NumPlayers;
+import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
 import model.player.Player;
 import model.player.PlayerImpl;
-import model.utility.Colors;
-import model.utility.NumPlayers;
-import model.utility.Pawns;
-import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 
 
 /**
@@ -53,7 +53,7 @@ import view.play.MainExternContainer;
 		private JPanel player3 = new JPanel();
 		private JTextField namePlayer3  = new JTextField();
 		private JComboBox<Colors>  color3 = new JComboBox<Colors> (Colors.values());
-		private JComboBox<Pawns> pawn3 = new JComboBox<Pawns>(model.utility.Pawns.values());			
+		private JComboBox<Pawns> pawn3 = new JComboBox<Pawns>(model.myEnum.Pawns.values());			
 		private JPanel player4 = new JPanel();
 		private JTextField namePlayer4  = new JTextField();
 		private JComboBox<Colors>  color4 = new JComboBox<Colors> (Colors.values());
@@ -93,16 +93,17 @@ import view.play.MainExternContainer;
 		methods.setPreference(start, dimName, methods.getButton(), methods.getWriter(), methods.getFont());
 		methods.setPreference(back, dimName, methods.getButton(),  methods.getWriter(), methods.getFont());
 		methods.setPreference(done, dimNameG, methods.getButton(),  methods.getWriter(), methods.getFont());
-		methods.setPreference(howManyPlayer, dimNameG, methods.getButton(),  methods.getWriter(), methods.getFont());
+		methods.setPreference(howManyPlayer, dimNameG, methods.getButton(), Color.BLACK , methods.getFont());
 		back.setMaximumSize(dimName);
 		back.setMinimumSize(dimName);
 		right.setBackground(methods.getBackground());
 		left.setBackground(methods.getBackground());
 		setPlayers.setBackground(methods.getBackground());
-		namePlayer1.setText("Inserire nome giocatore");
-		namePlayer2.setText("Inserire nome giocatore");
-		namePlayer3.setText("Inserire nome giocatore");
-		namePlayer4.setText("Inserire nome giocatore");
+		
+		namePlayer1.setText("Name Player");
+		namePlayer2.setText("Name Player");
+		namePlayer3.setText("Name Player");
+		namePlayer4.setText("Name Player");
 /**
  * Action listener
  */
@@ -119,23 +120,27 @@ import view.play.MainExternContainer;
 	      
 	      ActionListener actionDone = (e)->{	
 	    	  
-	    	if(!(namePlayer1.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer1.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
 	    	}
-	    	if(!(namePlayer2.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer2.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
 	    	}
-	    	if(!(namePlayer3.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer3.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
 	    	}
-	    	if(!(namePlayer4.getText().equals("Inserire nome giocatore"))) {
+	    	if(!(namePlayer4.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
 	    	}
 	    	
+	    	if(namePlayer1.getText().equals("Name Player")) {
+	    		JOptionPane.showMessageDialog(null, "non puoi chiamarti Name Player");
+	    		
+	    	}
 	   
 	    
 	    	
@@ -144,11 +149,10 @@ import view.play.MainExternContainer;
 		      };
 		      ActionListener actionStart = (e)->{
 		    	  	
-		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
+		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() && (list.getNumberPlayer()<=2) ) {
 		    	      this.dispose();
-
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
-			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
+			    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));
 		    		  }else {
 		    			  JOptionPane.showMessageDialog(null,"hai selezionato una pedina o un colore o un nome già selezionato ");
 		    			  list.removeAllPlayers();
@@ -157,18 +161,8 @@ import view.play.MainExternContainer;
 		      };
 		      
 		      ActionListener actionNum = (e)->{	
-				if(howManyPlayer.getText().equals("4")) {
-					howManyPlayer.setText("2");
-				 player3.setVisible(false);
-				 player4.setVisible(false);
-				}else if(howManyPlayer.getText().equals("2")) {
-					howManyPlayer.setText("3");
-					player3.setVisible(true);
-				}else {
-					howManyPlayer.setText("4");
-					player4.setVisible(true);
-					
-				}
+		    	  action.numPlayer(howManyPlayer, player3, player4);
+			
 					
 			      };
 

@@ -2,16 +2,20 @@ package controller.menu;
 
 import java.awt.Color;
 import java.util.ArrayList;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
+
 import controller.audio.AudioManager;
+import model.myEnum.Colors;
+import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
-import model.utility.Colors;
-import model.utility.Pawns;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
 import view.menu.NewGameMenu;
-import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 /**
  * 
  * class for managing SettingPlayersMenu action.
@@ -27,7 +31,7 @@ public class ControllerSettingPlayersMenu {
  */
 	public MenuGui startGame(JFrame m, ListOfPlayers l, ArrayList<model.allTypeOfCard.Entity> deck) {
 		m.dispose();
-		return new MenuGui(new MainExternContainer(l,deck));				
+		return new MenuGui(new MainExternContainerImpl(l,deck));				
 	}
 /**
  * return to the main menu
@@ -126,10 +130,29 @@ public class ControllerSettingPlayersMenu {
 		return pawn;
 					
 		}
-
+/**
+ * 
+ * @param b
+ * @param p3
+ * @param p4
+ */
+    public void  numPlayer(JButton b,  JPanel p3, JPanel p4) {
+    	if(b.getText().equals("4")) {
+			b.setText("2");
+			p3.setVisible(false);
+			 p4.setVisible(false);
+		}else if(b.getText().equals("2")) {
+			b.setText("3");
+			p3.setVisible(true);
+		}else {
+			b.setText("4");
+			 p4.setVisible(true);
+			
+		}
+    	
+    }
 	
 	
-		
 		
 		
 }
