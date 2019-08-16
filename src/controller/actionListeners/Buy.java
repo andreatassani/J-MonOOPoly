@@ -11,65 +11,49 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.player.ListOfPlayers;
+import model.player.Loss;
+import model.player.PlayerImpl;
 import view.play.GridCell;
+import view.play.PawnMovement;
 
 public class Buy implements ActionListener {
     
     private ListOfPlayers listPl;
     private AudioManager sound;
     private ArrayList<Entity> deck;
-    private JButton rollDice;
     private JButton buy;
     private JButton sell;
     private JButton build;
-    private JButton nextPlayer;
+    private PlayerImpl pl;
+    PawnMovement pawnMovement;
     
     
 
-    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer, AudioManager sound) {
+    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
-        this.rollDice = rolldDice;
         this.buy = buy;
         this.sell = sell;
         this.build = build;
-        this.nextPlayer = nextPlayer;
+        this.pawnMovement = new PawnMovement(grid, listPl);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        
-        listPl.getCurrentPlayer().buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
+        pl = listPl.getCurrentPlayer();
+        listPl.getCurrentPlayer().buyProperty((Property)deck.get(pl.getPosition()));
         sound.getCashSound().play();
+        if(pl.getMoney() < 0) {
+            new Loss(listPl, pawnMovement);
+             pl = listPl.getCurrentPlayer();
+         }
         buy.setEnabled(false);
         sell.setEnabled(true);
         build.setEnabled(true);
       //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha acquistato la proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$",
+        JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha acquistato la proprietà " + deck.get(pl.getPosition()).getName() + " e gli rimangono " + pl.getMoney() + "$",
                 "messaggio", 0);
-        if(listPl.getCurrentPlayer().getMoney() <= 0) {
-            JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha perso! :(",
-                    "messaggio", 0);
-            rollDice.setEnabled(true);
-            buy.setEnabled(false);
-            sell.setEnabled(false);
-            build.setEnabled(false);
-            nextPlayer.setEnabled(false);
-            listPl.nextPlayer();
-            for(int i = 1; i<4; i++) {
-                int stopTurns = listPl.getCurrentPlayer().getStopTurns();
-                if(stopTurns != 0) {
-                    //Da togliere
-                    JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + " turni in prigione",
-                            "messaggio", 0);
-                    stopTurns -= 1;
-                }
-            }
-          //Da togliere
-            JOptionPane.showMessageDialog(null,"è il turno di"+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
-                    "messaggio", 0);
-        }
     }
 
 }

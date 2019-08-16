@@ -41,19 +41,22 @@ public class NextPlayer implements ActionListener {
         build.setEnabled(false);
         nextPlayer.setEnabled(false);
         listPl.nextPlayer();
-        for(int i = 1; i<4; i++) {
-            int stopTurns = listPl.getCurrentPlayer().getStopTurns();
-            if(stopTurns != 0) {
-                //Da togliere
-                JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " deve ancora aspettare " + stopTurns + "turni in prigione",
-                        "messaggio", 0);
-                stopTurns -= 1;
-            }
-        }
       //Da togliere
-        JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
+        JOptionPane.showMessageDialog(null,"è il turno del giocatore " +listPl.getCurrentPlayer().getName(),
                 "messaggio", 0);
-
+        if(listPl.getCurrentPlayer().getStopTurns() == 0 && listPl.getCurrentPlayer().getPosition() == 10) {
+            //Da togliere
+              JOptionPane.showMessageDialog(null,"il giocatore " +listPl.getCurrentPlayer().getName()+ " può uscire dalla prigione",
+                      "messaggio", 0);
+          }
+        if(listPl.getCurrentPlayer().getStopTurns() != 0) {
+          //Da togliere
+            JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" deve ancora aspettare "+listPl.getCurrentPlayer().getStopTurns()+" turni in prigione",
+                    "messaggio", 0);
+        listPl.getCurrentPlayer().setStopTurns(listPl.getCurrentPlayer().getStopTurns()-1);
+            rollDice.setEnabled(false);
+            nextPlayer.setEnabled(true);
+        }
     }
 
 }

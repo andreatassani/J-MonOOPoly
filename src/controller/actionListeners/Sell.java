@@ -19,20 +19,23 @@ public class Sell implements ActionListener {
     private JButton buy;
     private JButton sell;
     private AudioManager sound;
+    private JButton build;
     
 
-    public Sell(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, AudioManager sound) {
+    public Sell(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound) {
         this.listPl = listPl;
         this.deck = deck;
         this.buy = buy;
         this.sell = sell;
         this.sound = sound;
+        this.build = build;
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
             listPl.getPlayerFromIndex(0).buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
             sound.getCashSound().play();
+            build.setEnabled(false);
             buy.setEnabled(true);
             sell.setEnabled(false);
           //Da togliere
