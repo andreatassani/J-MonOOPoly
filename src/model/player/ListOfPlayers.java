@@ -5,6 +5,9 @@ import java.awt.Color;
 
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
 
@@ -28,12 +31,15 @@ public class ListOfPlayers {
            currentPlayer++;
        }
    }
+   
+   public PlayerImpl getBank() {
+       return this.getPlayerFromIndex(0);
+   }
     
    public int getIndexFromPlayer(PlayerImpl pl) {
        return list.indexOf(pl);
    }
    public PlayerImpl getCurrentPlayer() {
-
        return this.list.get(currentPlayer);
    }
    public PlayerImpl getPlayerFromIndex (int index) {
@@ -43,15 +49,27 @@ public class ListOfPlayers {
        list.add(index, pl);
        this.numberOfPlayers+=1;
    }
-   public void removePlayer(int index) {
-       list.remove(index);
-
-       this.numberOfPlayers-=1;
-   }  
    public int getNumberPlayer() {
        return this.numberOfPlayers;
    }
    
+   public void removePlayer(PlayerImpl pl) {
+       if(this.getIndexFromPlayer(pl) == this.numberOfPlayers) {
+           this.currentPlayer = 1;
+           this.numberOfPlayers-=1;
+           list.remove(this.getIndexFromPlayer(pl));
+       } else {
+           list.remove(this.getIndexFromPlayer(pl));
+           this.numberOfPlayers-=1;
+       }
+       for(Property pr : pl.getListOfProperties()) {
+           pr.setNewOwner(this.getPlayerFromIndex(0));
+       }
+       if(this.numberOfPlayers == 1) {
+           JOptionPane.showMessageDialog(null,"il giocatore " + this.getPlayerFromIndex(1).getName() + " ha vinto! :D",
+                   "messaggio", 0);
+       }
+   }
    
    public PlayerImpl getPlayerFromName(String name) {
        for(int i = 1; i<= numberOfPlayers; i++) {

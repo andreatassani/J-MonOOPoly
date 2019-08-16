@@ -24,6 +24,7 @@ public class Buy implements ActionListener {
     private JButton build;
     private JButton nextPlayer;
     
+    
 
     public Buy(ListOfPlayers listPl, ArrayList<Entity> deck, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer, AudioManager sound) {
         this.sound = sound;
