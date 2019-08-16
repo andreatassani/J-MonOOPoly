@@ -21,7 +21,7 @@ public class PlayerImpl implements Player {
     private Color color;
     private Pawns pawns;
     private int money;
-    private static final int BANK_AMOUNT = 100;
+    private static final int BANK_AMOUNT = 4000;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;

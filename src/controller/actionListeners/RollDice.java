@@ -56,12 +56,10 @@ public class RollDice implements ActionListener{
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
-//        this.stepSound(risultato);
+        this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos,risultato, pl);
         rollDice.setEnabled(false);
         activateCell(pos, pl);
-        
-//      PERDITA
         if(pl.getMoney() < 0) {
            new Loss(listPl, pawnMovement);
             pl = listPl.getCurrentPlayer();
