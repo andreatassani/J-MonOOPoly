@@ -70,10 +70,10 @@ public class SouthUtilityButtons extends JPanel {
 		AudioManager sound = new AudioManager();
 	            
                 rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound));
-                buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound));
+                buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid));
 		nextPlayer.addActionListener(new NextPlayer(listPl, deck, rollDice, buy, sell, build, nextPlayer));
 		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound));
-		build.addActionListener(new Build(listPl, deck, build, sound));
+		build.addActionListener(new Build(listPl, deck, build, sound, grid));
 		
 		this.setBorder(new LineBorder(Color.BLACK));
 	}

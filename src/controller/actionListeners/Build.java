@@ -11,8 +11,10 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.player.ListOfPlayers;
+import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
+import view.play.PawnMovement;
 
 public class Build implements ActionListener {
     
@@ -21,18 +23,21 @@ public class Build implements ActionListener {
     private JButton build;
     private PlayerImpl pl;
     private int pos;
-    
+    ListOfPlayers listPl;
+    PawnMovement pawnMovement;
 
-    public Build(ListOfPlayers listPl, ArrayList<Entity> deck, JButton build, AudioManager sound) {
+    public Build(ListOfPlayers listPl, ArrayList<Entity> deck, JButton build, AudioManager sound, GridCell grid) {
         this.sound = sound;
         this.deck = deck;
         this.build = build;
-        pl = listPl.getCurrentPlayer();
-        pos = pl.getPosition();
+        this.listPl = listPl;
+        this.pawnMovement = new PawnMovement(grid, listPl);
     }
     
     @Override
     public void actionPerformed(ActionEvent e) {
+        pl = listPl.getCurrentPlayer();
+        pos = pl.getPosition();
         ((Property)deck.get(pos)).addHouse();
         if(((Property)deck.get(pos)).getHotel()) {
         //Da togliere
@@ -46,6 +51,11 @@ public class Build implements ActionListener {
                 JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha costruito una casa sulla proprietà " + deck.get(pos).getName() + ",ora ha " +
                         ((Property)deck.get(pos)).getHouses() + " e gli rimangono " + pl.getMoney() + "$", "messaggio", 0);
         }
+        if(pl.getMoney() < 0) {
+            new Loss(listPl, pawnMovement);
+             pl = listPl.getCurrentPlayer();
+             pos = pl.getPosition();
+         }
     }
 
 }

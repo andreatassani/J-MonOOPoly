@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import model.allTypeOfCard.Property;
 import model.utility.Colors;
 import model.utility.Pawns;
+import view.play.MainExternContainer;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
@@ -65,21 +66,27 @@ public class ListOfPlayers {
        for(Property pr : pl.getListOfProperties()) {
            pr.setNewOwner(this.getPlayerFromIndex(0));
        }
+       this.isThereAWinner();
+       }
+   
+   public void isThereAWinner() {
        if(this.numberOfPlayers == 1) {
            JOptionPane.showMessageDialog(null,"il giocatore " + this.getPlayerFromIndex(1).getName() + " ha vinto! :D",
                    "messaggio", 0);
+//           new Winner(this.getPlayerFromIndex(1));
        }
    }
    
    public PlayerImpl getPlayerFromName(String name) {
        for(int i = 1; i<= numberOfPlayers; i++) {
-           if(this.list.get(i).getName() == name) {
+           if(this.list.get(i).getName().equals(name)) {
                return this.list.get(i);
            }
        }
        System.out.println("Utente non trovato!");
        return null;
    }
+   
 /**
  * Check if there are two players with the same name.
  * @return false if they are true to the contrary
