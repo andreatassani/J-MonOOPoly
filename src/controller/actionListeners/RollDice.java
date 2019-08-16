@@ -98,7 +98,7 @@ public class RollDice implements ActionListener{
         } else if (deck.get(pos).getOwner() != bank && deck.get(pos).isSalable() && deck.get(pos).getOwner() != pl) {
             deck.get(pos).action(pl);
           //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" possiede "+pl.getMoney(),
+            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" possiede "+pl.getMoney()+"$",
                     "messaggio", 0);
             buy.setEnabled(true);
             

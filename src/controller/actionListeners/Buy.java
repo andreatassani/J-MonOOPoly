@@ -52,7 +52,7 @@ public class Buy implements ActionListener {
         sell.setEnabled(true);
         build.setEnabled(true);
       //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha acquistato la proprietà " + deck.get(pl.getPosition()).getName() + " e gli rimangono " + pl.getMoney() + "$",
+        JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha acquistato la proprietà " + deck.get(pl.getPosition()).getName() + "per"+ ((Property)deck.get(pl.getPosition())).getPrice()+"$, e gli rimangono " + pl.getMoney() + "$",
                 "messaggio", 0);
     }
 

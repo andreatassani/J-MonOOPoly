@@ -67,12 +67,14 @@ public class PawnMovement {
         int newPos;
         this.removePawn(pos, pl);
         if(pos+risultato >= MAXPOSITION+1) {
-            pl.setPosition(pos+risultato-MAXPOSITION+1);
+            pl.setPosition(pos+risultato-(MAXPOSITION+1));
             newPos = pl.getPosition();
+            if(risultato != 18) {
             listPl.getCurrentPlayer().setMoney(200);
           //Da togliere
             JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" è passato dal via e guadagna 200 $, ora possiede "+pl.getMoney()+"$",
                     "messaggio", 0);
+            }
         } else {
             pl.setPosition(pos+risultato);
             newPos = pl.getPosition();

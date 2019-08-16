@@ -2,6 +2,8 @@ package model.allTypeOfCard;
 
 import java.awt.Color;
 
+import javax.swing.JOptionPane;
+
 import model.myUtility.ShowImages;
 
 import model.player.PlayerImpl;
@@ -74,15 +76,11 @@ public class Property implements Entity {
     }
     
     public void addHouse () {
-        
-            if(this.hotel == true) {
-                return;
-            }
             if(this.nHouses < 4 && this.hotel == false) {
                 this.nHouses++;
                 this.owner.setMoney(-price/4);
             }
-            if(this.nHouses == 4) {
+            else if (this.nHouses == 4) {
                 this.nHouses = 0;
                 this.hotel = true;
                 this.owner.setMoney(-price/2);
@@ -102,11 +100,16 @@ public class Property implements Entity {
         return;
         }
       else {
-       pl.setMoney(-((this.price/10)+this.nHouses*(this.price/4)));
-       this.owner.setMoney((this.price/10)+this.nHouses*(this.price/4));
-       if(this.hotel == true){
-             pl.setMoney(-(this.price*19/10));         
-             this.owner.setMoney(this.price*19/10); 
+       if (this.hotel == true){
+             pl.setMoney(-(this.price*2));         
+             this.owner.setMoney(this.price*2);
+           //Da togliere
+             JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+this.price*2 +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
+      } else {
+          pl.setMoney(-((this.price/10)+this.nHouses*(this.price/4)));
+          this.owner.setMoney((this.price/10)+this.nHouses*(this.price/4));
+        //Da togliere
+          JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+(this.price/10)+this.nHouses*(this.price/4) +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
       }
      }
     }

@@ -48,8 +48,8 @@ public class Build implements ActionListener {
         }
         else {
           //Da togliere
-                JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha costruito una casa sulla proprietà " + deck.get(pos).getName() + ",ora ha " +
-                        ((Property)deck.get(pos)).getHouses() + " e gli rimangono " + pl.getMoney() + "$", "messaggio", 0);
+                JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha costruito una casa sulla proprietà " + deck.get(pos).getName() +" pagandola "+ ((Property)deck.get(pos)).getPrice()+"$ ,ora ha " +
+                        ((Property)deck.get(pos)).getHouses() + "case, e gli rimangono " + pl.getMoney() + "$", "messaggio", 0);
         }
         if(pl.getMoney() < 0) {
             new Loss(listPl, pawnMovement);

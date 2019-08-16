@@ -15,13 +15,13 @@ public class Chance implements Entity{
     
     public Chance(PlayerImpl owner) {
         this.owner = owner;
-        deck.add(new CCCCard("Perdi 200", -200, owner));
+        deck.add(new CCCCard("Perdi 200$", -200, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Perdi 250", -250, owner));
+        deck.add(new CCCCard("Perdi 250$", -250, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Perdi 300", -300, owner));
+        deck.add(new CCCCard("Perdi 300$", -300, owner));
         this.numberOfCards++;
-        deck.add(new CCCCard("Perdi 500", -500, owner));
+        deck.add(new CCCCard("Perdi 500$", -500, owner));
         this.numberOfCards++;
     }
     @Override
