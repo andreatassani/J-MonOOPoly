@@ -39,7 +39,7 @@ public class MainExternContainer extends JFrame {
 	 */
 	public MainExternContainer(ListOfPlayers listPl, ArrayList<Entity> deck) {
 	    
-	        
+	      
 
 		extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -48,7 +48,7 @@ public class MainExternContainer extends JFrame {
 		leftSide.setPreferredSize(leftSideDimension);
 		leftSide.setBackground(Color.GREEN);
 		grid = new GridCell(deck);
-		leftSide.add(new SouthUtilityButtons(listPl, deck, grid), BorderLayout.SOUTH);
+		leftSide.add(new SouthUtilityButtons(listPl, deck, grid, this), BorderLayout.SOUTH);
 		leftSide.add(grid, BorderLayout.CENTER);
 		
 		for(int i = 0; i<listPl.getNumberPlayer(); i++) {

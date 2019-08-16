@@ -19,17 +19,25 @@ import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
 import model.allTypeOfCard.Start;
 import view.play.*;
-
-
-
-
+/**
+ * 
+ * class that implements the view of playground.
+ * 
+ */
 public class GridCell extends JPanel {
-
-    Box north;
-    Box east;
-    Box south;
-    Box west;
- 
+    /**
+     * fields.
+     */
+    private Box north;
+    private Box east;
+    private Box south;
+    private Box west;
+    private JLabel logo;
+    private ImageIcon icon;
+        /**
+         * constructor.
+         * @param deck
+         */
 	public GridCell(ArrayList<Entity> deck) {
 		this.setLayout(new BorderLayout());
 		this.setPreferredSize(MainExternContainer.getLeftSide().getPreferredSize());
@@ -39,8 +47,6 @@ public class GridCell extends JPanel {
 		south = new Box(BoxLayout.X_AXIS);
 		east = new Box(BoxLayout.Y_AXIS);
 		west = new Box(BoxLayout.Y_AXIS);
-		JLabel logo = new JLabel();
-		ImageIcon icon;
 		
 		this.add(north, BorderLayout.NORTH);
 		this.add(south, BorderLayout.SOUTH);
@@ -89,29 +95,52 @@ public class GridCell extends JPanel {
 		west.add(new Cell(38, "Tax", Color.WHITE));
 		west.add(new PropertyCell((Property) deck.get(31)));
 		
-		this.setBackground(new Color(149, 255, 213));
-
-		icon = new ImageIcon("res/logo.png");
-		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 2, MainExternContainer.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
-		icon.setImage(scaledImage);
-		logo.setIcon(icon);
-		logo.setHorizontalAlignment(SwingConstants.CENTER);
-		logo.setVerticalAlignment(SwingConstants.CENTER);
+		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
+		setIcon();
+		
 		this.add(logo, BorderLayout.CENTER);
 		}
-	
+	/**
+	 * 
+	 * @return the box on the north of border layout.
+	 */
 	public Box getNorthBox() {
 	    return this.north;
 	}
+	/**
+	 * 
+	 * @return the box on the east of border layout.
+	 */
 	public Box getEastBox() {
             return this.east;
         }
+	/**
+	 * 
+	 * @return the box on the south of border layout.
+	 */
 	public Box getSouthBox() {
             return this.south;
         }
+	/**
+	 * 
+	 * @return the box on the west of border layout.
+	 */
 	public Box getWestBox() {
             return this.west;
         }
+	/**
+	 * this method allow to set icon of a label.
+	 */
+	public void setIcon() {
+	    icon = new ImageIcon("res/logo.png");
+	    logo = new JLabel();
+            Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 2, MainExternContainer.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
+            icon.setImage(scaledImage);
+            logo.setIcon(icon);
+            logo.setHorizontalAlignment(SwingConstants.CENTER);
+            logo.setVerticalAlignment(SwingConstants.CENTER);
+	}
+	
 }
 
     

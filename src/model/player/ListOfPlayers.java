@@ -51,6 +51,8 @@ public class ListOfPlayers {
    public int getNumberPlayer() {
        return this.numberOfPlayers;
    }
+   
+   
    public PlayerImpl getPlayerFromName(String name) {
        for(int i = 1; i<= numberOfPlayers; i++) {
            if(this.list.get(i).getName() == name) {

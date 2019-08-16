@@ -49,7 +49,7 @@ public class Property implements Entity {
         return this.nHouses;
     }
         
-    public boolean getHotel() {
+    public boolean isPresentHotel() {
         return this.hotel;
     }
     public int getPosition() {
@@ -112,7 +112,7 @@ public class Property implements Entity {
              pl.setMoney(-(this.price*19/10));         
              this.owner.setMoney(this.price*19/10); 
       }
-    }
+     }
     }
     @Override
     public boolean isSalable() {
