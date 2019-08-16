@@ -1,4 +1,4 @@
-package model.utility;
+package model.myEnum;
 /**
  * Enum created for the management of players' pawns.
  * 

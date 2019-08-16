@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
-import model.utility.Colors;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.Pawns;
 /**
  * class for creating a player.
  * 

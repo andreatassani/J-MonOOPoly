@@ -2,7 +2,8 @@ package model.menu;
 
 
 import java.util.Map;
-import model.utility.Music;
+
+import model.myEnum.Music;
 
 
 /**

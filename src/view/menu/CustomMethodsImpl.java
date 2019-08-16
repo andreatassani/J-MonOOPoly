@@ -15,9 +15,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
 
-import model.utility.Colors;
-import model.utility.NumPlayers;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.NumPlayers;
+import model.myEnum.Pawns;
 /**
  * 
  * Class implements CustomMethods 

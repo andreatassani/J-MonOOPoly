@@ -3,9 +3,9 @@ package view.play;
 import java.awt.Color;
 
 import model.allTypeOfCard.EntityDeck;
+import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
-import model.utility.Pawns;
 import view.winner.Winner;
 
 public class TestMain {

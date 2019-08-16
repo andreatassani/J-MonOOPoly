@@ -40,8 +40,8 @@ public class GridCell extends JPanel {
          */
 	public GridCell(ArrayList<Entity> deck) {
 		this.setLayout(new BorderLayout());
-		this.setPreferredSize(MainExternContainer.getLeftSide().getPreferredSize());
-		this.setMinimumSize(MainExternContainer.getLeftSide().getSize());
+		this.setPreferredSize(MainExternContainerImpl.getLeftSide().getPreferredSize());
+		this.setMinimumSize(MainExternContainerImpl.getLeftSide().getSize());
 		
 		north = new Box(BoxLayout.X_AXIS);
 		south = new Box(BoxLayout.X_AXIS);
@@ -54,46 +54,46 @@ public class GridCell extends JPanel {
 		this.add(west, BorderLayout.WEST);
 
 		
-		north.add(new Cell(0, "Go!", Color.WHITE));
-		north.add(new PropertyCell((Property) deck.get(1)));
-		north.add(new Cell(2, "Chance", Color.WHITE));
-		north.add(new PropertyCell((Property) deck.get(3)));
-		north.add(new Cell(4, "Tax", Color.WHITE));
-		north.add(new Cell(5, "Station N", Color.GRAY));
-		north.add(new PropertyCell((Property) deck.get(6)));
-		north.add(new Cell(7, "Chance", Color.WHITE));
-		north.add(new PropertyCell((Property) deck.get(8)));
-		north.add(new PropertyCell((Property) deck.get(9)));
-		north.add(new Cell(10,"Prison", Color.WHITE));
-		east.add(new PropertyCell((Property) deck.get(11)));
-		east.add(new Cell(12, "Enel", Color.GRAY));
-		east.add(new PropertyCell((Property) deck.get(13)));
-		east.add(new PropertyCell((Property) deck.get(14)));
-		east.add(new Cell(15, "Station E", Color.GRAY));
-		east.add(new PropertyCell((Property) deck.get(16)));
-		east.add(new Cell(17, "Community Chest", Color.WHITE));
-		east.add(new PropertyCell((Property) deck.get(18)));
-		east.add(new PropertyCell((Property) deck.get(19)));
-		south.add(new Cell(30, "Police", Color.WHITE));
-		south.add(new PropertyCell((Property) deck.get(29)));
-		south.add(new Cell(28, "Hera", Color.GRAY));
-		south.add(new PropertyCell((Property) deck.get(27)));
-		south.add(new PropertyCell((Property) deck.get(26)));
-		south.add(new Cell(25, "Station S", Color.GRAY));
-		south.add(new PropertyCell((Property) deck.get(24)));
-		south.add(new PropertyCell((Property) deck.get(23)));
-		south.add(new Cell(22, "Chance", Color.WHITE));
-		south.add(new PropertyCell((Property) deck.get(21)));
-		south.add(new Cell(20, "Parking", Color.WHITE));
-		west.add(new PropertyCell((Property) deck.get(39)));
-		west.add(new PropertyCell((Property) deck.get(38)));
-		west.add(new Cell(33, "Community Chest", Color.WHITE));
-		west.add(new PropertyCell((Property) deck.get(36)));
-		west.add(new Cell(35, "Station O", Color.GRAY));
-		west.add(new Cell(36, "Community Chest", Color.WHITE));
-		west.add(new PropertyCell((Property) deck.get(33)));
-		west.add(new Cell(38, "Tax", Color.WHITE));
-		west.add(new PropertyCell((Property) deck.get(31)));
+		north.add(new CellImpl(0, "Go!", Color.WHITE));
+		north.add(new PropertyCellImpl((Property) deck.get(1)));
+		north.add(new CellImpl(2, "Chance", Color.WHITE));
+		north.add(new PropertyCellImpl((Property) deck.get(3)));
+		north.add(new CellImpl(4, "Tax", Color.WHITE));
+		north.add(new CellImpl(5, "Station N", Color.GRAY));
+		north.add(new PropertyCellImpl((Property) deck.get(6)));
+		north.add(new CellImpl(7, "Chance", Color.WHITE));
+		north.add(new PropertyCellImpl((Property) deck.get(8)));
+		north.add(new PropertyCellImpl((Property) deck.get(9)));
+		north.add(new CellImpl(10,"Prison", Color.WHITE));
+		east.add(new PropertyCellImpl((Property) deck.get(11)));
+		east.add(new CellImpl(12, "Enel", Color.GRAY));
+		east.add(new PropertyCellImpl((Property) deck.get(13)));
+		east.add(new PropertyCellImpl((Property) deck.get(14)));
+		east.add(new CellImpl(15, "Station E", Color.GRAY));
+		east.add(new PropertyCellImpl((Property) deck.get(16)));
+		east.add(new CellImpl(17, "Community Chest", Color.WHITE));
+		east.add(new PropertyCellImpl((Property) deck.get(18)));
+		east.add(new PropertyCellImpl((Property) deck.get(19)));
+		south.add(new CellImpl(30, "Police", Color.WHITE));
+		south.add(new PropertyCellImpl((Property) deck.get(29)));
+		south.add(new CellImpl(28, "Hera", Color.GRAY));
+		south.add(new PropertyCellImpl((Property) deck.get(27)));
+		south.add(new PropertyCellImpl((Property) deck.get(26)));
+		south.add(new CellImpl(25, "Station S", Color.GRAY));
+		south.add(new PropertyCellImpl((Property) deck.get(24)));
+		south.add(new PropertyCellImpl((Property) deck.get(23)));
+		south.add(new CellImpl(22, "Chance", Color.WHITE));
+		south.add(new PropertyCellImpl((Property) deck.get(21)));
+		south.add(new CellImpl(20, "Parking", Color.WHITE));
+		west.add(new PropertyCellImpl((Property) deck.get(39)));
+		west.add(new PropertyCellImpl((Property) deck.get(38)));
+		west.add(new CellImpl(33, "Community Chest", Color.WHITE));
+		west.add(new PropertyCellImpl((Property) deck.get(36)));
+		west.add(new CellImpl(35, "Station O", Color.GRAY));
+		west.add(new CellImpl(36, "Community Chest", Color.WHITE));
+		west.add(new PropertyCellImpl((Property) deck.get(33)));
+		west.add(new CellImpl(38, "Tax", Color.WHITE));
+		west.add(new PropertyCellImpl((Property) deck.get(31)));
 		
 		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
 		setIcon();
@@ -134,7 +134,7 @@ public class GridCell extends JPanel {
 	public void setIcon() {
 	    icon = new ImageIcon("res/logo.png");
 	    logo = new JLabel();
-            Image scaledImage = icon.getImage().getScaledInstance(MainExternContainer.getLeftSide().getWidth() / 2, MainExternContainer.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
+            Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 2, MainExternContainerImpl.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
             icon.setImage(scaledImage);
             logo.setIcon(icon);
             logo.setHorizontalAlignment(SwingConstants.CENTER);

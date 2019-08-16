@@ -10,7 +10,7 @@ import controller.menu.ControllerNewGameMenu;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
 import view.menu.NewGameMenu;
-import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 /**
  * 
  * class that implements what the "back to menu" button in the playground must does.
@@ -20,12 +20,12 @@ public class BackToMenu implements ActionListener {
     /**
      * fields.
      */
-    private MainExternContainer frame;
+    private MainExternContainerImpl frame;
     /**
      * 
      * constructor.
      */
-    public BackToMenu(MainExternContainer playFrame) {
+    public BackToMenu(MainExternContainerImpl playFrame) {
         this.frame = playFrame;
     }
     /**

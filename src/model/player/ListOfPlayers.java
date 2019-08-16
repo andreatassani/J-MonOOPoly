@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import model.allTypeOfCard.Property;
-import model.utility.Colors;
-import model.utility.Pawns;
+import model.myEnum.Colors;
+import model.myEnum.Pawns;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();

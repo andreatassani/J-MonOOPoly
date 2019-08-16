@@ -12,7 +12,7 @@ import javax.swing.SwingConstants;
 import model.allTypeOfCard.Entity;
 import model.player.Player;
 import view.play.HistoryGUI;
-import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 
 public class HistoryImpl implements History {
 	
@@ -20,7 +20,7 @@ public class HistoryImpl implements History {
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
 	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
-	private static Dimension dim = new Dimension((int) (MainExternContainer.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
+	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
 
 

@@ -1,8 +1,9 @@
 package model.allTypeOfCard;
 
 import java.util.Optional;
+
+import model.myEnum.Colors;
 import model.player.PlayerImpl;
-import model.utility.Colors;
 /**
  * 
  * this class implements the figure of Society (in the game this class is represented by Hera and Enel)

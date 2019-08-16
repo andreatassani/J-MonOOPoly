@@ -11,12 +11,12 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.images.ShowImages;
+import model.myEnum.Dice;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
-import model.utility.Dice;
-import view.play.Cel;
+import view.play.Cell;
 import view.play.GridCell;
-import view.play.PositionPawns;
+import view.play.PositionPawnsImpl;
 
 public class RollDice implements ActionListener{
     
@@ -139,15 +139,15 @@ public class RollDice implements ActionListener{
         }
     }
     
-    public PositionPawns getPositionPawn (String pole, int pos) {
+    public PositionPawnsImpl getPositionPawn (String pole, int pos) {
         if(pole == NORTH) {
-            return ((Cel)grid.getNorthBox().getComponent(pos)).getPositionPawns();
+            return ((Cell)grid.getNorthBox().getComponent(pos)).getPositionPawns();
         } else if(pole == EAST) {
-            return ((Cel)grid.getEastBox().getComponent(pos)).getPositionPawns();
+            return ((Cell)grid.getEastBox().getComponent(pos)).getPositionPawns();
         } else if(pole == SOUTH) {
-            return ((Cel)grid.getSouthBox().getComponent(pos)).getPositionPawns();
+            return ((Cell)grid.getSouthBox().getComponent(pos)).getPositionPawns();
         } else {
-            return ((Cel)grid.getWestBox().getComponent(pos)).getPositionPawns();
+            return ((Cell)grid.getWestBox().getComponent(pos)).getPositionPawns();
         }
     }
     

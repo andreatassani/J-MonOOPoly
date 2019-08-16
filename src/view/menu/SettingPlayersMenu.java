@@ -13,13 +13,13 @@ import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerNewGameMenu;
 import controller.menu.ControllerSettingPlayersMenu;
 import model.allTypeOfCard.EntityDeck;
+import model.myEnum.Colors;
+import model.myEnum.NumPlayers;
+import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
 import model.player.Player;
 import model.player.PlayerImpl;
-import model.utility.Colors;
-import model.utility.NumPlayers;
-import model.utility.Pawns;
-import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 
 
 /**
@@ -53,7 +53,7 @@ import view.play.MainExternContainer;
 		private JPanel player3 = new JPanel();
 		private JTextField namePlayer3  = new JTextField();
 		private JComboBox<Colors>  color3 = new JComboBox<Colors> (Colors.values());
-		private JComboBox<Pawns> pawn3 = new JComboBox<Pawns>(model.utility.Pawns.values());			
+		private JComboBox<Pawns> pawn3 = new JComboBox<Pawns>(model.myEnum.Pawns.values());			
 		private JPanel player4 = new JPanel();
 		private JTextField namePlayer4  = new JTextField();
 		private JComboBox<Colors>  color4 = new JComboBox<Colors> (Colors.values());
@@ -152,7 +152,7 @@ import view.play.MainExternContainer;
 		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() && (list.getNumberPlayer()<=2) ) {
 		    	      this.dispose();
 		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
-			    	  new MenuGui(new MainExternContainer(list, deck.getDeck()));
+			    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));
 		    		  }else {
 		    			  JOptionPane.showMessageDialog(null,"hai selezionato una pedina o un colore o un nome già selezionato ");
 		    			  list.removeAllPlayers();

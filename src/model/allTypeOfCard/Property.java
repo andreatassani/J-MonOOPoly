@@ -49,7 +49,7 @@ public class Property implements Entity {
         return this.nHouses;
     }
         
-    public boolean isPresentHotel() {
+    public boolean getHotel() {
         return this.hotel;
     }
     public int getPosition() {

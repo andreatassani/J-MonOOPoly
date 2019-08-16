@@ -37,7 +37,7 @@ public class HistoryGUI extends JPanel {
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
 	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
-	private static Dimension dim = new Dimension((int) (MainExternContainer.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
+	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
 	private model.history.History action;
 	private static final Color j = new Color(173,238,216);
