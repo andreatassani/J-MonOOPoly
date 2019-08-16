@@ -15,15 +15,12 @@ import model.player.ListOfPlayers;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import model.utility.Dice;
-import view.play.Cel;
 import view.play.GridCell;
 import view.play.PawnMovement;
-import view.play.PositionPawns;
 
 public class RollDice implements ActionListener{
     
     private final ListOfPlayers listPl;
-    private final GridCell grid;
     private final AudioManager sound;
     private final ArrayList<Entity> deck;
     private final JButton rollDice;
@@ -38,7 +35,6 @@ public class RollDice implements ActionListener{
     public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound) {
         this.sound = sound;
         this.listPl = listPl;
-        this.grid = grid;
         this.deck = deck;
         this.rollDice = rolldDice;
         this.buy = buy;
@@ -60,7 +56,7 @@ public class RollDice implements ActionListener{
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
-        this.stepSound(risultato);
+//        this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos,risultato, pl);
         rollDice.setEnabled(false);
         activateCell(pos, pl);
@@ -104,7 +100,7 @@ public class RollDice implements ActionListener{
         } else if (deck.get(pos).getOwner() != bank && deck.get(pos).isSalable() && deck.get(pos).getOwner() != pl) {
             deck.get(pos).action(pl);
           //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+"possiede"+pl.getMoney(),
+            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" possiede "+pl.getMoney(),
                     "messaggio", 0);
             buy.setEnabled(true);
             

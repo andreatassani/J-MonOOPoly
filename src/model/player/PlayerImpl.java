@@ -103,14 +103,8 @@ public void setStopTurns(int turns) {
  * 
  */
 public int getStopTurns() {
-    if(this.stopTurns == 0) {
-        return 0;
+    return this.stopTurns;
     }
-    else {
-        this.stopTurns-=1;
-        return this.stopTurns+1;
-    }
-}
 /**
  * {@inheritDoc}
  * 
