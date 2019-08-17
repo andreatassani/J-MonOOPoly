@@ -48,6 +48,11 @@ public class CCCCard implements Entity {
     @Override
     public boolean isSalable() {
         return false;
+    }
+
+    @Override
+    public boolean isBuildable() {
+        return false;
     }  
 
 }

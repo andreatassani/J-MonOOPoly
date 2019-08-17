@@ -47,5 +47,9 @@ public class Prison implements Entity {
     public boolean isSalable() {
         return false;
     }
+    @Override
+    public boolean isBuildable() {
+        return false;
+    }
 
 }

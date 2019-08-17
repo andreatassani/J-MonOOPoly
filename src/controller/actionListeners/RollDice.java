@@ -86,15 +86,15 @@ public class RollDice implements ActionListener{
         if(deck.get(pos).getOwner() == pl) {
             buy.setEnabled(false);
             sell.setEnabled(true);
+            if(deck.get(pos).isBuildable()) {
             build.setEnabled(true);
+            }
             if(((Property)deck.get(pos)).getHotel()) {
                 build.setEnabled(false);
             }
-            
         } else if(deck.get(pos).getOwner() == bank && deck.get(pos).isSalable() ) {
             buy.setEnabled(true);
             sell.setEnabled(false);
-            
         } else if (deck.get(pos).getOwner() != bank && deck.get(pos).isSalable() && deck.get(pos).getOwner() != pl) {
             deck.get(pos).action(pl);
           //Da togliere

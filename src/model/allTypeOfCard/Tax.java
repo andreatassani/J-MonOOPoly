@@ -46,4 +46,8 @@ public class Tax implements Entity {
     public PlayerImpl getOwner() {
         return this.owner;
     }
+    @Override
+    public boolean isBuildable() {
+        return false;
+    }
 }
