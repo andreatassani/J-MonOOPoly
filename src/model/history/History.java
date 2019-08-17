@@ -4,6 +4,7 @@ import javax.swing.JButton;
 
 import model.allTypeOfCard.Entity;
 import model.player.Player;
+import model.player.PlayerImpl;
 /**
 * Interface for managing the history gui.
 * 
@@ -30,6 +31,6 @@ void buyPropriety (Player player,Entity entity);
 * 
 * print a message at the beginning of the turn.
 */
-void startTurn (Player player);
+void startTurn (PlayerImpl player);
 
 }

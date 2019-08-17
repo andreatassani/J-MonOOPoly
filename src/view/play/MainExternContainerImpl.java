@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
+import model.history.History;
+import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
 /**
  * 
@@ -33,6 +35,7 @@ public class MainExternContainerImpl extends JFrame {
 	private static JPanel leftSide = new JPanel(new BorderLayout());
 	private Box extern;
 	private GridCell grid;
+	private History history;
 	
 	/**
 	 * constructor.
@@ -68,12 +71,12 @@ public class MainExternContainerImpl extends JFrame {
 		this.setState(JFrame.MAXIMIZED_BOTH);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.history = new HistoryImpl();
 		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
-		//Da togliere
-                JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
-                        "messaggio", 0);
+		
+		 history.startTurn(listPl.getCurrentPlayer());
 	}
 	/**
 	 * 
