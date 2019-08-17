@@ -3,6 +3,7 @@ package model.player;
 
 import java.awt.Color;
 
+import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.myEnum.Colors;
 import model.myEnum.Pawns;

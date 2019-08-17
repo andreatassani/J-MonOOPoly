@@ -1,36 +1,18 @@
 package view.menu;
 
 import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
-import java.io.File;
-import java.sql.Time;
 import java.util.*;
-import java.util.Timer;
-
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-
 import controller.actionListeners.Audio;
 import controller.actionListeners.HowToPlay;
 import controller.actionListeners.NewGame;
 import controller.audio.AudioManager;
-import controller.audio.AudioSetting;
-import controller.audio.AudioSettingImpl;
 
-
-
-
-
-import controller.menu.ControllerMainMenu;
 /**
  * 
- * class for managing the graphics of the the main menu.
+ * Class for managing the graphics of the the main menu.
  *
  */
-
-import controller.menu.ControllerMainMenu;
 	public class MainMenu extends JFrame {
 /**
 * MainMenu fields.

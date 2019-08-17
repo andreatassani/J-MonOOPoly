@@ -1,3 +1,4 @@
+
 package view.play;
 
     /**
@@ -15,3 +16,4 @@ public interface SouthUtilityButtons {
      */
     public void setEnableFalseAsDefault();
 }
+

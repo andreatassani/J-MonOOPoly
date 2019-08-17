@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -15,6 +16,8 @@ import javax.swing.JTextArea;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
+import model.history.History;
+import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
 /**
  * 
@@ -33,6 +36,7 @@ public class MainExternContainerImpl extends JFrame {
 	private static JPanel leftSide = new JPanel(new BorderLayout());
 	private Box extern;
 	private GridCell grid;
+	private History history;
 	
 	/**
 	 * constructor.
@@ -52,7 +56,7 @@ public class MainExternContainerImpl extends JFrame {
 		leftSide.add(grid, BorderLayout.CENTER);
 		
 		for(int i = 0; i<listPl.getNumberPlayer(); i++) {
-		((Cell)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1).getPawn());                    //allows to set pawns on start of the game's session
+		((Cell)grid.getNorthBox().getComponent(0)).getPositionPawns().setImageOnIndex(i, listPl.getPlayerFromIndex(i+1));                    //allows to set pawns on start of the game's session
 		}
 		
 		rightSide.setSize(rightSideDimension);
@@ -63,17 +67,18 @@ public class MainExternContainerImpl extends JFrame {
 		extern.add(leftSide);
 		extern.add(rightSide);
 		
+		this.history = new HistoryImpl(Optional.of(deck));
 		this.add(extern);
 		this.setPreferredSize(d);
 		this.setState(JFrame.MAXIMIZED_BOTH);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+		this.setExtendedState(JFrame.MAXIMIZED_VERT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.setResizable(false);
+		//!!!togli serve solo a enri
+		this.setResizable(true);
 		this.setVisible(true);
 		this.pack();
-		//Da togliere
-                JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
-                        "messaggio", 0);
+		history.startTurn(listPl.getCurrentPlayer());
 	}
 	/**
 	 * 

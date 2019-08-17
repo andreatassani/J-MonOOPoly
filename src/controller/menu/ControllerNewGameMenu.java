@@ -23,15 +23,6 @@ public class ControllerNewGameMenu {
 		
 	}
 /**
- * go back to main menu and close the running JFrame.	
- * @param JFrame b to close
- * @return JFrame of the main menu
- */
-	public MenuGui back(JFrame b) {
-		b.dispose();
-		return new MenuGui(new MainMenu());
-	}
-/**
  * deactivate/activate the audio according to the main
  * menu settings.	
  * @param String s comparison to know if the audio is active

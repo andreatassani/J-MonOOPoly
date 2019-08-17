@@ -6,8 +6,6 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import controller.audio.AudioManager;
-import controller.menu.ControllerMainMenu;
-import view.menu.MainMenu;
 import view.menu.MenuGui;
 import view.menu.NewGameMenu;
 /**

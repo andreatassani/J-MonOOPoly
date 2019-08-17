@@ -42,10 +42,6 @@ public class NewGameMenu extends JFrame {
 	private static AudioManager clip = new AudioManager();
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
-	public static int i= 0;
-	
-
-
 /**
  * constructor of the New game menu.
  */
@@ -60,8 +56,7 @@ public class NewGameMenu extends JFrame {
 		this.currency = new JLabel("Currency");
 		this.title = new JLabel("MAIN MENU");
 		this.back = new JButton("Back");
-		this.icon = new ImageIcon("res/mr-monopoly2.png");
-		
+		this.icon = new ImageIcon("res/mr-monopoly2.png");		
 		this.choiseMusic = new JComboBox<Music>(Music.values());
 		this.choiseCurrency = new JComboBox<Enum>(model.myEnum.Currency.values());
 		this.north = new JPanel();
@@ -113,7 +108,7 @@ public class NewGameMenu extends JFrame {
  */
 		
 		back.addActionListener(new Back(this, clip, MainMenu.getTextButton()));
-		players.addActionListener(new Players(this, clip, clip2, choiseMusic.getSelectedIndex()));
+		players.addActionListener(actionPlayers);
 		north.add(imageLeft);
 		north.add(title);
 		north.add(imageRight);

@@ -1,6 +1,8 @@
 package model.allTypeOfCard;
 
 
+import java.awt.Color;
+
 import model.player.PlayerImpl;
      /**
       * 
@@ -25,7 +27,22 @@ public interface Entity {
   PlayerImpl getOwner();
   /**
    * 
-   * @return true if card is salable (eg: property), false else (eg: community chest or chance)
+   * @return true if card is salable (eg: property, society), false else (eg: community chest or chance)
    */
   boolean isSalable();
+  /**
+   * 
+   * @return true if the player can build houses/hotel on the card (property), false else (society)
+   */
+  boolean isBuildable();
+ /**
+  * 
+  * 
+  */
+  int getPosition();
+  /*
+   * 
+   * 
+   */
+  Color getColor();
 }

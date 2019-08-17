@@ -1,9 +1,12 @@
 package model.allTypeOfCard;
 
 import java.awt.Color;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
 
+import model.history.History;
+import model.history.HistoryImpl;
 import model.myUtility.ShowImages;
 
 import model.player.PlayerImpl;
@@ -17,12 +20,14 @@ public class Property implements Entity {
     private boolean hotel = false;
     private int price = 0;
     private PlayerImpl owner;
+    private History history;
     
     public Property(String name, Color color, int position, PlayerImpl owner) {
         this.positionInBoard = position;
         this.name = name;
         this.color = color;
         this.owner = owner;
+        this.history = new HistoryImpl(Optional.empty());
         
         if(color == Color.PINK) {
             this.price = 60;
@@ -89,10 +94,7 @@ public class Property implements Entity {
              return;
          }
     }
-    
-    public void showCard() {
-        ShowImages.propertyMessage(this);
-    }
+
     
     @Override
     public void action(PlayerImpl pl) {
@@ -104,17 +106,24 @@ public class Property implements Entity {
              pl.setMoney(-(this.price*2));         
              this.owner.setMoney(this.price*2);
            //Da togliere
+             history.tollHotel(pl, price, owner);
              JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+this.price*2 +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
       } else {
           pl.setMoney(-((this.price/10)+this.nHouses*(this.price/4)));
           this.owner.setMoney((this.price/10)+this.nHouses*(this.price/4));
         //Da togliere
+          history.tollHouses(pl,price,nHouses,owner);
           JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+(this.price/10)+this.nHouses*(this.price/4) +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
       }
      }
     }
     @Override
     public boolean isSalable() {
+        return true;
+    }
+
+    @Override
+    public boolean isBuildable() {
         return true;
     }
     

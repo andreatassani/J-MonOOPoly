@@ -10,6 +10,8 @@ import javax.swing.JOptionPane;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
+import model.history.History;
+import model.history.HistoryImpl;
 import model.myUtility.Dice;
 import model.myUtility.ShowImages;
 import model.player.ListOfPlayers;
@@ -31,8 +33,9 @@ public class RollDice implements ActionListener{
     private PlayerImpl pl;
     private final PlayerImpl bank;
     private PawnMovement pawnMovement;
+    private final History history;
 
-    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound) {
+    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -41,18 +44,16 @@ public class RollDice implements ActionListener{
         this.sell = sell;
         this.build = build;
         this.nextPlayer = nextPlayer;
+        this.history = history;
         bank = listPl.getBank();
         pawnMovement = new PawnMovement(grid, listPl);
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
         pl = listPl.getCurrentPlayer();
         sound.getDiceSound().play();
-        
-//      ENRI MODIFICA QUESTO!
-//        history.printStartGame();
-        
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
@@ -80,21 +81,20 @@ public class RollDice implements ActionListener{
     
     public void activateCell(int pos, PlayerImpl pl) {
       //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" è finito sulla casella "+deck.get(pos).getName(),
-                "messaggio", 0);
+    	history.printPositionPlayer(pl, pos);
         
         if(deck.get(pos).getOwner() == pl) {
             buy.setEnabled(false);
             sell.setEnabled(true);
+            if(deck.get(pos).isBuildable()) {
             build.setEnabled(true);
+            }
             if(((Property)deck.get(pos)).getHotel()) {
                 build.setEnabled(false);
             }
-            
         } else if(deck.get(pos).getOwner() == bank && deck.get(pos).isSalable() ) {
             buy.setEnabled(true);
             sell.setEnabled(false);
-            
         } else if (deck.get(pos).getOwner() != bank && deck.get(pos).isSalable() && deck.get(pos).getOwner() != pl) {
             deck.get(pos).action(pl);
           //Da togliere

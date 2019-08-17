@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 import controller.audio.AudioManager;
+import model.history.History;
 import model.player.ListOfPlayers;
 
 public class NextPlayer implements ActionListener {
@@ -17,16 +18,18 @@ public class NextPlayer implements ActionListener {
     private JButton sell;
     private JButton build;
     private JButton nextPlayer;
+    private final History history;
     
     
 
-    public NextPlayer(ListOfPlayers listPl, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer) {
+    public NextPlayer(ListOfPlayers listPl, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer,History history) {
         this.listPl = listPl;
         this.rollDice = rolldDice;
         this.buy = buy;
         this.sell = sell;
         this.build = build;
         this.nextPlayer = nextPlayer;
+        this.history = history;
     }
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -37,8 +40,7 @@ public class NextPlayer implements ActionListener {
         nextPlayer.setEnabled(false);
         listPl.nextPlayer();
       //Da togliere
-        JOptionPane.showMessageDialog(null,"è il turno del giocatore " +listPl.getCurrentPlayer().getName(),
-                "messaggio", 0);
+        history.startTurn(listPl.getCurrentPlayer());
         if(listPl.getCurrentPlayer().getStopTurns() == 0 && listPl.getCurrentPlayer().getPosition() == 10) {
             //Da togliere
               JOptionPane.showMessageDialog(null,"il giocatore " +listPl.getCurrentPlayer().getName()+ " può uscire dalla prigione",

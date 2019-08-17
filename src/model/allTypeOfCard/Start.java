@@ -3,6 +3,8 @@
  */
 package model.allTypeOfCard;
 
+import java.awt.Color;
+
 import model.player.PlayerImpl;
 
 /**
@@ -10,7 +12,7 @@ import model.player.PlayerImpl;
  */
 public class Start implements Entity {
 	
-    private String name = "Start";
+    private String name = "Go!";
     private final int bonus = 200;
     private PlayerImpl owner;
     /**
@@ -44,6 +46,18 @@ public class Start implements Entity {
     @Override
     public PlayerImpl getOwner() {
         return this.owner;
+    }
+    @Override
+    public boolean isBuildable() {
+        return false;
+    }
+    @Override
+    public int getPosition() {
+        return 0;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 
 }

@@ -1,6 +1,8 @@
 package model.allTypeOfCard;
 
 
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 
 import model.player.PlayerImpl;
@@ -10,7 +12,7 @@ import model.player.PlayerImpl;
 public class FreeParking implements Entity {
     
 	private PlayerImpl owner;
-	private String name = "Free Parking";
+	private String name = "Parking";
     /**
      * Constructor.
      */
@@ -45,5 +47,17 @@ public class FreeParking implements Entity {
     @Override
     public boolean isSalable() {
         return false;
+    }
+    @Override
+    public boolean isBuildable() {
+        return false;
+    }
+    @Override
+    public int getPosition() {
+        return 20;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 }

@@ -5,8 +5,8 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
+import controller.actionListeners.Back;
 import controller.audio.AudioManager;
-import controller.menu.ControllerMainMenu;
 import controller.menu.ControllerNewGameMenu;
 /**
  * 
@@ -44,19 +44,6 @@ public class HowToPlay extends JFrame {
 	 this.icon = new ImageIcon("res/howToPlay.png");
 	 this.back = new JButton("Back");
 /**
- * Action listener that allows you to return
- * to the previous menu. 
- */
-	 ActionListener backToMainMenu = (e)->{
-		 action.back(this);
-		 action.musicStop(MainMenu.getTextButton(), clip);
-		 clip.getMusicMenu().stop();
-     };
-/**
- * check if the audio is to be activated or not.
- */
-     action.musicStop(MainMenu.getTextButton(), clip);
-/**
  *i set the size of the background image, the JComponents that 
  *contain it.     
  */	
@@ -73,7 +60,7 @@ public class HowToPlay extends JFrame {
 /**
  *i add JComponents to the frame and action listener to the button.
  */	 
-	 back.addActionListener(backToMainMenu);
+	 back.addActionListener(new Back(this, clip, MainMenu.getTextButton()));
 	 general.add(img);
 	 this.add(general, BorderLayout.CENTER);
 	 this.add(back, BorderLayout.SOUTH);	 	 

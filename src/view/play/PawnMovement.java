@@ -52,13 +52,13 @@ public class PawnMovement {
     
     public void addPawn(int newPos, PlayerImpl pl) {
         if(newPos>= START && newPos<= PRISON) {
-            this.getPositionPawn(NORTH, newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl.getPawn());
+            this.getPositionPawn(NORTH, newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         } else if (newPos>=PRISON+1 && newPos<=PARKING-1){
-            this.getPositionPawn(EAST, newPos-(PRISON+1)).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl.getPawn());
+            this.getPositionPawn(EAST, newPos-(PRISON+1)).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         } else if(newPos>=PARKING && newPos<=POLICE) {
-            this.getPositionPawn(SOUTH, POLICE-newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl.getPawn());
+            this.getPositionPawn(SOUTH, POLICE-newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         } else if(newPos>=POLICE+1 && newPos<=MAXPOSITION) {
-            this.getPositionPawn(WEST, MAXPOSITION-newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl.getPawn());
+            this.getPositionPawn(WEST, MAXPOSITION-newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         }
     }
     

@@ -29,7 +29,6 @@ import view.play.MainExternContainerImpl;
 /**
  * SettingPlayersMenu fields.
  */
-		
 		private CustomMethodsImpl methods = new CustomMethodsImpl();
 		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -38,8 +37,8 @@ import view.play.MainExternContainerImpl;
 		private static final Dimension dimCombo = new Dimension(width/10,height/28);
 		private static final Dimension dimComboColor = new Dimension((width/4)/3,height/28);
 		private static final Dimension dimNameG = new Dimension(width/3,height/28);
-		private JPanel left = new JPanel();
-		private JPanel right = new JPanel();		
+		private JPanel right = new JPanel();
+		private JPanel left = new JPanel();		
 		private JPanel player1 = new JPanel();
 		private JTextField namePlayer1  = new JTextField();		
 		private JComboBox<Colors> color1 = new JComboBox<Colors>(Colors.values());
@@ -65,7 +64,7 @@ import view.play.MainExternContainerImpl;
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
-		private  AudioManager clip;	
+		private AudioManager clip;	
 		private JButton done;
 		private JButton howManyPlayer = new JButton("4");
 		private String namePlayer;		
@@ -95,19 +94,17 @@ import view.play.MainExternContainerImpl;
 		methods.setPreference(howManyPlayer, dimNameG, methods.getButton(), Color.BLACK , methods.getFont());
 		back.setMaximumSize(dimName);
 		back.setMinimumSize(dimName);
-		right.setBackground(methods.getBackground());
 		left.setBackground(methods.getBackground());
-		setPlayers.setBackground(methods.getBackground());
-		
+		right.setBackground(methods.getBackground());
+		setPlayers.setBackground(methods.getBackground());		
 		namePlayer1.setText(namePlayer);
 		namePlayer2.setText(namePlayer);
 		namePlayer3.setText(namePlayer);
 		namePlayer4.setText(namePlayer);
-
-
-	      
-	      ActionListener actionDone = (e)->{	
-	    	  
+/**
+ * 
+ */	      
+	      ActionListener actionDone = (e)->{		    	  
 	    	if(howManyPlayer.getText().equals("4")) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
@@ -117,8 +114,7 @@ import view.play.MainExternContainerImpl;
 	    			action.chosenPawn(pawn3.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
 	    			action.chosenPawn(pawn4.getSelectedIndex())), list.getNumberPlayer()+1);
-	    	}
-	    	
+	    	}	    	
 	    	if(howManyPlayer.getText().equals("3")) {
 	    		list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    				action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
@@ -126,8 +122,7 @@ import view.play.MainExternContainerImpl;
 	    			    action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
 	    		list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
 	    			    action.chosenPawn(pawn3.getSelectedIndex())), list.getNumberPlayer()+1);
-	    	}
-	    	
+	    	}	    	
 	    	if(howManyPlayer.getText().equals("2")) {
 	    		list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
 	    				action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
@@ -135,26 +130,7 @@ import view.play.MainExternContainerImpl;
 	    			    action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	}
 	  
-		      };
-		      ActionListener actionStart = (e)->{
-		    	  	
-		    		  if( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
-		    	      this.dispose();
-		    	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
-			    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));
-		    		  }else {
-		    			  JOptionPane.showMessageDialog(null,"hai selezionato una pedina o un colore o un nome già selezionato ");
-		    			  list.removeAllPlayers();
-
-		    		  }
-		      };
-		      
-		      ActionListener actionNum = (e)->{	
-		    	  action.numPlayer(howManyPlayer, player3, player4);
-		    	  
-					
-			      };
-
+		      };	
 /**
  * I configure the size of the image.
  */		
@@ -165,8 +141,8 @@ import view.play.MainExternContainerImpl;
 /**
  * I create panels for customizing the game.
  */
-		methods.setMyPanel(left, dimPlayer);
 		methods.setMyPanel(right, dimPlayer);
+		methods.setMyPanel(left, dimPlayer);
 		methods.createSetPlayer(player1, namePlayer1, color1, pawn1,methods.getFont());
 		methods.createSetPlayer(player2, namePlayer2, color2, pawn2,methods.getFont());
 		methods.createSetPlayer(player3, namePlayer3, color3, pawn3,methods.getFont());
@@ -180,29 +156,22 @@ import view.play.MainExternContainerImpl;
 		done.addActionListener(actionDone);	
 		back.addActionListener(new BackFromSettingsMenu(this,NewGameMenu.getClip()));
 		image.add(start);		
-		right.add(setPlayers);
-		right.add(image);				
-		left.add(player1);
-		left.add(player2);
-		left.add(player3);
-		left.add(player4);
-		left.add(done);
-		right.add(back);
-		this.add(left,BorderLayout.EAST);
-		this.add(right, BorderLayout.WEST);	
-
-		
+		left.add(setPlayers);
+		left.add(image);				
+		right.add(player1);
+		right.add(player2);
+		right.add(player3);
+		right.add(player4);
+		right.add(done);
+		left.add(back);
+		this.add(right,BorderLayout.EAST);
+		this.add(left, BorderLayout.WEST);		
 /**
- * 		
+ * Stops the music of the game in case at the
+ * beginning you have chosen audio off.		
  */
-
 		action.musicStop(NewGameMenu.getAudio(), clip);
-		clip.getMusicMenu().stop();
-		
-		
-		
-		
-
+		clip.getMusicMenu().stop();								
 	}
 
 
