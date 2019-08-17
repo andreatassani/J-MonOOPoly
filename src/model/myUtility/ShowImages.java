@@ -27,7 +27,7 @@ public final class ShowImages {
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+e.getColor().getRGB()+".png"));
             } else {
                 if(name.equals("Station N")||
-                        name.equals("Station E")|
+                        name.equals("Station E")||
                         name.equals("Station S")||
                         name.equals("Station O")){
                         name = "Station";

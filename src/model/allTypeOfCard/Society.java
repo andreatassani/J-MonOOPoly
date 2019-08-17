@@ -63,7 +63,7 @@ public class Society  extends Property {
      */
     @Override
     public boolean isSalable() {
-        return false;
+        return true;
     }
 
 

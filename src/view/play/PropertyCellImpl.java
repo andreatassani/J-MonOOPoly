@@ -19,7 +19,8 @@ import model.myUtility.ShowImages;
 public class PropertyCellImpl extends JPanel implements Cell {
     
     private static final long serialVersionUID = 1L;
-    private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, MainExternContainerImpl.getLeftSide().getHeight() / 12);
+    private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, 
+                                            MainExternContainerImpl.getLeftSide().getHeight() / 12);
     private JLabel name;
     private JButton image;
     private ImageIcon icon;
@@ -32,7 +33,8 @@ public class PropertyCellImpl extends JPanel implements Cell {
                 name.setBackground(en.getColor());
                 this.setLayout(new BorderLayout());
                 mySetSize(dim);
-
+                
+                
 
                 
                 this.setBackground(en.getColor());
@@ -40,7 +42,7 @@ public class PropertyCellImpl extends JPanel implements Cell {
                 image.setSize(40, 30);
                 image.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        ShowImages.Message(en);;
+                        ShowImages.Message(en);
                     }
                 });
                 

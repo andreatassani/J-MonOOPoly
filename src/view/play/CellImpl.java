@@ -30,7 +30,7 @@ public class CellImpl extends JPanel implements Cell{
     private JButton image;
     private ImageIcon icon;
     private PositionPawnsImpl posPawn = new PositionPawnsImpl();
-    Entity card;
+    
 	/**
 	 * constructor.	
 	 * @param i
@@ -43,13 +43,18 @@ public class CellImpl extends JPanel implements Cell{
 		name.setBackground(e.getColor());
 		this.setLayout(new BorderLayout());
 		mySetSize(dim);
-		
-		if (e.getPosition()== 0 ||e.getPosition() == 10 ||e.getPosition() == 20 ||e.getPosition() == 30) {
-			mySetSize(dimCorner);
+		if(e.isSalable()) {
+		    dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, 
+                            MainExternContainerImpl.getLeftSide().getHeight() / 12);
+		} else {
+		    if (e.getPosition()== 0 ||e.getPosition() == 10 ||e.getPosition() == 20 ||e.getPosition() == 30) {
+                        mySetSize(dimCorner);
+                }
+                if (e.getPosition() >= 11 && e.getPosition()<= 19 || e.getPosition() >= 31 && e.getPosition() <= 39 ) {
+                        mySetSize(dimEastWest);
+                        }
 		}
-		if (e.getPosition() >= 11 && e.getPosition()<= 19 || e.getPosition() >= 31 && e.getPosition() <= 39 ) {
-			mySetSize(dimEastWest);
-			}
+		
 
 		this.setBackground(e.getColor());
 		image = new JButton();
