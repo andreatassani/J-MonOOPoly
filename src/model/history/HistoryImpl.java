@@ -60,7 +60,7 @@ public class HistoryImpl implements History {
 	public void printPositionPlayer(Player player,int card) {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 nameCard = Optional.of(deck.get().get(card).getName().toString());
+		 this.nameCard = Optional.of(deck.get().get(card).getName().toString());
 		 button.setText("" + player.getName() +" ended up in the space: " + nameCard.get());
 		 fields.set(position, button);
 		 position=setPosition(position);
@@ -86,8 +86,8 @@ public class HistoryImpl implements History {
 	public void buyPropriety(Player player) {
 		 fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 nameCard = Optional.of(deck.get().get(player.getPosition()).getName().toString());
-		 price = ((Property)deck.get().get(player.getPosition())).getPrice();
+		 this.nameCard = Optional.of(deck.get().get(player.getPosition()).getName().toString());
+		 this.price = ((Property)deck.get().get(player.getPosition())).getPrice();
 		 button.setText("" + player.getName() +" bought the " + nameCard.get() + " propriety for " + price +"$");
 		 fields.set(position, button);
 		 position=setPosition(position);
@@ -147,12 +147,38 @@ public class HistoryImpl implements History {
 	public void tollHotel (PlayerImpl player,int price,PlayerImpl owner) {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 tool= (price*2);
+		 this.tool= (price*2);
 		 button.setText(player.getName() + " paid " + tool +"$ of tool to "+owner.getName());
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+	}
+	
+	public void buildHotel(PlayerImpl player ,int pos) {
+		fields = HistoryGUI.getHistory();
+		button = fields.get(position);
+		this.price= ((Property)deck.get().get(pos)).getPrice()/2;
+		button.setText(player.getName() + " has built a hotel on the property " + deck.get().get(pos).getName() + ", paying him: " + this.price +"$");
+		fields.set(position, button);
+		position=setPosition(position);
+		incrementButtons(fields);
+		HistoryGUI.resetGUI();
+		
+		
+	}
+
+	public void buildHouse(PlayerImpl player ,int pos) {
+		
+		fields = HistoryGUI.getHistory();
+		button = fields.get(position);
+		this.price= ((Property)deck.get().get(pos)).getPrice()/4;
+		button.setText(player.getName() + " has built a house on the property " + deck.get().get(pos).getName() + ", paying him: " + this.price +"$. Num of houses:" + ((Property)deck.get().get(pos)).getHouses());
+		fields.set(position, button);
+		position=setPosition(position);
+		incrementButtons(fields);
+		HistoryGUI.resetGUI();
+		
 		
 		
 	}

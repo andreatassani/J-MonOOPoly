@@ -64,7 +64,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
         buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid,history));
 		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer,history));
 		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound));
-		build.addActionListener(new Build(listPl, deck, build, sound, grid));
+		build.addActionListener(new Build(listPl, deck, build, sound, grid,history));
 		menu.addActionListener(new BackToMenu(frame));
 		
 		this.add(rollDice);

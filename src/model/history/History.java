@@ -43,4 +43,8 @@ void tollHouses (PlayerImpl player,int price,int nHouses,PlayerImpl owner);
 
 void tollHotel (PlayerImpl player, int price, PlayerImpl owner);
 
+void buildHotel(PlayerImpl player ,int pos);
+
+void buildHouse(PlayerImpl player ,int pos);
+
 }
