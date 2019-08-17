@@ -122,19 +122,19 @@ import view.play.MainExternContainerImpl;
 	    	  
 	    	if(!(namePlayer1.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn1.getSelectedIndex())), 1);
+	    			action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	}
 	    	if(!(namePlayer2.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn2.getSelectedIndex())), 2);
+	    			action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	}
 	    	if(!(namePlayer3.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn3.getSelectedIndex())), 3);
+	    			action.chosenPawn(pawn3.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	}
 	    	if(!(namePlayer4.getText().equals("Name Player"))) {
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn4.getSelectedIndex())), 4);
+	    			action.chosenPawn(pawn4.getSelectedIndex())), list.getNumberPlayer()+1);
 	    	}
 	    	
 	    	if(namePlayer1.getText().equals("Name Player")) {

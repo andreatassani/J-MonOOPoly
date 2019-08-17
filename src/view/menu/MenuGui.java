@@ -28,7 +28,6 @@ public class MenuGui extends JFrame {
 		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		c.setMaximumSize(d);
 		c.setMinimumSize(d);
-		c.setPreferredSize(d);
 		c.setSize(d);
 		
 		c.setState(JFrame.MAXIMIZED_BOTH);

@@ -30,6 +30,7 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import controller.menu.ControllerMainMenu;
+import model.history.History;
 import model.history.HistoryImpl;
 
 public class HistoryGUI extends JPanel {
@@ -37,16 +38,17 @@ public class HistoryGUI extends JPanel {
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
 	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
-	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
+	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/15));
+	private History historyControl;
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
-	private model.history.History action;
 	private static final Color j = new Color(173,238,216);
 	
 	private static ArrayList<JButton> fields = new ArrayList<JButton>();
+	private static int position;
 	private final JPanel box;
 	private final JScrollPane scrollPanel;
 	private final JPanel gridPanel;
-	private final GridBagConstraints c;
+	
 	private final JPanel upPanelLeft;
 	private int i =0;
 	
@@ -58,12 +60,10 @@ public class HistoryGUI extends JPanel {
     
 	public HistoryGUI() {
 		
-		this.action = new HistoryImpl();
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
-		this.box= new JPanel(new GridBagLayout());
-		this.c = new GridBagConstraints();
+		this.box= new JPanel(new GridLayout(0,1));
 		
 		
 
@@ -73,34 +73,35 @@ public class HistoryGUI extends JPanel {
 	    this.history = new JButton("History");
 	    this.history.setFont(f);
 	    this.history.setBackground(Color.RED);
+	    this.historyControl = new HistoryImpl();
 	    
 	    
 		
-		for(i=0; i<8 ;i++) {
+		for(i=0; i<7 ;i++) {
 		final JButton but = new JButton ("" +i);
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
 	    but.setBackground(j);
-	    
-	    c.ipadx = dim.width;
-	    c.ipady = dim.height;
-	    c.gridy = i;
+	    but.setMaximumSize(dim);
+	    but.setMinimumSize(dim);
 	    fields.add(but);
-	    this.box.add(but,c);
 		}
-		  
+		
+		for (JButton but : fields)
+			this.box.add(but);
+		
+		
+		
 		upPanelLeft.add(history);
 	    gridPanel.add(upPanelLeft);
 	       
 	        
 	    this.scrollPanel = new JScrollPane (this.box);
-	    this.scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );
-		this.scrollPanel.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
-			
+	    this.scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );			
 			
 		this.add(scrollPanel,BorderLayout.CENTER);
 	    this.add(gridPanel,BorderLayout.NORTH);
-   
+	    this.historyControl.printStartGame();
 		this.setBorder(new LineBorder(Color.BLACK));
 		this.setBackground(Color.RED);
     }
@@ -111,6 +112,14 @@ public class HistoryGUI extends JPanel {
 	
 	public static void setHistory(ArrayList<JButton> fields1) {
 		fields=fields1;
+	}
+	
+	public static int getPosition() {
+		return position;
+	}
+	
+	public static void setPosition (int pos) {
+		position=pos;
 	}
 	
 

@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
+import model.history.History;
 import model.myUtility.Dice;
 import model.myUtility.ShowImages;
 import model.player.ListOfPlayers;
@@ -31,8 +32,9 @@ public class RollDice implements ActionListener{
     private PlayerImpl pl;
     private final PlayerImpl bank;
     private PawnMovement pawnMovement;
+    private final History history;
 
-    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound) {
+    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -41,18 +43,17 @@ public class RollDice implements ActionListener{
         this.sell = sell;
         this.build = build;
         this.nextPlayer = nextPlayer;
+        this.history = history;
         bank = listPl.getBank();
         pawnMovement = new PawnMovement(grid, listPl);
+        
     }
 
     @Override
     public void actionPerformed(ActionEvent arg0) {
         pl = listPl.getCurrentPlayer();
         sound.getDiceSound().play();
-        
-//      ENRI MODIFICA QUESTO!
-//        history.printStartGame();
-        
+        history.printPositionPlayer(listPl.getCurrentPlayer());
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
