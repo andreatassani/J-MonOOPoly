@@ -11,6 +11,7 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.history.History;
+import model.history.HistoryImpl;
 import model.myUtility.Dice;
 import model.myUtility.ShowImages;
 import model.player.ListOfPlayers;
@@ -53,7 +54,6 @@ public class RollDice implements ActionListener{
     public void actionPerformed(ActionEvent arg0) {
         pl = listPl.getCurrentPlayer();
         sound.getDiceSound().play();
-        history.printPositionPlayer(listPl.getCurrentPlayer());
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
@@ -81,8 +81,7 @@ public class RollDice implements ActionListener{
     
     public void activateCell(int pos, PlayerImpl pl) {
       //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" è finito sulla casella "+deck.get(pos).getName(),
-                "messaggio", 0);
+    	history.printPositionPlayer(pl, pos);
         
         if(deck.get(pos).getOwner() == pl) {
             buy.setEnabled(false);

@@ -3,6 +3,7 @@ package view.play;
 import java.awt.Color;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -46,7 +47,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 	    
 		this.setLayout(new GridLayout());
 		
-		history = new HistoryImpl();
+		history = new HistoryImpl(Optional.of(deck));
 		rollDice = new JButton("ROLL DICE");
 		sell = new JButton("SELL");
 		buy = new JButton("BUY");
@@ -59,9 +60,9 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 		setEnableFalseAsDefault();
 		
 		
-		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound,history));
+		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound, history));
         buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid));
-		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer));
+		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer,history));
 		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound));
 		build.addActionListener(new Build(listPl, deck, build, sound, grid));
 		menu.addActionListener(new BackToMenu(frame));

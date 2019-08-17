@@ -16,7 +16,7 @@ public interface History {
 * 
 * print the position of the player.
 */
-void printPositionPlayer (Player player);
+void printPositionPlayer (Player player, int card);
 /**
 * 
 * print a message of the start of the game.

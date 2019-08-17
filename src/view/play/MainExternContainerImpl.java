@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
+import java.util.Optional;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -71,12 +72,11 @@ public class MainExternContainerImpl extends JFrame {
 		this.setState(JFrame.MAXIMIZED_BOTH);
 		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.history = new HistoryImpl();
+		this.history = new HistoryImpl(Optional.of(deck));
 		this.setResizable(false);
 		this.setVisible(true);
 		this.pack();
-		
-		 history.startTurn(listPl.getCurrentPlayer());
+		history.startTurn(listPl.getCurrentPlayer());
 	}
 	/**
 	 * 

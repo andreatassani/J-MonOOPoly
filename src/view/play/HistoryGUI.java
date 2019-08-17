@@ -14,6 +14,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.Optional;
 import java.util.Timer;
 
 import javax.swing.Box;
@@ -40,12 +41,11 @@ public class HistoryGUI extends JPanel {
 	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
 	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/15));
 	private History historyControl;
-	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
+	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (dim.getSize().height/1.45));
 	private static final Color j = new Color(173,238,216);
 	
 	private static ArrayList<JButton> fields = new ArrayList<JButton>();
-	private static int position;
-	private final JPanel box;
+	private static JPanel box;
 	private final JScrollPane scrollPanel;
 	private final JPanel gridPanel;
 	
@@ -63,7 +63,7 @@ public class HistoryGUI extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
-		this.box= new JPanel(new GridLayout(0,1));
+		box= new JPanel(new GridLayout(0,1));
 		
 		
 
@@ -73,7 +73,7 @@ public class HistoryGUI extends JPanel {
 	    this.history = new JButton("History");
 	    this.history.setFont(f);
 	    this.history.setBackground(Color.RED);
-	    this.historyControl = new HistoryImpl();
+	    this.historyControl = new HistoryImpl(Optional.empty());
 	    
 	    
 		
@@ -88,7 +88,7 @@ public class HistoryGUI extends JPanel {
 		}
 		
 		for (JButton but : fields)
-			this.box.add(but);
+			box.add(but);
 		
 		
 		
@@ -96,7 +96,7 @@ public class HistoryGUI extends JPanel {
 	    gridPanel.add(upPanelLeft);
 	       
 	        
-	    this.scrollPanel = new JScrollPane (this.box);
+	    this.scrollPanel = new JScrollPane (box);
 	    this.scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );			
 			
 		this.add(scrollPanel,BorderLayout.CENTER);
@@ -114,14 +114,12 @@ public class HistoryGUI extends JPanel {
 		fields=fields1;
 	}
 	
-	public static int getPosition() {
-		return position;
+	public static void resetGUI() {
+		for (JButton but : fields)
+			box.add(but);
 	}
 	
-	public static void setPosition (int pos) {
-		position=pos;
-	}
-	
+
 
 	
 	
