@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
+import model.history.History;
 import model.player.ListOfPlayers;
 import model.player.Loss;
 import model.player.PlayerImpl;
@@ -26,10 +27,11 @@ public class Buy implements ActionListener {
     private JButton build;
     private PlayerImpl pl;
     PawnMovement pawnMovement;
+    private final History history;
     
     
 
-    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid) {
+    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid,History history) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -37,6 +39,7 @@ public class Buy implements ActionListener {
         this.sell = sell;
         this.build = build;
         this.pawnMovement = new PawnMovement(grid, listPl);
+        this.history = history;
     }
 
     @Override
@@ -51,9 +54,8 @@ public class Buy implements ActionListener {
         buy.setEnabled(false);
         sell.setEnabled(true);
         build.setEnabled(true);
-      //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha acquistato la proprietà " + deck.get(pl.getPosition()).getName() + "per"+ ((Property)deck.get(pl.getPosition())).getPrice()+"$, e gli rimangono " + pl.getMoney() + "$",
-                "messaggio", 0);
+        
+        history.buyPropriety(pl);
     }
 
 }

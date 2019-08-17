@@ -26,11 +26,15 @@ void printStartGame ();
 * 
 * print a message of successful sale.
 */
-void buyPropriety (Player player,Entity entity);
+void buyPropriety (Player player);
 /**
 * 
 * print a message at the beginning of the turn.
 */
 void startTurn (PlayerImpl player);
+
+
+
+void gain (PlayerImpl player, int amount);
 
 }

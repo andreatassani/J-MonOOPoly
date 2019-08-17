@@ -67,13 +67,15 @@ public class MainExternContainerImpl extends JFrame {
 		extern.add(leftSide);
 		extern.add(rightSide);
 		
+		this.history = new HistoryImpl(Optional.of(deck));
 		this.add(extern);
 		this.setPreferredSize(d);
 		this.setState(JFrame.MAXIMIZED_BOTH);
-		this.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		
+		this.setExtendedState(JFrame.MAXIMIZED_VERT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		this.history = new HistoryImpl(Optional.of(deck));
-		this.setResizable(false);
+		//!!!togli serve solo a enri
+		this.setResizable(true);
 		this.setVisible(true);
 		this.pack();
 		history.startTurn(listPl.getCurrentPlayer());

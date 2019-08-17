@@ -12,6 +12,7 @@ import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import model.allTypeOfCard.Entity;
+import model.allTypeOfCard.Property;
 import model.player.Player;
 import model.player.PlayerImpl;
 import view.play.HistoryGUI;
@@ -23,6 +24,7 @@ public class HistoryImpl implements History {
 	private static ArrayList<JButton> fields;
 	private Optional<ArrayList<Entity>> deck;
 	private Optional<String> nameCard;
+	private int price;
 	private static JButton button;
 	private static int position =0;
 	
@@ -44,28 +46,25 @@ public class HistoryImpl implements History {
 	}
 	
 	private void incrementButtons (ArrayList<JButton> fields) {
-		int i,y=fields.size();
-		for(i=0;i<y;i++) {
-			final JButton but = new JButton ("" +i);
+		final JButton but = new JButton ("");
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
 	    but.setBackground(j);
 	    but.setMaximumSize(dim);
 	    but.setMinimumSize(dim);
 	    fields.add(but);
-		}
 		HistoryGUI.setHistory(fields);
-		
 	}
 	@Override
-	public void printPositionPlayer(Player player, int card) {
+	public void printPositionPlayer(Player player,int card) {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
 		 nameCard = Optional.of(deck.get().get(card).getName().toString());
 		 button.setText("" + player.getName() +" ended up in the box: " + nameCard.get());
 		 fields.set(position, button);
-		 HistoryGUI.setHistory(fields);
 		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
 
 	}
 
@@ -76,14 +75,23 @@ public class HistoryImpl implements History {
 		 button.setText("The game has started! good luck to all");
 		 fields.set(position, button);
 		 position=setPosition(position);
-		 HistoryGUI.setHistory(fields);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
+		
 
 	}
 
 	@Override
-	public void buyPropriety(Player player, Entity entity) {
-		System.out.println("" + player.getName() + " ha comprato la propriet� " + entity.getName() +"");
-		
+	public void buyPropriety(Player player) {
+		 fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 nameCard = Optional.of(deck.get().get(player.getPosition()).getName().toString());
+		 price = ((Property)deck.get().get(player.getPosition())).getPrice();
+		 button.setText("" + player.getName() +" bought the " + nameCard.get() + " propriety for " + price +"$");
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
 	}
 
 	@Override
@@ -96,6 +104,19 @@ public class HistoryImpl implements History {
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
 
+		
+	}
+	
+	public void gain (PlayerImpl player, int amount) {
+		 fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 button.setText("" + player.getName() +" earns " + amount +"$");
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
+		
+		
 		
 	}
 }
