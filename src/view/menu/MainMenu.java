@@ -12,7 +12,9 @@ import java.util.Timer;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-
+import controller.actionListeners.Audio;
+import controller.actionListeners.HowToPlay;
+import controller.actionListeners.NewGame;
 import controller.audio.AudioManager;
 import controller.audio.AudioSetting;
 import controller.audio.AudioSettingImpl;
@@ -46,16 +48,9 @@ import controller.menu.ControllerMainMenu;
 		private static JButton settings;		
 		private ImageIcon icon;
 		private JPanel north;
-		private JPanel south;
-		private ControllerMainMenu action;	
+		private JPanel south;		
 		private  static AudioManager clipAudio;	
-		private CustomMethods methods;
-		
-			
-		
-	
-		
-		
+		private CustomMethodsImpl methods;
 /**
  * constructor of the main menu.
  */
@@ -63,9 +58,9 @@ import controller.menu.ControllerMainMenu;
 /**
  *declaration of the fields. 	  								 
  */
+	 
 	  this.methods = new CustomMethodsImpl();
 	  this.clipAudio = new AudioManager();
-	  this.action = new ControllerMainMenu();
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
 	  this.settings = new JButton("Audio Off");
@@ -73,28 +68,7 @@ import controller.menu.ControllerMainMenu;
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();	  
-/**
- * Action listener which closes the current frame and opens 
- * the game settings menu.
- */
-	  ActionListener al = (e)->{
-	   	action.newGame(this);
-	   	clipAudio.getMusicMenu().stop();
-	  };
-/**
- * Action listener which closes the current frame and opens 
- * the game instructions frame.
- */ 
-	  ActionListener bl = (e)->{
-		action.tutorial(this);
-		clipAudio.getMusicMenu().stop();
-      };
-/**
- * Action listener which activates or deactivates the game audio. 
- */
-	  ActionListener cl = (e)->{
-	 action.audio(clipAudio, settings);
-		      };
+
 /**
  * JComponent customization.	 
  */
@@ -110,9 +84,9 @@ import controller.menu.ControllerMainMenu;
 /**
  * i add the action listener to the buttons.	  
  */
-	  newGame.addActionListener(al);
-	  tutorial.addActionListener(bl);
-	  settings.addActionListener(cl);	  
+	  newGame.addActionListener(new NewGame( clipAudio,this));
+	  tutorial.addActionListener(new HowToPlay(clipAudio, this));
+	  settings.addActionListener(new Audio(clipAudio, settings));	  
 /**
  * set the JPanel layout.
  */
@@ -121,10 +95,15 @@ import controller.menu.ControllerMainMenu;
 	  south.setLayout(new FlowLayout(FlowLayout.CENTER));	 		  	
 /**
  * added the JPanel, buttons and background image to the panel.
- */	  	 	  
+ */	  	
+	  
 	  north.add(settings);
 	  north.add(newGame);	  	
-	  north.add(tutorial);	  	
+	  north.add(tutorial);
+	  JComponent.setDefaultLocale(java.util.Locale.ITALIAN);
+	  JFileChooser chooser = new JFileChooser();
+	  chooser.setLocale(Locale.getDefault());
+	  chooser.updateUI();
 	  south.add(logo);
 	  this.add(north, BorderLayout.CENTER);
 	  this.add(south, BorderLayout.SOUTH);	

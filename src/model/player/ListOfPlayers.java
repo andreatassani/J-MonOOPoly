@@ -94,7 +94,7 @@ public class ListOfPlayers {
    
    public boolean isPresentSameName() {
 	   boolean res = true;
-	   for(int i = 1; i< numberOfPlayers; i++) {
+	   for(int i = 1; i< numberOfPlayers+1; i++) {
 		   if(getPlayerFromIndex(i-1).getName().equals(getPlayerFromIndex(i).getName())) {
 			   res = false;
 		   }
@@ -108,7 +108,7 @@ public class ListOfPlayers {
  */
    public boolean isPresentSamePawn() {
 	   boolean res = true;
-	   for(int i = 1;i<numberOfPlayers;i++ ) {
+	   for(int i = 1;i<numberOfPlayers+1;i++ ) {
 		   if(getPlayerFromIndex(i-1).getPawn().equals(getPlayerFromIndex(i).getPawn())) {
 			   res = false;
 		   }
@@ -121,7 +121,7 @@ public class ListOfPlayers {
  */
    public boolean isPresentSameColor() {
 	   boolean res = true;
-	   for(int i = 1; i< numberOfPlayers; i++) {
+	   for(int i = 1; i< numberOfPlayers+1; i++) {
 		   if(getPlayerFromIndex(i-1).getColors().equals(getPlayerFromIndex(i).getColors())) {
 			   res = false;
 		   }
@@ -135,14 +135,21 @@ public class ListOfPlayers {
    public void removeAllPlayers() { 
 		   list.clear();
 		   PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, Pawns.BANK);
-		   numberOfPlayers = 1;
+		   numberOfPlayers = 0;
 	       bank.setMoney(500000);
 		   this.list.add(bank);
    }
    
-
-
-   
+ 
+  public boolean isEmpty() {
+	  boolean res = false;
+	  if(numberOfPlayers == 0) {
+		  res = true;
+	  }
+	  return res;
+		  
+  }
+  
 
 
 }
