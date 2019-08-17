@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-import model.myEnum.Pawns;
+import model.myEnum.Pawns;import model.player.PlayerImpl;
 /**
  *
  * this class implements PositionPawns.
@@ -33,6 +33,8 @@ public class PositionPawnsImpl extends JPanel implements PositionPawns {
 		for(int i=0; i <4; i++) {
 			pawns.add(new JLabel(""));
 			pawns.get(i).setBorder(new LineBorder(Color.BLACK));
+			pawns.get(i).setOpaque(true);
+			pawns.get(i).setBackground(Color.WHITE);
 			this.add(pawns.get(i));
 		}
 	}
@@ -41,7 +43,8 @@ public class PositionPawnsImpl extends JPanel implements PositionPawns {
 	 * @param b
 	 * @param s
 	 */
-	public void mySetIcon(JLabel b, String s) {
+	public void mySetIcon(JLabel b, String s, Color col) {
+	        b.setBackground(col);
 		icon = new ImageIcon(s);
 		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 72
 				, MainExternContainerImpl.getLeftSide().getHeight() / 60, Image.SCALE_DEFAULT);
@@ -56,13 +59,14 @@ public class PositionPawnsImpl extends JPanel implements PositionPawns {
 	 */
 	public void resetPawnOnIndex(int i) {
 		pawns.get(i).setIcon(null);
+		pawns.get(i).setBackground(Color.WHITE);
 	}
 	/**
 	 * {@inheritDoc}
 	 * @param i
 	 * @param p
 	 */
-	public void setImageOnIndex(int i, Pawns p) {
-		mySetIcon(pawns.get(i), "res/pawns/"+p.toString()+".png");	
+	public void setImageOnIndex(int i, PlayerImpl pl) {
+		mySetIcon(pawns.get(i), "res/pawns/"+pl.getPawn().toString()+".png", pl.getColors());	
 	}
 }
