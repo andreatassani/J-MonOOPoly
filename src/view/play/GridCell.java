@@ -58,7 +58,7 @@ public class GridCell extends JPanel {
 		this.add(east, BorderLayout.EAST);
 		this.add(west, BorderLayout.WEST);
 
-		
+	
 //		north.add(new CellImpl(deck.get(0)));
 //		north.add(new PropertyCellImpl(deck.get(1)));
 //		north.add(new CellImpl(deck.get(2)));
@@ -100,6 +100,8 @@ public class GridCell extends JPanel {
 //		west.add(new CellImpl(deck.get(32)));
 //		west.add(new PropertyCellImpl(deck.get(31)));
 		
+		
+		
 		for(int i=MAXPOSITION; i>=POLICE+1; i--) {
                     west.add(new CellImpl(deck.get(i)));
                 }
@@ -112,6 +114,12 @@ public class GridCell extends JPanel {
 		for(int i = START; i<= PRISON;i++) {
                     north.add(new CellImpl(deck.get(i)));
                 }
+		
+		
+		
+		
+		
+		
 		
 		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
 		setIcon();
