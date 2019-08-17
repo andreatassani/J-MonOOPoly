@@ -12,7 +12,7 @@ public class EntityDeck {
     public EntityDeck(PlayerImpl bank) {
         deck.add(new Start(bank));
         deck.add(new Property("Forlì",Color.PINK, 1, bank));
-        deck.add(new CommunityChest(bank));
+        deck.add(new Chance(bank));
         deck.add(new Property("Cesena",Color.PINK, 3, bank));
         deck.add(new Tax(bank));
         deck.add(new Society("Stazione N", 200, 5, bank, Color.GRAY));
@@ -44,7 +44,7 @@ public class EntityDeck {
         deck.add(new Property("Venezia",Color.GREEN,31, bank));
         deck.add(new Tax(bank));
         deck.add(new Property("Padova",Color.GREEN,33, bank));
-        deck.add(new Chance(bank));
+        deck.add(new CommunityChest(bank));
         deck.add(new Society("Stazione O", 200, 35, bank, Color.GRAY));
         deck.add(new Property("Verona",Color.GREEN,36, bank));
         deck.add(new CommunityChest(bank));
