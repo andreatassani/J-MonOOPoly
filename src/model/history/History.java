@@ -35,6 +35,12 @@ void startTurn (PlayerImpl player);
 
 
 
-void gain (PlayerImpl player, int amount);
+void chance (PlayerImpl player, int amount);
+
+void lost (PlayerImpl player);
+
+void tollHouses (PlayerImpl player,int price,int nHouses,PlayerImpl owner);
+
+void tollHotel (PlayerImpl player, int price, PlayerImpl owner);
 
 }

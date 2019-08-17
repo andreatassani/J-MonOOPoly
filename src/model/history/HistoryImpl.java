@@ -25,6 +25,7 @@ public class HistoryImpl implements History {
 	private Optional<ArrayList<Entity>> deck;
 	private Optional<String> nameCard;
 	private int price;
+	private int tool;
 	private static JButton button;
 	private static int position =0;
 	
@@ -60,7 +61,7 @@ public class HistoryImpl implements History {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
 		 nameCard = Optional.of(deck.get().get(card).getName().toString());
-		 button.setText("" + player.getName() +" ended up in the box: " + nameCard.get());
+		 button.setText("" + player.getName() +" ended up in the space: " + nameCard.get());
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -107,15 +108,51 @@ public class HistoryImpl implements History {
 		
 	}
 	
-	public void gain (PlayerImpl player, int amount) {
+	public void chance (PlayerImpl player, int amount) {
 		 fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 button.setText("" + player.getName() +" earns " + amount +"$");
+		 if(amount <0)button.setText("" + player.getName() +" lost " + amount +"$");
+		 else button.setText("" + player.getName() +" earns " + amount +"$");
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
+	}
+	
+	public void lost (PlayerImpl player) {
+		 fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 button.setText("" + player.getName() + " was taxed at 200$");
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
 		
+		
+	}
+	
+	public void tollHouses (PlayerImpl player,int price,int nHouses,PlayerImpl owner) {
+		fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 tool= (price/10) + (nHouses*(price/4));
+		 button.setText(player.getName() + " paid " + tool +"$ of tool to "+owner.getName());
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
+		
+		
+	}
+	
+	public void tollHotel (PlayerImpl player,int price,PlayerImpl owner) {
+		fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 tool= (price*2);
+		 button.setText(player.getName() + " paid " + tool +"$ of tool to "+owner.getName());
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
 		
 		
 	}
