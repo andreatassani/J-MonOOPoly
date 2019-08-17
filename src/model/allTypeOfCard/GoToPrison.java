@@ -49,5 +49,9 @@ public class GoToPrison implements Entity {
     public boolean isSalable() {
         return false;
     }
+    @Override
+    public boolean isBuildable() {
+        return false;
+    }
 
 }

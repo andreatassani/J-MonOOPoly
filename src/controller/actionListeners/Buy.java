@@ -53,8 +53,9 @@ public class Buy implements ActionListener {
          }
         buy.setEnabled(false);
         sell.setEnabled(true);
+        if(deck.get(pl.getPosition()).isBuildable()) {
         build.setEnabled(true);
-        
+        }
         history.buyPropriety(pl);
     }
 

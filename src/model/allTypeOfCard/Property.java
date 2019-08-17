@@ -124,6 +124,11 @@ public class Property implements Entity {
     public boolean isSalable() {
         return true;
     }
+
+    @Override
+    public boolean isBuildable() {
+        return true;
+    }
     
     
 }
