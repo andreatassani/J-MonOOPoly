@@ -54,46 +54,52 @@ public class GridCell extends JPanel {
 		this.add(west, BorderLayout.WEST);
 
 		
-		north.add(new CellImpl(0, "Go!", Color.WHITE));
-		north.add(new PropertyCellImpl((Property) deck.get(1)));
-		north.add(new CellImpl(2, "Chance", Color.WHITE));
-		north.add(new PropertyCellImpl((Property) deck.get(3)));
-		north.add(new CellImpl(4, "Tax", Color.WHITE));
-		north.add(new CellImpl(5, "Station N", Color.GRAY));
-		north.add(new PropertyCellImpl((Property) deck.get(6)));
-		north.add(new CellImpl(7, "Chance", Color.WHITE));
-		north.add(new PropertyCellImpl((Property) deck.get(8)));
-		north.add(new PropertyCellImpl((Property) deck.get(9)));
-		north.add(new CellImpl(10,"Prison", Color.WHITE));
-		east.add(new PropertyCellImpl((Property) deck.get(11)));
-		east.add(new CellImpl(12, "Enel", Color.GRAY));
-		east.add(new PropertyCellImpl((Property) deck.get(13)));
-		east.add(new PropertyCellImpl((Property) deck.get(14)));
-		east.add(new CellImpl(15, "Station E", Color.GRAY));
-		east.add(new PropertyCellImpl((Property) deck.get(16)));
-		east.add(new CellImpl(17, "Community Chest", Color.WHITE));
-		east.add(new PropertyCellImpl((Property) deck.get(18)));
-		east.add(new PropertyCellImpl((Property) deck.get(19)));
-		south.add(new CellImpl(30, "Police", Color.WHITE));
-		south.add(new PropertyCellImpl((Property) deck.get(29)));
-		south.add(new CellImpl(28, "Hera", Color.GRAY));
-		south.add(new PropertyCellImpl((Property) deck.get(27)));
-		south.add(new PropertyCellImpl((Property) deck.get(26)));
-		south.add(new CellImpl(25, "Station S", Color.GRAY));
-		south.add(new PropertyCellImpl((Property) deck.get(24)));
-		south.add(new PropertyCellImpl((Property) deck.get(23)));
-		south.add(new CellImpl(22, "Chance", Color.WHITE));
-		south.add(new PropertyCellImpl((Property) deck.get(21)));
-		south.add(new CellImpl(20, "Parking", Color.WHITE));
-		west.add(new PropertyCellImpl((Property) deck.get(39)));
-		west.add(new PropertyCellImpl((Property) deck.get(38)));
-		west.add(new CellImpl(33, "Community Chest", Color.WHITE));
-		west.add(new PropertyCellImpl((Property) deck.get(36)));
-		west.add(new CellImpl(35, "Station O", Color.GRAY));
-		west.add(new CellImpl(36, "Community Chest", Color.WHITE));
-		west.add(new PropertyCellImpl((Property) deck.get(33)));
-		west.add(new CellImpl(38, "Tax", Color.WHITE));
-		west.add(new PropertyCellImpl((Property) deck.get(31)));
+		north.add(new CellImpl(deck.get(0)));
+		north.add(new PropertyCellImpl(deck.get(1)));
+		north.add(new CellImpl(deck.get(2)));
+		north.add(new PropertyCellImpl(deck.get(3)));
+		north.add(new CellImpl(deck.get(4)));
+		north.add(new CellImpl(deck.get(5)));
+		north.add(new PropertyCellImpl(deck.get(6)));
+		north.add(new CellImpl(deck.get(7)));
+		north.add(new PropertyCellImpl(deck.get(8)));
+		north.add(new PropertyCellImpl(deck.get(9)));
+		north.add(new CellImpl(deck.get(10)));
+		
+		
+		east.add(new PropertyCellImpl(deck.get(11)));
+		east.add(new CellImpl(deck.get(12)));
+		east.add(new PropertyCellImpl(deck.get(13)));
+		east.add(new PropertyCellImpl(deck.get(14)));
+		east.add(new CellImpl(deck.get(15)));
+		east.add(new PropertyCellImpl(deck.get(16)));
+		east.add(new CellImpl(deck.get(17)));
+		east.add(new PropertyCellImpl(deck.get(18)));
+		east.add(new PropertyCellImpl(deck.get(19)));
+		
+		
+		south.add(new CellImpl(deck.get(30)));
+		south.add(new PropertyCellImpl(deck.get(29)));
+		south.add(new CellImpl(deck.get(28)));
+		south.add(new PropertyCellImpl(deck.get(27)));
+		south.add(new PropertyCellImpl(deck.get(26)));
+		south.add(new CellImpl(deck.get(25)));
+		south.add(new PropertyCellImpl(deck.get(24)));
+		south.add(new PropertyCellImpl(deck.get(23)));
+		south.add(new CellImpl(deck.get(22)));
+		south.add(new PropertyCellImpl(deck.get(21)));
+		south.add(new CellImpl(deck.get(20)));
+		
+		
+		west.add(new PropertyCellImpl(deck.get(39)));
+		west.add(new PropertyCellImpl(deck.get(38)));
+		west.add(new CellImpl(deck.get(37)));
+		west.add(new PropertyCellImpl(deck.get(36)));
+		west.add(new CellImpl(deck.get(35)));
+		west.add(new CellImpl(deck.get(36)));
+		west.add(new PropertyCellImpl(deck.get(33)));
+		west.add(new CellImpl(deck.get(32)));
+		west.add(new PropertyCellImpl(deck.get(31)));
 		
 		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
 		setIcon();

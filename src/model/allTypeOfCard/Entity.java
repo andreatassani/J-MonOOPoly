@@ -1,6 +1,8 @@
 package model.allTypeOfCard;
 
 
+import java.awt.Color;
+
 import model.player.PlayerImpl;
      /**
       * 
@@ -33,5 +35,14 @@ public interface Entity {
    * @return true if the player can build houses/hotel on the card (property), false else (society)
    */
   boolean isBuildable();
-  
+ /**
+  * 
+  * 
+  */
+  int getPosition();
+  /*
+   * 
+   * 
+   */
+  Color getColor();
 }

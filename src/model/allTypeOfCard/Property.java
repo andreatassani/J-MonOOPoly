@@ -94,10 +94,7 @@ public class Property implements Entity {
              return;
          }
     }
-    
-    public void showCard() {
-        ShowImages.propertyMessage(this);
-    }
+
     
     @Override
     public void action(PlayerImpl pl) {

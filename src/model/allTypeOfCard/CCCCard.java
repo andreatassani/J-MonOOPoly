@@ -1,6 +1,7 @@
 package model.allTypeOfCard;
 
 
+import java.awt.Color;
 import java.util.Optional;
 
 import javax.swing.JOptionPane;
@@ -53,6 +54,16 @@ public class CCCCard implements Entity {
     @Override
     public boolean isBuildable() {
         return false;
+    }
+
+    @Override
+    public int getPosition() {
+        return 0;
+    }
+
+    @Override
+    public Color getColor() {
+        return null;
     }  
 
 }

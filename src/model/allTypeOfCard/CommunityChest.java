@@ -1,5 +1,6 @@
 package model.allTypeOfCard;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,9 +13,11 @@ public class CommunityChest implements Entity{
     private ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
+    private int positionOnBoard;
     
-    public CommunityChest(PlayerImpl owner) {
+    public CommunityChest(PlayerImpl owner, int positionOnBoard) {
         this.owner = owner;
+        this.positionOnBoard = positionOnBoard;
         deck.add(new CCCCard("Guadagni 200$", 200, owner));
         this.numberOfCards++;
         deck.add(new CCCCard("Guadagni 250$", 250, owner));
@@ -47,6 +50,14 @@ public class CommunityChest implements Entity{
     @Override
     public boolean isBuildable() {
         return false;
+    }
+    @Override
+    public int getPosition() {
+        return positionOnBoard;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 
 }

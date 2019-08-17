@@ -18,6 +18,7 @@ public class Society  extends Property {
     private int positionInBoard = 0;
     private PlayerImpl owner;
     private int price;
+    private Color color;
     
     /**
      * constructor.
@@ -29,7 +30,11 @@ public class Society  extends Property {
     
     public Society(String name, int price, int position, PlayerImpl owner, Color color) {
         super(name, color, position, owner);	
+        this.name = name;
         this.price = price;
+        this.owner  = owner;
+        this.positionInBoard = position;
+        this.color = color;
     }
     
     public int getPosition() {
@@ -39,7 +44,7 @@ public class Society  extends Property {
      * @return the name
      */
     public String getName() {
-		return name;
+		return this.name;
     }
     /**
      * @param owner the owner to set
@@ -84,6 +89,9 @@ public class Society  extends Property {
         return false;
     }
     
+    public Color getColor() {
+        return this.color;
+    }
 	
 
 }

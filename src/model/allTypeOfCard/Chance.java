@@ -1,5 +1,6 @@
 package model.allTypeOfCard;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -12,8 +13,10 @@ public class Chance implements Entity{
     private ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
+    private int positionOnBoard;
     
-    public Chance(PlayerImpl owner) {
+    public Chance(PlayerImpl owner, int positionOnBoard) {
+        this.positionOnBoard = positionOnBoard;
         this.owner = owner;
         deck.add(new CCCCard("Perdi 200$", -200, owner));
         this.numberOfCards++;
@@ -47,6 +50,14 @@ public class Chance implements Entity{
     @Override
     public boolean isBuildable() {
         return false;
+    }
+    @Override
+    public int getPosition() {
+        return this.positionOnBoard;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 
 }

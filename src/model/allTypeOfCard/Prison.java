@@ -2,6 +2,8 @@
 package model.allTypeOfCard;
 
 
+import java.awt.Color;
+
 import javax.swing.JOptionPane;
 
 import model.player.PlayerImpl;
@@ -50,6 +52,14 @@ public class Prison implements Entity {
     @Override
     public boolean isBuildable() {
         return false;
+    }
+    @Override
+    public int getPosition() {
+        return 10;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 
 }

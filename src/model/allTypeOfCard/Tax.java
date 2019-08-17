@@ -1,5 +1,6 @@
 package model.allTypeOfCard;
 
+import java.awt.Color;
 import java.util.Optional;
 
 import javax.swing.JOptionPane;
@@ -15,10 +16,12 @@ public class Tax implements Entity {
     private String name = "Tax";
     private PlayerImpl owner;
     private History history;
+    int positionOnBoard;
     /**
      * Constructor.
      */
-    public Tax(PlayerImpl owner) {
+    public Tax(PlayerImpl owner, int positionOnBoard) {
+        this.positionOnBoard = positionOnBoard;
         this.owner = owner;
         this.history = new HistoryImpl(Optional.empty());
 	}
@@ -55,5 +58,13 @@ public class Tax implements Entity {
     @Override
     public boolean isBuildable() {
         return false;
+    }
+    @Override
+    public int getPosition() {
+        return this.positionOnBoard;
+    }
+    @Override
+    public Color getColor() {
+        return Color.WHITE;
     }
 }

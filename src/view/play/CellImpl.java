@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
+import controller.actionListeners.EvtCell;
 import model.allTypeOfCard.Entity;
 import model.myUtility.ShowImages;
 /**
@@ -25,12 +26,10 @@ public class CellImpl extends JPanel implements Cell{
     private Dimension dimCorner = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, MainExternContainerImpl.getLeftSide().getHeight() / 12);
     private Dimension dimEastWest = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11 + 1, MainExternContainerImpl.getLeftSide().getHeight() / 11 + 1);
     private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 14, MainExternContainerImpl.getLeftSide().getHeight() / 12);
-    private Color col;
     private JLabel name;
     private JButton image;
     private ImageIcon icon;
     private PositionPawnsImpl posPawn = new PositionPawnsImpl();
-    int position;
     Entity card;
 	/**
 	 * constructor.	
@@ -38,28 +37,24 @@ public class CellImpl extends JPanel implements Cell{
 	 * @param s
 	 * @param c
 	 */
-	public CellImpl(int i, String s, Color c) {
+	public CellImpl(Entity e) {
 		
-		
-		this.col = c;
-		this.position = i;
-		
-		name = new JLabel("" + s, SwingConstants.CENTER);
-		name.setBackground(c);
+		name = new JLabel("" + e.getName(), SwingConstants.CENTER);
+		name.setBackground(e.getColor());
 		this.setLayout(new BorderLayout());
 		mySetSize(dim);
 		
-		if (position == 0 || position == 10 || position == 20 || position == 30) {
+		if (e.getPosition()== 0 ||e.getPosition() == 10 ||e.getPosition() == 20 ||e.getPosition() == 30) {
 			mySetSize(dimCorner);
 		}
-		if (position >= 11 && position<= 19 || position >= 31 && position <= 39 ) {
+		if (e.getPosition() >= 11 && e.getPosition()<= 19 || e.getPosition() >= 31 && e.getPosition() <= 39 ) {
 			mySetSize(dimEastWest);
 			}
 
-		this.setBackground(c);
+		this.setBackground(e.getColor());
 		image = new JButton();
 		image.setSize(40, 30);
-		image.addActionListener(new EvtCell(s));
+		image.addActionListener(new EvtCell(e));
 
 		this.add(posPawn, BorderLayout.SOUTH);
 		this.add(name, BorderLayout.NORTH);
@@ -67,10 +62,8 @@ public class CellImpl extends JPanel implements Cell{
 		this.add(image);
 		this.setBorder(new LineBorder(Color.BLACK));
 		
+		mySetIcon(image, ShowImages.Cell(e));
 		
-		if(ShowImages.nonPropertyCell(s).isPresent()) {
-			mySetIcon(image, ShowImages.nonPropertyCell(s).get());
-		}
 	}
 	/**
 	 * {@inheritDoc}

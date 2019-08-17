@@ -25,22 +25,22 @@ public class PropertyCellImpl extends JPanel implements Cell {
     private ImageIcon icon;
     private PositionPawnsImpl posPawn = new PositionPawnsImpl();
                 
-        public PropertyCellImpl(Property p) {
+        public PropertyCellImpl(Entity en) {
                 
                 
-                name = new JLabel("" + p.getName(), SwingConstants.CENTER);
-                name.setBackground(p.getColor());
+                name = new JLabel("" + en.getName(), SwingConstants.CENTER);
+                name.setBackground(en.getColor());
                 this.setLayout(new BorderLayout());
                 mySetSize(dim);
 
 
                 
-                this.setBackground(p.getColor());
+                this.setBackground(en.getColor());
                 image = new JButton();
                 image.setSize(40, 30);
                 image.addActionListener(new ActionListener() {
                     public void actionPerformed(ActionEvent e) {
-                        p.showCard();
+                        ShowImages.Message(en);;
                     }
                 });
                 
@@ -50,7 +50,7 @@ public class PropertyCellImpl extends JPanel implements Cell {
                 this.add(image, BorderLayout.CENTER);
                 this.setBorder(new LineBorder(Color.BLACK));
                 
-                mySetIcon(image, ShowImages.propertyCell(p.getColor().getRGB()));
+                mySetIcon(image, ShowImages.Cell(en));
                 
 
         }
