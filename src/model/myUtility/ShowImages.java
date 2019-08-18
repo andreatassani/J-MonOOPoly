@@ -28,7 +28,7 @@ public final class ShowImages {
      * Shows the illustration of the relative cell
      * @param e
      */
-    public static void Message(Entity e) {
+    public static void message(final Entity e) {
         String name = e.getName();
         sound.getCardSound().play();
         if(e.isSalable()) {
@@ -57,7 +57,7 @@ public final class ShowImages {
     /**
      * @return the string of the icon relative to the cell
      */
-    public static String Cell(Entity e) {
+    public static String cell(final Entity e) {
         String name = e.getName();
         if(name.equals("Station N")||
                 name.equals("Station E")||

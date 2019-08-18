@@ -48,7 +48,7 @@ public class CellImpl extends JPanel implements Cell{
 		this.add(name, BorderLayout.NORTH);
 		this.add(image);
 		this.setBorder(new LineBorder(Color.BLACK));
-		this.mySetIcon(image, ShowImages.Cell(e));
+		this.mySetIcon(image, ShowImages.cell(e));
 		
 	}
 	/**

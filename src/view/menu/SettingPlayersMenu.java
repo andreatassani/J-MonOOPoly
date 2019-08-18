@@ -3,21 +3,16 @@ package view.menu;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.*;
 import javax.swing.text.html.parser.Entity;
-
 import controller.actionListeners.BackFromSettingsMenu;
-
 import controller.actionListeners.NumberOfPlayer;
 import controller.actionListeners.StartGame;
 import controller.audio.AudioManager;
 import controller.menu.ControllerSettingPlayersMenu;
-import model.allTypeOfCard.EntityDeck;
 import model.myEnum.Colors;
 import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
-import view.play.MainExternContainerImpl;
 
 
 /**
@@ -30,13 +25,6 @@ import view.play.MainExternContainerImpl;
  * SettingPlayersMenu fields.
  */
 		private CustomMethodsImpl methods = new CustomMethodsImpl();
-		private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-		private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-		private static final Dimension dimPlayer = new Dimension(width/2,height);
-		private static final Dimension dimName = new Dimension(width/5,height/28);
-		private static final Dimension dimCombo = new Dimension(width/10,height/28);
-		private static final Dimension dimComboColor = new Dimension((width/4)/3,height/28);
-		private static final Dimension dimNameG = new Dimension(width/3,height/28);
 		private JPanel right = new JPanel();
 		private JPanel left = new JPanel();		
 		private JPanel player1 = new JPanel();
@@ -67,7 +55,12 @@ import view.play.MainExternContainerImpl;
 		private AudioManager clip;	
 		private JButton done;
 		private JButton howManyPlayer = new JButton("4");
-		private String namePlayer;		
+		private String namePlayer;
+		private Dimension dimPlayer;
+		private Dimension dimName;
+		private Dimension dimCombo;
+		private Dimension dimComboColor;
+		private Dimension dimNameG;
 /**
 * Constructor of the main menu.
 */					
@@ -84,6 +77,14 @@ import view.play.MainExternContainerImpl;
 		this.deck = new ArrayList<Entity>(0);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
+		this.dimPlayer = new Dimension(methods.getWidth()/2,methods.getHeight());
+		this.dimName = new Dimension((methods.getWidth()/5),methods.getHeight()/28);
+		this.dimCombo = new Dimension((methods.getWidth()/10),methods.getHeight()/28);
+		this.dimComboColor = new Dimension(((methods.getWidth()/4)/3),methods.getHeight()/28);
+		this.dimNameG = new Dimension((methods.getWidth()/3),methods.getHeight()/28);
+/**
+ * Customize JComponents.		
+ */
 		image.setLayout(new BoxLayout(image, BoxLayout.Y_AXIS));
 		start.setMaximumSize(dimName);
 		start.setMinimumSize(dimName);
@@ -101,8 +102,13 @@ import view.play.MainExternContainerImpl;
 		namePlayer2.setText(namePlayer);
 		namePlayer3.setText(namePlayer);
 		namePlayer4.setText(namePlayer);
+		pawn1.removeItem(Pawns.BANK);
+		pawn2.removeItem(Pawns.BANK);
+		pawn3.removeItem(Pawns.BANK);
+		pawn4.removeItem(Pawns.BANK);
 /**
- * 
+ * Check the number of players and create the list of players based
+ * on the number chosen. 
  */	      
 	      ActionListener actionDone = (e)->{		    	  
 	    	if(howManyPlayer.getText().equals("4")) {
@@ -173,13 +179,5 @@ import view.play.MainExternContainerImpl;
 		action.musicStop(NewGameMenu.getAudio(), clip);
 		clip.getMusicMenu().stop();								
 	}
-
-
-
-	
-
-
-
-	
 }
 	

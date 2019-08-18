@@ -8,8 +8,6 @@ import javax.swing.*;
  * @author user
  *
  */
-
-import controller.audio.AudioManager;
 public class MenuGui extends JFrame {
 	
 /**

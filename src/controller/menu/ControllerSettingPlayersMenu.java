@@ -1,23 +1,10 @@
 package controller.menu;
 
 import java.awt.Color;
-import java.util.ArrayList;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-
 import controller.audio.AudioManager;
-import model.myEnum.Colors;
 import model.myEnum.Pawns;
-import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
-import view.menu.MainMenu;
-import view.menu.MenuGui;
 import view.menu.NewGameMenu;
-import view.play.MainExternContainerImpl;
 /**
  * 
  * class for managing SettingPlayersMenu action.
@@ -25,13 +12,19 @@ import view.play.MainExternContainerImpl;
  */
 public class ControllerSettingPlayersMenu {
 /**
+ * Class builder.	
+ */
+	public ControllerSettingPlayersMenu() {
+		
+	}
+/**
  * disables the audio based on the choice made
  * in the main menu.	
  * @param s comparison string to know if the audio is
  * active or not
  * @param clip audio file to stop
  */
-	public void musicStop(String s ,AudioManager clip ) {
+	public void musicStop(final String s ,final AudioManager clip ) {
 		if(s.equals("Audio On")) {
 			clip.getMusicMenu().stop();
 			NewGameMenu.getClip().getRockMusic().stop();
@@ -47,7 +40,7 @@ public class ControllerSettingPlayersMenu {
  * @return player
  */
 	}
-	public PlayerImpl start(String name, Color color, Pawns pawn){
+	public PlayerImpl start(final String name,final Color color,final Pawns pawn){
 		PlayerImpl player = new PlayerImpl(name, color, pawn);
 		return player;	
 	}
@@ -56,7 +49,7 @@ public class ControllerSettingPlayersMenu {
  * @param n number corresponding to the choice
  * @return chosen color
  */
-	public Color chosenColor(Integer n) {
+	public Color chosenColor(final Integer n) {
 		Color color = new Color(0,0,0);
 		switch(n) {
 		case 0:
@@ -86,8 +79,8 @@ public class ControllerSettingPlayersMenu {
  * @return chosen pawn
  */
 	
-	public Pawns chosenPawn (Integer n) {
-		Pawns pawn = Pawns.BALL;
+	public Pawns chosenPawn (final Integer n) {
+		Pawns pawn = Pawns.BANK;
 		switch(n) {
 		case 0:
 			pawn = Pawns.CAR;

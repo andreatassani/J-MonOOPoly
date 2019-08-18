@@ -23,7 +23,7 @@ public class BackFromSettingsMenu implements ActionListener {
  * @param frame frame to close
  * @param clip audio track to be stopped
  */
-	public BackFromSettingsMenu(JFrame frame, AudioManager clip) {
+	public BackFromSettingsMenu(final JFrame frame, final AudioManager clip) {
 		this.frame = frame;
 		this.clip = clip;
 	}
@@ -33,7 +33,7 @@ public class BackFromSettingsMenu implements ActionListener {
  * main menu.
  */
 	@Override
-	public void actionPerformed(ActionEvent e) {
+	public void actionPerformed(ActionEvent event) {
 		clip.getClassicMusic().stop();
 		clip.getPopMusic().stop();
 		clip.getRockMusic().stop();
