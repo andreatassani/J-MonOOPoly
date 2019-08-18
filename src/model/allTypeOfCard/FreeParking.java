@@ -36,9 +36,6 @@ public class FreeParking implements Entity {
      */
 	@Override
 	public void action(PlayerImpl pl) {
-	  //Da togliere
-            JOptionPane.showMessageDialog(null, "Non succede nulla",
-                    "messaggio", 0);
 	}
     @Override
     public PlayerImpl getOwner() {

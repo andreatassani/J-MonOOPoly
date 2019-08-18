@@ -61,7 +61,10 @@ public class HistoryImpl implements History {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
 		 this.nameCard = Optional.of(deck.get().get(card).getName().toString());
-		 button.setText("" + player.getName() +" ended up in the space: " + nameCard.get());
+		 System.out.println(this.nameCard.get());
+		 if((this.nameCard.get().equals("Prison"))	||	(this.nameCard.get().equals("Parking"))) button.setText("" + player.getName() +" ended up in the space: " + nameCard.get() +". Nothing is happening!");
+		 else if(this.nameCard.get().equals("Police")) button.setText(player.getName() +" will go to prison and will remain there for 2 rounds ");
+		 else button.setText(player.getName() +" ended up in the space: " + nameCard.get());
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -73,7 +76,7 @@ public class HistoryImpl implements History {
 	public void printStartGame() {
 		 fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 button.setText("The game has started! good luck to all");
+		 button.setText("The game has started! Good luck to all.");
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -99,7 +102,7 @@ public class HistoryImpl implements History {
 	public void startTurn(PlayerImpl player) {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
-		 button.setText("Is the turn of: " + player.getName());
+		 button.setText(player.getName() + ", it's your turn! " );
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -179,7 +182,17 @@ public class HistoryImpl implements History {
 		incrementButtons(fields);
 		HistoryGUI.resetGUI();
 		
+	}
+	
+public void sellPropriety(PlayerImpl player) {
 		
+		fields = HistoryGUI.getHistory();
+		button = fields.get(position);
+		button.setText(player.getName() + " sold the property " + deck.get().get(player.getPosition()).getName());
+		fields.set(position, button);
+		position=setPosition(position);
+		incrementButtons(fields);
+		HistoryGUI.resetGUI();
 		
 	}
 }

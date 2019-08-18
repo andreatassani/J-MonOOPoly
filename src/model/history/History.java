@@ -47,4 +47,6 @@ void buildHotel(PlayerImpl player ,int pos);
 
 void buildHouse(PlayerImpl player ,int pos);
 
+void sellPropriety(PlayerImpl player);
+
 }

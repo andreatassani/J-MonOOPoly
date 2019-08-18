@@ -10,6 +10,7 @@ import javax.swing.JOptionPane;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
+import model.history.History;
 import model.player.ListOfPlayers;
 
 public class Sell implements ActionListener {
@@ -20,15 +21,17 @@ public class Sell implements ActionListener {
     private JButton sell;
     private AudioManager sound;
     private JButton build;
+    private final History history;
     
 
-    public Sell(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound) {
+    public Sell(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound,History history) {
         this.listPl = listPl;
         this.deck = deck;
         this.buy = buy;
         this.sell = sell;
         this.sound = sound;
         this.build = build;
+        this.history=history;
     }
 
     @Override
@@ -38,9 +41,7 @@ public class Sell implements ActionListener {
             build.setEnabled(false);
             buy.setEnabled(true);
             sell.setEnabled(false);
-          //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore " + listPl.getCurrentPlayer().getName() + " ha venduto la proprietà " + deck.get(listPl.getCurrentPlayer().getPosition()).getName() + " e gli rimangono " + listPl.getCurrentPlayer().getMoney() + "$",
-                    "messaggio", 0);
+            history.sellPropriety(listPl.getCurrentPlayer());
     }
 
 }

@@ -6,7 +6,7 @@ public class Dice {
     Random r = new Random();
     public int rollTheDice() {
     	//modificareee
-    	int X=3;
+    	int X=30;
         return r.nextInt(1)+X;
     }
 }

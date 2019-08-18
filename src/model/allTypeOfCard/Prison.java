@@ -38,8 +38,6 @@ public class Prison implements Entity {
      */
 	@Override
 	public void action(PlayerImpl pl) {
-	    JOptionPane.showMessageDialog(null, "Non succede nulla",
-                    "messaggio", 0);
 	}
     @Override
     public PlayerImpl getOwner() {
