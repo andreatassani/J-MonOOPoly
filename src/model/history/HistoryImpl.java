@@ -15,6 +15,8 @@ import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.player.Player;
 import model.player.PlayerImpl;
+import model.situation.Situation;
+import model.situation.SituationImpl;
 import view.play.HistoryGUI;
 import view.play.MainExternContainerImpl;
 
@@ -28,6 +30,7 @@ public class HistoryImpl implements History {
 	private int tool;
 	private static JButton button;
 	private static int position =0;
+	private Situation situation;
 	
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -39,6 +42,7 @@ public class HistoryImpl implements History {
 	
 	public HistoryImpl (Optional<ArrayList<Entity>> deck) {
 		this.deck=deck;
+		this.situation = new SituationImpl();
 	}
 	
 	private int setPosition(int pos) {
@@ -57,7 +61,7 @@ public class HistoryImpl implements History {
 		HistoryGUI.setHistory(fields);
 	}
 	@Override
-	public void printPositionPlayer(Player player,int card) {
+	public void printPositionPlayer(PlayerImpl player,int card) {
 		fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
 		 this.nameCard = Optional.of(deck.get().get(card).getName().toString());
@@ -69,6 +73,8 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setPosition(player);
+		 
 
 	}
 
@@ -86,7 +92,7 @@ public class HistoryImpl implements History {
 	}
 
 	@Override
-	public void buyPropriety(Player player) {
+	public void buyPropriety(PlayerImpl player) {
 		 fields = HistoryGUI.getHistory();
 		 button = fields.get(position);
 		 this.nameCard = Optional.of(deck.get().get(player.getPosition()).getName().toString());
@@ -96,6 +102,8 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
+		 situation.setPropriety(player);
 	}
 
 	@Override
@@ -120,6 +128,7 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
 	}
 	
 	public void lost (PlayerImpl player) {
@@ -130,6 +139,7 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
 		
 		
 	}
@@ -143,6 +153,8 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
+		 situation.setMoney(owner);
 		
 		
 	}
@@ -156,6 +168,8 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
+		 situation.setMoney(owner);
 	}
 	
 	public void buildHotel(PlayerImpl player ,int pos) {
@@ -167,6 +181,8 @@ public class HistoryImpl implements History {
 		position=setPosition(position);
 		incrementButtons(fields);
 		HistoryGUI.resetGUI();
+		situation.setMoney(player);
+		situation.setPropriety(player);
 		
 		
 	}
@@ -181,6 +197,8 @@ public class HistoryImpl implements History {
 		position=setPosition(position);
 		incrementButtons(fields);
 		HistoryGUI.resetGUI();
+		situation.setMoney(player);
+		situation.setPropriety(player);
 		
 	}
 	

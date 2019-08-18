@@ -34,8 +34,9 @@ public class SituationGUI extends JPanel {
 	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/24));
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
 	private static final Color j = new Color(173,238,216);
+	private static ListOfPlayers players;
 	
-	private final ArrayList<JPanel> flowPanels = new ArrayList<JPanel>();
+	private static ArrayList<JPanel> flowPanels = new ArrayList<JPanel>();
 	private static JPanel box;
 
 	
@@ -51,7 +52,8 @@ public class SituationGUI extends JPanel {
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
 		this.setPreferredSize(rightSideDimension);
-		
+		players=listPl;
+	
 		this.gridPanel = new JPanel(new GridLayout(1, 2));
 	    this.upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	    this.upPanelLeft.setBackground(Color.RED);
@@ -69,10 +71,10 @@ public class SituationGUI extends JPanel {
 			final JButton Cash = new JButton (""+listPl.getPlayerFromIndex(i).getMoney());
 			Cash.setFont(f);
 			Cash.setBackground(j);
-			final JButton Propriety = new JButton ("Propriety");
+			final JButton Propriety = new JButton ("Propriety: "+ listPl.getPlayerFromIndex(i).getListOfProperties().size());
 			Propriety.setFont(f);
 			Propriety.setBackground(j);
-			final JButton Position = new JButton (""+listPl.getPlayerFromIndex(i).getPosition());
+			final JButton Position = new JButton ("Position: "+listPl.getPlayerFromIndex(i).getPosition());
 			Position.setFont(f);
 			Position.setBackground(j);
 			flowPanel.add(Player);
@@ -91,5 +93,16 @@ public class SituationGUI extends JPanel {
 		this.setBorder(new LineBorder(Color.BLACK));
 		
 		
+	}
+	
+	public static ArrayList<JPanel> getSituation(){
+		return flowPanels;
+	}
+	
+	public static ListOfPlayers getListOfPlayers(){
+		return players;
+	}
+	public static void setSituation(ArrayList<JPanel> fields1) {
+		flowPanels=fields1;
 	}
 }
