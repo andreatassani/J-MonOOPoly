@@ -4,11 +4,19 @@ import java.awt.Color;
 import java.util.ArrayList;
 
 import model.player.PlayerImpl;
-
+/**
+ * 
+ * this is the deck of all the cards/cells in the main board
+ *
+ */
 public class EntityDeck {
+    /**
+     * fields
+     */
     private final ArrayList<Entity> deck = new ArrayList<>();
-
-    
+    /**
+     * constructor, the PlayerImpl "bank" is useful to associate a starting owner to all the cards
+     */
     public EntityDeck(PlayerImpl bank) {
         deck.add(new Start(bank));
         deck.add(new Property("Forlì",Color.PINK, 1, bank));
@@ -51,7 +59,10 @@ public class EntityDeck {
         deck.add(new Property("Mantova",Color.BLUE,38, bank));
         deck.add(new Property("Milano",Color.BLUE,39, bank));
     }
-    
+    /**
+     * 
+     * @return the deck made of all the card/cells in the main board, implemented as an ArrayList
+     */
     public ArrayList<Entity> getDeck(){
         return this.deck;
     }

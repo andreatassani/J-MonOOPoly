@@ -8,11 +8,13 @@ import javax.swing.JOptionPane;
 import model.player.PlayerImpl;
 /**
  * 
- * {@inheritDoc}.
+ * Police Cell in the main board
  *
  */
 public class GoToPrison implements Entity {
-	
+    /**
+     * fields
+     */
         private PlayerImpl owner;
 	private String name = "Police";
     /**
