@@ -9,10 +9,14 @@ import javax.swing.JOptionPane;
 import model.player.PlayerImpl;
 
 /**
- *{@inheritDoc}.
+ * 
+ * Prison cell in the main board
+ *
  */
 public class Prison implements Entity {
-	
+    /**
+     * fields
+     */
     private String name = "Prison";
     private PlayerImpl owner;
     /**

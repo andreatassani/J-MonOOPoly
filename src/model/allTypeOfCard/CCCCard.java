@@ -9,15 +9,24 @@ import javax.swing.JOptionPane;
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.PlayerImpl;
-
+/**
+ * 
+ * CCCCard stands for "Chance & Community Chest Card" and it's used to create these type of cards
+ *
+ */
 public class CCCCard implements Entity {
 
+    /**
+     * fields
+     */
     private String name;
     private int amount;
     private PlayerImpl owner;
     private History history;
-    
-    public CCCCard(final String name, int amount, PlayerImpl owner) {
+    /**
+     * constructor
+     */
+    public CCCCard(final String name,final int amount,final PlayerImpl owner) {
         this.name = name;
         this.amount = amount;
         this.owner = owner;
@@ -29,8 +38,11 @@ public class CCCCard implements Entity {
         return this.name;
     }
 
+    /**
+     * returns the message of the drawn card
+     */
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
       //Da togliere
     	history.chance(pl, amount);
         JOptionPane.showMessageDialog(null,"è stata pescata la carta " + this.name,

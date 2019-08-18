@@ -65,8 +65,10 @@ public class Society  extends Property {
     public boolean isSalable() {
         return true;
     }
-
-
+    /**
+     * this method charges the player who ends up on this box to pay the toll to the owner;
+     * the toll is calculated in this way: toll = (1/2)this.price
+     */
     @Override
     public void action(PlayerImpl pl) {
         if (this.getOwner() == pl){
@@ -88,10 +90,11 @@ public class Society  extends Property {
     public boolean isBuildable() {
         return false;
     }
-    
+    @Override
     public Color getColor() {
         return this.color;
     }
+    @Override
     public int getPrice() {
         return this.price;
     }

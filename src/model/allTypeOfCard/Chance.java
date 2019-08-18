@@ -5,16 +5,25 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import model.player.PlayerImpl;
-
+/**
+ * 
+ * This is the deck of the Chance cards, which had been implemented with CCCCard class (in the same package)
+ *
+ */
 public class Chance implements Entity{
 
+    /**
+     * fields
+     */
     private PlayerImpl owner;
     private String name = "Chance";
     private ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
     private int positionOnBoard;
-    
+    /**
+     * constructor
+     */
     public Chance(PlayerImpl owner, int positionOnBoard) {
         this.positionOnBoard = positionOnBoard;
         this.owner = owner;
@@ -32,6 +41,9 @@ public class Chance implements Entity{
         return this.name;
     }
 
+    /**
+     * this method draws a Chance card randomly
+     */
     @Override
     public void action(PlayerImpl pl) {
         final int risultato = r.nextInt(numberOfCards);

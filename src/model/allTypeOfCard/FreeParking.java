@@ -7,10 +7,12 @@ import javax.swing.JOptionPane;
 
 import model.player.PlayerImpl;
 /**
- * {@inheritDoc}.
+ * Free parking cell on the main board
  */
 public class FreeParking implements Entity {
-    
+    /**
+     * fields
+     */
 	private PlayerImpl owner;
 	private String name = "Parking";
     /**
