@@ -53,55 +53,12 @@ public class GridCell extends JPanel {
 		east = new Box(BoxLayout.Y_AXIS);
 		west = new Box(BoxLayout.Y_AXIS);
 		
+		
 		this.add(north, BorderLayout.NORTH);
 		this.add(south, BorderLayout.SOUTH);
 		this.add(east, BorderLayout.EAST);
 		this.add(west, BorderLayout.WEST);
 
-	
-//		north.add(new CellImpl(deck.get(0)));
-//		north.add(new PropertyCellImpl(deck.get(1)));
-//		north.add(new CellImpl(deck.get(2)));
-//		north.add(new PropertyCellImpl(deck.get(3)));
-//		north.add(new CellImpl(deck.get(4)));
-//		north.add(new CellImpl(deck.get(5)));
-//		north.add(new PropertyCellImpl(deck.get(6)));
-//		north.add(new CellImpl(deck.get(7)));
-//		north.add(new PropertyCellImpl(deck.get(8)));
-//		north.add(new PropertyCellImpl(deck.get(9)));
-//		north.add(new CellImpl(deck.get(10)));
-//		east.add(new PropertyCellImpl(deck.get(11)));
-//		east.add(new CellImpl(deck.get(12)));
-//		east.add(new PropertyCellImpl(deck.get(13)));
-//		east.add(new PropertyCellImpl(deck.get(14)));
-//		east.add(new CellImpl(deck.get(15)));
-//		east.add(new PropertyCellImpl(deck.get(16)));
-//		east.add(new CellImpl(deck.get(17)));
-//		east.add(new PropertyCellImpl(deck.get(18)));
-//		east.add(new PropertyCellImpl(deck.get(19)));
-//		south.add(new CellImpl(deck.get(30)));
-//		south.add(new PropertyCellImpl(deck.get(29)));
-//		south.add(new CellImpl(deck.get(28)));
-//		south.add(new PropertyCellImpl(deck.get(27)));
-//		south.add(new PropertyCellImpl(deck.get(26)));
-//		south.add(new CellImpl(deck.get(25)));
-//		south.add(new PropertyCellImpl(deck.get(24)));
-//		south.add(new PropertyCellImpl(deck.get(23)));
-//		south.add(new CellImpl(deck.get(22)));
-//		south.add(new PropertyCellImpl(deck.get(21)));
-//		south.add(new CellImpl(deck.get(20)));
-//		west.add(new PropertyCellImpl(deck.get(39)));
-//		west.add(new PropertyCellImpl(deck.get(38)));
-//		west.add(new CellImpl(deck.get(37)));
-//		west.add(new PropertyCellImpl(deck.get(36)));
-//		west.add(new CellImpl(deck.get(35)));
-//		west.add(new CellImpl(deck.get(36)));
-//		west.add(new PropertyCellImpl(deck.get(33)));
-//		west.add(new CellImpl(deck.get(32)));
-//		west.add(new PropertyCellImpl(deck.get(31)));
-		
-		
-		
 		for(int i=MAXPOSITION; i>=POLICE+1; i--) {
                     west.add(new CellImpl(deck.get(i)));
                 }
@@ -113,14 +70,7 @@ public class GridCell extends JPanel {
                 }
 		for(int i = START; i<= PRISON;i++) {
                     north.add(new CellImpl(deck.get(i)));
-                }
-		
-		
-		
-		
-		
-		
-		
+                }	
 		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
 		setIcon();
 		
