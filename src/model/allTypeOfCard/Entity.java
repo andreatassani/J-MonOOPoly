@@ -37,12 +37,12 @@ public interface Entity {
   boolean isBuildable();
  /**
   * 
-  * 
+  * @return the position on board, clockwise, starting for topLeft(Start Cell)
   */
   int getPosition();
   /*
    * 
-   * 
+   * @return the colour of the corresponding cell
    */
   Color getColor();
 }

@@ -5,16 +5,25 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import model.player.PlayerImpl;
-
+/**
+ * 
+ * This is the deck of the Community Chest cards, which had been implemented with CCCCard class (in the same package)
+ *
+ */
 public class CommunityChest implements Entity{
 
+    /**
+     * fields
+     */
     private PlayerImpl owner;
     private String name = "Community Chest";
     private ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
     private int positionOnBoard;
-    
+    /**
+     * constructor
+     */
     public CommunityChest(PlayerImpl owner, int positionOnBoard) {
         this.owner = owner;
         this.positionOnBoard = positionOnBoard;
@@ -31,7 +40,9 @@ public class CommunityChest implements Entity{
     public String getName() {
         return this.name;
     }
-
+    /**
+     * this method draws a Chance card randomly
+     */
     @Override
     public void action(PlayerImpl pl) {
         final int risultato = r.nextInt(numberOfCards);

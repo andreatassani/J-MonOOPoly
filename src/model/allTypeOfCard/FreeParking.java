@@ -7,10 +7,12 @@ import javax.swing.JOptionPane;
 
 import model.player.PlayerImpl;
 /**
- * {@inheritDoc}.
+ * Free parking cell on the main board
  */
 public class FreeParking implements Entity {
-    
+    /**
+     * fields
+     */
 	private PlayerImpl owner;
 	private String name = "Parking";
     /**
@@ -36,9 +38,6 @@ public class FreeParking implements Entity {
      */
 	@Override
 	public void action(PlayerImpl pl) {
-	  //Da togliere
-            JOptionPane.showMessageDialog(null, "Non succede nulla",
-                    "messaggio", 0);
 	}
     @Override
     public PlayerImpl getOwner() {

@@ -43,18 +43,12 @@ public class Build implements ActionListener {
         pos = pl.getPosition();
         ((Property)deck.get(pos)).addHouse();
         if(((Property)deck.get(pos)).getHotel()) {
-        //Da togliere
-        JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha costruito un hotel sulla proprietà " + deck.get(pos).getName() +" pagandolo "+ ((Property)deck.get(pos)).getPrice()/2+"$ ,ora ha " + pl.getMoney() + "$",
-                "messaggio", 0);
         history.buildHotel(pl, pos);
         build.setEnabled(false);
      
         }
         else {
         	 history.buildHouse(pl, pos);
-          //Da togliere
-                JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha costruito una casa sulla proprietà " + deck.get(pos).getName() +" pagandola "+ ((Property)deck.get(pos)).getPrice()/4+"$ ,ora ha " +
-                        ((Property)deck.get(pos)).getHouses() + "case, e gli rimangono " + pl.getMoney() + "$", "messaggio", 0);
         }
         if(pl.getMoney() < 0) {
             new Loss(listPl, pawnMovement);

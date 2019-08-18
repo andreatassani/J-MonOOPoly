@@ -79,7 +79,7 @@ public class RollDice implements ActionListener{
         }
     }
     
-    public void activateCell(int pos, PlayerImpl pl) {
+    public void activateCell(final int pos,final PlayerImpl pl) {
       //Da togliere
     	history.printPositionPlayer(pl, pos);
         
@@ -97,14 +97,11 @@ public class RollDice implements ActionListener{
             sell.setEnabled(false);
         } else if (deck.get(pos).getOwner() != bank && deck.get(pos).isSalable() && deck.get(pos).getOwner() != pl) {
             deck.get(pos).action(pl);
-          //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" possiede "+pl.getMoney()+"$",
-                    "messaggio", 0);
             buy.setEnabled(true);
             
         } else if (deck.get(pos).isSalable() == false) {
-            if(deck.get(pos).getName().equals("Go To Prison")) {
-                pos = pawnMovement.updatePosition(pos, 18, pl);
+            if(deck.get(pos).getName().equals("Police")) {
+                pawnMovement.updatePosition(pos, 20, pl);
                 deck.get(30).action(pl);
             }
             deck.get(pos).action(pl);

@@ -8,6 +8,8 @@ import javax.swing.JOptionPane;
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.PlayerImpl;
+import model.situation.Situation;
+import model.situation.SituationImpl;
 /**
  * {@inheritDoc}.
  */
@@ -46,10 +48,12 @@ public class Tax implements Entity {
     }
     @Override
     public void action(PlayerImpl pl) {
-        history.lost(pl);
+        
         pl.setMoney(-200);
-        JOptionPane.showMessageDialog(null,"adesso il giocatore " + pl.getName() + " possiede " + pl.getMoney(),
-                "messaggio", 0);
+//        JOptionPane.showMessageDialog(null,"adesso il giocatore " + pl.getName() + " possiede " + pl.getMoney(),
+//                "messaggio", 0);
+        
+        history.lost(pl);
     }
     @Override
     public PlayerImpl getOwner() {

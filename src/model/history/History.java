@@ -16,7 +16,7 @@ public interface History {
 * 
 * print the position of the player.
 */
-void printPositionPlayer (Player player, int card);
+void printPositionPlayer (PlayerImpl player, int card);
 /**
 * 
 * print a message of the start of the game.
@@ -26,7 +26,7 @@ void printStartGame ();
 * 
 * print a message of successful sale.
 */
-void buyPropriety (Player player);
+void buyPropriety (PlayerImpl player);
 /**
 * 
 * print a message at the beginning of the turn.
@@ -46,5 +46,7 @@ void tollHotel (PlayerImpl player, int price, PlayerImpl owner);
 void buildHotel(PlayerImpl player ,int pos);
 
 void buildHouse(PlayerImpl player ,int pos);
+
+void sellPropriety(PlayerImpl player);
 
 }

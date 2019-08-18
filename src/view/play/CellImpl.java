@@ -23,9 +23,7 @@ public class CellImpl extends JPanel implements Cell{
     /**
      * fields.
      */
-    private Dimension dimCorner = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, MainExternContainerImpl.getLeftSide().getHeight() / 12);
-    private Dimension dimEastWest = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11 + 1, MainExternContainerImpl.getLeftSide().getHeight() / 11 + 1);
-    private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 14, MainExternContainerImpl.getLeftSide().getHeight() / 12);
+    private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, MainExternContainerImpl.getLeftSide().getHeight() / 11);
     private JLabel name;
     private JButton image;
     private ImageIcon icon;
@@ -38,38 +36,19 @@ public class CellImpl extends JPanel implements Cell{
 	 * @param c
 	 */
 	public CellImpl(Entity e) {
-		
+		this.setLayout(new BorderLayout());
+		this.setBackground(e.getColor());
+		mySetSize(dim);
 		name = new JLabel("" + e.getName(), SwingConstants.CENTER);
 		name.setBackground(e.getColor());
-		this.setLayout(new BorderLayout());
-		mySetSize(dim);
-		
-		if(e.isSalable()) {
-		    dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, 
-                            MainExternContainerImpl.getLeftSide().getHeight() / 12);
-		    mySetSize(dim);
-		} else {
-		    if (e.getPosition()== 0 ||e.getPosition() == 10 ||e.getPosition() == 20 ||e.getPosition() == 30) {
-                        mySetSize(dimCorner);
-                }
-                if (e.getPosition() >= 11 && e.getPosition()<= 19 || e.getPosition() >= 31 && e.getPosition() <= 39 ) {
-                        mySetSize(dimEastWest);
-                        }
-		}
-		
-
-		this.setBackground(e.getColor());
 		image = new JButton();
 		image.setSize(40, 30);
 		image.addActionListener(new EvtCell(e));
-
 		this.add(posPawn, BorderLayout.SOUTH);
 		this.add(name, BorderLayout.NORTH);
-		
 		this.add(image);
 		this.setBorder(new LineBorder(Color.BLACK));
-		
-		mySetIcon(image, ShowImages.Cell(e));
+		this.mySetIcon(image, ShowImages.cell(e));
 		
 	}
 	/**
@@ -82,8 +61,6 @@ public class CellImpl extends JPanel implements Cell{
 	 * {@inheritDoc}
 	 */
 	public void mySetSize(Dimension d) {
-		this.setMaximumSize(d);
-		this.setMinimumSize(d);
 		this.setPreferredSize(d);
 		this.setSize(d);
 	}
@@ -96,5 +73,5 @@ public class CellImpl extends JPanel implements Cell{
 		icon.setImage(scaledImage);
 		b.setIcon(icon);
 	}
-	
+
 }

@@ -63,7 +63,7 @@ public class MainExternContainerImpl extends JFrame {
 		rightSide.setPreferredSize(rightSideDimension);
 
 		rightSide.add(new HistoryGUI());
-		rightSide.add(new SituationGUI());
+		rightSide.add(new SituationGUI(listPl,deck));
 		extern.add(leftSide);
 		extern.add(rightSide);
 		

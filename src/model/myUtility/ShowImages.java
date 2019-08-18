@@ -8,16 +8,27 @@ import model.allTypeOfCard.Entity;
 
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Property;
-
+/**
+ * 
+ * Utility class to show main board icons on the cells and relative message with the illustration of the card
+ *
+ */
 public final class ShowImages {
-
+/**
+ * fields
+ */
     private static AudioManager sound = new AudioManager();
-    
+    /**
+     * constructor
+     */
     private ShowImages() {
         
     }
-    
-    public static void Message(Entity e) {
+    /**
+     * Shows the illustration of the relative cell
+     * @param e
+     */
+    public static void message(final Entity e) {
         String name = e.getName();
         sound.getCardSound().play();
         if(e.isSalable()) {
@@ -43,8 +54,10 @@ public final class ShowImages {
                     JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+name+".png"));
         }
     }
-    
-    public static String Cell(Entity e) {
+    /**
+     * @return the string of the icon relative to the cell
+     */
+    public static String cell(final Entity e) {
         String name = e.getName();
         if(name.equals("Station N")||
                 name.equals("Station E")||
@@ -58,7 +71,10 @@ public final class ShowImages {
             return Optional.of("res/Cells/"+name+".png").get();
         }
     }
-    
+    /**
+     * Shows the illustration of the relative result of the dice
+     * @param result
+     */
     
     public static void dice(int result) {
         JOptionPane.showMessageDialog(null,"Result of the roll: "+result, "Dice", 
