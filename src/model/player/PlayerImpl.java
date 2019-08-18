@@ -5,7 +5,6 @@ import java.util.ArrayList;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
-import model.myEnum.Colors;
 import model.myEnum.Pawns;
 /**
  * class for creating a player.
@@ -35,7 +34,7 @@ public class PlayerImpl implements Player {
         this.position = 0;
     }
     
-    public boolean hasProperty(Entity entity) {
+    public boolean hasProperty(final Entity entity) {
         if (this.properties.contains(entity)) {
             return true;
         } else {
@@ -74,14 +73,14 @@ public class PlayerImpl implements Player {
  * {@inheritDoc}
  * 
  */
-    public void setMoney(int money) {
+    public void setMoney(final int money) {
     this.money += money;
 }
 /**
  * {@inheritDoc}
  * 
  */
-    public void setPosition(int pos) {
+    public void setPosition(final int pos) {
     	this.position = pos;
     }
 /**
@@ -95,7 +94,7 @@ public int getMoney() {
  * {@inheritDoc}
  * 
  */
-public void setStopTurns(int turns) {
+public void setStopTurns(final int turns) {
     this.stopTurns = turns;
 }
 /**
@@ -121,7 +120,7 @@ public void buyProperty(Property property) {
  * {@inheritDoc}
  * 
  */
-public void removeProperty(Property property) {
+public void removeProperty(final Property property) {
     this.properties.remove(property);
 }
 

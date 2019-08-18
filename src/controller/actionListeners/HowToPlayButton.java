@@ -6,13 +6,14 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 
 import controller.audio.AudioManager;
+import view.menu.HowToPlay;
 import view.menu.MenuGui;
 /**
  * Class that implements the action of 
  * the "How to play" button.
  *
  */
-public class HowToPlay implements ActionListener {
+public class HowToPlayButton implements ActionListener {
 /**
  * Class fields.	
  */
@@ -23,7 +24,7 @@ public class HowToPlay implements ActionListener {
  * @param clip clip audio track to be stopped
  * @param frame frame to close
  */
-	public HowToPlay(AudioManager clip, JFrame frame) {
+	public HowToPlayButton(AudioManager clip, JFrame frame) {
 		this.clip = clip;
 		this.frame = frame;		
 	}
@@ -33,9 +34,9 @@ public class HowToPlay implements ActionListener {
  */
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		 new MenuGui(new view.menu.HowToPlay());
+		 new MenuGui(new HowToPlay());
 		 frame.dispose();
-		 clip.getMusicMenu().stop();
+		clip.getMusicMenu().stop();
 		
 	}
 

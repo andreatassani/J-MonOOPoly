@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import model.myEnum.Colors;
-import model.myEnum.NumPlayers;
 import model.myEnum.Pawns;
 /**
  * 

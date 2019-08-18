@@ -29,10 +29,10 @@ public class HistoryImpl implements History {
 	private static JButton button;
 	private static int position =0;
 	
-	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
-	private static Dimension rightSideDimension = new Dimension((int) (width - leftSideDimension.getSize().width),(height/2));
+	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
+	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
+	private static Dimension leftSideDimension = new Dimension ((int) (WIDTH / 1.45),(HEIGHT));
+	private static Dimension rightSideDimension = new Dimension((int) (WIDTH - leftSideDimension.getSize().width),(HEIGHT/2));
 	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/15));
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (dim.getSize().height/1.45));
 	private static final Color j = new Color(173,238,216);

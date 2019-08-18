@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
-
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -14,9 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.LineBorder;
-
 import model.myEnum.Colors;
-import model.myEnum.NumPlayers;
 import model.myEnum.Pawns;
 /**
  * 
@@ -43,7 +40,7 @@ public class CustomMethodsImpl implements CustomMethods {
 /**
  * {@inheritDoc}
  */
-	public void createSetPlayer(JPanel player, JTextField name, JComboBox<Colors> color, JComboBox<Pawns> pawn, Font f) {
+	public void createSetPlayer(final JPanel player, final JTextField name,final JComboBox<Colors> color,final JComboBox<Pawns> pawn,final Font f) {
 		player.setBackground(backGround);
 		player.setLayout(new FlowLayout(FlowLayout.CENTER));
 		player.setPreferredSize(dimPlayer);
@@ -71,7 +68,7 @@ public class CustomMethodsImpl implements CustomMethods {
  * {@inheritDoc}
  * 
  */	
-	public void createNumPlayerPanel(JPanel p, JLabel l, JButton n, Font f) {
+	public void createNumPlayerPanel(final JPanel p,final  JLabel l, final JButton n, final Font f) {
 		p.setLayout(new FlowLayout(FlowLayout.LEFT));
 		p.setPreferredSize(dimPlayer);
 		l.setPreferredSize(dimNameG);
@@ -88,7 +85,7 @@ public class CustomMethodsImpl implements CustomMethods {
 /**
  * {@inheritDoc}
  */
-	public void setPreference(JComponent j , Dimension d , Color back, Color write, Font f) {
+	public void setPreference(final JComponent j ,final Dimension d ,final Color back,final Color write,final Font f) {
 		j.setPreferredSize(d);
 		j.setSize(d);
 		j.setFont(f);
@@ -99,7 +96,7 @@ public class CustomMethodsImpl implements CustomMethods {
 /**
  * {@inheritDoc}
  */
-	public void setMyPanel(JPanel p, Dimension d) { 
+	public void setMyPanel(final JPanel p,final Dimension d) { 
 	   p.setLayout(new BoxLayout(p, BoxLayout.Y_AXIS));
 	   p.setPreferredSize(d);	  	  	 	  
 		}
