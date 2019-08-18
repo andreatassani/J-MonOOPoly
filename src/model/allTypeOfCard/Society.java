@@ -92,6 +92,9 @@ public class Society  extends Property {
     public Color getColor() {
         return this.color;
     }
+    public int getPrice() {
+        return this.price;
+    }
 	
 
 }
