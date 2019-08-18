@@ -13,8 +13,6 @@ public class Dice {
      * @return the result of the throw of the dice
      */
     public int rollTheDice() {
-    	//modificareee
-    	int X=3;
-        return r.nextInt(1)+X;
+        return r.nextInt(6)+1;
     }
 }

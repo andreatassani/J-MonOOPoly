@@ -57,7 +57,7 @@ public class RollDice implements ActionListener{
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
-//        this.stepSound(risultato);
+        this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos,risultato, pl);
         rollDice.setEnabled(false);
         activateCell(pos, pl);
@@ -79,7 +79,7 @@ public class RollDice implements ActionListener{
         }
     }
     
-    public void activateCell(int pos, PlayerImpl pl) {
+    public void activateCell(final int pos,final PlayerImpl pl) {
       //Da togliere
     	history.printPositionPlayer(pl, pos);
         
@@ -104,7 +104,7 @@ public class RollDice implements ActionListener{
             
         } else if (deck.get(pos).isSalable() == false) {
             if(deck.get(pos).getName().equals("Police")) {
-                pos = pawnMovement.updatePosition(pos, 20, pl);
+                pawnMovement.updatePosition(pos, 20, pl);
                 deck.get(30).action(pl);
             }
             deck.get(pos).action(pl);
