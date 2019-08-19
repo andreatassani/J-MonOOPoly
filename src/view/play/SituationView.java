@@ -10,11 +10,14 @@ import java.awt.GridLayout;
 import java.awt.TextArea;
 import java.awt.TextField;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
@@ -24,8 +27,9 @@ import model.allTypeOfCard.CCCCard;
 import model.allTypeOfCard.Entity;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
+import model.situation.SituationImpl;
 
-public class SituationGUI extends JPanel {
+public class SituationView extends JPanel {
 	
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
@@ -35,6 +39,7 @@ public class SituationGUI extends JPanel {
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,dim.getSize().height);
 	private static final Color j = new Color(173,238,216);
 	private static ListOfPlayers players;
+	private SituationImpl situationControl = new SituationImpl();
 	
 	private static ArrayList<JPanel> flowPanels = new ArrayList<JPanel>();
 	private static JPanel box;
@@ -43,11 +48,11 @@ public class SituationGUI extends JPanel {
 	
 	private int i;
 	private final JPanel gridPanel;
-	private final JPanel upPanelLeft;
-	private final JButton situation;
+	private static JPanel upPanelLeft;
+	private static JButton situation;
 	
 	
-	public SituationGUI(ListOfPlayers listPl, ArrayList<Entity> deck) {
+	public SituationView(ListOfPlayers listPl, ArrayList<Entity> deck) {
 		
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
@@ -55,28 +60,40 @@ public class SituationGUI extends JPanel {
 		players=listPl;
 	
 		this.gridPanel = new JPanel(new GridLayout(1, 2));
-	    this.upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
-	    this.upPanelLeft.setBackground(Color.RED);
-	    this.situation = new JButton("Situation");
-	    this.situation.setFont(f);
-	    this.situation.setBackground(Color.RED);
+	    upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    upPanelLeft.setBackground(Color.RED);
+	    situation = new JButton("Situation");
+	    situation.setFont(f);
+	    situation.setBackground(Color.RED);
 	    box= new JPanel(new GridLayout(0,1));
 	   
 	    for(i=0;i<listPl.getNumberPlayer()+1;i++) {
+	    	
 	    	final JPanel flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 	    	flowPanel.setBackground(j);
 	    	final JButton Player = new JButton (""+listPl.getPlayerFromIndex(i).getName());
 	    	Player.setFont(f);
-			Player.setBackground(j);
+			Player.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			final JButton Cash = new JButton (""+listPl.getPlayerFromIndex(i).getMoney());
+			if(Player.getText().equals("Bank"))Cash.setEnabled(false);
 			Cash.setFont(f);
-			Cash.setBackground(j);
+			Cash.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			final JButton Propriety = new JButton ("Propriety: "+ listPl.getPlayerFromIndex(i).getListOfProperties().size());
+			Propriety.addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					
+					situationControl.setPropriety(listPl.getPlayerFromIndex(flowPanels.indexOf(flowPanel)));
+					JOptionPane.showMessageDialog(null," "+ SituationImpl.getProperties(),"messaggio", 0);
+					
+				}
+			});
 			Propriety.setFont(f);
-			Propriety.setBackground(j);
+			Propriety.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			final JButton Position = new JButton ("Position: "+listPl.getPlayerFromIndex(i).getPosition());
 			Position.setFont(f);
-			Position.setBackground(j);
+			Position.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			flowPanel.add(Player);
 			flowPanel.add(Cash);
 			flowPanel.add(Propriety);
@@ -89,8 +106,7 @@ public class SituationGUI extends JPanel {
     gridPanel.add(upPanelLeft);
 	this.add(box,BorderLayout.CENTER);
 	this.add(gridPanel,BorderLayout.NORTH);
-
-		this.setBorder(new LineBorder(Color.BLACK));
+	this.setBorder(new LineBorder(Color.BLACK));
 		
 		
 	}
@@ -104,5 +120,10 @@ public class SituationGUI extends JPanel {
 	}
 	public static void setSituation(ArrayList<JPanel> fields1) {
 		flowPanels=fields1;
+	}
+	public static void resetColor(PlayerImpl pl) {
+		upPanelLeft.setBackground(pl.getColors());
+		situation.setBackground(pl.getColors());
+		
 	}
 }

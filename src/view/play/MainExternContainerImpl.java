@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.Optional;
 
@@ -62,8 +63,8 @@ public class MainExternContainerImpl extends JFrame {
 		rightSide.setSize(rightSideDimension);
 		rightSide.setPreferredSize(rightSideDimension);
 
-		rightSide.add(new HistoryGUI());
-		rightSide.add(new SituationGUI(listPl,deck));
+		rightSide.add(new HistoryView());
+		rightSide.add(new SituationView(listPl,deck));
 		extern.add(leftSide);
 		extern.add(rightSide);
 		

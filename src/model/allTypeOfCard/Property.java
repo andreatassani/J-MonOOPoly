@@ -141,13 +141,12 @@ public class Property implements Entity {
              this.owner.setMoney(this.price*2);
            //Da togliere
              history.tollHotel(pl, price, owner);
-             JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+this.price*2 +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
+       
       } else {
           pl.setMoney(-((this.price/10)+this.nHouses*(this.price/4)));
           this.owner.setMoney((this.price/10)+this.nHouses*(this.price/4));
         //Da togliere
           history.tollHouses(pl,price,nHouses,owner);
-          JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+(this.price/10)+this.nHouses*(this.price/4) +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
       }
      }
     }

@@ -1,7 +1,11 @@
 package view.play;
 
+import java.util.Optional;
+
 import javax.swing.JOptionPane;
 
+import model.history.History;
+import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
 
@@ -18,10 +22,12 @@ public class PawnMovement {
     
     private GridCell grid;
     private ListOfPlayers listPl;
+    private History history;
     
     public PawnMovement(GridCell grid, ListOfPlayers listPl) {
         this.grid = grid;
         this.listPl = listPl;
+        this.history = new HistoryImpl(Optional.empty());
     }
     
 
@@ -72,8 +78,7 @@ public class PawnMovement {
             if(risultato != 18) {
             listPl.getCurrentPlayer().setMoney(200);
           //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore "+pl.getName()+" è passato dal via e guadagna 200 $, ora possiede "+pl.getMoney()+"$",
-                    "messaggio", 0);
+            history.start(pl);
             }
         } else {
             pl.setPosition(pos+risultato);

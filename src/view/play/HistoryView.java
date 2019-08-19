@@ -30,11 +30,10 @@ import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
-
-import model.history.History;
 import model.history.HistoryImpl;
+import model.player.PlayerImpl;
 
-public class HistoryGUI extends JPanel {
+public class HistoryView extends JPanel {
 	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (width / 1.45),(height));
@@ -47,18 +46,18 @@ public class HistoryGUI extends JPanel {
 	private static JPanel box;
 	private final JScrollPane scrollPanel;
 	private final JPanel gridPanel;
-	private History historyControl;
+	private HistoryImpl historyControl;
 	
-	private final JPanel upPanelLeft;
+	private static JPanel upPanelLeft;
 	private int i =0;
 	
 	
 	
-	private final JButton history;
+	private static JButton history;
 	
 	
     
-	public HistoryGUI() {
+	public HistoryView() {
 		
 		this.setLayout(new BorderLayout());
 		this.setSize(rightSideDimension);
@@ -68,16 +67,16 @@ public class HistoryGUI extends JPanel {
 		
 
 		this.gridPanel = new JPanel(new GridLayout(1, 2));
-	    this.upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
-	    this.upPanelLeft.setBackground(Color.RED);
-	    this.history = new JButton("History");
-	    this.history.setFont(f);
-	    this.history.setBackground(Color.RED);
+	    upPanelLeft = new JPanel(new FlowLayout(FlowLayout.LEFT));
+	    upPanelLeft.setBackground(Color.RED);
+	    history = new JButton("History");
+	    history.setFont(f);
+	    history.setBackground(Color.RED);
 	    this.historyControl = new HistoryImpl(Optional.empty());
 	    
 	    
 		
-		for(i=0; i<25 ;i++) {
+		for(i=0; i<100 ;i++) {
 		final JButton but = new JButton ("");
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
@@ -117,6 +116,13 @@ public class HistoryGUI extends JPanel {
 	public static void resetGUI() {
 		for (JButton but : fields)
 			box.add(but);
+		
+	}
+	
+	public static void resetColor(PlayerImpl pl) {
+		upPanelLeft.setBackground(pl.getColors());
+		history.setBackground(pl.getColors());
+		
 	}
 	
 
