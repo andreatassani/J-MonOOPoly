@@ -36,12 +36,15 @@ public class Sell implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+    		
             listPl.getPlayerFromIndex(0).buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
             sound.getCashSound().play();
             build.setEnabled(false);
             buy.setEnabled(true);
             sell.setEnabled(false);
             history.sellPropriety(listPl.getCurrentPlayer());
+           
+            
     }
 
 }

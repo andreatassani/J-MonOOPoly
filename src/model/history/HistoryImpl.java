@@ -32,8 +32,6 @@ public class HistoryImpl implements History {
 	private static JButton button;
 	private static int position =0;
 	private Situation situation;
-	
-	
 	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
 	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
 	private static Dimension leftSideDimension = new Dimension ((int) (WIDTH / 1.45),(HEIGHT));
@@ -233,6 +231,8 @@ public void sellPropriety(PlayerImpl player) {
 		position=setPosition(position);
 		incrementButtons(fields);
 		HistoryView.resetGUI();
+		situation.setMoney(player);
+		situation.setPropriety(player);
 		
 	}
 public void stop(PlayerImpl player,int turn) {
