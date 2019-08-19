@@ -43,14 +43,8 @@ public class CCCCard implements Entity {
      */
     @Override
     public void action(final PlayerImpl pl) {
-      //Da togliere
-    	history.chance(pl, amount);
-        JOptionPane.showMessageDialog(null,"è stata pescata la carta " + this.name,
-                "messaggio", 0);
-       
-       pl.setMoney(this.amount);
-           JOptionPane.showMessageDialog(null,"adesso il giocatore " + pl.getName() + " possiede " + pl.getMoney(),
-                   "messaggio", 0);
+    		pl.setMoney(this.amount);
+           history.chance(pl, amount);
     }
 
     @Override

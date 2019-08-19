@@ -68,7 +68,7 @@ public class HistoryImpl implements History {
 		 System.out.println(this.nameCard.get());
 		 if((this.nameCard.get().equals("Prison"))	||	(this.nameCard.get().equals("Parking"))) button.setText("" + player.getName() +" ended up in the space: " + nameCard.get() +". Nothing is happening!");
 		 else if(this.nameCard.get().equals("Police")) button.setText(player.getName() +" will go to prison and will remain there for 2 rounds ");
-		 else button.setText(player.getName() +" ended up in the space: " + nameCard.get());
+		 else button.setText(player.getName() +" ended up on the space: " +   nameCard.get() );
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -89,6 +89,17 @@ public class HistoryImpl implements History {
 		 HistoryGUI.resetGUI();
 		
 
+	}
+	
+	public void start(PlayerImpl player) {
+		 fields = HistoryGUI.getHistory();
+		 button = fields.get(position);
+		 button.setText(player.getName() + " has gone from the start! He will recive a bonus of 200$");
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryGUI.resetGUI();
+		 situation.setMoney(player);
 	}
 
 	@Override
@@ -213,6 +224,30 @@ public void sellPropriety(PlayerImpl player) {
 		HistoryGUI.resetGUI();
 		
 	}
+public void stop(PlayerImpl player,int turn) {
+	
+	fields = HistoryGUI.getHistory();
+	 button = fields.get(position);
+	 button.setText(player.getName() + " cannot continue because he is in prison. Rounds left: " +turn);
+	 fields.set(position, button);
+	 position=setPosition(position);
+	 incrementButtons(fields);
+	 HistoryGUI.resetGUI();
+	
+	
+}
+public void endStop(PlayerImpl player) {
+	
+	fields = HistoryGUI.getHistory();
+	 button = fields.get(position);
+	 button.setText(player.getName() + " can get out of prison!");
+	 fields.set(position, button);
+	 position=setPosition(position);
+	 incrementButtons(fields);
+	 HistoryGUI.resetGUI();
+	
+	
+}
 }
 
 //JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),

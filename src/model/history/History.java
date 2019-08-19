@@ -49,4 +49,10 @@ void buildHouse(PlayerImpl player ,int pos);
 
 void sellPropriety(PlayerImpl player);
 
+void start(PlayerImpl player);
+
+void stop(PlayerImpl player,int turn);
+
+void endStop(PlayerImpl player);
+
 }

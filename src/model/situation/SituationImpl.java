@@ -27,6 +27,7 @@ public class SituationImpl implements Situation {
 	private String properties;
 	
 	
+	
 	public SituationImpl () {
 		players=SituationGUI.getListOfPlayers();
 	}

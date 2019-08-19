@@ -43,13 +43,12 @@ public class NextPlayer implements ActionListener {
         history.startTurn(listPl.getCurrentPlayer());
         if(listPl.getCurrentPlayer().getStopTurns() == 0 && listPl.getCurrentPlayer().getPosition() == 10) {
             //Da togliere
-              JOptionPane.showMessageDialog(null,"il giocatore " +listPl.getCurrentPlayer().getName()+ " può uscire dalla prigione",
-                      "messaggio", 0);
+        	history.endStop(listPl.getCurrentPlayer());
           }
         if(listPl.getCurrentPlayer().getStopTurns() != 0) {
           //Da togliere
-            JOptionPane.showMessageDialog(null,"il giocatore "+listPl.getCurrentPlayer().getName()+" deve ancora aspettare "+listPl.getCurrentPlayer().getStopTurns()+" turni in prigione",
-                    "messaggio", 0);
+           
+            history.stop(listPl.getCurrentPlayer(),listPl.getCurrentPlayer().getStopTurns());
         listPl.getCurrentPlayer().setStopTurns(listPl.getCurrentPlayer().getStopTurns()-1);
             rollDice.setEnabled(false);
             nextPlayer.setEnabled(true);

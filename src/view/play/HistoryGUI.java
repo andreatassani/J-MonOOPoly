@@ -77,7 +77,7 @@ public class HistoryGUI extends JPanel {
 	    
 	    
 		
-		for(i=0; i<25 ;i++) {
+		for(i=0; i<100 ;i++) {
 		final JButton but = new JButton ("");
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
