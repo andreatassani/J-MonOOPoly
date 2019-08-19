@@ -38,7 +38,7 @@ public class TestMain {
                 
 		
 		
-		Winner main = new Winner(players, deck);
+		Winner main = new Winner(players, deck, null);
 	}
 
 }

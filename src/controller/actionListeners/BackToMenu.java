@@ -31,7 +31,9 @@ public class BackToMenu implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to return in the main menù? \n If you will click 'YES', you will lose all the progress in this session!", "Select an option...", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to return in the main menù? \n If you will click 'YES', "
+                                                       + "you will lose all the progress in this session!", "Select an option...", 
+                                                       JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == 0) {
                 new MenuGui(new MainMenu());
                 NewGameMenu.getClip().getPopMusic().stop();
