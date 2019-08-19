@@ -1,4 +1,4 @@
-package view.menu;
+package model.customComponent;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -86,7 +86,12 @@ public interface CustomMethods {
  * @return written color
  */
 	Color getWriter();
- 
+/**
+ * To set the dimension of component.
+ * @return dimension of screen
+ */
+	public  Dimension getDim();
+	
  
  
 }

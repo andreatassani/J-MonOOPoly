@@ -7,6 +7,7 @@ import controller.actionListeners.Back;
 import controller.actionListeners.Players;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
+import model.customComponent.CustomMethodsImpl;
 import model.myEnum.Music;
 /**
  * 
@@ -26,8 +27,8 @@ public class NewGameMenu extends JFrame {
 	private JButton players;
 	private JLabel music;
 	private JComboBox<Music> choiseMusic;
-	private JLabel currency;
-	private JComboBox choiseCurrency;
+	private JLabel difficulty;
+	private JComboBox<String> choiseDifficulty;
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
@@ -37,6 +38,8 @@ public class NewGameMenu extends JFrame {
 	private static AudioManager clip = new AudioManager();
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
+	private JButton tutorial;
+	private final static String[] _MOD_ = {"EASY", "HARD"};
 	
 /**
  * constructor of the New game menu.
@@ -50,16 +53,17 @@ public class NewGameMenu extends JFrame {
 		this.action = new ControllerNewGameMenu();
 		this.players = new JButton("Players");
 		this.music = new JLabel("Music");
-		this.currency = new JLabel("Currency");
+		this.difficulty = new JLabel("DIFFICULTY");
 		this.title = new JLabel("MAIN MENU");
 		this.back = new JButton("Back");
-		this.icon = new ImageIcon("res/mr-monopoly2.png");		
+		this.icon = new ImageIcon("res/menuIcon/mr-monopoly2.png");		
 		this.choiseMusic = new JComboBox<Music>(Music.values());
-		this.choiseCurrency = new JComboBox<Enum>(model.myEnum.Currency.values());
+		this.choiseDifficulty = new JComboBox<String>(_MOD_);
 		this.north = new JPanel();
 		this.center = new JPanel();			
 		this.imageRight = new JLabel();
 		this.imageLeft = new JLabel();
+		this.tutorial  = new JButton("Tutorial");
 
 		
 		
@@ -69,10 +73,12 @@ public class NewGameMenu extends JFrame {
 		methods.setPreference(north, dimPanel, methods.getBackground(), methods.getBackground(), methods.getFont());
 		methods.setPreference(players, dim, methods.getButton(), methods.getWriter(), methods.getFont());
 		methods.setPreference(music, dim, methods.getBackground(), Color.black, methods.getFont());
-		methods.setPreference(choiseCurrency, dim, methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(choiseDifficulty, dim, methods.getBackground(), Color.black, methods.getFont());
 		methods.setPreference(choiseMusic, dim,methods.getBackground(), Color.black, methods.getFont());
-		methods.setPreference(currency, dim, methods.getBackground(), Color.black, methods.getFont());
+		methods.setPreference(difficulty, dim, methods.getBackground(), Color.black, methods.getFont());
 		methods.setPreference(back, dim, methods.getButton(), methods.getWriter(), methods.getFont());
+		methods.setPreference(tutorial, dim, methods.getButton(), methods.getWriter(), methods.getFont());
+		
 		title.setFont(new Font("Cooper Black",Font.CENTER_BASELINE,70));		
 		center.setBackground(methods.getBackground());		
 		this.setBackground(methods.getBackground());	
@@ -90,7 +96,7 @@ public class NewGameMenu extends JFrame {
 		ActionListener actionPlayers = (e)->{	
 	    	  action.music(choiseMusic.getSelectedIndex(), clip2);
 	    	  clip.getMusicMenu().stop();
-	    	  action.players(this);
+	    	  action.players(this,(String)choiseDifficulty.getSelectedItem());
 		      };
 		
 	   
@@ -110,10 +116,11 @@ public class NewGameMenu extends JFrame {
 		north.add(title);
 		north.add(imageRight);
 		center.add(music);
-		center.add(currency);				
+		center.add(difficulty);				
 		center.add(choiseMusic);
-		center.add(choiseCurrency);
-		center.add(players);		
+		center.add(choiseDifficulty);		
+		center.add(tutorial);
+		center.add(players);
 		center.add(back);
 		this.add(north, BorderLayout.NORTH);
 		this.add(center, BorderLayout.CENTER);

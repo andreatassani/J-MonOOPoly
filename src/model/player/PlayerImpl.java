@@ -128,5 +128,4 @@ public ArrayList<Property> getListOfProperties(){
     return this.properties;
 }
 
-
 }

@@ -5,6 +5,7 @@ import javax.swing.*;
 import controller.actionListeners.Back;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
+import model.customComponent.CustomMethodsImpl;
 /**
  * 
  * class for tutorial management.
@@ -34,7 +35,7 @@ public class HowToPlay extends JFrame {
 	 this.action = new ControllerNewGameMenu();
 	 this.general = new JPanel();
 	 this.img = new JLabel();
-	 this.icon = new ImageIcon("res/howToPlay.png");
+	 this.icon = new ImageIcon("res/menuIcon/howToPlay.png");
 	 this.back = new JButton("Back");
 	 this.dim  = new Dimension(methods.getWidth()/6,methods.getHeight()/20);
 /**

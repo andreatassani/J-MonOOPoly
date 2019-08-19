@@ -37,15 +37,15 @@ public class AudioManager {
 	     */
 	    public AudioManager() {
 	        try {
-	            this.pop = new AudioSettingImpl("/pop.wav");
-	            this.rock = new  AudioSettingImpl( "/rock.wav");
-	            this.tecno = new  AudioSettingImpl("/tecno.wav");
-	            this.classic = new  AudioSettingImpl("/classic.wav");
-	            this.menuMusic = new  AudioSettingImpl("/menuSong.wav");
-	            this.card = new AudioSettingImpl("/carta.wav");
-	            this.dice = new AudioSettingImpl("/dadi.wav");
-	            this.pawn = new AudioSettingImpl("/pedina.wav");
-	            this.cash = new AudioSettingImpl("/soldi.wav");
+	            this.pop = new AudioSettingImpl("/sounds/pop.wav");
+	            this.rock = new  AudioSettingImpl( "/sounds/rock.wav");
+	            this.tecno = new  AudioSettingImpl("/sounds/tecno.wav");
+	            this.classic = new  AudioSettingImpl("/sounds/classic.wav");
+	            this.menuMusic = new  AudioSettingImpl("/sounds/menuSong.wav");
+	            this.card = new AudioSettingImpl("/sounds/carta.wav");
+	            this.dice = new AudioSettingImpl("/sounds/dadi.wav");
+	            this.pawn = new AudioSettingImpl("/sounds/pedina.wav");
+	            this.cash = new AudioSettingImpl("/sounds/soldi.wav");
 	           
 	            
 	        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {

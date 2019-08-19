@@ -10,6 +10,7 @@ import controller.actionListeners.NumberOfPlayer;
 import controller.actionListeners.StartGame;
 import controller.audio.AudioManager;
 import controller.menu.ControllerSettingPlayersMenu;
+import model.customComponent.CustomMethodsImpl;
 import model.myEnum.Colors;
 import model.myEnum.Pawns;
 import model.player.ListOfPlayers;
@@ -48,7 +49,7 @@ import model.player.ListOfPlayers;
 		private JButton back = new JButton("BACK MAIN MENU");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
-		private ImageIcon icon = new ImageIcon("res/setGame.png");
+		private ImageIcon icon = new ImageIcon("res/menuIcon/setGame.png");
 		private ControllerSettingPlayersMenu action;
 		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
@@ -64,7 +65,7 @@ import model.player.ListOfPlayers;
 /**
 * Constructor of the main menu.
 */					
-	public SettingPlayersMenu() {	
+	public SettingPlayersMenu(String i) {	
 
 /**
  * Set the layout and measurements of 
@@ -74,7 +75,7 @@ import model.player.ListOfPlayers;
 		this.namePlayer = "Name Player";
 		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
-		this.deck = new ArrayList<Entity>(0);
+//		this.deck = new ArrayList<Entity>(0);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		this.dimPlayer = new Dimension(methods.getWidth()/2,methods.getHeight());
@@ -158,7 +159,7 @@ import model.player.ListOfPlayers;
  * I add all the panels to the main panel
  */		
 		howManyPlayer.addActionListener(new NumberOfPlayer(player3, player4, howManyPlayer));
-		start.addActionListener(new StartGame(this, list, deck));
+		start.addActionListener(new StartGame(this, list));
 		done.addActionListener(actionDone);	
 		back.addActionListener(new BackFromSettingsMenu(this,NewGameMenu.getClip()));
 		image.add(start);		

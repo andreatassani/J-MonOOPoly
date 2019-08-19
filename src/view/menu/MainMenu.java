@@ -8,6 +8,7 @@ import controller.actionListeners.Audio;
 import controller.actionListeners.HowToPlayButton;
 import controller.actionListeners.NewGame;
 import controller.audio.AudioManager;
+import model.customComponent.CustomMethodsImpl;
 
 /**
  * 
@@ -46,7 +47,7 @@ import controller.audio.AudioManager;
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("How To Play");
 	  this.settings = new JButton("Audio Off");
-	  this.icon = new ImageIcon("res/Logo Monopoly.png");
+	  this.icon = new ImageIcon("res/menuIcon/Logo Monopoly.png");
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();	  

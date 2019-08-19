@@ -19,11 +19,12 @@ public class ControllerNewGameMenu {
  * Creates a new frame of type SettinPlayersMenu, and close the frame
  * in execution.  		
  * @param JFrame m to close
+ * @param String of difficulty
  * @return JFrame to create
  */
-	public MenuGui players(final JFrame m) {
+	public MenuGui players(final JFrame m, final String i) {
 		m.dispose();
-		return new MenuGui(new SettingPlayersMenu());
+		return new MenuGui(new SettingPlayersMenu(i));
 		
 	}
 /**

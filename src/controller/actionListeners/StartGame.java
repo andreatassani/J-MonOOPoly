@@ -22,18 +22,18 @@ public class StartGame implements ActionListener {
  */
     private JFrame frame;
     private ListOfPlayers list;
-    private ArrayList<Entity> deck;
+    
 /**
  * Class builder    
  * @param frame to close
  * @param list of player participating in the game
  * @param deck list of all cells
  */       
-	public StartGame(JFrame frame, ListOfPlayers list, ArrayList<Entity> deck) {
+	public StartGame(JFrame frame, ListOfPlayers list) {
 		super();
 		this.frame = frame;
 		this.list = list;
-		this.deck = deck;
+		
 	}
 /**
  * Check that the list of players is created correctly in the positive 
