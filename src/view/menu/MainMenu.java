@@ -26,7 +26,7 @@ import controller.audio.AudioManager;
 		private ImageIcon icon;
 		private JPanel north;
 		private JPanel south;		
-		private  static AudioManager clipAudio;	
+		private  AudioManager clipAudio;	
 		private  Dimension general;	
 		private  Dimension dim;
 		private  Dimension dimLogo;
