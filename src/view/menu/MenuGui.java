@@ -8,7 +8,7 @@ import javax.swing.*;
  * @author user
  *
  */
-public class MenuGui extends JFrame {
+public class MenuGui {
 	
 /**
  * frame settings
@@ -23,10 +23,7 @@ public class MenuGui extends JFrame {
 		c.setExtendedState(JFrame.MAXIMIZED_HORIZ);
 		c.setExtendedState(JFrame.MAXIMIZED_VERT);
 		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		c.setMaximumSize(d);
-		c.setMinimumSize(d);
 		c.setSize(d);
-		
 		c.setState(JFrame.MAXIMIZED_BOTH);
 		c.setResizable(false);
 		c.setVisible(true);
