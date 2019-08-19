@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 
 import view.menu.MainMenu;
 import view.menu.MenuGui;
+import view.menu.NewGameMenu;
 import view.play.MainExternContainerImpl;
 /**
  * 
@@ -30,10 +31,15 @@ public class BackToMenu implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to return in the main menù? \n If you will click 'YES', you will lose all the progress in this session!", "Select an option...", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
+            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to return in the main menù? \n If you will click 'YES', "
+                                                       + "you will lose all the progress in this session!", "Select an option...", 
+                                                       JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
             if (choice == 0) {
                 new MenuGui(new MainMenu());
-                //stoppare musica del gioco, il resto và (aiuto da Fabio)
+                NewGameMenu.getClip().getPopMusic().stop();
+                NewGameMenu.getClip().getTecnoMusic().stop();
+                NewGameMenu.getClip().getClassicMusic().stop();
+                NewGameMenu.getClip().getRockMusic().stop();
                 frame.dispose();
             }
     }

@@ -24,7 +24,7 @@ import model.player.ListOfPlayers;
 /**
  * SettingPlayersMenu fields.
  */
-		private CustomMethodsImpl methods = new CustomMethodsImpl();
+		private final CustomMethodsImpl methods = new CustomMethodsImpl();
 		private JPanel right = new JPanel();
 		private JPanel left = new JPanel();		
 		private JPanel player1 = new JPanel();
