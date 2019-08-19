@@ -1,0 +1,26 @@
+
+Scopo del gioco
+Il gioco del Monopoli consiste nel guadagnare denaro tramite l’acquisto e la gestione di lotti di terreno e case intraprendendo un’intensa attività economica.
+Giocatori
+Il monopoli si gioca da un minimo di 2 ad un massimo di 4 giocatori.
+Il gioco è composto da
+Sulla sinistra, un tabellone con 40 caselle divise per colori in vari terreni, società, stazioni, tasse. Sono presenti poi le caselle che contengono le carte delle probabilità e degli imprevisti, la prigione e la casella del via. 
+Al di sotto del tabellone vi sono 6 tasti per tirare il dado, acquistare, costruire, vendere, passare il turno e tornare al menù principale.
+Sulla destra troviamo, nella parte superiore, una cronologia delle mosse effettuate dai vari giocatori e sotto questa è posto uno schema che mostra la situazione attuale dei giocatori (nome, soldi, proprietà, posizione sulla tabella di gioco)
+Regole
+All’inizio del gioco saranno consegnati 4000$. I giocatori si muovono sul piano di gioco lanciando un dado e spostando il proprio segnalino per un numero di caselle uguali alla somma uscita dal lancio effettuato.
+Se il segnalino si ferma su una cella acquistabile (proprietà, stazioni, Enel, Hera) il giocatore potrà comprare o meno quel lotto. Nel caso lo acquisti dovrà pagare al proprietario il valore riportato sulla carta corrispondente e, nel caso in cui si tratti di una proprietà, potrà decidere se costruirci sopra case fino ad un massimo di quattro o un hotel (se ha già costruito quattro case).
+Se un giocatore finisce su una cella posseduta da un altro giocatore dovrà pagare a quest’ultimo un pedaggio calcolato come segue:
+-se è una proprietà: 
+(1/10)prezzo proprietà + N*prezzo casa, dove N è il numero di case;
+Oppure 2*prezzo proprietà nel caso sia costruito un hotel.
+-se è una società o una stazione:
+(1/2)*prezzo della cella corrispondente (150$ per le società e 200$ per le stazioni).
+Il giocatore che arriva sulle caselle imprevisti e probabilità pescherà una carta dagli appositi mazzi e leggerà indicazioni riportate che possono essere positive, come ad esempio vincere dei soldi, o negative come il pagare tasse.
+Ad ogni passaggio dal via si ritirano 200$.
+Il gioco procede così tra acquisti e pagamenti di pedaggi e tasse. Se un partecipante finisce i soldi viene eliminato automaticamente (ATTENZIONE: il gioco non ti aiuterà in nessun modo nella gestione dei tuoi fondi, quindi accertati di avere abbastanza soldi prima di acquistare lotti o costruirci sopra!)
+
+Prigione
+Si finisce in prigione se il segnalino si ferma sulla casella “Police”. Il giocatore che finisce sulla casella prigione dovrà stare fermo due turni.
+Fine del gioco
+Vincerà alla fine chi riuscirà a gestire meglio le proprie finanze mandando gli altri in bancarotta.
