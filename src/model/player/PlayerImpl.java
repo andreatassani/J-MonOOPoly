@@ -20,17 +20,20 @@ public class PlayerImpl implements Player {
     private Color color;
     private Pawns pawns;
     private int money;
-    private static final int BANK_AMOUNT = 2000;
+    private static final int BANK_AMOUNT = 4000;
     private int stopTurns = 0;
     private ArrayList<Property> properties = new ArrayList<>();
     private int position;
     
-    public PlayerImpl(final String name, final Color color, final Pawns pawns) {
+    public PlayerImpl(final String name, final Color color, final Pawns pawns, String difficulty) {
         this.name = name;
         this.position = 0;
         this.color = color;
         this.pawns = pawns;
         this.money = BANK_AMOUNT;
+        if(difficulty.equals("HARD")) {
+                this.money = 1000;
+        }
         this.position = 0;
     }
     

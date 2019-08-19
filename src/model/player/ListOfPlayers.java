@@ -16,7 +16,7 @@ public class ListOfPlayers {
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK);
+        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
         bank.setMoney(500000);
         this.list.add(bank);
     }
@@ -132,7 +132,7 @@ public class ListOfPlayers {
  */
    public void removeAllPlayers() { 
 		   list.clear();
-		   PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK);
+		   PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
 		   numberOfPlayers = 0;
 	       bank.setMoney(500000);
 		   this.list.add(bank);
