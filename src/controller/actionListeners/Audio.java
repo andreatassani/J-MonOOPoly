@@ -12,10 +12,10 @@ import controller.audio.AudioManager;
  */
 public class Audio implements ActionListener {
 /**
- * Class fields.	
+ * Fields.	
  */
-	AudioManager clip;
-	JButton settings;
+	private  AudioManager clip;
+	private  JButton settings;
 /**
  * Class builder.	
  * @param clip audio track to activate/deactivate

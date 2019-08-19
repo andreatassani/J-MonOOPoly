@@ -8,9 +8,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import model.allTypeOfCard.Property;
-import model.myEnum.Colors;
 import model.myEnum.Pawns;
-import view.play.MainExternContainer;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
@@ -18,7 +16,7 @@ public class ListOfPlayers {
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, Pawns.BANK);
+        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK);
         bank.setMoney(500000);
         this.list.add(bank);
     }
@@ -134,7 +132,7 @@ public class ListOfPlayers {
  */
    public void removeAllPlayers() { 
 		   list.clear();
-		   PlayerImpl bank = new PlayerImpl("Bank", Color.BLACK, Pawns.BANK);
+		   PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK);
 		   numberOfPlayers = 0;
 	       bank.setMoney(500000);
 		   this.list.add(bank);

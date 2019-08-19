@@ -20,7 +20,7 @@ public class Players implements ActionListener {
  */
 	private JFrame frame;
 	private AudioManager clip;
-	private int m;
+	private String m;
 	private AudioManager clip2;
 	
 	
@@ -32,7 +32,7 @@ public class Players implements ActionListener {
  * @param clip2 clip audio track to activate/deactivate
  * @param m
  */	
-	public Players(final JFrame frame, final  AudioManager clip, final AudioManager clip2, final int m) {
+	public Players(final JFrame frame, final  AudioManager clip, final AudioManager clip2, final String m) {
 		super();
 		this.frame = frame;
 		this.clip = clip;
@@ -47,22 +47,23 @@ public class Players implements ActionListener {
 	public void actionPerformed(ActionEvent e) {		
 		
 		switch(m) {
-		case 0:
+		case "ROCK":
 			clip2.getRockMusic().loop();
 			break;
-		case 1:
+		case "TECNO":
 			clip2.getTecnoMusic().loop();
 			break;
-		case 2:
+		case "CLASSIC":
 			clip2.getClassicMusic().loop();;
 			break;
-		case 3:
+		case "NARCOS":
 			clip2.getPopMusic().loop();
 			break;
 		}
 		clip.getMusicMenu().stop();
 		frame.dispose();
 		new MenuGui(new SettingPlayersMenu());
+		System.out.println(m);
 		
 	
 		

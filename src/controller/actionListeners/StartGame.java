@@ -49,7 +49,7 @@ public class StartGame implements ActionListener {
     	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 	    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));	    	  
     		  } else {
-    				  JOptionPane.showMessageDialog(null,"Hai selezionato una pedina o un colore o un nome già selezionato \n oppure hai scelto la banca  ");
+    				  JOptionPane.showMessageDialog(null,"Hai selezionato una pedina o un colore o un nome già selezionato  ");
         			  list.removeAllPlayers();
     		                 }
 		  

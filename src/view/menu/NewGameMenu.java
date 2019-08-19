@@ -3,8 +3,6 @@ package view.menu;
 import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-
 import controller.actionListeners.Back;
 import controller.actionListeners.Players;
 import controller.audio.AudioManager;
@@ -20,11 +18,6 @@ public class NewGameMenu extends JFrame {
  * New Game menu fields.
  */
 	private static final long serialVersionUID = -1351952748912231272L;
-	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
-	private static final int width = Toolkit.getDefaultToolkit().getScreenSize().width;
-	private static final int height = Toolkit.getDefaultToolkit().getScreenSize().height;
-	private static final Dimension dim = new Dimension(width/6 ,height/20);
-	private static final Dimension dimPanel  = new Dimension(width/2,height/4);
 	private JPanel north;
 	private JPanel center;
 	private JLabel title;
@@ -38,10 +31,13 @@ public class NewGameMenu extends JFrame {
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
-	private CustomMethods methods;
+	private Dimension dim;
+	private Dimension dimPanel;
+	private CustomMethodsImpl methods = new CustomMethodsImpl();
 	private static AudioManager clip = new AudioManager();
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
+	
 /**
  * constructor of the New game menu.
  */
@@ -49,7 +45,8 @@ public class NewGameMenu extends JFrame {
 /**
  * declaration of the fields.	
  */
-		this.methods = new CustomMethodsImpl();
+		this.dim = new Dimension(methods.getWidth()/6 ,methods.getHeight()/20);
+		this.dimPanel = new Dimension(methods.getWidth()/2,methods.getHeight()/4);
 		this.action = new ControllerNewGameMenu();
 		this.players = new JButton("Players");
 		this.music = new JLabel("Music");
@@ -81,8 +78,9 @@ public class NewGameMenu extends JFrame {
 		this.setBackground(methods.getBackground());	
 		imageRight.setIcon(icon);
 		imageLeft.setIcon(icon);
-		Image scaledImage = icon.getImage().getScaledInstance(width/7,height/4, Image.SCALE_DEFAULT);
+		Image scaledImage = icon.getImage().getScaledInstance(methods.getWidth()/7,methods.getHeight()/4, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);	
+		
 
 /**
  *Action Listener chooses the audio track to listen to during the game and opens
@@ -93,7 +91,6 @@ public class NewGameMenu extends JFrame {
 	    	  action.music(choiseMusic.getSelectedIndex(), clip2);
 	    	  clip.getMusicMenu().stop();
 	    	  action.players(this);
-	    	  JOptionPane.showMessageDialog(null, "SELEZIONARE IL NUMERO DI GICOATORI");
 		      };
 		
 	   
@@ -102,7 +99,7 @@ public class NewGameMenu extends JFrame {
  */
 		this.setLayout(new BorderLayout());
 		north.setLayout(new FlowLayout(FlowLayout.CENTER));
-		center.setLayout(new FlowLayout(FlowLayout.CENTER,height/2,height/10));			
+		center.setLayout(new FlowLayout(FlowLayout.CENTER,methods.getHeight()/2,methods.getHeight()/10));			
 /**
  * i add all the components to the main panel.	
  */
@@ -113,7 +110,7 @@ public class NewGameMenu extends JFrame {
 		north.add(title);
 		north.add(imageRight);
 		center.add(music);
-		center.add(currency);		
+		center.add(currency);				
 		center.add(choiseMusic);
 		center.add(choiseCurrency);
 		center.add(players);		
