@@ -52,7 +52,7 @@ public class StartGame implements ActionListener {
     				  JOptionPane.showMessageDialog(null," You have selected a pawn or a color or a name already selected ");
         			  list.removeAllPlayers();
     		                 }
-		  
+		 
     			  
 
     		  }

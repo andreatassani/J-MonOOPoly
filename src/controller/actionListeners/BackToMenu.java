@@ -1,9 +1,12 @@
 package controller.actionListeners;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.management.GarbageCollectorMXBean;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 import model.allTypeOfCard.EntityDeck;
@@ -23,12 +26,12 @@ public class BackToMenu implements ActionListener {
     /**
      * fields.
      */
-    private MainExternContainerImpl frame;
+    private JFrame frame;
     /**
      * 
      * constructor.
      */
-    public BackToMenu(MainExternContainerImpl playFrame) {
+    public BackToMenu(JFrame playFrame) {
         this.frame = playFrame;
     }
     /**
@@ -36,23 +39,17 @@ public class BackToMenu implements ActionListener {
      */
     @Override
     public void actionPerformed(ActionEvent e) {
-            int choice = JOptionPane.showConfirmDialog(frame, "Are you sure to return in the main menù? \n If you will click 'YES', "
+            Integer choice = JOptionPane.showConfirmDialog(frame, "Are you sure to close the game? \n If you will click 'YES', "
                                                        + "you will lose all the progress in this session!", "Select an option...", 
                                                        JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
-            if (choice == 0) {
-//                new MenuGui(new MainMenu());
-//                NewGameMenu.getClip().getPopMusic().stop();
-//                NewGameMenu.getClip().getTecnoMusic().stop();
-//                NewGameMenu.getClip().getClassicMusic().stop();
-//                NewGameMenu.getClip().getRockMusic().stop();
-//                frame.dispose();
-            	ListOfPlayers players = new ListOfPlayers();
-        		EntityDeck deck = new EntityDeck(players.getPlayerFromIndex(0));
-        		players.addPlayer(new PlayerImpl("Fabio", Color.PINK, Pawns.BALL,"DIO BOIA"), 1);
-        		players.addPlayer(new PlayerImpl("Andrea", Color.BLUE, Pawns.MOTO,"BLEAH"), 2);
-        		players.addPlayer(new PlayerImpl("Michele", Color.GREEN, Pawns.PEN,"TOP"), 3);
-                players.addPlayer(new PlayerImpl("Enrico", Color.RED, Pawns.IRON,"TOPO"), 4);
-                MainExternContainerImpl main = new MainExternContainerImpl(players, deck.getDeck());
+            if (choice.equals(0)) {
+            	frame.dispose();                
+                NewGameMenu.getClip().getPopMusic().stop();
+                NewGameMenu.getClip().getTecnoMusic().stop();
+                NewGameMenu.getClip().getClassicMusic().stop();
+                NewGameMenu.getClip().getRockMusic().stop();
+                
+                
             }
     }
 

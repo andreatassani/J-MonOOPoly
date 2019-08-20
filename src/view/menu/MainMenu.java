@@ -90,6 +90,7 @@ import model.customComponent.CustomMethodsImpl;
 /**
  * Menu audio track plays in loop.
  */
+	  
 	  clipAudio.getMusicMenu().loop();  
 }
 
