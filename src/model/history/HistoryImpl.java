@@ -1,29 +1,27 @@
 package model.history;
 
-import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.Optional;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
-import model.player.Player;
 import model.player.PlayerImpl;
 import model.situation.Situation;
 import model.situation.SituationImpl;
 import view.play.HistoryView;
-import view.play.MainExternContainerImpl;
 import view.play.SituationView;
-
+/**
+ * 
+*class that implements the history's interface.
+ */
 public class HistoryImpl implements History {
-	
-
+/**
+ * HistoryImpl fields.
+ */	
 	private static ArrayList<JButton> fields;
 	private Optional<ArrayList<Entity>> deck;
 	private Optional<String> nameCard;
@@ -32,35 +30,40 @@ public class HistoryImpl implements History {
 	private static JButton button;
 	private static int position =0;
 	private Situation situation;
-	private static final int WIDTH = Toolkit.getDefaultToolkit().getScreenSize().width;
-	private static final int HEIGHT = Toolkit.getDefaultToolkit().getScreenSize().height;
-	private static Dimension leftSideDimension = new Dimension ((int) (WIDTH / 1.45),(HEIGHT));
-	private static Dimension rightSideDimension = new Dimension((int) (WIDTH - leftSideDimension.getSize().width),(HEIGHT/2));
-	private static Dimension dim = new Dimension((int) (MainExternContainerImpl.getRightSide().getWidth()), (rightSideDimension.getSize().height/15));
-	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (dim.getSize().height/1.45));
-	private static final Color j = new Color(173,238,216);
-	
+	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (HistoryView.getDim().getSize().height/1.45));
+/**
+ * constructor of the HistoryImpl.
+ */
 	public HistoryImpl (Optional<ArrayList<Entity>> deck) {
 		this.deck=deck;
 		this.situation = new SituationImpl();
 	}
-	
+	/**
+	 * constructor of the HistoryImpl.
+	 */	
 	private int setPosition(int pos) {
-	pos++;
-	return pos;
+		pos++;
+		return pos;
 	}
-	
+	/**
+	 * Add buttons to the array list of buttons of the historyView
+	 *   @param fields is the input list of buttons
+	 */	
 	private void incrementButtons (ArrayList<JButton> fields) {
 		final JButton but = new JButton ("");
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
 	    but.setFont(f);
-	    but.setBackground(j);
-	    but.setMaximumSize(dim);
-	    but.setMinimumSize(dim);
+	    but.setBackground(HistoryView.getColor());
+	    but.setMaximumSize(HistoryView.getDim());
+	    but.setMinimumSize(HistoryView.getDim());
 	    fields.add(but);
 		HistoryView.setHistory(fields);
 	}
-	@Override
+	/**
+	 * Print the position of the player in the historyView.
+	 *   @param player is the subject of the history
+	 *   @param card is the index of the card inside the deck
+	 */
 	public void printPositionPlayer(PlayerImpl player,int card) {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -74,11 +77,12 @@ public class HistoryImpl implements History {
 		 incrementButtons(fields);
 		 HistoryView.resetGUI();
 		 situation.setPosition(player);
-		 
+		 }
 
-	}
-
-	@Override
+	/**
+	 * Print the start of the game in the historyView.
+	 * 
+	 */
 	public void printStartGame() {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -87,10 +91,11 @@ public class HistoryImpl implements History {
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryView.resetGUI();
-		
-
 	}
-	
+	/**
+	 * Print a message if a player passes by the start.
+	 * @param player is the subject of the history
+	 */
 	public void start(PlayerImpl player) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -101,8 +106,10 @@ public class HistoryImpl implements History {
 		 HistoryView.resetGUI();
 		 situation.setMoney(player);
 	}
-
-	@Override
+	/**
+	 * Print a message if a player buy a property.
+	 * @param player is the subject of the history
+	 */
 	public void buyPropriety(PlayerImpl player) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -117,8 +124,11 @@ public class HistoryImpl implements History {
 		 situation.setPropriety(player);
 	
 	}
-
-	@Override
+	/**
+	 * 
+	 * Print a message at the beginning of the turn.
+	 * @param player is the subject of history message.
+	 */
 	public void startTurn(PlayerImpl player) {
 		HistoryView.resetColor(player);
 		SituationView.resetColor(player);
@@ -133,7 +143,13 @@ public class HistoryImpl implements History {
 
 		
 	}
-	
+	/**
+	 * 
+	 * print a chance message if you ended up into chance position.
+	 * chance can give you or take away money.
+	 * @param player is the subject of history message.
+	 * @param amount is the quantity of money to give/take away .
+	 */
 	public void chance (PlayerImpl player, int amount) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -145,7 +161,11 @@ public class HistoryImpl implements History {
 		 HistoryView.resetGUI();
 		 situation.setMoney(player);
 	}
-	
+	/**
+	* 
+	* print a message if you ended up into tax position.
+	* @param player is the subject of history message.
+	*/
 	public void lost (PlayerImpl player) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -155,9 +175,16 @@ public class HistoryImpl implements History {
 		 incrementButtons(fields);
 		 HistoryView.resetGUI();
 		 situation.setMoney(player);
-		
-		
 	}
+	/**
+	* 
+	*print a message if you ended up into other player's property.
+	* @param player is the subject of history message.
+	* @param price is used to calculate the total amount of tool.
+	* @param nHouses is used to calculate the total amount of tool.
+	* @param owner is the other subject of history message.
+	* 
+	*/
 	
 	public void tollHouses (PlayerImpl player,int price,int nHouses,PlayerImpl owner) {
 		fields = HistoryView.getHistory();
@@ -172,10 +199,16 @@ public class HistoryImpl implements History {
 		 situation.setMoney(owner);
 		 situation.setPropriety(player);
 		 situation.setPropriety(owner);
-		
-		
-	}
-	
+		}
+	/**
+	* 
+	*print a message if you ended up into other player's property.
+	* @param player is the subject of history message.
+	* @param price is used to calculate the total amount of tool.
+	* @param nHouses is used to calculate the total amount of tool.
+	* @param owner is the other subject of history message.
+	* 
+	*/
 	public void tollHotel (PlayerImpl player,int price,PlayerImpl owner) {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
@@ -190,7 +223,12 @@ public class HistoryImpl implements History {
 		 situation.setPropriety(player);
 		 situation.setPropriety(owner);
 	}
-	
+	/**
+	* 
+	* print a message if you build an hotel.
+	* @param player is the subject of history message.
+	* @param pos is position of the hotel.
+	*/
 	public void buildHotel(PlayerImpl player ,int pos) {
 		fields = HistoryView.getHistory();
 		button = fields.get(position);
@@ -206,7 +244,12 @@ public class HistoryImpl implements History {
 		
 		
 	}
-
+	/**
+	* 
+	* print a message if you build an house.
+	* @param player is the subject of history message.
+	* @param pos is position of the house.
+	*/
 	public void buildHouse(PlayerImpl player ,int pos) {
 		
 		fields = HistoryView.getHistory();
@@ -221,8 +264,13 @@ public class HistoryImpl implements History {
 		situation.setPropriety(player);
 		
 	}
-	
-public void sellPropriety(PlayerImpl player) {
+	/**
+	* 
+	* print a message if you sell a property.
+	* @param player is the subject of history message.
+	* 
+	*/
+	public void sellPropriety(PlayerImpl player) {
 		
 		fields = HistoryView.getHistory();
 		button = fields.get(position);
@@ -235,7 +283,14 @@ public void sellPropriety(PlayerImpl player) {
 		situation.setPropriety(player);
 		
 	}
-public void stop(PlayerImpl player,int turn) {
+	/**
+	* 
+	* print a message if a player ended up into police position.
+	* @param player is the subject of history message.
+	* @param turn is the number of turn you have to stay in prison.
+	* 
+	*/
+	public void stop(PlayerImpl player,int turn) {
 	
 	fields = HistoryView.getHistory();
 	 button = fields.get(position);
@@ -246,8 +301,14 @@ public void stop(PlayerImpl player,int turn) {
 	 HistoryView.resetGUI();
 	
 	
-}
-public void endStop(PlayerImpl player) {
+	}
+	/**
+	* 
+	* print a message if a player can go out to the prison.
+	* @param player is the subject of history message.
+	* 
+	*/
+	public void endStop(PlayerImpl player) {
 	
 	fields = HistoryView.getHistory();
 	 button = fields.get(position);
@@ -258,9 +319,7 @@ public void endStop(PlayerImpl player) {
 	 HistoryView.resetGUI();
 	
 	
-}
+	}
 }
 
-//JOptionPane.showMessageDialog(null,"è il turno di "+ listPl.getCurrentPlayer().getName() + " e si trova sulla casella " + deck.get(listPl.getCurrentPlayer().getPosition()).getName(),
-//        "messaggio", 0);
 

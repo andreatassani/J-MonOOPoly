@@ -1,49 +1,40 @@
 package model.situation;
 
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.Optional;
-
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
-import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
 import view.play.SituationView;
-
+/**
+ * 
+*class that implements the situation's interface.
+ */
 public class SituationImpl implements Situation {
-	
+	/**
+	 * SituationImpl fields.
+	 */		
 	private	static  ListOfPlayers players;
-	
-	
 	private static ArrayList<JPanel> flowPanels = new ArrayList<JPanel>();
 	private JPanel panel;
 	private JButton button;
 	private static String properties;
 	
-	
-	
-	
+	/**
+	 * constructor of the SituationImpl.
+	 */
 	public SituationImpl () {
 		players=SituationView.getListOfPlayers();
 		properties="";
 	}
-
-	public static String getProperties() {
-		return properties;
-	}
-	
-	 
-		
-	
-	
-	
+	/**
+	* Set the player's money within the GUI.
+	* @param pl
+	*
+	*/
 	public void setMoney(PlayerImpl pl) {
 		flowPanels=SituationView.getSituation();
 		panel=flowPanels.get(players.getIndexFromPlayer(pl));
@@ -51,6 +42,11 @@ public class SituationImpl implements Situation {
 		button.setText(""+pl.getMoney());
 		SituationView.setSituation(flowPanels);
 		}
+	/**
+	* Set the player's position within the GUI.
+	* @param pl
+	*
+	*/
 	public void setPosition(PlayerImpl pl) {
 		flowPanels=SituationView.getSituation();
 		panel=flowPanels.get(players.getIndexFromPlayer(pl));
@@ -58,6 +54,11 @@ public class SituationImpl implements Situation {
 		button.setText("Position: "+pl.getPosition());
 		SituationView.setSituation(flowPanels);
 		}
+	/**
+	* Set the properties of the player within the GUI.
+	* @param pl
+	*
+	*/
 	public void setPropriety(PlayerImpl pl) {
 		flowPanels=SituationView.getSituation();
 		panel=flowPanels.get(players.getIndexFromPlayer(pl));
@@ -66,10 +67,14 @@ public class SituationImpl implements Situation {
 		properties="";
 			for(Property prop : pl.getListOfProperties()) 
 			properties = ( properties + " " + prop.getName() + " number of houses: "+ prop.getHouses() + ". Hotel is present: " +prop.getHotel()+"\n");
-			
-		
 		SituationView.setSituation(flowPanels);
 		}
+	/**
+	 * Static method that returns a string with the properties of a player inside.
+	 */
+	public static String getProperties() {
+		return properties;
+	}
 
 }
 	
