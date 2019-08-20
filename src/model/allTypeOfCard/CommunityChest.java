@@ -15,12 +15,12 @@ public class CommunityChest implements Entity{
     /**
      * fields
      */
-    private PlayerImpl owner;
-    private String name = "Community Chest";
-    private ArrayList<CCCCard> deck = new ArrayList<>();
+    private final PlayerImpl owner;
+    private final String name = "Community Chest";
+    private final ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
-    private int positionOnBoard;
+    private final int positionOnBoard;
     /**
      * constructor
      */
@@ -44,7 +44,7 @@ public class CommunityChest implements Entity{
      * this method draws a Chance card randomly
      */
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
         final int risultato = r.nextInt(numberOfCards);
         deck.get(risultato).action(pl);
     }

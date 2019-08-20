@@ -14,11 +14,11 @@ public class Society  extends Property {
     /**
      * fields
      */
-    private String name;
-    private int positionInBoard = 0;
+    private final String name;
+    private final int positionInBoard;
     private PlayerImpl owner;
-    private int price;
-    private Color color;
+    private final int price;
+    private final Color color;
     
     /**
      * constructor.
@@ -28,7 +28,7 @@ public class Society  extends Property {
      * @param owner
      */
     
-    public Society(String name, int price, int position, PlayerImpl owner, Color color) {
+    public Society(final String name,final int price,final int position,final PlayerImpl owner,final Color color) {
         super(name, color, position, owner);	
         this.name = name;
         this.price = price;
@@ -49,7 +49,7 @@ public class Society  extends Property {
     /**
      * @param owner the owner to set
      */
-    public void setOwner(PlayerImpl owner) {
+    public void setOwner(final PlayerImpl owner) {
 		this.owner = owner;
     }
     /**
@@ -70,7 +70,7 @@ public class Society  extends Property {
      * the toll is calculated in this way: toll = (1/2)this.price
      */
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
         if (this.getOwner() == pl){
             return;
             } else {
