@@ -24,7 +24,7 @@ public class HowToPlay extends JFrame {
 	private ControllerNewGameMenu action;
 	private AudioManager clip ;
 	private CustomMethodsImpl methods = new CustomMethodsImpl();
-	private Dimension dim;
+	private Dimension _dimU_;
 /**
  * Builder of howToPlay.	
  */
@@ -38,7 +38,7 @@ public class HowToPlay extends JFrame {
 	 this.image = new JLabel();
 	 this.icon = new ImageIcon("res/menuIcon/howToPlay.png");
 	 this.back = new JButton("Back");
-	 this.dim  = new Dimension(methods.getWidth()/6,methods.getHeight()/20);
+	 this._dimU_  = new Dimension(methods.getWidth()/6,methods.getHeight()/20);
 /**
  *I set the size of the background image, the JComponents that 
  *contain it.     
@@ -51,7 +51,7 @@ public class HowToPlay extends JFrame {
  *Imposed the esthetic customizations
  *of the JComponents.  	 
  */	 
-	 methods.setPreference(back, dim ,methods.getButton(), Color.black, methods.getFont());
+	 methods.setPreference(back, _dimU_ ,methods.getButton(), Color.black, methods.getFont());
 	 general.setBackground(methods.getBackground());
 /**
  * I check if i have to stop the sounds.

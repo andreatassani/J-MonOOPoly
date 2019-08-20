@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import controller.actionListeners.Back;
 import controller.actionListeners.HowToPlayButton;
-import controller.actionListeners.Players;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
 import model.customComponent.CustomMethodsImpl;

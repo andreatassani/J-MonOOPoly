@@ -23,7 +23,7 @@ public class MenuGui {
 		frame.setExtendedState(JFrame.MAXIMIZED_HORIZ);
 		frame.setExtendedState(JFrame.MAXIMIZED_VERT);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.getContentPane().setSize(d);
+		frame.setSize(d);
 		frame.setState(JFrame.MAXIMIZED_BOTH);
 		frame.setResizable(false);
 		frame.setVisible(true);
