@@ -56,7 +56,6 @@ public class Buy implements ActionListener {
              pl = listPl.getCurrentPlayer();
          }
         buy.setEnabled(false);
-        sell.setEnabled(true);
         if(deck.get(pl.getPosition()).isBuildable()) {
         build.setEnabled(true);
         }
