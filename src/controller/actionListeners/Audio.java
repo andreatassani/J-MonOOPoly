@@ -21,7 +21,7 @@ public class Audio implements ActionListener {
  * @param clip audio track to activate/deactivate
  * @param settings  settings JButton to change the header
  */
-	 public Audio(AudioManager clip, JButton settings) {
+	 public Audio(final AudioManager clip, final JButton settings) {
 		this.clip = clip;
 		this.settings = settings;
 		

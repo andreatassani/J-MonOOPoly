@@ -24,6 +24,7 @@ public class AudioManager {
 	    private AudioSetting dice;
 	    private AudioSetting pawn;
 	    private AudioSetting cash;
+	    private AudioSetting build;
 	    
 	    
 
@@ -46,6 +47,7 @@ public class AudioManager {
 	            this.dice = new AudioSettingImpl("/sounds/dadi.wav");
 	            this.pawn = new AudioSettingImpl("/sounds/pedina.wav");
 	            this.cash = new AudioSettingImpl("/sounds/soldi.wav");
+	            this.build = new AudioSettingImpl("/sounds/build.wav");
 	           
 	            
 	        } catch (UnsupportedAudioFileException | IOException | LineUnavailableException e) {
@@ -127,6 +129,13 @@ public class AudioManager {
 	    public AudioSetting getPawnSound() {
 	    	        return this.pawn;
 	    	    }
+/**
+ * Gets the build sound.
+ * @return build.
+ */
+	    public AudioSetting getBuilSound() {
+	    	return this.build;
+	    }
 	}
 
 

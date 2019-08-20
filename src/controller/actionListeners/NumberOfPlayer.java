@@ -25,7 +25,7 @@ public class NumberOfPlayer implements ActionListener {
  * @param p4 JPanel disappears
  * @param b the button that makes the panels disappear
  */
-	public NumberOfPlayer(JPanel p3, JPanel p4, JButton b) {
+	public NumberOfPlayer(final JPanel p3,final  JPanel p4,final JButton b) {
 		this.p3 = p3;
 		this.p4 = p4;
 		this.b = b;

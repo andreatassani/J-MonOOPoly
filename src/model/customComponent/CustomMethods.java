@@ -27,13 +27,13 @@ public interface CustomMethods {
  * @param color a JComboBox.
  * @param pawn a JComboBox.
  */
-	void createSetPlayer(JPanel player, JTextField name, JComboBox<Colors> color, JComboBox<Pawns> pawn, Font f);
+	void createSetPlayer(final JPanel player,final JTextField name,final JComboBox<Colors> color,final JComboBox<Pawns> pawn,final Font f);
 /**
  * Method for creating a panel with customized measurements.
  * @param p
  * @param d
  */	
-	void createNumPlayerPanel(JPanel p, JLabel l, JButton n, Font f);
+	void createNumPlayerPanel(final JPanel p,final JLabel l,final JButton n,final Font f);
  
 /**
  * Method for customizing a JComponent.	  
@@ -43,14 +43,14 @@ public interface CustomMethods {
  * @param write JComponent foreground color
  * @param f JComponent font
  */
-	void setPreference(JComponent j , Dimension d , Color back, Color write, Font f);
+	void setPreference(final JComponent j ,final Dimension d ,final Color back,final Color write,final Font f);
  
 /**
  * Method for creating a panel with customized measurements.
  * @param p
  * @param d
  */
-	void setMyPanel(JPanel p, Dimension d);
+	void setMyPanel(final JPanel p,final Dimension d);
 /**
  * To set the size of an image. 
  * @return image size

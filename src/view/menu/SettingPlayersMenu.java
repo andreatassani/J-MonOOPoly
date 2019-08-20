@@ -5,7 +5,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.text.html.parser.Entity;
-import controller.actionListeners.BackFromSettingsMenu;
+import controller.actionListeners.BackSettingsMenu;
 import controller.actionListeners.NumberOfPlayer;
 import controller.actionListeners.StartGame;
 import controller.audio.AudioManager;
@@ -25,6 +25,7 @@ import model.player.ListOfPlayers;
 /**
  * SettingPlayersMenu fields.
  */
+		private static final long serialVersionUID = 1L;
 		private final CustomMethodsImpl methods = new CustomMethodsImpl();
 		private JPanel right = new JPanel();
 		private JPanel left = new JPanel();		
@@ -51,7 +52,6 @@ import model.player.ListOfPlayers;
 		private JLabel image = new JLabel();
 		private ImageIcon icon = new ImageIcon("res/menuIcon/setGame.png");
 		private ControllerSettingPlayersMenu action;
-		private ArrayList<Entity> deck;
 		private ListOfPlayers list = new ListOfPlayers();
 		private AudioManager clip;	
 		private JButton done;
@@ -59,13 +59,11 @@ import model.player.ListOfPlayers;
 		private String namePlayer;
 		private Dimension dimPlayer;
 		private Dimension dimName;
-		private Dimension dimCombo;
-		private Dimension dimComboColor;
 		private Dimension dimNameG;
 /**
 * Constructor of the main menu.
 */					
-	public SettingPlayersMenu(String i) {	
+	public SettingPlayersMenu(String difficulty) {	
 
 /**
  * Set the layout and measurements of 
@@ -75,13 +73,10 @@ import model.player.ListOfPlayers;
 		this.namePlayer = "Name Player";
 		this.done = new JButton("DONE");
 		this.clip = new AudioManager();
-//		this.deck = new ArrayList<Entity>(0);
 		this.action = new ControllerSettingPlayersMenu();
 		this.setLayout(new BorderLayout());
 		this.dimPlayer = new Dimension(methods.getWidth()/2,methods.getHeight());
 		this.dimName = new Dimension((methods.getWidth()/5),methods.getHeight()/28);
-		this.dimCombo = new Dimension((methods.getWidth()/10),methods.getHeight()/28);
-		this.dimComboColor = new Dimension(((methods.getWidth()/4)/3),methods.getHeight()/28);
 		this.dimNameG = new Dimension((methods.getWidth()/3),methods.getHeight()/28);
 /**
  * Customize JComponents.		
@@ -114,27 +109,27 @@ import model.player.ListOfPlayers;
 	      ActionListener actionDone = (e)->{		    	  
 	    	if(howManyPlayer.getText().equals("4")) {
 	    	list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			action.chosenPawn(pawn1.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			action.chosenPawn(pawn2.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn3.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			action.chosenPawn(pawn3.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	list.addPlayer(action.start(namePlayer4.getText(), action.chosenColor(color4.getSelectedIndex()) , 
-	    			action.chosenPawn(pawn4.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			action.chosenPawn(pawn4.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	}	    	
 	    	if(howManyPlayer.getText().equals("3")) {
 	    		list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
-	    				action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
+	    				action.chosenPawn(pawn1.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    		list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
-	    			    action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			    action.chosenPawn(pawn2.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    		list.addPlayer(action.start(namePlayer3.getText(),action.chosenColor(color3.getSelectedIndex()) , 
-	    			    action.chosenPawn(pawn3.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			    action.chosenPawn(pawn3.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	}	    	
 	    	if(howManyPlayer.getText().equals("2")) {
 	    		list.addPlayer(action.start(namePlayer1.getText(),action.chosenColor(color1.getSelectedIndex()) , 
-	    				action.chosenPawn(pawn1.getSelectedIndex())), list.getNumberPlayer()+1);
+	    				action.chosenPawn(pawn1.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    		list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
-	    			    action.chosenPawn(pawn2.getSelectedIndex())), list.getNumberPlayer()+1);
+	    			    action.chosenPawn(pawn2.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	}
 	  
 		      };	
@@ -161,7 +156,7 @@ import model.player.ListOfPlayers;
 		howManyPlayer.addActionListener(new NumberOfPlayer(player3, player4, howManyPlayer));
 		start.addActionListener(new StartGame(this, list));
 		done.addActionListener(actionDone);	
-		back.addActionListener(new BackFromSettingsMenu(this,NewGameMenu.getClip()));
+		back.addActionListener(new BackSettingsMenu(this,NewGameMenu.getClip()));
 		image.add(start);		
 		left.add(setPlayers);
 		left.add(image);				

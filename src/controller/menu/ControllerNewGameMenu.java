@@ -38,6 +38,7 @@ public class ControllerNewGameMenu {
 		if(s.equals("Audio On")) {
 			clip.getMusicMenu().stop();
 			}else {
+				clip.getMusicMenu().play();
 				clip.getMusicMenu().loop();
 			}
 	}

@@ -7,6 +7,7 @@ import controller.actionListeners.Audio;
 
 import controller.actionListeners.HowToPlayButton;
 import controller.actionListeners.NewGame;
+import controller.actionListeners.TutorialButton;
 import controller.audio.AudioManager;
 import model.customComponent.CustomMethodsImpl;
 
@@ -19,7 +20,7 @@ import model.customComponent.CustomMethodsImpl;
 /**
 * MainMenu fields.
 */
-		private static final long serialVersionUID = -8022354307741023282L;
+		private static final long serialVersionUID = -1L;
 		private JLabel logo;
 		private JButton newGame;
 		private JButton tutorial;
@@ -45,7 +46,7 @@ import model.customComponent.CustomMethodsImpl;
 	  this.dimLogo = new Dimension(methods.getWidth()/2,methods.getHeight()/2);	  
 	  this.clipAudio = new AudioManager();
 	  this.newGame = new JButton("New Game");
-	  this.tutorial = new JButton("How To Play");
+	  this.tutorial = new JButton("Tutorial");
 	  this.settings = new JButton("Audio Off");
 	  this.icon = new ImageIcon("res/menuIcon/Logo Monopoly.png");
 	  this.logo = new JLabel();
@@ -68,7 +69,7 @@ import model.customComponent.CustomMethodsImpl;
  * I add the action listener to the buttons.	  
  */
 	  newGame.addActionListener(new NewGame( clipAudio,this));
-	  tutorial.addActionListener(new HowToPlayButton(clipAudio, this));
+	  tutorial.addActionListener(new TutorialButton(clipAudio, this));
 	  settings.addActionListener(new Audio(clipAudio, settings));	  
 /**
  * Set the JPanel layout.

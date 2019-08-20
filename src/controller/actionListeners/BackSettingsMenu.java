@@ -12,7 +12,7 @@ import view.menu.MenuGui;
  * Class that implements the action of the
  * "Back to main menu" button.
  */
-public class BackFromSettingsMenu implements ActionListener {
+public class BackSettingsMenu implements ActionListener {
 /**
  * Class fields.
  */
@@ -23,7 +23,7 @@ public class BackFromSettingsMenu implements ActionListener {
  * @param frame frame to close
  * @param clip audio track to be stopped
  */
-	public BackFromSettingsMenu(final JFrame frame, final AudioManager clip) {
+	public BackSettingsMenu(final JFrame frame, final AudioManager clip) {
 		this.frame = frame;
 		this.clip = clip;
 	}

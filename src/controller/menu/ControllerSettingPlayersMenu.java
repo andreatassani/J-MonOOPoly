@@ -40,8 +40,8 @@ public class ControllerSettingPlayersMenu {
  * @return player
  */
 	}
-	public PlayerImpl start(final String name,final Color color,final Pawns pawn){
-		PlayerImpl player = new PlayerImpl(name, color, pawn);
+	public PlayerImpl start(final String name,final Color color,final Pawns pawn, String diff){
+		PlayerImpl player = new PlayerImpl(name, color, pawn, diff);
 		return player;	
 	}
 /**

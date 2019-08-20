@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import controller.actionListeners.Back;
+import controller.actionListeners.HowToPlayButton;
 import controller.actionListeners.Players;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
@@ -18,7 +19,7 @@ public class NewGameMenu extends JFrame {
 /**
  * New Game menu fields.
  */
-	private static final long serialVersionUID = -1351952748912231272L;
+	private static final long serialVersionUID = -1L;
 	private JPanel north;
 	private JPanel center;
 	private JLabel title;
@@ -38,7 +39,7 @@ public class NewGameMenu extends JFrame {
 	private static AudioManager clip = new AudioManager();
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
-	private JButton tutorial;
+	private JButton howToPlay;
 	private final static String[] _MOD_ = {"EASY", "HARD"};
 	
 /**
@@ -52,7 +53,7 @@ public class NewGameMenu extends JFrame {
 		this.dimPanel = new Dimension(methods.getWidth()/2,methods.getHeight()/4);
 		this.action = new ControllerNewGameMenu();
 		this.players = new JButton("Players");
-		this.music = new JLabel("Music");
+		this.music = new JLabel("MUSIC");
 		this.difficulty = new JLabel("DIFFICULTY");
 		this.title = new JLabel("MAIN MENU");
 		this.back = new JButton("Back");
@@ -63,7 +64,7 @@ public class NewGameMenu extends JFrame {
 		this.center = new JPanel();			
 		this.imageRight = new JLabel();
 		this.imageLeft = new JLabel();
-		this.tutorial  = new JButton("Tutorial");
+		this.howToPlay  = new JButton("How To Play");
 
 		
 		
@@ -77,8 +78,7 @@ public class NewGameMenu extends JFrame {
 		methods.setPreference(choiseMusic, dim,methods.getBackground(), Color.black, methods.getFont());
 		methods.setPreference(difficulty, dim, methods.getBackground(), Color.black, methods.getFont());
 		methods.setPreference(back, dim, methods.getButton(), methods.getWriter(), methods.getFont());
-		methods.setPreference(tutorial, dim, methods.getButton(), methods.getWriter(), methods.getFont());
-		
+		methods.setPreference(howToPlay, dim, methods.getButton(), methods.getWriter(), methods.getFont());		
 		title.setFont(new Font("Cooper Black",Font.CENTER_BASELINE,70));		
 		center.setBackground(methods.getBackground());		
 		this.setBackground(methods.getBackground());	
@@ -112,6 +112,7 @@ public class NewGameMenu extends JFrame {
 		
 		back.addActionListener(new Back(this, clip, MainMenu.getTextButton()));
 		players.addActionListener(actionPlayers);
+		howToPlay.addActionListener(new HowToPlayButton(clip, this));
 		north.add(imageLeft);
 		north.add(title);
 		north.add(imageRight);
@@ -119,7 +120,7 @@ public class NewGameMenu extends JFrame {
 		center.add(difficulty);				
 		center.add(choiseMusic);
 		center.add(choiseDifficulty);		
-		center.add(tutorial);
+		center.add(howToPlay);
 		center.add(players);
 		center.add(back);
 		this.add(north, BorderLayout.NORTH);

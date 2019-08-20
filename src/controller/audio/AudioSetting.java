@@ -1,12 +1,6 @@
 package controller.audio;
-
-
 /**
- * 
- * 
  * interface for setting section methods.
- *
- *
  * It represents a sound.
  */
 public interface AudioSetting {

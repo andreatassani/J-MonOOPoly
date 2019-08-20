@@ -19,6 +19,7 @@ public class Back implements ActionListener {
 	private JFrame frame;
 	private AudioManager clip;
 	private String s;
+	
 /**
  * Class builder.	
  * @param frame frame to close
@@ -26,7 +27,7 @@ public class Back implements ActionListener {
  * @param s  comparison to know if the audio is active
  * or not
  */
-	public Back(JFrame frame, AudioManager clip, String s) {
+	public Back(final JFrame frame,final AudioManager clip,final String s) {
 		this.frame = frame;
 		this.clip = clip;
 		this.s = s;
@@ -45,7 +46,6 @@ public class Back implements ActionListener {
 		clip.getMusicMenu().stop();
 		frame.dispose();
 		new MenuGui(new MainMenu());
-		
 	}
 
 }

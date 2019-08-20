@@ -24,7 +24,7 @@ public class NewGame  implements ActionListener{
  * @param clip audio track to be stopped
  * @param j frame to close
  */
-	public NewGame(AudioManager clip, JFrame j) {
+	public NewGame(final AudioManager clip,final JFrame j) {
 		this.clip = clip;
 		this.frame = j;
 	}

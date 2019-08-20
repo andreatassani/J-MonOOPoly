@@ -29,7 +29,7 @@ public class StartGame implements ActionListener {
  * @param list of player participating in the game
  * @param deck list of all cells
  */       
-	public StartGame(JFrame frame, ListOfPlayers list) {
+	public StartGame(final JFrame frame,final ListOfPlayers list) {
 		super();
 		this.frame = frame;
 		this.list = list;
@@ -42,14 +42,14 @@ public class StartGame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if(list.isEmpty()) {
-			JOptionPane.showMessageDialog(null,"Nessun giocatore selezionato \n per favore inserisci il numero di giocatori corretto");
+			JOptionPane.showMessageDialog(null,"No player selected please enter the correct number of players and press done");
 		}
 		else if ( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
     	      frame.dispose();
     	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 	    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));	    	  
     		  } else {
-    				  JOptionPane.showMessageDialog(null,"Hai selezionato una pedina o un colore o un nome già selezionato  ");
+    				  JOptionPane.showMessageDialog(null," You have selected a pawn or a color or a name already selected ");
         			  list.removeAllPlayers();
     		                 }
 		  

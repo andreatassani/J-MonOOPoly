@@ -1,34 +1,35 @@
 package view.menu;
 
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.Toolkit;
 import javax.swing.*;
 /**
- * class for creating the GUI for the main menu
- * @author user
- *
+ * Class that builds a frame and customizes it.
  */
 public class MenuGui {
-	
 /**
- * frame settings
+ * Class fields.
  */
 	private static Dimension d = new Dimension(Toolkit.getDefaultToolkit().getScreenSize());
-
-	public MenuGui(JFrame c) {
-		super();
-        
-    	c.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
-        c.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		c.setExtendedState(JFrame.MAXIMIZED_HORIZ);
-		c.setExtendedState(JFrame.MAXIMIZED_VERT);
-		c.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		c.setSize(d);
-		c.setState(JFrame.MAXIMIZED_BOTH);
-		c.setResizable(false);
-		c.setVisible(true);
-        c.pack();
-      
+/**
+ * Class Builder.
+ * @param c frame to customize
+ */
+	public MenuGui(final JFrame frame) {
+		super();       
+		frame.setPreferredSize(d);
+		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+		frame.setExtendedState(JFrame.MAXIMIZED_HORIZ);
+		frame.setExtendedState(JFrame.MAXIMIZED_VERT);
+		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
+		frame.getContentPane().setSize(d);
+		frame.setState(JFrame.MAXIMIZED_BOTH);
+		frame.setResizable(false);
+		frame.setVisible(true);
+		frame.setLocationRelativeTo(frame);
+		frame.pack();   
+		
 	}
 
 
