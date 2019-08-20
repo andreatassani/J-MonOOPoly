@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
@@ -20,20 +19,21 @@ import view.play.PawnMovement;
 
 public class Build implements ActionListener {
     
-    private AudioManager sound;
-    private ArrayList<Entity> deck;
-    private JButton build;
+    private final AudioManager sound;
+    private final ArrayList<Entity> deck;
+    private final JButton buildButton;
     private PlayerImpl pl;
     private int pos;
-    ListOfPlayers listPl;
-    PawnMovement pawnMovement;
+    private final ListOfPlayers listPl;
+    private final PawnMovement pawnMovement;
     private final History history;
-    private MainExternContainerImpl main;
+    private final MainExternContainerImpl main;
 
-    public Build(ListOfPlayers listPl, ArrayList<Entity> deck, JButton build, AudioManager sound, GridCell grid,History history, MainExternContainerImpl main) {
+    public Build(final ListOfPlayers listPl, final ArrayList<Entity> deck,final JButton build,final AudioManager sound,final GridCell grid,
+                 final History history, final MainExternContainerImpl main) {
         this.sound = sound;
         this.deck = deck;
-        this.build = build;
+        this.buildButton = build;
         this.listPl = listPl;
         this.pawnMovement = new PawnMovement(grid, listPl);
         this.history = history;
@@ -41,9 +41,9 @@ public class Build implements ActionListener {
     }
     
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
 
-        build.setEnabled(false);
+        buildButton.setEnabled(false);
         pl = listPl.getCurrentPlayer();
         pos = pl.getPosition();
         ((Property)deck.get(pos)).addHouse();

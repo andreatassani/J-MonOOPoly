@@ -4,40 +4,39 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
-import controller.audio.AudioManager;
 import model.history.History;
 import model.player.ListOfPlayers;
 
 public class NextPlayer implements ActionListener {
 
-    private ListOfPlayers listPl;
-    private JButton rollDice;
-    private JButton buy;
-    private JButton sell;
-    private JButton build;
-    private JButton nextPlayer;
+    private final ListOfPlayers listPl;
+    private final JButton rollDice;
+    private final JButton buy;
+    private final JButton sell;
+    private final JButton build;
+    private final JButton nextPlayerButton;
     private final History history;
     
     
 
-    public NextPlayer(ListOfPlayers listPl, JButton rolldDice,JButton buy, JButton sell, JButton build, JButton nextPlayer,History history) {
+    public NextPlayer(final ListOfPlayers listPl,final JButton rolldDice,final JButton buy,final JButton sell,final JButton build,
+                      final JButton nextPlayer,final History history) {
         this.listPl = listPl;
         this.rollDice = rolldDice;
         this.buy = buy;
         this.sell = sell;
         this.build = build;
-        this.nextPlayer = nextPlayer;
+        this.nextPlayerButton = nextPlayer;
         this.history = history;
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
         rollDice.setEnabled(true);
         buy.setEnabled(false);
         sell.setEnabled(false);
         build.setEnabled(false);
-        nextPlayer.setEnabled(false);
+        nextPlayerButton.setEnabled(false);
         listPl.nextPlayer();
       //Da togliere
         history.startTurn(listPl.getCurrentPlayer());
@@ -51,7 +50,7 @@ public class NextPlayer implements ActionListener {
             history.stop(listPl.getCurrentPlayer(),listPl.getCurrentPlayer().getStopTurns());
         listPl.getCurrentPlayer().setStopTurns(listPl.getCurrentPlayer().getStopTurns()-1);
             rollDice.setEnabled(false);
-            nextPlayer.setEnabled(true);
+            nextPlayerButton.setEnabled(true);
         }
     }
 
