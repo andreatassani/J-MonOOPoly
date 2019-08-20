@@ -84,7 +84,7 @@ public class SituationView extends JPanel {
 			if(Player.getText().equals("Bank"))Cash.setEnabled(false);
 			Cash.setFont(f);
 			Cash.setBackground(listPl.getPlayerFromIndex(i).getColors());
-			final JButton Propriety = new JButton ("Propriety: "+ listPl.getPlayerFromIndex(i).getListOfProperties().size());
+			final JButton Propriety = new JButton ("Property: "+ listPl.getPlayerFromIndex(i).getListOfProperties().size());
 			Propriety.addActionListener(new ActionListener() {
 				
 				@Override
