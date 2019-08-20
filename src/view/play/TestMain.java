@@ -21,7 +21,6 @@ public class TestMain {
 		players.addPlayer(new PlayerImpl("Michele", Color.GREEN, Pawns.PEN,"TOP"), 3);
         players.addPlayer(new PlayerImpl("Enrico", Color.RED, Pawns.IRON,"TOPO"), 4);
         MainExternContainerImpl main = new MainExternContainerImpl(players, deck.getDeck());
-		
 //		players.getPlayerFromIndex(1).buyProperty((Property) (deck.getDeck().get(3)));
 //		players.getPlayerFromIndex(1).buyProperty((Property) (deck.getDeck().get(19)));
 //		players.getPlayerFromIndex(1).buyProperty((Property) (deck.getDeck().get(21)));

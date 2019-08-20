@@ -7,8 +7,12 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
+import model.allTypeOfCard.Entity;
+import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
 import model.myEnum.Pawns;
+import view.play.MainExternContainerImpl;
+import view.winner.Winner;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
@@ -64,14 +68,11 @@ public class ListOfPlayers {
        for(Property pr : pl.getListOfProperties()) {
            pr.setNewOwner(this.getPlayerFromIndex(0));
        }
-       this.isThereAWinner();
        }
    
-   public void isThereAWinner() {
+   public void isThereAWinner(ListOfPlayers list, ArrayList<Entity> deck, MainExternContainerImpl main) {
        if(this.numberOfPlayers == 1) {
-           JOptionPane.showMessageDialog(null,"il giocatore " + this.getPlayerFromIndex(1).getName() + " ha vinto! :D",
-                   "messaggio", 0);
-//           new Winner(this.getPlayerFromIndex(1));
+           new Winner(list, deck, main);
        }
    }
    

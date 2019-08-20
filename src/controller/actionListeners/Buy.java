@@ -15,6 +15,7 @@ import model.player.ListOfPlayers;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
+import view.play.MainExternContainerImpl;
 import view.play.PawnMovement;
 
 public class Buy implements ActionListener {
@@ -28,10 +29,11 @@ public class Buy implements ActionListener {
     private PlayerImpl pl;
     PawnMovement pawnMovement;
     private final History history;
+    private MainExternContainerImpl main;
     
     
 
-    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid,History history) {
+    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid,History history, MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -40,6 +42,7 @@ public class Buy implements ActionListener {
         this.build = build;
         this.pawnMovement = new PawnMovement(grid, listPl);
         this.history = history;
+        this.main = main;
     }
 
     @Override
@@ -49,6 +52,7 @@ public class Buy implements ActionListener {
         sound.getCashSound().play();
         if(pl.getMoney() < 0) {
             new Loss(listPl, pawnMovement);
+            listPl.isThereAWinner(listPl, deck, main);
              pl = listPl.getCurrentPlayer();
          }
         buy.setEnabled(false);
