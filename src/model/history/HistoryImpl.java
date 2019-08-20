@@ -319,8 +319,23 @@ public class HistoryImpl implements History {
 	 position=setPosition(position);
 	 incrementButtons(fields);
 	 HistoryView.resetGUI();
-	
-	
+	}
+	/**
+	* 
+	* print a message when a player loses.
+	* @param player is the subject of history message.
+	* 
+	*/
+	public void losePlayer(PlayerImpl player) {
+		 fields = HistoryView.getHistory();
+		 button = fields.get(position);
+		 button.setText(player.getName() + " has finished playing for this game");
+		 fields.set(position, button);
+		 position=setPosition(position);
+		 incrementButtons(fields);
+		 HistoryView.resetGUI();
+		 situation.setMoney(player);
+		 situation.lose(player;)
 	}
 }
 
