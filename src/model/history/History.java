@@ -113,5 +113,12 @@ void stop(PlayerImpl player,int turn);
 * 
 */
 void endStop(PlayerImpl player);
+/**
+* 
+* print a message when a player loses.
+* @param player is the subject of history message.
+* 
+*/
+void losePlayer(PlayerImpl player);
 
 }

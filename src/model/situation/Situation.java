@@ -25,5 +25,12 @@ public interface Situation {
 	*
 	*/
 	void setPropriety(PlayerImpl pl);
+	/**
+	* 
+	*Deactivate the player's buttons
+	* @param pl
+	*
+	*/
+	void lose(PlayerImpl pl);
 	
 }

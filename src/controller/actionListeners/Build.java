@@ -42,13 +42,14 @@ public class Build implements ActionListener {
     
     @Override
     public void actionPerformed(ActionEvent e) {
+
+        build.setEnabled(false);
         pl = listPl.getCurrentPlayer();
         pos = pl.getPosition();
         ((Property)deck.get(pos)).addHouse();
         sound.getBuilSound().play();
         if(((Property)deck.get(pos)).getHotel()) {
         history.buildHotel(pl, pos);
-        build.setEnabled(false);
         }
         else {
         	 history.buildHouse(pl, pos);

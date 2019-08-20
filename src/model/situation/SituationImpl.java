@@ -22,6 +22,7 @@ public class SituationImpl implements Situation {
 	private JPanel panel;
 	private JButton button;
 	private static String properties;
+	private int i;
 	
 	/**
 	 * constructor of the SituationImpl.
@@ -67,6 +68,20 @@ public class SituationImpl implements Situation {
 		properties="";
 			for(Property prop : pl.getListOfProperties()) 
 			properties = ( properties + " " + prop.getName() + " number of houses: "+ prop.getHouses() + ". Hotel is present: " +prop.getHotel()+"\n");
+		SituationView.setSituation(flowPanels);
+		}
+	/**
+	* Deactivate the player's buttons.
+	* @param pl
+	*
+	*/
+	public void lose(PlayerImpl pl) {
+		flowPanels=SituationView.getSituation();
+		panel=flowPanels.get(players.getIndexFromPlayer(pl));
+		for(i=0;i<panel.getComponentCount();i++) {
+		button=(JButton) panel.getComponent(i);
+		button.setEnabled(false);
+		}
 		SituationView.setSituation(flowPanels);
 		}
 	/**
