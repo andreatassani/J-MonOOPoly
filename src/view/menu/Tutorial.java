@@ -24,10 +24,10 @@ import javax.swing.border.LineBorder;
 import javax.swing.plaf.FileChooserUI;
 import javax.swing.text.AbstractDocument.Content;
 
+import controller.UtilityFile.UtilityFileImpl;
 import controller.actionListeners.Back;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
-import model.UtilityFile.UtilityFileImpl;
 import model.customComponent.CustomMethodsImpl;
 /**
  * Class that builds the Tutorial frame.

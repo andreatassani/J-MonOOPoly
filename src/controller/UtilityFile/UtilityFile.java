@@ -1,4 +1,4 @@
-package model.UtilityFile;
+package controller.UtilityFile;
 /**
  * Interface for the management of UtilityFileImpl.
  */
