@@ -18,7 +18,7 @@ public class Start implements Entity {
     /**
      * Constructor.
      */
-    public Start(PlayerImpl owner) {
+    public Start(final PlayerImpl owner) {
         this.owner = owner;
 	}
     /**
@@ -41,7 +41,7 @@ public class Start implements Entity {
         return false;
     }
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
     }
     @Override
     public PlayerImpl getOwner() {

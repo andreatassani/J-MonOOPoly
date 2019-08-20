@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
@@ -20,25 +19,24 @@ import view.play.PawnMovement;
 
 public class Buy implements ActionListener {
     
-    private ListOfPlayers listPl;
-    private AudioManager sound;
-    private ArrayList<Entity> deck;
-    private JButton buy;
-    private JButton sell;
-    private JButton build;
+    private final ListOfPlayers listPl;
+    private final AudioManager sound;
+    private final ArrayList<Entity> deck;
+    private final JButton buyButton;
+    private final JButton build;
     private PlayerImpl pl;
-    PawnMovement pawnMovement;
+    private final PawnMovement pawnMovement;
     private final History history;
-    private MainExternContainerImpl main;
+    private final MainExternContainerImpl main;
     
     
 
-    public Buy(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound, GridCell grid,History history, MainExternContainerImpl main) {
+    public Buy(final ListOfPlayers listPl,final ArrayList<Entity> deck,final JButton buy,final JButton build, final AudioManager sound, 
+               final GridCell grid,final History history,final  MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
-        this.buy = buy;
-        this.sell = sell;
+        this.buyButton = buy;
         this.build = build;
         this.pawnMovement = new PawnMovement(grid, listPl);
         this.history = history;
@@ -55,8 +53,7 @@ public class Buy implements ActionListener {
             listPl.isThereAWinner(listPl, deck, main);
              pl = listPl.getCurrentPlayer();
          }
-        buy.setEnabled(false);
-        sell.setEnabled(true);
+        buyButton.setEnabled(false);
         if(deck.get(pl.getPosition()).isBuildable()) {
         build.setEnabled(true);
         }

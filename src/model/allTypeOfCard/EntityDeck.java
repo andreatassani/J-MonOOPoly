@@ -17,7 +17,7 @@ public class EntityDeck {
     /**
      * constructor, the PlayerImpl "bank" is useful to associate a starting owner to all the cards
      */
-    public EntityDeck(PlayerImpl bank) {
+    public EntityDeck(final PlayerImpl bank) {
         deck.add(new Start(bank));
         deck.add(new Property("Forlì",Color.PINK, 1, bank));
         deck.add(new Chance(bank, 2));

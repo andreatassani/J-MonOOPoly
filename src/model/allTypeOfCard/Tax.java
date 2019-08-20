@@ -3,13 +3,9 @@ package model.allTypeOfCard;
 import java.awt.Color;
 import java.util.Optional;
 
-import javax.swing.JOptionPane;
-
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.PlayerImpl;
-import model.situation.Situation;
-import model.situation.SituationImpl;
 /**
  * {@inheritDoc}.
  */
@@ -17,12 +13,12 @@ public class Tax implements Entity {
 	
     private String name = "Tax";
     private PlayerImpl owner;
-    private History history;
-    int positionOnBoard;
+    private final History history;
+    private final int positionOnBoard;
     /**
      * Constructor.
      */
-    public Tax(PlayerImpl owner, int positionOnBoard) {
+    public Tax(final PlayerImpl owner,final int positionOnBoard) {
         this.positionOnBoard = positionOnBoard;
         this.owner = owner;
         this.history = new HistoryImpl(Optional.empty());
@@ -47,7 +43,7 @@ public class Tax implements Entity {
         return false;
     }
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
         
         pl.setMoney(-200);
 //        JOptionPane.showMessageDialog(null,"adesso il giocatore " + pl.getName() + " possiede " + pl.getMoney(),

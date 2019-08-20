@@ -8,13 +8,13 @@ import model.myUtility.ShowImages;
 
 public class EvtCell implements ActionListener{
 
-    private Entity en;
+    private final Entity en;
     
-    public EvtCell(Entity en) {
+    public EvtCell(final Entity en) {
         this.en = en;
     }
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
            ShowImages.message(en);
     }
 }

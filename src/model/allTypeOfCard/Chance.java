@@ -15,16 +15,16 @@ public class Chance implements Entity{
     /**
      * fields
      */
-    private PlayerImpl owner;
-    private String name = "Chance";
-    private ArrayList<CCCCard> deck = new ArrayList<>();
+    private final PlayerImpl owner;
+    private final String name = "Chance";
+    private final ArrayList<CCCCard> deck = new ArrayList<>();
     private int numberOfCards;
     private final Random r = new Random();
-    private int positionOnBoard;
+    private final int positionOnBoard;
     /**
      * constructor
      */
-    public Chance(PlayerImpl owner, int positionOnBoard) {
+    public Chance(final PlayerImpl owner,final int positionOnBoard) {
         this.positionOnBoard = positionOnBoard;
         this.owner = owner;
         deck.add(new CCCCard("Perdi 200$", -200, owner));
@@ -45,7 +45,7 @@ public class Chance implements Entity{
      * this method draws a Chance card randomly
      */
     @Override
-    public void action(PlayerImpl pl) {
+    public void action(final PlayerImpl pl) {
         final int risultato = r.nextInt(numberOfCards);
         deck.get(risultato).action(pl);
     }

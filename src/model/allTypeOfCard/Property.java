@@ -2,12 +2,8 @@ package model.allTypeOfCard;
 
 import java.awt.Color;
 import java.util.Optional;
-
-import javax.swing.JOptionPane;
-
 import model.history.History;
 import model.history.HistoryImpl;
-import model.myUtility.ShowImages;
 
 import model.player.PlayerImpl;
 
@@ -15,18 +11,18 @@ public class Property implements Entity {
     /**
      * fields
      */
-    private int positionInBoard = 0;
-    private String name;
-    private Color color;
-    private int nHouses = 0;
+    private int positionInBoard;
+    private final String name;
+    private final Color color;
+    private int nHouses;
     private boolean hotel = false;
-    private int price = 0;
+    private int price;
     private PlayerImpl owner;
-    private History history;
+    private final History history;
     /**
      * constructor
      */
-    public Property(String name, Color color, int position, PlayerImpl owner) {
+    public Property(final String name,final Color color,final int position,final PlayerImpl owner) {
         this.positionInBoard = position;
         this.name = name;
         this.color = color;

@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.Timer;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -61,7 +62,7 @@ public class RollDice implements ActionListener{
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
         this.stepSound(risultato);
-        pos = pawnMovement.updatePosition(pos,risultato, pl);
+        pos = pawnMovement.updatePosition(pos, risultato, pl);
         rollDice.setEnabled(false);
         activateCell(pos, pl);
         if(pl.getMoney() < 0) {

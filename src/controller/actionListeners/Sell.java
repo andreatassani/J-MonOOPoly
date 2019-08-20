@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
 
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
@@ -15,33 +14,34 @@ import model.player.ListOfPlayers;
 
 public class Sell implements ActionListener {
     
-    private ListOfPlayers listPl;
-    private ArrayList<Entity> deck;
-    private JButton buy;
-    private JButton sell;
-    private AudioManager sound;
-    private JButton build;
+    private final ListOfPlayers listPl;
+    private final ArrayList<Entity> deck;
+    private final JButton buy;
+    private final JButton sellButton;
+    private final AudioManager sound;
+    private final JButton build;
     private final History history;
     
 
-    public Sell(ListOfPlayers listPl, ArrayList<Entity> deck,JButton buy, JButton sell, JButton build, AudioManager sound,History history) {
+    public Sell(final ListOfPlayers listPl,final ArrayList<Entity> deck,final JButton buy,final JButton sell,final JButton build,
+                final AudioManager sound,final History history) {
         this.listPl = listPl;
         this.deck = deck;
         this.buy = buy;
-        this.sell = sell;
+        this.sellButton = sell;
         this.sound = sound;
         this.build = build;
         this.history=history;
     }
 
     @Override
-    public void actionPerformed(ActionEvent e) {
+    public void actionPerformed(final ActionEvent e) {
     		
             listPl.getPlayerFromIndex(0).buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
             sound.getCashSound().play();
             build.setEnabled(false);
             buy.setEnabled(true);
-            sell.setEnabled(false);
+            sellButton.setEnabled(false);
             history.sellPropriety(listPl.getCurrentPlayer());
            
             
