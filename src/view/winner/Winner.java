@@ -9,6 +9,7 @@ import java.awt.GridLayout;
 import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -22,11 +23,13 @@ import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
 
 import controller.windowListeners.CloseApplication;
+import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
 import model.myEnum.Colors;
 import model.player.ListOfPlayers;
 import view.play.MainExternContainer;
+import view.play.MainExternContainerImpl;
 
 
 public class Winner extends JFrame {
@@ -45,7 +48,7 @@ public class Winner extends JFrame {
     /**
      * constructor.
      */
-    public Winner(ListOfPlayers list, EntityDeck deck, MainExternContainer main ) {
+    public Winner(ListOfPlayers list, ArrayList<Entity> deck, MainExternContainerImpl main ) {
         this.add(new Congratulations(list, dim, f, c), BorderLayout.NORTH); 
         this.add(new InformationOfPlayerWinner(list, deck, g, c), BorderLayout.CENTER);
         this.add(new PropertiesOfPlayerWinner(list, g, h, c), BorderLayout.SOUTH);

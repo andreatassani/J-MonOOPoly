@@ -18,6 +18,7 @@ import model.player.ListOfPlayers;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
+import view.play.MainExternContainerImpl;
 import view.play.PawnMovement;
 
 public class RollDice implements ActionListener{
@@ -34,8 +35,9 @@ public class RollDice implements ActionListener{
     private final PlayerImpl bank;
     private PawnMovement pawnMovement;
     private final History history;
+    private final MainExternContainerImpl main;
 
-    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history) {
+    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history, MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -47,6 +49,7 @@ public class RollDice implements ActionListener{
         this.history = history;
         bank = listPl.getBank();
         pawnMovement = new PawnMovement(grid, listPl);
+        this.main = main;
         
     }
 
@@ -57,12 +60,13 @@ public class RollDice implements ActionListener{
         int risultato = new Dice().rollTheDice();
         ShowImages.dice(risultato);
         int pos = pl.getPosition();
-     //   this.stepSound(risultato);
+        this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos,risultato, pl);
         rollDice.setEnabled(false);
         activateCell(pos, pl);
         if(pl.getMoney() < 0) {
            new Loss(listPl, pawnMovement);
+           listPl.isThereAWinner(listPl, deck, main);
             pl = listPl.getCurrentPlayer();
             pos = pl.getPosition();
         }

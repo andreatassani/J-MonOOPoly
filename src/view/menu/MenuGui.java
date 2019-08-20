@@ -16,18 +16,16 @@ public class MenuGui {
  * Class Builder.
  * @param c frame to customize
  */
-	public MenuGui(final JFrame frame) {
-		super();       
-		frame.setPreferredSize(d);
+	public MenuGui(final JFrame frame) {   
+		frame.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 		frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		frame.setExtendedState(JFrame.MAXIMIZED_HORIZ);
 		frame.setExtendedState(JFrame.MAXIMIZED_VERT);
 		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.getContentPane().setSize(d);
+		frame.setSize(d);
 		frame.setState(JFrame.MAXIMIZED_BOTH);
 		frame.setResizable(false);
 		frame.setVisible(true);
-		frame.setLocationRelativeTo(frame);
 		frame.pack();   
 		
 	}

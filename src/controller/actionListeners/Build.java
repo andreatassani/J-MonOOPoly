@@ -15,6 +15,7 @@ import model.player.ListOfPlayers;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
+import view.play.MainExternContainerImpl;
 import view.play.PawnMovement;
 
 public class Build implements ActionListener {
@@ -27,14 +28,16 @@ public class Build implements ActionListener {
     ListOfPlayers listPl;
     PawnMovement pawnMovement;
     private final History history;
+    private MainExternContainerImpl main;
 
-    public Build(ListOfPlayers listPl, ArrayList<Entity> deck, JButton build, AudioManager sound, GridCell grid,History history) {
+    public Build(ListOfPlayers listPl, ArrayList<Entity> deck, JButton build, AudioManager sound, GridCell grid,History history, MainExternContainerImpl main) {
         this.sound = sound;
         this.deck = deck;
         this.build = build;
         this.listPl = listPl;
         this.pawnMovement = new PawnMovement(grid, listPl);
         this.history = history;
+        this.main = main;
     }
     
     @Override
@@ -42,16 +45,17 @@ public class Build implements ActionListener {
         pl = listPl.getCurrentPlayer();
         pos = pl.getPosition();
         ((Property)deck.get(pos)).addHouse();
+        sound.getBuilSound().play();
         if(((Property)deck.get(pos)).getHotel()) {
         history.buildHotel(pl, pos);
         build.setEnabled(false);
-     
         }
         else {
         	 history.buildHouse(pl, pos);
         }
         if(pl.getMoney() < 0) {
             new Loss(listPl, pawnMovement);
+            listPl.isThereAWinner(listPl, deck, main);
              pl = listPl.getCurrentPlayer();
              pos = pl.getPosition();
          }

@@ -131,4 +131,8 @@ public ArrayList<Property> getListOfProperties(){
     return this.properties;
 }
 
+public void addProperty(final Property property) {
+    this.properties.add(property);
+}
+
 }

@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
+import model.allTypeOfCard.Property;
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
@@ -44,7 +45,13 @@ public class MainExternContainerImpl extends JFrame {
 	 */
 	public MainExternContainerImpl(ListOfPlayers listPl, ArrayList<Entity> deck) {
 	    
-	      
+	         //posto sbagliato per questo!
+	    for(Entity en : deck) {
+	        if(en.isSalable()) {
+	        listPl.getPlayerFromIndex(0).addProperty((Property)en);
+	        }
+	    }
+	        
 
 		extern = new Box(BoxLayout.X_AXIS);
 		extern.setSize(Toolkit.getDefaultToolkit().getScreenSize().width, Toolkit.getDefaultToolkit().getScreenSize().height);

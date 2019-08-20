@@ -7,10 +7,10 @@ import model.player.PlayerImpl;
 import view.menu.NewGameMenu;
 /**
  * 
- * class for managing SettingPlayersMenu action.
+ * Class for managing SettingPlayersMenu action.
  *
  */
-public class ControllerSettingPlayersMenu {
+public class ControllerSettingPlayersMenu implements ControllerMenu{
 /**
  * Class builder.	
  */
@@ -18,11 +18,7 @@ public class ControllerSettingPlayersMenu {
 		
 	}
 /**
- * disables the audio based on the choice made
- * in the main menu.	
- * @param s comparison string to know if the audio is
- * active or not
- * @param clip audio file to stop
+ * {@inheritDoc}
  */
 	public void musicStop(final String s ,final AudioManager clip ) {
 		if(s.equals("Audio On")) {
@@ -36,7 +32,7 @@ public class ControllerSettingPlayersMenu {
 				clip.getMusicMenu().loop();
 			}
 /**
- * player creation.
+ * Player creation.
  * @return player
  */
 	}

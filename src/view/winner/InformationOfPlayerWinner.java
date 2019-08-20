@@ -5,11 +5,13 @@ import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Image;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
 
@@ -28,7 +30,7 @@ public class InformationOfPlayerWinner extends JPanel {
      * @param g
      * @param c
      */
-    public InformationOfPlayerWinner(ListOfPlayers list, EntityDeck deck, Font g, Color c) {
+    public InformationOfPlayerWinner(ListOfPlayers list, ArrayList<Entity> deck, Font g, Color c) {
         this.setLayout(new GridLayout(2,1));
         this.setBackground(c);
         flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 100, 20));
@@ -51,7 +53,7 @@ public class InformationOfPlayerWinner extends JPanel {
         col.setBackground(list.getCurrentPlayer().getColors());
         col.setOpaque(true);
         
-        pos = new JLabel ("  Your final position: " + deck.getDeck().get(list.getCurrentPlayer().getPosition()).getName() + "  ");
+        pos = new JLabel ("  Your final position: " + deck.get(list.getCurrentPlayer().getPosition()).getName() + "  ");
         pos.setFont(g);
         pos.setBackground(c);
         pos.setOpaque(true);

@@ -43,7 +43,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 	 * @param deck
 	 * @param grid
 	 */
-         public SouthUtilityButtonsImpl(ListOfPlayers listPl, ArrayList<Entity> deck, GridCell grid, MainExternContainerImpl frame) {
+         public SouthUtilityButtonsImpl(ListOfPlayers listPl, ArrayList<Entity> deck, GridCell grid, MainExternContainerImpl main) {
 	    
 		this.setLayout(new GridLayout());
 		
@@ -51,7 +51,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 		rollDice = new JButton("ROLL DICE");
 		sell = new JButton("SELL");
 		buy = new JButton("BUY");
-		menu = new JButton("BACK TO MENU'");
+		menu = new JButton("GAME OVER");
 		build = new JButton("BUILD");
 		nextPlayer = new JButton("NEXT PLAYER");
 		sound = new AudioManager();
@@ -60,12 +60,12 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 		setEnableFalseAsDefault();
 		
 		
-		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound, history));
-        buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid,history));
+		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound, history, main));
+        buy.addActionListener(new Buy(listPl, deck, buy, sell, build, sound, grid,history, main));
 		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer,history));
 		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound,history));
-		build.addActionListener(new Build(listPl, deck, build, sound, grid,history));
-		menu.addActionListener(new BackToMenu(frame));
+		build.addActionListener(new Build(listPl, deck, build, sound, grid,history, main));
+		menu.addActionListener(new BackToMenu(main));
 		
 		this.add(rollDice);
 		this.add(buy);
