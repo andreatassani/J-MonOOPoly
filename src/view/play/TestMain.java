@@ -42,7 +42,7 @@ public class TestMain {
                 
 		
 		
-		//Winner main = new Winner(players, deck, null);
+		//Winner win = new Winner(players, deck, null);
 
 	}
 

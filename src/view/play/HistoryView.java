@@ -56,7 +56,7 @@ public class HistoryView extends JPanel {
 	private final JPanel gridPanel;
 	private HistoryImpl historyControl;
 	private static JPanel upPanelLeft;
-	private int i =0;
+	private int i;
 	private static JButton history;
 	
 	

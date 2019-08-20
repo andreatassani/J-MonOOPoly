@@ -28,7 +28,7 @@ public class HistoryImpl implements History {
 	private int price;
 	private int tool;
 	private static JButton button;
-	private static int position =0;
+	private static int position ;
 	private Situation situation;
 	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (HistoryView.getDim().getSize().height/1.45));
 /**
@@ -36,10 +36,12 @@ public class HistoryImpl implements History {
  */
 	public HistoryImpl (Optional<ArrayList<Entity>> deck) {
 		this.deck=deck;
+		position=0;
 		this.situation = new SituationImpl();
 	}
 	/**
-	 * constructor of the HistoryImpl.
+	 * Increase the position.
+	 * @param pos is the position
 	 */	
 	private int setPosition(int pos) {
 		pos++;
