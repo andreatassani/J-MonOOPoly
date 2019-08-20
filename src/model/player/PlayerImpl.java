@@ -16,16 +16,16 @@ public class PlayerImpl implements Player {
 /**
  * player fields.
  */
-    private String name;
-    private Color color;
-    private Pawns pawns;
+    private final String name;
+    private final Color color;
+    private final Pawns pawns;
     private int money;
     private static final int BANK_AMOUNT = 4000;
-    private int stopTurns = 0;
-    private ArrayList<Property> properties = new ArrayList<>();
+    private int stopTurns;
+    private final ArrayList<Property> properties = new ArrayList<>();
     private int position;
     
-    public PlayerImpl(final String name, final Color color, final Pawns pawns, String difficulty) {
+    public PlayerImpl(final String name, final Color color, final Pawns pawns,final String difficulty) {
         this.name = name;
         this.position = 0;
         this.color = color;
@@ -38,11 +38,7 @@ public class PlayerImpl implements Player {
     }
     
     public boolean hasProperty(final Entity entity) {
-        if (this.properties.contains(entity)) {
-            return true;
-        } else {
-            return false;
-        }
+        return this.properties.contains(entity);
     }
 /**
  * {@inheritDoc}

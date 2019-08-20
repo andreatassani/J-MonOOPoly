@@ -5,10 +5,8 @@ import java.awt.Color;
 
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
 
 import model.allTypeOfCard.Entity;
-import model.allTypeOfCard.EntityDeck;
 import model.allTypeOfCard.Property;
 import model.myEnum.Pawns;
 import view.play.MainExternContainerImpl;
@@ -16,11 +14,11 @@ import view.winner.Winner;
 
 public class ListOfPlayers {
 	 ArrayList<PlayerImpl> list = new ArrayList<>();
-	    private int numberOfPlayers=0;
+	    private int numberOfPlayers;
 	    private int currentPlayer = 1;
 	    	 
     public ListOfPlayers() {
-        PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
+        final PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
         bank.setMoney(500000);
         this.list.add(bank);
     }
@@ -39,16 +37,16 @@ public class ListOfPlayers {
        return this.getPlayerFromIndex(0);
    }
     
-   public int getIndexFromPlayer(PlayerImpl pl) {
+   public int getIndexFromPlayer(final PlayerImpl pl) {
        return list.indexOf(pl);
    }
    public PlayerImpl getCurrentPlayer() {
        return this.list.get(currentPlayer);
    }
-   public PlayerImpl getPlayerFromIndex (int index) {
+   public PlayerImpl getPlayerFromIndex (final int index) {
        return list.get(index);
    }
-   public void addPlayer(PlayerImpl pl, int index) {
+   public void addPlayer(final PlayerImpl pl,final int index) {
        list.add(index, pl);
        this.numberOfPlayers+=1;
    }
@@ -56,7 +54,7 @@ public class ListOfPlayers {
        return this.numberOfPlayers;
    }
    
-   public void removePlayer(PlayerImpl pl) {
+   public void removePlayer(final PlayerImpl pl) {
        if(this.getIndexFromPlayer(pl) == this.numberOfPlayers) {
            this.currentPlayer = 1;
            this.numberOfPlayers-=1;
@@ -65,18 +63,18 @@ public class ListOfPlayers {
            list.remove(this.getIndexFromPlayer(pl));
            this.numberOfPlayers-=1;
        }
-       for(Property pr : pl.getListOfProperties()) {
+       for(final Property pr : pl.getListOfProperties()) {
            pr.setNewOwner(this.getPlayerFromIndex(0));
        }
        }
    
-   public void isThereAWinner(ListOfPlayers list, ArrayList<Entity> deck, MainExternContainerImpl main) {
+   public void isThereAWinner(final ListOfPlayers list,final ArrayList<Entity> deck,final MainExternContainerImpl main) {
        if(this.numberOfPlayers == 1) {
            new Winner(list, deck, main);
        }
    }
    
-   public PlayerImpl getPlayerFromName(String name) {
+   public PlayerImpl getPlayerFromName(final String name) {
        for(int i = 1; i<= numberOfPlayers; i++) {
            if(this.list.get(i).getName().equals(name)) {
                return this.list.get(i);
@@ -108,7 +106,7 @@ public class ListOfPlayers {
  */
    public void removeAllPlayers() { 
 		   list.clear();
-		   PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
+		   final PlayerImpl bank = new PlayerImpl("Bank", Color.WHITE, Pawns.BANK, "EASY");
 		   numberOfPlayers = 0;
 	       bank.setMoney(500000);
 		   this.list.add(bank);

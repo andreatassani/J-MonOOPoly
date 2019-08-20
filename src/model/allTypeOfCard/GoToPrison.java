@@ -3,8 +3,6 @@ package model.allTypeOfCard;
 
 import java.awt.Color;
 
-import javax.swing.JOptionPane;
-
 import model.player.PlayerImpl;
 /**
  * 
@@ -15,7 +13,7 @@ public class GoToPrison implements Entity {
     /**
      * fields
      */
-        private PlayerImpl owner;
+        private final PlayerImpl owner;
 	private String name = "Police";
     /**
      * Constructor.

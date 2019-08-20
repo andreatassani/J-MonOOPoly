@@ -3,10 +3,7 @@ package controller.actionListeners;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.JButton;
-import javax.swing.JOptionPane;
-
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
@@ -26,7 +23,7 @@ public class Build implements ActionListener {
      */
     private AudioManager sound;
     private ArrayList<Entity> deck;
-    private JButton build;
+    private JButton buildButton;
     private PlayerImpl pl;
     private int pos;
     private ListOfPlayers listPl;
@@ -43,12 +40,11 @@ public class Build implements ActionListener {
      * @param history this is the part of gameplay where there are all events happened.
      * @param main this is the frame of playing's session.
      */
-    public Build(final ListOfPlayers listPl, final ArrayList<Entity> deck,  final JButton build,
-                 final AudioManager sound, final GridCell grid, 
+    public Build(final ListOfPlayers listPl, final ArrayList<Entity> deck,final JButton build,final AudioManager sound,final GridCell grid,
                  final History history, final MainExternContainerImpl main) {
         this.sound = sound;
         this.deck = deck;
-        this.build = build;
+        this.buildButton = build;
         this.listPl = listPl;
         this.pawnMovement = new PawnMovement(grid, listPl);
         this.history = history;
@@ -60,7 +56,7 @@ public class Build implements ActionListener {
     @Override
     public void actionPerformed(final ActionEvent e) {
 
-        build.setEnabled(false);
+        buildButton.setEnabled(false);
         pl = listPl.getCurrentPlayer();
         pos = pl.getPosition();
         ((Property) deck.get(pos)).addHouse();

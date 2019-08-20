@@ -3,9 +3,6 @@ package model.allTypeOfCard;
 
 
 import java.awt.Color;
-
-import javax.swing.JOptionPane;
-
 import model.player.PlayerImpl;
 
 /**
@@ -22,7 +19,7 @@ public class Prison implements Entity {
     /**
      * Constructor.
      */
-    public Prison(PlayerImpl owner) {
+    public Prison(final PlayerImpl owner) {
         this.owner = owner;
 	}
     /**
@@ -41,7 +38,7 @@ public class Prison implements Entity {
      * {@inheritDoc}
      */
 	@Override
-	public void action(PlayerImpl pl) {
+	public void action(final PlayerImpl pl) {
 	}
     @Override
     public PlayerImpl getOwner() {

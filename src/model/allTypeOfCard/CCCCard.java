@@ -4,8 +4,6 @@ package model.allTypeOfCard;
 import java.awt.Color;
 import java.util.Optional;
 
-import javax.swing.JOptionPane;
-
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.PlayerImpl;
@@ -19,10 +17,10 @@ public class CCCCard implements Entity {
     /**
      * fields
      */
-    private String name;
-    private int amount;
-    private PlayerImpl owner;
-    private History history;
+    private final String name;
+    private final int amount;
+    private final PlayerImpl owner;
+    private final History history;
     /**
      * constructor
      */

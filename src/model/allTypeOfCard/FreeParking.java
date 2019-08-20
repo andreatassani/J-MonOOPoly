@@ -3,8 +3,6 @@ package model.allTypeOfCard;
 
 import java.awt.Color;
 
-import javax.swing.JOptionPane;
-
 import model.player.PlayerImpl;
 /**
  * Free parking cell on the main board
@@ -13,12 +11,12 @@ public class FreeParking implements Entity {
     /**
      * fields
      */
-	private PlayerImpl owner;
+	private final PlayerImpl owner;
 	private String name = "Parking";
     /**
      * Constructor.
      */
-    public FreeParking(PlayerImpl owner) {
+    public FreeParking(final PlayerImpl owner) {
             this.owner = owner;
 	}
     /**
@@ -37,7 +35,7 @@ public class FreeParking implements Entity {
      * {@inheritDoc}
      */
 	@Override
-	public void action(PlayerImpl pl) {
+	public void action(final PlayerImpl pl) {
 	}
     @Override
     public PlayerImpl getOwner() {
