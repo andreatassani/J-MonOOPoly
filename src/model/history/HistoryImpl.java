@@ -335,7 +335,7 @@ public class HistoryImpl implements History {
 		 incrementButtons(fields);
 		 HistoryView.resetGUI();
 		 situation.setMoney(player);
-		 situation.lose(player;)
+		 situation.lose(player);
 	}
 }
 

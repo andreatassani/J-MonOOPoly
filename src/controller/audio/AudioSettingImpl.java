@@ -60,7 +60,7 @@ public class AudioSettingImpl implements AudioSetting {
  @Override
  public void loop() {
 	 this.clip.start();
-	 this.clip.loop(clip.LOOP_CONTINUOUSLY);
+	 this.clip.loop(Clip.LOOP_CONTINUOUSLY);
  }
 
 }

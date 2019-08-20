@@ -28,10 +28,10 @@ import model.customComponent.CustomMethodsImpl;
 		private ImageIcon icon;
 		private JPanel north;
 		private JPanel south;		
-		private  AudioManager clipAudio;	
-		private  Dimension general;	
-		private  Dimension dim;
-		private  Dimension dimLogo;
+		private AudioManager clipAudio;	
+		private Dimension general;	
+		private Dimension dim;
+		private Dimension dimLogo;
 		private CustomMethodsImpl methods = new CustomMethodsImpl();
 /**
  * Constructor of the main menu.
@@ -91,7 +91,8 @@ import model.customComponent.CustomMethodsImpl;
  * Menu audio track plays in loop.
  */
 	  
-	  clipAudio.getMusicMenu().loop();  
+	  clipAudio.getMusicMenu().loop(); 
+	  System.out.println(clipAudio.getClassicMusic().isPlaying());
 }
 
  /**
