@@ -8,7 +8,7 @@ import view.menu.SettingPlayersMenu;
 /**
  * Class for managing NewGameMenu action.
  */
-public class ControllerNewGameMenu {
+public class ControllerNewGameMenu implements ControllerMenu {
 /**
  * Class builder.	
  */	

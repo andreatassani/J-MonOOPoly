@@ -51,7 +51,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
 		rollDice = new JButton("ROLL DICE");
 		sell = new JButton("SELL");
 		buy = new JButton("BUY");
-		menu = new JButton("BACK TO MENU'");
+		menu = new JButton("GAME OVER");
 		build = new JButton("BUILD");
 		nextPlayer = new JButton("NEXT PLAYER");
 		sound = new AudioManager();
