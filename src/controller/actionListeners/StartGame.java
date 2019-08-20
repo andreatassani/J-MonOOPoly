@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.text.html.parser.Entity;
@@ -22,6 +23,7 @@ public class StartGame implements ActionListener {
  */
     private JFrame frame;
     private ListOfPlayers list;
+    private JButton done;
     
 /**
  * Class builder    
@@ -29,10 +31,11 @@ public class StartGame implements ActionListener {
  * @param list of player participating in the game
  * @param deck list of all cells
  */       
-	public StartGame(final JFrame frame,final ListOfPlayers list) {
+	public StartGame(final JFrame frame,final ListOfPlayers list, JButton done) {
 		super();
 		this.frame = frame;
 		this.list = list;
+		this.done = done;
 		
 	}
 /**
@@ -51,7 +54,8 @@ public class StartGame implements ActionListener {
     		  } else {
     				  JOptionPane.showMessageDialog(null," You have selected a pawn or a color or a name already selected ");
         			  list.removeAllPlayers();
-    		                 }
+        			  done.setEnabled(true);
+        			  }
 		 
     			  
 

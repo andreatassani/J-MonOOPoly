@@ -131,7 +131,7 @@ import model.player.ListOfPlayers;
 	    		list.addPlayer(action.start(namePlayer2.getText(),action.chosenColor(color2.getSelectedIndex()) , 
 	    			    action.chosenPawn(pawn2.getSelectedIndex()),difficulty), list.getNumberPlayer()+1);
 	    	}
-	  
+	    	done.setEnabled(false);
 		      };	
 /**
  * I configure the size of the image.
@@ -154,7 +154,7 @@ import model.player.ListOfPlayers;
  * I add all the panels to the main panel
  */		
 		howManyPlayer.addActionListener(new NumberOfPlayer(player3, player4, howManyPlayer));
-		start.addActionListener(new StartGame(this, list));
+		start.addActionListener(new StartGame(this, list, done));
 		done.addActionListener(actionDone);	
 		back.addActionListener(new BackSettingsMenu(this,NewGameMenu.getClip()));
 		image.add(start);		
