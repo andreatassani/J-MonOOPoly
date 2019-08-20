@@ -112,17 +112,19 @@ public class ListOfPlayers {
 	       bank.setMoney(500000);
 		   this.list.add(bank);
    }
-   
- 
-  public boolean isEmpty() {
-	  boolean res = false;
-	  if(numberOfPlayers == 0) {
-		  res = true;
+
+/**
+ * Check if the list of players is empty.
+ * @return true if is empty
+ */
+   public boolean isEmpty() {
+		  boolean res = false;
+		  if(numberOfPlayers == 0) {
+			  res = true;
+		  }
+		  return res;
+			  
 	  }
-	  return res;
-		  
-  }
-  
 
 
 }

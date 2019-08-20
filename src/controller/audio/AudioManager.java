@@ -25,8 +25,6 @@ public class AudioManager {
 	    private AudioSetting pawn;
 	    private AudioSetting cash;
 	    private AudioSetting build;
-	    
-	    
 
 	    /**
 	     * Creates a {@code SoundsManager}.
