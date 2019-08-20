@@ -10,7 +10,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 import javax.swing.border.LineBorder;
-
 import controller.actionListeners.EvtCell;
 import model.allTypeOfCard.Entity;
 import model.myUtility.ShowImages;
@@ -23,19 +22,19 @@ public class CellImpl extends JPanel implements Cell{
     /**
      * fields.
      */
+    private static final long serialVersionUID = 1L;
     private Dimension dim = new Dimension(MainExternContainerImpl.getLeftSide().getWidth() / 11, MainExternContainerImpl.getLeftSide().getHeight() / 11);
     private JLabel name;
     private JButton image;
     private ImageIcon icon;
     private PositionPawnsImpl posPawn = new PositionPawnsImpl();
-    
-	/**
+        /**
 	 * constructor.	
 	 * @param i
 	 * @param s
 	 * @param c
 	 */
-	public CellImpl(Entity e) {
+	public CellImpl(final Entity e) {
 		this.setLayout(new BorderLayout());
 		this.setBackground(e.getColor());
 		mySetSize(dim);

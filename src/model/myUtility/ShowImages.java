@@ -10,19 +10,19 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Property;
 /**
  * 
- * Utility class to show main board icons on the cells and relative message with the illustration of the card
+ * Utility class to show main board icons on the cells and relative message with the illustration of the card.
  *
  */
 public final class ShowImages {
 /**
- * fields
+ * fields.
  */
     private static AudioManager sound = new AudioManager();
     /**
-     * constructor
+     * constructor.
      */
     private ShowImages() {
-        
+
     }
     /**
      * Shows the illustration of the relative cell
@@ -34,7 +34,7 @@ public final class ShowImages {
         if(e.isSalable()) {
             if(e.isBuildable()) {
                 sound.getCardSound().play();
-                JOptionPane.showMessageDialog(null,"Owner: "+e.getOwner().getName()+"\nNumber of houses: "+((Property)e).getHouses()+"\n Hotel: "+ ((Property)e).getHotel(),e.getName(),
+                JOptionPane.showMessageDialog(null, "Owner: "+e.getOwner().getName()+"\nNumber of houses: "+((Property)e).getHouses()+"\n Hotel: "+ ((Property)e).getHotel(),e.getName(),
                         JOptionPane.INFORMATION_MESSAGE, new ImageIcon("res/Messages/"+e.getColor().getRGB()+".png"));
             } else {
                 if(name.equals("Station N")||

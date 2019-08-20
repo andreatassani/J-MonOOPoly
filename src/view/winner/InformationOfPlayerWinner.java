@@ -12,10 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.allTypeOfCard.Entity;
-import model.allTypeOfCard.EntityDeck;
 import model.player.ListOfPlayers;
-
+/**
+ * this class create the information of the Winner Player.
+ */
 public class InformationOfPlayerWinner extends JPanel {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = -122277042892101387L;
     /**
      * fields.
      */
@@ -26,51 +31,52 @@ public class InformationOfPlayerWinner extends JPanel {
     private JLabel pos;
     /**
      * constructor.
-     * @param list
-     * @param g
-     * @param c
+     * @param list list of players
+     * @param deck card's deck
+     * @param g font
+     * @param c color
      */
-    public InformationOfPlayerWinner(ListOfPlayers list, ArrayList<Entity> deck, Font g, Color c) {
-        this.setLayout(new GridLayout(2,1));
+    public InformationOfPlayerWinner(final ListOfPlayers list, final ArrayList<Entity> deck, final Font g, final Color c) {
+        this.setLayout(new GridLayout(2, 1));
         this.setBackground(c);
         flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 100, 20));
         flowPanel.setBackground(c);
-        pawn = new JLabel ("  ");
+        pawn = new JLabel("  ");
         pawn.setFont(g);
         pawn.setBackground(c);
         mySetIcon(pawn, "res/Pawns/" + list.getCurrentPlayer().getPawn() + ".png");
         pawn.setOpaque(true);
-        
-        
-        
-        money = new JLabel ("  Remaining money : " + list.getCurrentPlayer().getMoney() + " $  ");
+
+
+        money = new JLabel("  Remaining money : " + list.getCurrentPlayer().getMoney() + " $  ");
         money.setFont(g);
         money.setBackground(c);
         money.setOpaque(true);
-        
-        col = new JLabel ("  Your color  ");
+
+        col = new JLabel("  Your color  ");
         col.setFont(g);
         col.setBackground(list.getCurrentPlayer().getColors());
         col.setOpaque(true);
-        
-        pos = new JLabel ("  Your final position: " + deck.get(list.getCurrentPlayer().getPosition()).getName() + "  ");
+
+        pos = new JLabel("  Your final position: " + deck.get(list.getCurrentPlayer().getPosition()).getName() + "  ");
         pos.setFont(g);
         pos.setBackground(c);
         pos.setOpaque(true);
-        
 
         flowPanel.add(pawn);
         flowPanel.add(money);
         flowPanel.add(col);
         flowPanel.add(pos);
         this.add(flowPanel);
-        
     }
-    
-    
-    public void mySetIcon(JLabel l, String s) {
+    /**
+     * 
+     * @param l a JLabel
+     * @param s string for the image URL
+     */
+    public void mySetIcon(final JLabel l, final String s) {
         ImageIcon icon = new ImageIcon(s);
-        Image scaledImage = icon.getImage().getScaledInstance( 70, 70,  Image.SCALE_DEFAULT);
+        Image scaledImage = icon.getImage().getScaledInstance(70, 70,  Image.SCALE_DEFAULT);
         icon.setImage(scaledImage);
         l.setIcon(icon);
     }

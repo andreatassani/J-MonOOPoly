@@ -26,59 +26,59 @@ import model.player.ListOfPlayers;
  *
  */
 public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButtons {
-        /**
-         * fields.
-         */
-        private History history;
-        private JButton rollDice;
-        private JButton sell;
-        private JButton buy;
-        private JButton menu;
-        private JButton build;
-        private JButton nextPlayer;
-        private AudioManager sound;
-	/**
-	 * constructor.
-	 * @param listPl
-	 * @param deck
-	 * @param grid
-	 */
-         public SouthUtilityButtonsImpl(ListOfPlayers listPl, ArrayList<Entity> deck, GridCell grid, MainExternContainerImpl main) {
-	    
-		this.setLayout(new GridLayout());
-		
-		history = new HistoryImpl(Optional.of(deck));
-		rollDice = new JButton("ROLL DICE");
-		sell = new JButton("SELL");
-		buy = new JButton("BUY");
-		menu = new JButton("GAME OVER");
-		build = new JButton("BUILD");
-		nextPlayer = new JButton("NEXT PLAYER");
-		sound = new AudioManager();
-		
-		setBackgroundOfAllButtons();
-		setEnableFalseAsDefault();
-		
-		
-		rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound, history, main));
-        buy.addActionListener(new Buy(listPl, deck, buy, build, sound, grid,history, main));
-		nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer,history));
-		sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound,history));
-		build.addActionListener(new Build(listPl, deck, build, sound, grid,history, main));
-		menu.addActionListener(new BackToMenu(main));
-		
-		this.add(rollDice);
-		this.add(buy);
-		this.add(sell);
-		this.add(build);
-		this.add(nextPlayer);
-		this.add(menu);
-		this.setBorder(new LineBorder(Color.BLACK));
-	}
+
+    /**
+     * fields.
+     */
+    private static final long serialVersionUID = 1L;
+    private History history;
+    private JButton rollDice;
+    private JButton sell;
+    private JButton buy;
+    private JButton menu;
+    private JButton build;
+    private JButton nextPlayer;
+    private AudioManager sound;
+    /**
+     * constructor.
+     * @param listPl list of players.
+     * @param deck group of all cards.
+     * @param grid playground.
+     * @param main is the container.
+     */
+    public SouthUtilityButtonsImpl(final ListOfPlayers listPl, final ArrayList<Entity> deck, final GridCell grid, final MainExternContainerImpl main) {
+                this.setLayout(new GridLayout());
+                history = new HistoryImpl(Optional.of(deck));
+                rollDice = new JButton("ROLL DICE");
+                sell = new JButton("SELL");
+                buy = new JButton("BUY");
+                menu = new JButton("GAME OVER");
+                build = new JButton("BUILD");
+                nextPlayer = new JButton("NEXT PLAYER");
+                sound = new AudioManager();
+
+                setBackgroundOfAllButtons();
+                setEnableFalseAsDefault();
+
+                rollDice.addActionListener(new RollDice(listPl, grid, deck, rollDice, buy, sell, build, nextPlayer, sound, history, main));
+                buy.addActionListener(new Buy(listPl, deck, buy, build, sound, grid, history, main));
+                nextPlayer.addActionListener(new NextPlayer(listPl, rollDice, buy, sell, build, nextPlayer, history));
+                sell.addActionListener(new Sell(listPl, deck, buy, sell, build, sound, history));
+                build.addActionListener(new Build(listPl, deck, build, sound, grid, history, main));
+                menu.addActionListener(new BackToMenu(main));
+
+                this.add(rollDice);
+                this.add(buy);
+                this.add(sell);
+                this.add(build);
+                this.add(nextPlayer);
+                this.add(menu);
+                this.setBorder(new LineBorder(Color.BLACK));
+    }
     /**
      * {@inheritDoc}
      */
-    public void setBackgroundOfAllButtons() {
+    public final void setBackgroundOfAllButtons() {
         rollDice.setBackground(Color.lightGray);
         sell.setBackground(Color.lightGray);
         buy.setBackground(Color.lightGray);
@@ -89,11 +89,10 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
     /**
      * {@inheritDoc}
      */
-    public void setEnableFalseAsDefault() {
+    public final void setEnableFalseAsDefault() {
         buy.setEnabled(false);
         sell.setEnabled(false);
         build.setEnabled(false);
         nextPlayer.setEnabled(false);
     }
-    
 }

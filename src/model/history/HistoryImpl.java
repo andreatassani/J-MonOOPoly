@@ -28,15 +28,15 @@ public class HistoryImpl implements History {
 	private int price;
 	private int tool;
 	private static JButton button;
-	private static int position ;
+	private int position ;
 	private Situation situation;
-	private static final Font f = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (HistoryView.getDim().getSize().height/1.45));
+	private static final Font F = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (HistoryView.getDim().getSize().height/1.45));
 /**
  * constructor of the HistoryImpl.
  */
 	public HistoryImpl (Optional<ArrayList<Entity>> deck) {
-		this.deck=deck;
-		position=0;
+		this.deck = deck;
+		this.position = 0;
 		this.situation = new SituationImpl();
 	}
 	/**
@@ -54,7 +54,7 @@ public class HistoryImpl implements History {
 	private void incrementButtons (ArrayList<JButton> fields) {
 		final JButton but = new JButton ("");
 	    but.setHorizontalAlignment(SwingConstants.LEFT);
-	    but.setFont(f);
+	    but.setFont(F);
 	    but.setBackground(HistoryView.getColor());
 	    but.setMaximumSize(HistoryView.getDim());
 	    but.setMinimumSize(HistoryView.getDim());
