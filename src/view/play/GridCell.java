@@ -1,24 +1,16 @@
 package view.play;
 
 import java.awt.BorderLayout;
-
 import java.awt.Color;
 import java.awt.Image;
 import java.util.ArrayList;
-import java.util.Optional;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
-
 import model.allTypeOfCard.Entity;
-import model.allTypeOfCard.EntityDeck;
-import model.allTypeOfCard.Property;
-import model.allTypeOfCard.Start;
-import view.play.*;
 /**
  * 
  * class that implements the view of playground.
@@ -28,6 +20,7 @@ public class GridCell extends JPanel {
     /**
      * fields.
      */
+    private static final long serialVersionUID = 1L;
     private Box north;
     private Box east;
     private Box south;
@@ -72,7 +65,14 @@ public class GridCell extends JPanel {
                     north.add(new CellImpl(deck.get(i)));
                 }	
 		this.setBackground(new Color(149, 255, 213));                 //this custom-color is a light green for the playground
-		setIcon();
+		
+		icon = new ImageIcon("res/menuIcon/logo.png");
+	        logo = new JLabel();
+	        Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 2, MainExternContainerImpl.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
+	        icon.setImage(scaledImage);
+	        logo.setIcon(icon);
+	        logo.setHorizontalAlignment(SwingConstants.CENTER);
+	        logo.setVerticalAlignment(SwingConstants.CENTER);
 		
 		this.add(logo, BorderLayout.CENTER);
 		}
@@ -107,16 +107,6 @@ public class GridCell extends JPanel {
 	/**
 	 * this method allow to set icon of a label.
 	 */
-	public void setIcon() {
-	    icon = new ImageIcon("res/logo.png");
-	    logo = new JLabel();
-            Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 2, MainExternContainerImpl.getLeftSide().getHeight() / 5, Image.SCALE_DEFAULT);
-            icon.setImage(scaledImage);
-            logo.setIcon(icon);
-            logo.setHorizontalAlignment(SwingConstants.CENTER);
-            logo.setVerticalAlignment(SwingConstants.CENTER);
-	}
-	
 }
 
     
