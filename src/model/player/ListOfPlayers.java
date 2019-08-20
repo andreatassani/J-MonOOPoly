@@ -85,42 +85,17 @@ public class ListOfPlayers {
        return null;
    }
    
+
 /**
- * Check if there are two players with the same name.
+ * Check if there are two players with the same pawn or color or name.   
  * @return false if they are true to the contrary
  */
-   
-   public boolean isPresentSameName() {
-	   boolean res = true;
-	   for(int i = 1; i< numberOfPlayers+1; i++) {
-		   if(getPlayerFromIndex(i-1).getName().equals(getPlayerFromIndex(i).getName())) {
-			   res = false;
-		   }
-		   
-	   }
-	   return res;
-   }
-/**
- * Check if there are two players with the same pawn.   
- * @return false if they are true to the contrary
- */
-   public boolean isPresentSamePawn() {
+   public boolean isPresentSameCustum() {
 	   boolean res = true;
 	   for(int i = 1;i<numberOfPlayers+1;i++ ) {
-		   if(getPlayerFromIndex(i-1).getPawn().equals(getPlayerFromIndex(i).getPawn())) {
-			   res = false;
-		   }
-	   }
-	   return res;
-   }
-/**
- * Check if there are two players with the same color.   
- * @return false if they are true to the contrary
- */
-   public boolean isPresentSameColor() {
-	   boolean res = true;
-	   for(int i = 1; i< numberOfPlayers+1; i++) {
-		   if(getPlayerFromIndex(i-1).getColors().equals(getPlayerFromIndex(i).getColors())) {
+		   if(getPlayerFromIndex(i-1).getPawn().equals(getPlayerFromIndex(i).getPawn()) || 
+				   getPlayerFromIndex(i-1).getColors().equals(getPlayerFromIndex(i).getColors()) || 
+				   			getPlayerFromIndex(i-1).getName().equals(getPlayerFromIndex(i).getName())) {
 			   res = false;
 		   }
 	   }

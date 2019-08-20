@@ -44,7 +44,7 @@ public class StartGame implements ActionListener {
 		if(list.isEmpty()) {
 			JOptionPane.showMessageDialog(null,"No player selected please enter the correct number of players and press done");
 		}
-		else if ( list.isPresentSameColor() && list.isPresentSameName() && list.isPresentSamePawn() ) {
+		else if ( list.isPresentSameCustum() ) {
     	      frame.dispose();
     	      EntityDeck deck = new EntityDeck(list.getPlayerFromIndex(0));
 	    	  new MenuGui(new MainExternContainerImpl(list, deck.getDeck()));	    	  
