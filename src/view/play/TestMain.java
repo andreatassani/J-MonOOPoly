@@ -16,10 +16,10 @@ public class TestMain {
 	        
 		ListOfPlayers players = new ListOfPlayers();
 		EntityDeck deck = new EntityDeck(players.getPlayerFromIndex(0));
-		players.addPlayer(new PlayerImpl("Fabio", Color.PINK, Pawns.BALL), 1);
-		players.addPlayer(new PlayerImpl("Andrea", Color.BLUE, Pawns.MOTO), 2);
-		players.addPlayer(new PlayerImpl("Michele", Color.GREEN, Pawns.PEN), 3);
-        players.addPlayer(new PlayerImpl("Enrico", Color.RED, Pawns.IRON), 4);
+		players.addPlayer(new PlayerImpl("Fabio", Color.PINK, Pawns.BALL,"DIO BOIA"), 1);
+		players.addPlayer(new PlayerImpl("Andrea", Color.BLUE, Pawns.MOTO,"BLEAH"), 2);
+		players.addPlayer(new PlayerImpl("Michele", Color.GREEN, Pawns.PEN,"TOP"), 3);
+        players.addPlayer(new PlayerImpl("Enrico", Color.RED, Pawns.IRON,"TOPO"), 4);
         MainExternContainerImpl main = new MainExternContainerImpl(players, deck.getDeck());
 		
 //		players.getPlayerFromIndex(1).buyProperty((Property) (deck.getDeck().get(3)));

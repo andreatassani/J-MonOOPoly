@@ -52,7 +52,7 @@ void chance (PlayerImpl player, int amount);
 void lost (PlayerImpl player);
 /**
 * 
-* print a message if you ended up into tax position.
+* print a message if you ended up into other player's property.
 * @param player is the subject of history message.
 * @param price is used to calculate the total amount of tool.
 * @param nHouses is used to calculate the total amount of tool.
@@ -62,7 +62,7 @@ void lost (PlayerImpl player);
 void tollHouses (PlayerImpl player,int price,int nHouses,PlayerImpl owner);
 /**
 * 
-* print a message if you ended up into tax position.
+*print a message if you ended up into other player's property.
 * @param player is the subject of history message.
 * @param price is used to calculate the total amount of tool.
 * @param nHouses is used to calculate the total amount of tool.
