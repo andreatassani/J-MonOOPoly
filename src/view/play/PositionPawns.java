@@ -1,10 +1,7 @@
 package view.play;
 
 import java.awt.Color;
-
 import javax.swing.JLabel;
-
-import model.myEnum.Pawns;
 import model.player.PlayerImpl;
 /**
  * 
@@ -17,18 +14,17 @@ public interface PositionPawns {
      * @param b
      * @param s
      */
-    public void mySetIcon(JLabel b, String s, Color col);
+    public void mySetIcon(final JLabel b, final String s, final Color col);
     /**
      * method that allows to delete an icon from a label.
      * @param i
      */
-    public void resetPawnOnIndex(int i);
+    public void resetPawnOnIndex(final int i);
     /**
      * method that allows to set a new icon in a label.
      * @param i
      * @param p
      * @param pl
      */
-    public void setImageOnIndex(int i,PlayerImpl pl);
-
+    public void setImageOnIndex(final int i, final PlayerImpl pl);
 }

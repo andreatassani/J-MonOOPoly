@@ -39,7 +39,7 @@ public class NewGameMenu extends JFrame {
 	private static AudioManager clip2 = new AudioManager();
 	private static String audio = MainMenu.getTextButton();
 	private JButton howToPlay;
-	private final static String[] _MOD_ = {"EASY", "HARD"};
+	private final static String[] MOD = {"EASY", "HARD"};
 	
 /**
  * constructor of the New game menu.
@@ -58,7 +58,7 @@ public class NewGameMenu extends JFrame {
 		this.back = new JButton("Back");
 		this.icon = new ImageIcon("res/menuIcon/mr-monopoly2.png");		
 		this.choiseMusic = new JComboBox<Music>(Music.values());
-		this.choiseDifficulty = new JComboBox<String>(_MOD_);
+		this.choiseDifficulty = new JComboBox<String>(MOD);
 		this.north = new JPanel();
 		this.center = new JPanel();			
 		this.imageRight = new JLabel();

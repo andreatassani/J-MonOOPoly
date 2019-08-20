@@ -1,8 +1,14 @@
 package view.menu;
 
-import java.awt.*;
-import javax.swing.*;
-import controller.actionListeners.Back;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import controller.actionListeners.BackHowToPlay;
 import controller.audio.AudioManager;
 import controller.menu.ControllerNewGameMenu;
@@ -16,15 +22,15 @@ public class HowToPlay extends JFrame {
 /**
  * HowToPlay fields.
  */
-	private static final long serialVersionUID = -1L;
+        private static final long serialVersionUID = -1L;
 	private JPanel general;
 	private JLabel image;
 	private ImageIcon icon;
 	private JButton back;
 	private ControllerNewGameMenu action;
-	private AudioManager clip ;
+	private AudioManager clip;
 	private CustomMethodsImpl methods = new CustomMethodsImpl();
-	private Dimension _dimU_;
+	private Dimension dimU;
 /**
  * Builder of howToPlay.	
  */
@@ -38,7 +44,7 @@ public class HowToPlay extends JFrame {
 	 this.image = new JLabel();
 	 this.icon = new ImageIcon("res/menuIcon/howToPlay.png");
 	 this.back = new JButton("Back");
-	 this._dimU_  = new Dimension(methods.getWidth()/6,methods.getHeight()/20);
+	 this.dimU  = new Dimension(methods.getWidth()/6, methods.getHeight()/20);
 /**
  *I set the size of the background image, the JComponents that 
  *contain it.     
@@ -50,8 +56,8 @@ public class HowToPlay extends JFrame {
 /**
  *Imposed the esthetic customizations
  *of the JComponents.  	 
- */	 
-	 methods.setPreference(back, _dimU_ ,methods.getButton(), Color.black, methods.getFont());
+ */
+	 methods.setPreference(back, dimU, methods.getButton(), Color.black, methods.getFont());
 	 general.setBackground(methods.getBackground());
 /**
  * I check if i have to stop the sounds.
@@ -59,12 +65,12 @@ public class HowToPlay extends JFrame {
 	 action.musicStop(MainMenu.getTextButton(), clip);
 /**
  *I add JComponents to the frame and action listener to the button.
- */	 
+ */
 	
 	 back.addActionListener(new BackHowToPlay(this, clip, MainMenu.getTextButton()));
 	 general.add(image);
 	 this.add(general, BorderLayout.CENTER);
-	 this.add(back, BorderLayout.SOUTH);	 	 
+	 this.add(back, BorderLayout.SOUTH);
 	}
 
 }

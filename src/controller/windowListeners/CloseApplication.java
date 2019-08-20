@@ -10,49 +10,54 @@ import javax.swing.JOptionPane;
 import view.menu.MainMenu;
 import view.menu.MenuGui;
 import view.menu.NewGameMenu;
-
+/**
+ * 
+ * this class model the closing of the last winner frame.
+ *
+ */
 
 public class CloseApplication implements WindowListener {
-    
- 
-
+    /**
+     * fields.
+     */
     private Window s;
     private JFrame main;
-
-    
-    public CloseApplication(Window w, JFrame m) {
+    /**
+     * constructor.
+     * @param w this is the window where JFrame will open over.
+     * @param m JFrame 
+     */
+    public CloseApplication(final Window w, final JFrame m) {
         this.s = w;
         this.main = m;
     }
-    
     @Override
-    public void windowClosing(WindowEvent e) {
+    public final void windowClosing(final WindowEvent e) {
         int choice = JOptionPane.showConfirmDialog(s, "If you will click 'YES', the entire application will be closed",
                                                    "Select an option...", JOptionPane.YES_NO_OPTION, JOptionPane.WARNING_MESSAGE);
         if (choice == JOptionPane.NO_OPTION) {
             return;
+        } else {
+              s.dispose();
+              main.dispose();
         }
-        else {
-            s.dispose();
-            main.dispose();
-        };
-    }     
-    @Override
-    public void windowClosed(WindowEvent e) {        
     }
     @Override
-    public void windowOpened(WindowEvent e) {           
+    public void windowClosed(final WindowEvent e) {
     }
     @Override
-    public void windowIconified(WindowEvent e) {              
+    public void windowOpened(final WindowEvent e) {
     }
     @Override
-    public void windowDeiconified(WindowEvent e) {               
+    public void windowIconified(final WindowEvent e) {
     }
     @Override
-    public void windowActivated(WindowEvent e) {                
+    public void windowDeiconified(final WindowEvent e) {
     }
     @Override
-    public void windowDeactivated(WindowEvent e) {            
+    public void windowActivated(final WindowEvent e) {
+    }
+    @Override
+    public void windowDeactivated(final WindowEvent e) {
    }
 }

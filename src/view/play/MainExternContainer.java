@@ -12,10 +12,10 @@ public interface MainExternContainer {
      * 
      * @return the dimension of leftside of this frame where it is the playground.
      */
-    public JPanel getLeftSide();
+    JPanel getLeftSide();
     /**
      * 
      * @return the dimension of rightside of this frame where it is the playground.
      */
-    public Box getRightSide();
+    Box getRightSide();
 }
