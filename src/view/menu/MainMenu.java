@@ -92,7 +92,7 @@ import model.customComponent.CustomMethodsImpl;
  */
 	  
 	  clipAudio.getMusicMenu().loop(); 
-	  System.out.println(clipAudio.getClassicMusic().isPlaying());
+	  
 }
 
  /**

@@ -34,6 +34,7 @@ public class AudioSettingImpl implements AudioSetting {
  */
  @Override
     public void play() {
+	 	this.clip.stop();
         this.clip.setFramePosition(FIRST_SONG_FRAME);
         this.clip.start();
      
