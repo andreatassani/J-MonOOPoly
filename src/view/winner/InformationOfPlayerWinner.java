@@ -44,7 +44,7 @@ public class InformationOfPlayerWinner extends JPanel {
         pawn = new JLabel("  ");
         pawn.setFont(g);
         pawn.setBackground(c);
-        mySetIcon(pawn, "res/Pawns/" + list.getCurrentPlayer().getPawn() + ".png");
+        mySetIcon(pawn, "/Pawns/" + list.getCurrentPlayer().getPawn() + ".png");
         pawn.setOpaque(true);
 
 
@@ -75,7 +75,7 @@ public class InformationOfPlayerWinner extends JPanel {
      * @param s string for the image URL
      */
     public void mySetIcon(final JLabel l, final String s) {
-        ImageIcon icon = new ImageIcon(s);
+        ImageIcon icon = new ImageIcon(this.getClass().getResource(s));
         Image scaledImage = icon.getImage().getScaledInstance(70, 70,  Image.SCALE_DEFAULT);
         icon.setImage(scaledImage);
         l.setIcon(icon);

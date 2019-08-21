@@ -42,7 +42,7 @@ public class HowToPlay extends JFrame {
 	 this.action = new ControllerNewGameMenu();
 	 this.general = new JPanel();
 	 this.image = new JLabel();
-	 this.icon = new ImageIcon("res/menuIcon/howToPlay.png");
+	 this.icon = new ImageIcon(this.getClass().getResource("/menuIcon/howToPlay.png"));
 	 this.back = new JButton("Back");
 	 this.dimU  = new Dimension(methods.getWidth()/6, methods.getHeight()/20);
 /**

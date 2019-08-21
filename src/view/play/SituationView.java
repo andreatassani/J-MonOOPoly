@@ -73,14 +73,13 @@ public class SituationView extends JPanel {
 			flowPanel.add(player);
 			final JButton cash = new JButton(" " + listPl.getPlayerFromIndex(i).getMoney());
 			if (player.getText().equals(" Bank")) {
-			    cash.setText("5000");
+			    cash.setText("50000");
 			    cash.setEnabled(false);
 			}
 			cash.setFont(F);
 			cash.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			flowPanel.add(cash);
-			final JButton property = new JButton("Properties: " + listPl.getPlayerFromIndex(i).getListOfProperties().size());
-			if (player.getText().equals(" Bank"))property.setText("Properties");
+			final JButton property = new JButton("Properties");
 			property.addActionListener(new ActionListener() {
 
 				@Override

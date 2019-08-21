@@ -64,17 +64,18 @@ public class SituationImpl implements Situation {
 		flowPanels=SituationView.getSituation();
 		panel=flowPanels.get(players.getIndexFromPlayer(pl));
 		button=(JButton) panel.getComponent(2);
-		if(pl.getName().equals("Bank"))button.setText("Properties");
-		else button.setText("Properties: "+pl.getListOfProperties().size());
+		button.setText("Properties");
 		properties="";
 		if(pl.getName().equals("Bank")) {
 			for(Property prop : pl.getListOfProperties()) 
 			properties = ( properties + " " + prop.getName() + "\n");
 		}
-		else for(Property prop : pl.getListOfProperties()) 
+		else for(Property prop : pl.getListOfProperties()) {
 		    if(!prop.isBuildable()) properties = ( properties + " " + prop.getName() + "\n");
 		    else properties = ( properties + " " + prop.getName() + " number of houses: "+ prop.getHouses() + ". Hotel is present: " +prop.getHotel()+"\n");
-		SituationView.setSituation(flowPanels);
+		}
+		properties = ( properties + "Number of properties: " + pl.getListOfProperties().size() + "\n");
+		    SituationView.setSituation(flowPanels);
 		}
 	/**
 	* Deactivate the player's buttons.

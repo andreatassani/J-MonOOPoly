@@ -56,7 +56,7 @@ public class NewGameMenu extends JFrame {
 		this.difficulty = new JLabel("DIFFICULTY");
 		this.title = new JLabel("MAIN MENU");
 		this.back = new JButton("Back");
-		this.icon = new ImageIcon("res/menuIcon/mr-monopoly2.png");		
+		this.icon = new ImageIcon(this.getClass().getResource("/menuIcon/mr-monopoly2.png"));		
 		this.choiseMusic = new JComboBox<Music>(Music.values());
 		this.choiseDifficulty = new JComboBox<String>(MOD);
 		this.north = new JPanel();

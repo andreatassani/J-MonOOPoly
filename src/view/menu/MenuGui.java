@@ -29,14 +29,6 @@ public class MenuGui {
 		frame.pack();   
 		
 	}
-
-
-
-
-
-	 
-	 
-	 
 }
 
 

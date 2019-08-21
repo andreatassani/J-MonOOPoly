@@ -19,6 +19,6 @@ public class EvtCell implements ActionListener{
     }
     @Override
     public void actionPerformed(final ActionEvent e) {
-           ShowImages.message(en);
+           new ShowImages().message(en);
     }
 }

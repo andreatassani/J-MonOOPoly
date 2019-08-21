@@ -2,19 +2,24 @@ package controller.UtilityFile;
 
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
+import java.nio.charset.Charset;
+import java.util.Optional;
 /**
  * Class used to load a text file into a string.
  */
 public class UtilityFileImpl implements UtilityFile {
 /**
- * Class fields.	
+ * Class fields.
  */
 	private String text;
 	private String temp;
-	private File file;
 	private BufferedReader reader;
 /**
  * Class builder.
@@ -23,24 +28,26 @@ public class UtilityFileImpl implements UtilityFile {
  */
 	public UtilityFileImpl() throws FileNotFoundException, IOException  {
 /**
- * Fields declarations.		
+ * Fields declarations.
  */
-		this.text = "";
-		this.file = new File("res/regole.txt");
-		this.reader = new BufferedReader(new FileReader(file));
+	    this.text = "";
+	    this.temp = "";
+            this.reader = new BufferedReader(new FileReader("res/rules.txt"));
 /**
  * I fill the string with all the lines of the text and at
- * the end of each line i start a new paragraph.		
- */			
-		while((temp = reader.readLine()) != null) {
-		text +=temp + "\n"; 
+ * the end of each line i start a new paragraph.
+ */		
+		while((text = reader.readLine()) != null) {
+		temp += text + "\n";
+		
 		}	
+		reader.close();
 	}
 /**
  * 
  * {@inheritDoc}
  */	
 	public String getString() {
-		return text;
+		return temp;
 	}
 }

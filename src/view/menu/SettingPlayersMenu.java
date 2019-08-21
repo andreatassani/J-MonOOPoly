@@ -50,7 +50,7 @@ import model.player.ListOfPlayers;
 		private JButton back = new JButton("BACK MAIN MENU");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
-		private ImageIcon icon = new ImageIcon("res/menuIcon/setGame.png");
+		private ImageIcon icon = new ImageIcon(this.getClass().getResource("/menuIcon/setGame.png"));
 		private ControllerSettingPlayersMenu action;
 		private ListOfPlayers list = new ListOfPlayers();
 		private AudioManager clip;	

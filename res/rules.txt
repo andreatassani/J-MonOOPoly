@@ -1,0 +1,30 @@
+﻿PURPOSE OF THE GAME:
+The game of Monopoly consists of earning money through the purchase and management of lots of land and houses by undertaking an intense economic activity.
+PLAYERS:
+The Monopoly game played from a minimum of 2 to a maximum of 4 players.
+THE GAME IS COMPOSED:
+On the left, a board with 40 boxes divided by colors in various lands, companies, stations, taxes.
+Then there are the boxes containing the Community Chest and Chance cards, the Prison and the Start box.
+Below the board there are 6 keys to: roll the dice, buy, build, sell, pass the turn and Game Over (to close the game).
+On the right we find, in the upper part, a chronology of the moves made by the various players (History) and, under this, is placed a diagram showing the current situation
+of the players (name, money, property, position on the game table)
+RULES:
+At the very start of the game, 4,000$ (EASY MODE) or 1000$ (HARD MODE) will be handed to each player. Players move on the game board by rolling a dice and their pawns will move
+for a number of spaces equal to the resulting number of the dice.
+If the pawn stops on a salable cell (property, stations, Enel, Hera) the player can buy that lot.
+If a player ends ends up on a space owned by himself, if it is a property, he can decide whether to build houses up to a maximum of four or a hotel (if he has already built four houses).
+If a player ends up on a cell owned by another player he will have to pay to the owner of the space a toll calculated as follows:
+-if it is a property:
+        + (1/10) * property price + N * house price, where N is the number of houses;
+        + Or 2 * price property in case a hotel is built.
+-if it is a society or a station:
+        +(1/2) * price of the corresponding cell ($ 150 for Enel and Hera and $ 200 for stations).
+The player who arrives on the Chanse or Community Chest spaces, the deck will draw a card from the appropriate decks and will read reported indications that can be positive,
+such as winning money, or negative like paying taxes.
+$ 200 is withdrawn at every turn.
+The game then proceeds between purchases and toll and tax payments. If a participant runs out of money he is automatically eliminated
+(WARNING: the game will not help you in any way in the management of your funds, so make sure you have enough money before buying lots or building on them!)
+PRISON
+You end up in prison if the pawn stops on the "Police" space. The player who ends up on the prison space will have to wait two rounds before return to play.
+END OF THE GAME:
+In the end, those who can manage their finances better by sending others into bankruptcy will win.

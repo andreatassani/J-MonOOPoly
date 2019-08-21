@@ -63,7 +63,7 @@ public class RollDice implements ActionListener{
         pl = listPl.getCurrentPlayer();
         sound.getDiceSound().play();
         int risultato = new Dice().rollTheDice();
-        ShowImages.dice(risultato);
+        new ShowImages().dice(risultato);
         int pos = pl.getPosition();
         this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos, risultato, pl);
@@ -84,7 +84,7 @@ public class RollDice implements ActionListener{
         for(int i = 0; i < numberOfSteps; i++) {
             sound.getPawnSound().play();
             try {
-            Thread.sleep(400);
+            Thread.sleep(500);
             } catch(InterruptedException er) {
                 System.err.println(er.getMessage());
             }

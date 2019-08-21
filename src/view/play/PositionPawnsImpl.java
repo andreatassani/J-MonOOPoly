@@ -45,7 +45,7 @@ public class PositionPawnsImpl extends JPanel implements PositionPawns {
 	 */
 	public void mySetIcon(JLabel b, String s, Color col) {
 	        b.setBackground(col);
-		icon = new ImageIcon(s);
+		icon = new ImageIcon(this.getClass().getResource(s));
 		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 72
 				, MainExternContainerImpl.getLeftSide().getHeight() / 60, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
@@ -67,6 +67,6 @@ public class PositionPawnsImpl extends JPanel implements PositionPawns {
 	 * @param p
 	 */
 	public void setImageOnIndex(int i, PlayerImpl pl) {
-		mySetIcon(pawns.get(i), "res/pawns/"+pl.getPawn().toString()+".png", pl.getColors());	
+		mySetIcon(pawns.get(i), "/Pawns/"+pl.getPawn().toString().toLowerCase()+".png", pl.getColors());	
 	}
 }
