@@ -23,7 +23,9 @@ import view.play.MainExternContainerImpl;
 import view.play.PawnMovement;
 
 public class RollDice implements ActionListener{
-    
+/**
+ * fields
+ */
     private final ListOfPlayers listPl;
     private final AudioManager sound;
     private final ArrayList<Entity> deck;
@@ -37,7 +39,9 @@ public class RollDice implements ActionListener{
     private PawnMovement pawnMovement;
     private final History history;
     private final MainExternContainerImpl main;
-
+/**
+ * constructor
+ */
     public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history, MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;
@@ -72,18 +76,25 @@ public class RollDice implements ActionListener{
             pos = pl.getPosition();
         }
     }
-    
+/**
+ * makes the sound of the steps one time every 400 millis and for a numberOfSteps time
+ * @param numberOfSteps
+ */
     private void stepSound(int numberOfSteps) {
         for(int i = 0; i < numberOfSteps; i++) {
             sound.getPawnSound().play();
             try {
-            Thread.sleep(500);
+            Thread.sleep(400);
             } catch(InterruptedException er) {
                 System.err.println(er.getMessage());
             }
         }
     }
-    
+/**    
+ * activates the effect of the current cell of the player at the end of his movement
+ * @param pos
+ * @param pl
+ */
     public void activateCell(final int pos,final PlayerImpl pl) {
       //Da togliere
     	history.printPositionPlayer(pl, pos);

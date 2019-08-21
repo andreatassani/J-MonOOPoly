@@ -7,9 +7,13 @@ import model.allTypeOfCard.Entity;
 import model.myUtility.ShowImages;
 
 public class EvtCell implements ActionListener{
-
+/**
+ * field
+ */
     private final Entity en;
-    
+/**
+ * constructor
+ */
     public EvtCell(final Entity en) {
         this.en = en;
     }
