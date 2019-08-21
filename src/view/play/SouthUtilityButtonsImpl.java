@@ -17,6 +17,7 @@ import controller.actionListeners.RollDice;
 import controller.actionListeners.Sell;
 import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
+import model.customComponent.CustomMethodsImpl;
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
@@ -79,12 +80,13 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
      * {@inheritDoc}
      */
     public final void setBackgroundOfAllButtons() {
-        rollDice.setBackground(Color.lightGray);
-        sell.setBackground(Color.lightGray);
-        buy.setBackground(Color.lightGray);
-        menu.setBackground(Color.lightGray);
-        build.setBackground(Color.lightGray);
-        nextPlayer.setBackground(Color.lightGray);
+        Color color = new CustomMethodsImpl().getBackground();
+        rollDice.setBackground(color);
+        sell.setBackground(color);
+        buy.setBackground(color);
+        menu.setBackground(color);
+        build.setBackground(color);
+        nextPlayer.setBackground(color);
     }
     /**
      * {@inheritDoc}

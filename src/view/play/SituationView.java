@@ -72,7 +72,7 @@ public class SituationView extends JPanel {
 			player.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			flowPanel.add(player);
 			final JButton cash = new JButton(" " + listPl.getPlayerFromIndex(i).getMoney());
-			if (player.getText().equals("Bank")) {
+			if (player.getText().equals(" Bank")) {
 			    cash.setText("5000");
 			    cash.setEnabled(false);
 			}
@@ -80,6 +80,7 @@ public class SituationView extends JPanel {
 			cash.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			flowPanel.add(cash);
 			final JButton property = new JButton("Properties: " + listPl.getPlayerFromIndex(i).getListOfProperties().size());
+			if (player.getText().equals(" Bank"))property.setText("Properties");
 			property.addActionListener(new ActionListener() {
 
 				@Override
@@ -93,7 +94,7 @@ public class SituationView extends JPanel {
 			property.setFont(F);
 			property.setBackground(listPl.getPlayerFromIndex(i).getColors());
 			flowPanel.add(property);
-			if (!player.getText().equals("Bank")) {
+			if (!player.getText().equals(" Bank")) {
 			final JButton position = new JButton("Position: " + listPl.getPlayerFromIndex(i).getPosition());
 			position.setFont(F);
 			position.setBackground(listPl.getPlayerFromIndex(i).getColors());

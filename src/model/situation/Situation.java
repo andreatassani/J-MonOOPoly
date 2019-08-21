@@ -26,6 +26,13 @@ public interface Situation {
 	*/
 	void setPropriety(PlayerImpl pl);
 	/**
+	  * Set the properties of the bank within the GUI.
+	  * @param pl
+	  *
+	  */
+	 void setBank();
+	
+	/**
 	* 
 	*Deactivate the player's buttons
 	* @param pl

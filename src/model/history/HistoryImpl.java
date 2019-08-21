@@ -28,7 +28,7 @@ public class HistoryImpl implements History {
 	private int price;
 	private int tool;
 	private static JButton button;
-	private int position ;
+	private static int position = 0;
 	private Situation situation;
 	private static final Font F = new Font("Aldhabi", Font.LAYOUT_LEFT_TO_RIGHT,(int) (HistoryView.getDim().getSize().height/1.45));
 /**
@@ -36,7 +36,6 @@ public class HistoryImpl implements History {
  */
 	public HistoryImpl (Optional<ArrayList<Entity>> deck) {
 		this.deck = deck;
-		this.position = 0;
 		this.situation = new SituationImpl();
 	}
 	/**
@@ -70,7 +69,6 @@ public class HistoryImpl implements History {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
 		 this.nameCard = Optional.of(deck.get().get(card).getName().toString());
-		 System.out.println(this.nameCard.get());
 		 if((this.nameCard.get().equals("Prison"))	||	(this.nameCard.get().equals("Parking"))) button.setText("" + player.getName() +" ended up in the space: " + nameCard.get() +". Nothing is happening!");
 		 else if(this.nameCard.get().equals("Police")) button.setText(player.getName() +" will go to prison and will remain there for 2 rounds ");
 		 else button.setText(player.getName() +" ended up on the space: " +   nameCard.get() );
@@ -101,7 +99,7 @@ public class HistoryImpl implements History {
 	public void start(PlayerImpl player) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
-		 button.setText(player.getName() + " has gone from the start! He will recive a bonus of 200$");
+		 button.setText(player.getName() + " has passed from the start! He will recive a bonus of 200$");
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -117,13 +115,15 @@ public class HistoryImpl implements History {
 		 button = fields.get(position);
 		 this.nameCard = Optional.of(deck.get().get(player.getPosition()).getName().toString());
 		 this.price = ((Property)deck.get().get(player.getPosition())).getPrice();
-		 button.setText("" + player.getName() +" bought the " + nameCard.get() + " propriety for " + price +"$");
+		 button.setText("" + player.getName() +" bought the " + nameCard.get() + " property for " + price +"$");
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
 		 HistoryView.resetGUI();
 		 situation.setMoney(player);
 		 situation.setPropriety(player);
+		
+		 
 	
 	}
 	/**
@@ -155,8 +155,8 @@ public class HistoryImpl implements History {
 	public void chance (PlayerImpl player, int amount) {
 		 fields = HistoryView.getHistory();
 		 button = fields.get(position);
-		 if(amount <0)button.setText("" + player.getName() +" lost " + amount +"$");
-		 else button.setText("" + player.getName() +" earns " + amount +"$");
+		 if(amount <0)button.setText("" + player.getName()+ " drawn the card: Lose " + -amount +"$");
+		 else button.setText("" + player.getName() +" drawn the card: Gain " + amount +"$");
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -192,7 +192,7 @@ public class HistoryImpl implements History {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
 		 tool= (price/10) + (nHouses*(price/4));
-		 button.setText(player.getName() + " paid " + tool +"$ of tool to "+owner.getName());
+		 button.setText(player.getName() + " paid " + tool +"$ of toll to "+owner.getName());
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);
@@ -215,7 +215,7 @@ public class HistoryImpl implements History {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
 		 this.tool= (price*2);
-		 button.setText(player.getName() + " paid " + tool +"$ of tool to "+owner.getName());
+		 button.setText(player.getName() + " paid " + tool +"$ of toll to "+owner.getName());
 		 fields.set(position, button);
 		 position=setPosition(position);
 		 incrementButtons(fields);

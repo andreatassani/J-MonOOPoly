@@ -76,10 +76,10 @@ public class HistoryView extends JPanel {
 	    gridPanel.add(upPanelLeft);
 	    this.scrollPanel = new JScrollPane (box);
 	    this.scrollPanel.setVerticalScrollBarPolicy ( ScrollPaneConstants . VERTICAL_SCROLLBAR_ALWAYS );			
-		this.add(scrollPanel,BorderLayout.CENTER);
+	    this.add(scrollPanel,BorderLayout.CENTER);
 	    this.add(gridPanel,BorderLayout.NORTH);
 	    this.historyControl.printStartGame();
-		this.setBorder(new LineBorder(Color.BLACK));
+            this.setBorder(new LineBorder(Color.BLACK));
 		this.setBackground(Color.RED);
     }
 	/**
