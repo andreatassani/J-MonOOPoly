@@ -5,7 +5,7 @@ import static org.junit.Assert.assertTrue;
 import java.awt.Color;
 import org.junit.Test;
 import model.myEnum.Pawns;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.PlayerImpl;
 /**
  * 
@@ -20,7 +20,7 @@ public class TestListOfPlayer {
 @Test
 	public void testingMethodsListOfPlayer() {
 	
-	ListOfPlayers list = new ListOfPlayers();
+	ListOfPlayersImpl list = new ListOfPlayersImpl();
 	PlayerImpl p1 = new PlayerImpl("FABI", Color.BLACK, Pawns.BALL, "EASY");
 	PlayerImpl p2 = new PlayerImpl("FAB", Color.BLACK, Pawns.BALL, "EASY");
 	PlayerImpl p3 = new PlayerImpl("FA", Color.BLACK, Pawns.BALL, "EASY");

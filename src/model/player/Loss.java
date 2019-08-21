@@ -7,7 +7,7 @@ import model.history.HistoryImpl;
 import view.play.PawnMovement;
 
 public class Loss {
-        public Loss(final ListOfPlayers listPl,final PawnMovement pawnMovement){
+        public Loss(final ListOfPlayersImpl listPl,final PawnMovement pawnMovement){
     	final History history = new HistoryImpl(Optional.empty());
         final PlayerImpl pl = listPl.getCurrentPlayer();
         final int pos = pl.getPosition();

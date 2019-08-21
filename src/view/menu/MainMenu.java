@@ -1,6 +1,8 @@
 package view.menu;
 
 import java.awt.*;
+import java.io.File;
+import java.nio.file.FileSystem;
 import java.util.*;
 import javax.swing.*;
 import controller.actionListeners.Audio;
@@ -40,7 +42,6 @@ import model.customComponent.CustomMethodsImpl;
 /**
  *Declaration of the fields. 	  								 
  */
-	  
 	  this.general = new Dimension(methods.getWidth(),methods.getHeight()/2);
 	  this.dim  = new Dimension(methods.getWidth()/6,methods.getHeight()/20);
 	  this.dimLogo = new Dimension(methods.getWidth()/2,methods.getHeight()/2);	  
@@ -48,7 +49,7 @@ import model.customComponent.CustomMethodsImpl;
 	  this.newGame = new JButton("New Game");
 	  this.tutorial = new JButton("Tutorial");
 	  this.settings = new JButton("Audio Off");
-	  this.icon = new ImageIcon("res/menuIcon/Logo Monopoly.png");
+	  this.icon = new ImageIcon(this.getClass().getResource("/menuIcon/Logo Monopoly.png"));
 	  this.logo = new JLabel();
 	  this.north = new JPanel();
 	  this.south = new JPanel();	  
@@ -69,7 +70,7 @@ import model.customComponent.CustomMethodsImpl;
  * I add the action listener to the buttons.	  
  */
 	  newGame.addActionListener(new NewGame( clipAudio,this));
-	  tutorial.addActionListener(new TutorialButton(clipAudio, this));
+	  tutorial.addActionListener(new TutorialButton());
 	  settings.addActionListener(new Audio(clipAudio, settings));	  
 /**
  * Set the JPanel layout.

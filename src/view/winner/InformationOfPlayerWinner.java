@@ -12,7 +12,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import model.allTypeOfCard.Entity;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 /**
  * this class create the information of the Winner Player.
  */
@@ -36,7 +36,7 @@ public class InformationOfPlayerWinner extends JPanel {
      * @param g font
      * @param c color
      */
-    public InformationOfPlayerWinner(final ListOfPlayers list, final ArrayList<Entity> deck, final Font g, final Color c) {
+    public InformationOfPlayerWinner(final ListOfPlayersImpl list, final ArrayList<Entity> deck, final Font g, final Color c) {
         this.setLayout(new GridLayout(2, 1));
         this.setBackground(c);
         flowPanel = new JPanel(new FlowLayout(FlowLayout.LEFT, 100, 20));
@@ -44,7 +44,7 @@ public class InformationOfPlayerWinner extends JPanel {
         pawn = new JLabel("  ");
         pawn.setFont(g);
         pawn.setBackground(c);
-        mySetIcon(pawn, "res/Pawns/" + list.getCurrentPlayer().getPawn() + ".png");
+        mySetIcon(pawn, "/Pawns/" + list.getCurrentPlayer().getPawn() + ".png");
         pawn.setOpaque(true);
 
 
@@ -75,7 +75,7 @@ public class InformationOfPlayerWinner extends JPanel {
      * @param s string for the image URL
      */
     public void mySetIcon(final JLabel l, final String s) {
-        ImageIcon icon = new ImageIcon(s);
+        ImageIcon icon = new ImageIcon(this.getClass().getResource(s));
         Image scaledImage = icon.getImage().getScaledInstance(70, 70,  Image.SCALE_DEFAULT);
         icon.setImage(scaledImage);
         l.setIcon(icon);

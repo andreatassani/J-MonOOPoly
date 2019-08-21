@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 import model.allTypeOfCard.Property;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 /**
  * this class check the properties of the Winner Player.
  */
@@ -29,7 +29,7 @@ public class PropertiesOfPlayerWinner extends JPanel {
      * @param h font of label 
      * @param c color
      */
-    public PropertiesOfPlayerWinner(final ListOfPlayers list, final Font g, final Font h, final Color c) {
+    public PropertiesOfPlayerWinner(final ListOfPlayersImpl list, final Font g, final Font h, final Color c) {
         this.setLayout(new GridLayout(0, 1));
         this.setBackground(c);
         start = new JLabel("Your property: ");

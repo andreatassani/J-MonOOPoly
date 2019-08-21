@@ -15,7 +15,7 @@ import model.history.History;
 import model.history.HistoryImpl;
 import model.myUtility.Dice;
 import model.myUtility.ShowImages;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
@@ -26,7 +26,7 @@ public class RollDice implements ActionListener{
 /**
  * fields
  */
-    private final ListOfPlayers listPl;
+    private final ListOfPlayersImpl listPl;
     private final AudioManager sound;
     private final ArrayList<Entity> deck;
     private final JButton rollDice;
@@ -42,7 +42,7 @@ public class RollDice implements ActionListener{
 /**
  * constructor
  */
-    public RollDice(final ListOfPlayers listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history, MainExternContainerImpl main) {
+    public RollDice(final ListOfPlayersImpl listPl, final GridCell grid, final ArrayList<Entity> deck, final JButton rolldDice, final JButton buy, JButton sell, final JButton build, final JButton nextPlayer, final AudioManager sound, final History history, MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;
         this.deck = deck;
@@ -63,7 +63,7 @@ public class RollDice implements ActionListener{
         pl = listPl.getCurrentPlayer();
         sound.getDiceSound().play();
         int risultato = new Dice().rollTheDice();
-        ShowImages.dice(risultato);
+        new ShowImages().dice(risultato);
         int pos = pl.getPosition();
         this.stepSound(risultato);
         pos = pawnMovement.updatePosition(pos, risultato, pl);
@@ -84,7 +84,7 @@ public class RollDice implements ActionListener{
         for(int i = 0; i < numberOfSteps; i++) {
             sound.getPawnSound().play();
             try {
-            Thread.sleep(400);
+            Thread.sleep(500);
             } catch(InterruptedException er) {
                 System.err.println(er.getMessage());
             }

@@ -4,7 +4,7 @@ import java.util.Optional;
 
 import model.history.History;
 import model.history.HistoryImpl;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.PlayerImpl;
 
 public class PawnMovement {
@@ -24,12 +24,12 @@ public class PawnMovement {
  * fields    
  */
     private final GridCell grid;
-    private final ListOfPlayers listPl;
+    private final ListOfPlayersImpl listPl;
     private final History history;
 /**
  * constructor
  */
-    public PawnMovement(final GridCell grid,final ListOfPlayers listPl) {
+    public PawnMovement(final GridCell grid,final ListOfPlayersImpl listPl) {
         this.grid = grid;
         this.listPl = listPl;
         this.history = new HistoryImpl(Optional.empty());

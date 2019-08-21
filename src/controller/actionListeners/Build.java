@@ -8,7 +8,7 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.history.History;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
@@ -26,7 +26,7 @@ public class Build implements ActionListener {
     private JButton buildButton;
     private PlayerImpl pl;
     private int pos;
-    private ListOfPlayers listPl;
+    private ListOfPlayersImpl listPl;
     private PawnMovement pawnMovement;
     private final History history;
     private MainExternContainerImpl main;
@@ -40,7 +40,7 @@ public class Build implements ActionListener {
      * @param history this is the part of gameplay where there are all events happened.
      * @param main this is the frame of playing's session.
      */
-    public Build(final ListOfPlayers listPl, final ArrayList<Entity> deck,final JButton build,final AudioManager sound,final GridCell grid,
+    public Build(final ListOfPlayersImpl listPl, final ArrayList<Entity> deck,final JButton build,final AudioManager sound,final GridCell grid,
                  final History history, final MainExternContainerImpl main) {
         this.sound = sound;
         this.deck = deck;

@@ -10,7 +10,7 @@ import controller.audio.AudioManager;
 import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.history.History;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.Loss;
 import model.player.PlayerImpl;
 import view.play.GridCell;
@@ -21,7 +21,7 @@ public class Buy implements ActionListener {
 /**
  * fields
  */
-    private final ListOfPlayers listPl;
+    private final ListOfPlayersImpl listPl;
     private final AudioManager sound;
     private final ArrayList<Entity> deck;
     private final JButton buyButton;
@@ -33,7 +33,7 @@ public class Buy implements ActionListener {
 /**
  * constructor
  */
-    public Buy(final ListOfPlayers listPl,final ArrayList<Entity> deck,final JButton buy,final JButton build, final AudioManager sound, 
+    public Buy(final ListOfPlayersImpl listPl,final ArrayList<Entity> deck,final JButton buy,final JButton build, final AudioManager sound, 
                final GridCell grid,final History history,final  MainExternContainerImpl main) {
         this.sound = sound;
         this.listPl = listPl;

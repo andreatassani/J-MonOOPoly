@@ -16,7 +16,7 @@ import model.allTypeOfCard.Entity;
 import model.allTypeOfCard.Property;
 import model.history.History;
 import model.history.HistoryImpl;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 /**
  * 
  * class implements MainExternalContainer.
@@ -44,7 +44,7 @@ public class MainExternContainerImpl extends JFrame {
      * @param listPl list of players.
      * @param deck deck of cards.
      */
-    public MainExternContainerImpl(final ListOfPlayers listPl, final ArrayList<Entity> deck) {
+    public MainExternContainerImpl(final ListOfPlayersImpl listPl, final ArrayList<Entity> deck) {
         for (Entity en : deck) {
             if (en.isSalable()) {
                 listPl.getPlayerFromIndex(0).addProperty((Property) en);

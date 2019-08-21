@@ -6,13 +6,13 @@ import java.awt.event.ActionListener;
 import javax.swing.JButton;
 
 import model.history.History;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 
 public class NextPlayer implements ActionListener {
 /**
  * fields
  */
-    private final ListOfPlayers listPl;
+    private final ListOfPlayersImpl listPl;
     private final JButton rollDice;
     private final JButton buy;
     private final JButton sell;
@@ -22,7 +22,7 @@ public class NextPlayer implements ActionListener {
 /**
  * constructor
  */
-    public NextPlayer(final ListOfPlayers listPl,final JButton rolldDice,final JButton buy,final JButton sell,final JButton build,
+    public NextPlayer(final ListOfPlayersImpl listPl,final JButton rolldDice,final JButton buy,final JButton sell,final JButton build,
                       final JButton nextPlayer,final History history) {
         this.listPl = listPl;
         this.rollDice = rolldDice;

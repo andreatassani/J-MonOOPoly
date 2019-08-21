@@ -7,12 +7,12 @@ import org.junit.Test;
 
 import model.allTypeOfCard.Property;
 import model.myEnum.Pawns;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.PlayerImpl;
 
 public class TestProperty {
     public void TestProperty() {
-        final ListOfPlayers listPl = new ListOfPlayers();
+        final ListOfPlayersImpl listPl = new ListOfPlayersImpl();
         final Property property1 = new Property("prova1", Color.RED, 4, listPl.getBank());
         assertTrue(property1.getOwner() == listPl.getBank());
         assertFalse(property1.getPrice() == 100);

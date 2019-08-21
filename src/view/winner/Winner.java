@@ -11,7 +11,7 @@ import javax.swing.JFrame;
 
 import controller.windowListeners.CloseApplication;
 import model.allTypeOfCard.Entity;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import view.play.MainExternContainerImpl;
 
 /**
@@ -34,7 +34,7 @@ public class Winner extends JFrame {
      * @param deck card's deck
      * @param main the main extern container
      */
-    public Winner(final ListOfPlayers list, final ArrayList<Entity> deck, final MainExternContainerImpl main) {
+    public Winner(final ListOfPlayersImpl list, final ArrayList<Entity> deck, final MainExternContainerImpl main) {
         this.add(new Congratulations(list, DIM, f, c), BorderLayout.NORTH); 
         this.add(new InformationOfPlayerWinner(list, deck, g, c), BorderLayout.CENTER);
         this.add(new PropertiesOfPlayerWinner(list, g, h, c), BorderLayout.SOUTH);

@@ -1,3 +1,5 @@
+
+
 package model.history;
 
 import java.awt.Font;
@@ -192,6 +194,9 @@ public class HistoryImpl implements History {
 		fields = HistoryView.getHistory();
 		 button = fields.get(position);
 		 tool= (price/10) + (nHouses*(price/4));
+		 if(nHouses == 6) {
+		     tool = (price/2);
+		 }
 		 button.setText(player.getName() + " paid " + tool +"$ of toll to "+owner.getName());
 		 fields.set(position, button);
 		 position=setPosition(position);

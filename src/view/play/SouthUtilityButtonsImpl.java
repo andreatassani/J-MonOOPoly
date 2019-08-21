@@ -20,7 +20,7 @@ import model.allTypeOfCard.Entity;
 import model.customComponent.CustomMethodsImpl;
 import model.history.History;
 import model.history.HistoryImpl;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 /**
  * 
  * implementation of SouthUtilityButtons.
@@ -47,7 +47,7 @@ public class SouthUtilityButtonsImpl extends JPanel implements SouthUtilityButto
      * @param grid playground.
      * @param main is the container.
      */
-    public SouthUtilityButtonsImpl(final ListOfPlayers listPl, final ArrayList<Entity> deck, final GridCell grid, final MainExternContainerImpl main) {
+    public SouthUtilityButtonsImpl(final ListOfPlayersImpl listPl, final ArrayList<Entity> deck, final GridCell grid, final MainExternContainerImpl main) {
                 this.setLayout(new GridLayout());
                 history = new HistoryImpl(Optional.of(deck));
                 rollDice = new JButton("ROLL DICE");

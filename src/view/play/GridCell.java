@@ -66,7 +66,7 @@ public class GridCell extends JPanel {
         }
         
         this.setBackground(LIGHT_GREEN);
-        icon = new ImageIcon("res/menuIcon/logo.png");
+        icon = new ImageIcon(this.getClass().getResource("/menuIcon/logo.png"));
         logo = new JLabel();
         Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / WIDTH_RATIO, 
                                                               MainExternContainerImpl.getLeftSide().getHeight() / HEIGHT_RATIO,

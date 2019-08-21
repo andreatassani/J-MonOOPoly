@@ -47,7 +47,7 @@ public class CellImpl extends JPanel implements Cell{
 		this.add(name, BorderLayout.NORTH);
 		this.add(image);
 		this.setBorder(new LineBorder(Color.BLACK));
-		this.mySetIcon(image, ShowImages.cell(e));
+		this.mySetIcon(image, new ShowImages().cell(e));
 		
 	}
 	/**
@@ -67,7 +67,7 @@ public class CellImpl extends JPanel implements Cell{
 	 * {@inheritDoc}
 	 */
 	public void mySetIcon(JButton b, String s) {
-		icon = new ImageIcon(s);
+		icon = new ImageIcon(this.getClass().getResource(s));
 		Image scaledImage = icon.getImage().getScaledInstance(MainExternContainerImpl.getLeftSide().getWidth() / 30, MainExternContainerImpl.getLeftSide().getHeight() / 27, Image.SCALE_DEFAULT);
 		icon.setImage(scaledImage);
 		b.setIcon(icon);

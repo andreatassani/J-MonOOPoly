@@ -1,9 +1,12 @@
 package model.allTypeOfCard;
 
 import java.awt.Color;
+import java.util.Optional;
 
 import javax.swing.JOptionPane;
 
+import model.history.History;
+import model.history.HistoryImpl;
 import model.player.PlayerImpl;
 /**
  * 
@@ -19,6 +22,7 @@ public class Society  extends Property {
     private PlayerImpl owner;
     private final int price;
     private final Color color;
+    private final History history;
     
     /**
      * constructor.
@@ -35,6 +39,7 @@ public class Society  extends Property {
         this.owner  = owner;
         this.positionInBoard = position;
         this.color = color;
+        this.history = new HistoryImpl(Optional.empty());
     }
     
     public int getPosition() {
@@ -49,7 +54,7 @@ public class Society  extends Property {
     /**
      * @param owner the owner to set
      */
-    public void setOwner(final PlayerImpl owner) {
+    public void setNewOwner(final PlayerImpl owner) {
 		this.owner = owner;
     }
     /**
@@ -74,10 +79,9 @@ public class Society  extends Property {
         if (this.getOwner() == pl){
             return;
             } else {
-                pl.setMoney(this.price/2);
+                pl.setMoney(-this.price/2);
                 this.owner.setMoney(this.price/2);
-              //Da togliere
-                JOptionPane.showMessageDialog(null,"il giocatore " + pl.getName() + " ha pagato "+this.price/2 +"$ di pedaggio al giocatore "+this.owner.getName(),"messaggio", 0);
+                history.tollHouses(pl,price,6,owner);
             }
     }
 

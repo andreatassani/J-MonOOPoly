@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 import javax.swing.text.html.parser.Entity;
 
 import model.allTypeOfCard.EntityDeck;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import view.menu.MenuGui;
 import view.play.MainExternContainerImpl;
 /**
@@ -22,7 +22,7 @@ public class StartGame implements ActionListener {
  * Class fields.
  */
     private JFrame frame;
-    private ListOfPlayers list;
+    private ListOfPlayersImpl list;
     private JButton done;
     
 /**
@@ -31,7 +31,7 @@ public class StartGame implements ActionListener {
  * @param list of player participating in the game
  * @param deck list of all cells
  */       
-	public StartGame(final JFrame frame,final ListOfPlayers list, JButton done) {
+	public StartGame(final JFrame frame,final ListOfPlayersImpl list, JButton done) {
 		super();
 		this.frame = frame;
 		this.list = list;

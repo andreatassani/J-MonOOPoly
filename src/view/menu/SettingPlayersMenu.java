@@ -13,7 +13,7 @@ import controller.menu.ControllerSettingPlayersMenu;
 import model.customComponent.CustomMethodsImpl;
 import model.myEnum.Colors;
 import model.myEnum.Pawns;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 
 
 /**
@@ -50,9 +50,9 @@ import model.player.ListOfPlayers;
 		private JButton back = new JButton("BACK MAIN MENU");
 		private JPanel setPlayers = new JPanel();
 		private JLabel image = new JLabel();
-		private ImageIcon icon = new ImageIcon("res/menuIcon/setGame.png");
+		private ImageIcon icon = new ImageIcon(this.getClass().getResource("/menuIcon/setGame.png"));
 		private ControllerSettingPlayersMenu action;
-		private ListOfPlayers list = new ListOfPlayers();
+		private ListOfPlayersImpl list = new ListOfPlayersImpl();
 		private AudioManager clip;	
 		private JButton done;
 		private JButton howManyPlayer = new JButton("4");

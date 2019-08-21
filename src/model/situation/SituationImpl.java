@@ -6,7 +6,7 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 import model.allTypeOfCard.Property;
-import model.player.ListOfPlayers;
+import model.player.ListOfPlayersImpl;
 import model.player.PlayerImpl;
 import view.play.SituationView;
 /**
@@ -17,7 +17,7 @@ public class SituationImpl implements Situation {
 	/**
 	 * SituationImpl fields.
 	 */		
-	private	static  ListOfPlayers players;
+	private	static  ListOfPlayersImpl players;
 	private static ArrayList<JPanel> flowPanels = new ArrayList<JPanel>();
 	private JPanel panel;
 	private JButton button;
@@ -64,17 +64,18 @@ public class SituationImpl implements Situation {
 		flowPanels=SituationView.getSituation();
 		panel=flowPanels.get(players.getIndexFromPlayer(pl));
 		button=(JButton) panel.getComponent(2);
-		if(pl.getName().equals("Bank"))button.setText("Properties");
-		else button.setText("Properties: "+pl.getListOfProperties().size());
+		button.setText("Properties");
 		properties="";
 		if(pl.getName().equals("Bank")) {
 			for(Property prop : pl.getListOfProperties()) 
 			properties = ( properties + " " + prop.getName() + "\n");
 		}
-		else for(Property prop : pl.getListOfProperties()) 
+		else for(Property prop : pl.getListOfProperties()) {
 		    if(!prop.isBuildable()) properties = ( properties + " " + prop.getName() + "\n");
 		    else properties = ( properties + " " + prop.getName() + " number of houses: "+ prop.getHouses() + ". Hotel is present: " +prop.getHotel()+"\n");
-		SituationView.setSituation(flowPanels);
+		}
+		properties = ( properties + "Number of properties: " + pl.getListOfProperties().size() + "\n");
+		    SituationView.setSituation(flowPanels);
 		}
 	/**
 	* Deactivate the player's buttons.
