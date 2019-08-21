@@ -9,7 +9,9 @@ import model.history.History;
 import model.player.ListOfPlayers;
 
 public class NextPlayer implements ActionListener {
-
+/**
+ * fields
+ */
     private final ListOfPlayers listPl;
     private final JButton rollDice;
     private final JButton buy;
@@ -17,9 +19,9 @@ public class NextPlayer implements ActionListener {
     private final JButton build;
     private final JButton nextPlayerButton;
     private final History history;
-    
-    
-
+/**
+ * constructor
+ */
     public NextPlayer(final ListOfPlayers listPl,final JButton rolldDice,final JButton buy,final JButton sell,final JButton build,
                       final JButton nextPlayer,final History history) {
         this.listPl = listPl;
@@ -38,15 +40,11 @@ public class NextPlayer implements ActionListener {
         build.setEnabled(false);
         nextPlayerButton.setEnabled(false);
         listPl.nextPlayer();
-      //Da togliere
         history.startTurn(listPl.getCurrentPlayer());
         if(listPl.getCurrentPlayer().getStopTurns() == 0 && listPl.getCurrentPlayer().getPosition() == 10) {
-            //Da togliere
         	history.endStop(listPl.getCurrentPlayer());
           }
         if(listPl.getCurrentPlayer().getStopTurns() != 0) {
-          //Da togliere
-           
             history.stop(listPl.getCurrentPlayer(),listPl.getCurrentPlayer().getStopTurns());
         listPl.getCurrentPlayer().setStopTurns(listPl.getCurrentPlayer().getStopTurns()-1);
             rollDice.setEnabled(false);

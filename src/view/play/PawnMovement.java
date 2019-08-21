@@ -2,14 +2,15 @@ package view.play;
 
 import java.util.Optional;
 
-import javax.swing.JOptionPane;
-
 import model.history.History;
 import model.history.HistoryImpl;
 import model.player.ListOfPlayers;
 import model.player.PlayerImpl;
 
 public class PawnMovement {
+/**
+ * constants
+ */
     private static final int START = 0;
     private static final int PRISON = 10;
     private static final int PARKING = 20;
@@ -19,19 +20,27 @@ public class PawnMovement {
     private static final String EAST= "East";
     private static final String SOUTH = "South";
     private static final String WEST = "West";
-    
-    private GridCell grid;
-    private ListOfPlayers listPl;
-    private History history;
-    
-    public PawnMovement(GridCell grid, ListOfPlayers listPl) {
+/**
+ * fields    
+ */
+    private final GridCell grid;
+    private final ListOfPlayers listPl;
+    private final History history;
+/**
+ * constructor
+ */
+    public PawnMovement(final GridCell grid,final ListOfPlayers listPl) {
         this.grid = grid;
         this.listPl = listPl;
         this.history = new HistoryImpl(Optional.empty());
     }
-    
-
-    public PositionPawns getPositionPawn (String pole, int pos) {
+/**
+ * 
+ * @param pole
+ * @param pos
+ * @return the PositionPawns of the component of the correct box 
+ */
+    public PositionPawns getPositionPawn (final String pole,final int pos) {
         if(pole.equals(NORTH)) {
             return ((Cell)grid.getNorthBox().getComponent(pos)).getPositionPawns();
         } else if(pole.equals(EAST)) {
@@ -42,8 +51,12 @@ public class PawnMovement {
             return ((Cell)grid.getWestBox().getComponent(pos)).getPositionPawns();
         }
     }
-    
-    public void removePawn(int pos, PlayerImpl pl) {
+/**    
+ * removes the image of pawn from the position of the PlayerImpl pl
+ * @param pos
+ * @param pl
+ */
+    public void removePawn(final int pos,final PlayerImpl pl) {
         if(pos>=START && pos <=PRISON) {
             this.getPositionPawn(NORTH, pos).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);
             } else if (pos>=PRISON+1 && pos<=PARKING-1){
@@ -54,9 +67,12 @@ public class PawnMovement {
             this.getPositionPawn(WEST, MAXPOSITION-pos).resetPawnOnIndex(listPl.getIndexFromPlayer(pl)-1);       
             }
     }
-    
-    
-    public void addPawn(int newPos, PlayerImpl pl) {
+/**    
+ * adds the image of the pawn in the position of PlayerImpl pl
+ * @param newPos
+ * @param pl
+ */
+    public void addPawn(final int newPos,final PlayerImpl pl) {
         if(newPos>= START && newPos<= PRISON) {
             this.getPositionPawn(NORTH, newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         } else if (newPos>=PRISON+1 && newPos<=PARKING-1){
@@ -67,8 +83,14 @@ public class PawnMovement {
             this.getPositionPawn(WEST, MAXPOSITION-newPos).setImageOnIndex(listPl.getIndexFromPlayer(pl)-1, pl);
         }
     }
-    
-    public int updatePosition(int pos, int risultato, PlayerImpl pl) {
+/**
+ * updates the positionPawn of the PlayerImpl pl 
+ * @param pos
+ * @param risultato
+ * @param pl
+ * @return
+ */
+    public int updatePosition(final int pos,final int risultato,final PlayerImpl pl) {
         
         int newPos;
         this.removePawn(pos, pl);
@@ -77,7 +99,6 @@ public class PawnMovement {
             newPos = pl.getPosition();
             if(risultato != 18) {
             listPl.getCurrentPlayer().setMoney(200);
-          //Da togliere
             history.start(pl);
             }
         } else {

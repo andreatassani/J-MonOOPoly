@@ -18,7 +18,9 @@ import view.play.MainExternContainerImpl;
 import view.play.PawnMovement;
 
 public class Buy implements ActionListener {
-    
+/**
+ * fields
+ */
     private final ListOfPlayers listPl;
     private final AudioManager sound;
     private final ArrayList<Entity> deck;
@@ -28,9 +30,9 @@ public class Buy implements ActionListener {
     private final PawnMovement pawnMovement;
     private final History history;
     private final MainExternContainerImpl main;
-    
-    
-
+/**
+ * constructor
+ */
     public Buy(final ListOfPlayers listPl,final ArrayList<Entity> deck,final JButton buy,final JButton build, final AudioManager sound, 
                final GridCell grid,final History history,final  MainExternContainerImpl main) {
         this.sound = sound;

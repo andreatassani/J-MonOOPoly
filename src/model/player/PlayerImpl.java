@@ -24,7 +24,9 @@ public class PlayerImpl implements Player {
     private int stopTurns;
     private final ArrayList<Property> properties = new ArrayList<>();
     private int position;
-    
+/**
+ * constructor
+ */
     public PlayerImpl(final String name, final Color color, final Pawns pawns,final String difficulty) {
         this.name = name;
         this.position = 0;
@@ -37,6 +39,9 @@ public class PlayerImpl implements Player {
         this.position = 0;
     }
     
+/**
+ * @return true if the Player has the Entity entity in his list of properties
+ */
     public boolean hasProperty(final Entity entity) {
         return this.properties.contains(entity);
     }
@@ -107,8 +112,8 @@ public int getStopTurns() {
  * {@inheritDoc}
  * 
  */
-public void buyProperty(Property property) {
-    PlayerImpl seller = property.getOwner();
+public void buyProperty(final Property property) {
+    final PlayerImpl seller = property.getOwner();
     this.setMoney(-property.getPrice());
     this.properties.add(property);
     property.setNewOwner(this);
@@ -122,11 +127,17 @@ public void buyProperty(Property property) {
 public void removeProperty(final Property property) {
     this.properties.remove(property);
 }
-
+/**
+ * 
+ * @return the list of properties of the player
+ */
 public ArrayList<Property> getListOfProperties(){
     return this.properties;
 }
-
+/**
+ * adds the property to the list of the player
+ * @param property
+ */
 public void addProperty(final Property property) {
     this.properties.add(property);
 }

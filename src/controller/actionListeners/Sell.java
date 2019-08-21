@@ -13,7 +13,9 @@ import model.history.History;
 import model.player.ListOfPlayers;
 
 public class Sell implements ActionListener {
-    
+/**
+ * fields    
+ */
     private final ListOfPlayers listPl;
     private final ArrayList<Entity> deck;
     private final JButton buy;
@@ -21,8 +23,9 @@ public class Sell implements ActionListener {
     private final AudioManager sound;
     private final JButton build;
     private final History history;
-    
-
+/**    
+ * constructor
+ */
     public Sell(final ListOfPlayers listPl,final ArrayList<Entity> deck,final JButton buy,final JButton sell,final JButton build,
                 final AudioManager sound,final History history) {
         this.listPl = listPl;
@@ -37,7 +40,7 @@ public class Sell implements ActionListener {
     @Override
     public void actionPerformed(final ActionEvent e) {
     		
-            listPl.getPlayerFromIndex(0).buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
+            listPl.getBank().buyProperty((Property)deck.get(listPl.getCurrentPlayer().getPosition()));
             sound.getCashSound().play();
             build.setEnabled(false);
             buy.setEnabled(true);
