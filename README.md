@@ -1,4 +1,6 @@
 ﻿Monopoly
+ 
+ This is a project made for the Java exam on my University by myself and some other students as a teamwork group. The entire project is made in Java language follow (trying to follow) the MVC pattern.
 
 How to play: 
 
@@ -10,3 +12,4 @@ How to play:
 
 -To start playing, press the “Roll dice” button. The "Buy" button allows you to buy properties, the "Sell" button to sell them, "Build" to build them some house or hotel, "Next Player" to pass the turn and finally the "Game Over" button closes the application. -The buttons to go back will always take you to the initial menu.
 
+Thanks to my teammates Michele Torroni, Fabio Scognamiglio and Enrico Roncuzzi.
