@@ -1,18 +1,12 @@
 ﻿Monopoly
 
-Come giocare:
+How to play: 
 
- -Inizialmente premere il bottone “Audio Off” se
-si desidera disattivare l’audio durante il gioco, “New Game” per poter
-iniziare una nuova partita e il bottone “Tutorial” per scoprire le
-regole del gioco.
+-Initially press the "Audio Off" button if you want to mute the sound during the game, "New Game" to start a new game and the "Tutorial" button to find out the rules of the game. 
 
- -Nel menu successivo impostare il genere musicale da
-ascoltare durante il gioco e la difficoltà e premere il bottone “How to
-play” per conoscere la funzionalità dei bottoni di gioco ed infine il
-bottone “Players” per proseguire. 
+-In the next menu set the music genre to listen to during the game and the difficulty and press the "How to play" button to find out the functionality of the game buttons and finally the "Players" button to continue. 
 
--In quest’ultimo menu, impostare inizialmente il numero di partecipanti alla partita, premendo sul bottone in alto a sinistra con indicato il numero di giocatori, successivamente impostare le caratteristiche dei giocatori e premere il bottone “Done”. Infine premere il bottone “Start Game”, se tutti i campi sono stati inseriti correttamente il gioco inizierà.
+-In this last menu, initially set the number of participants in the game, by pressing the button at the top left with the number of players indicated, then set the characteristics of the players and press the "Done" button. Finally press the button "Start Game", if all the fields have been entered correctly the game will start. 
 
- -Per poter iniziare a giocare premere il bottone “Roll dice”. Il bottone “Buy” permette di comprare proprietà, il bottone “Sell” di venderle, “Build” di costruirle, “Next Player” di passare il turno ed infine il bottone “Game Over” chiude l’applicazione. -I bottoni per tornare indietro vi porteranno sempre al menu iniziale.
+-To start playing, press the “Roll dice” button. The "Buy" button allows you to buy properties, the "Sell" button to sell them, "Build" to build them some house or hotel, "Next Player" to pass the turn and finally the "Game Over" button closes the application. -The buttons to go back will always take you to the initial menu.
 
